@@ -28,7 +28,7 @@ def publish():
     DEST.mkdir(parents=True, exist_ok=True)
     assert subprocess.check_output(['git','branch','--show-current'], cwd=UPLOAD, text=True).strip() == BRANCH
     state = json.loads((ROOT/'status.json').read_text())
-    for name in ['criteria.json','provenance.json','status.json','adaptive_common.py','run_adaptive.py','publish_checkpoint.py','RESUME.md']:
+    for name in ['criteria.json','provenance.json','status.json','adaptive_common.py','run_adaptive.py','publish_checkpoint.py','analyze_adaptive.py','finalize_results.py','RESUME.md']:
         if (ROOT/name).exists():
             shutil.copyfile(ROOT/name, DEST/(KEY+'_'+name))
     for name in ['assessment.json','assessments.jsonl']:
@@ -45,12 +45,15 @@ def publish():
     for p in blocks:
         meta = json.loads((p/'block.json').read_text())
         filename = KEY+'_'+p.name+'.zip'
-        archive(DEST/filename, [(q,KEY+'/'+p.name+'/'+q.name) for q in sorted(p.iterdir()) if q.is_file()])
+        archive(DEST/filename, [(q,KEY+'/blocks/'+p.name+'/'+q.name) for q in sorted(p.iterdir()) if q.is_file()])
         inventory.append(dict(file=filename, bytes=(DEST/filename).stat().st_size, sha256=sha(DEST/filename),
                               cycles=meta['cycles_inclusive'], checkpoint=meta['output_checkpoint']))
     manifest = dict(status=state, blocks=inventory, input_checkpoint=checkpoint(ROOT/'input-cycle1705.bin'))
     save_json(DEST/(KEY+'_manifest.json'), manifest)
     latest = inventory[-1] if inventory else None
+    if state['status'] in ['criteria_met','measurement_limit_reached','paused_at_checkpoint'] and blocks:
+        from finalize_results import finalize
+        finalize(DEST)
     rows = '\n'.join(f"| {q['cycles'][0]}–{q['cycles'][1]} | {q['bytes']/1e6:.2f} MB | [원본 결과·체크포인트 ZIP]({RAW}{q['file']}) |" for q in inventory)
     report_link = '\n[최종 보고서·그림](FINAL_REPORT.md)\n' if (DEST/'FINAL_REPORT.md').exists() else ''
     text = f'''# 2026-11-18: 통계 기준에 따른 추가 측정

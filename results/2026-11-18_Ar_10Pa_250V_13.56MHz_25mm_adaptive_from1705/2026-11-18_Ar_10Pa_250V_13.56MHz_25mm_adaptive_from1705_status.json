@@ -1,10 +1,18 @@
 {
   "status": "running",
   "controller_pid": 27501,
-  "checkpoint_cycle": 1705,
-  "completed_measurement_cycles": 0,
-  "elapsed_solver_seconds": 0.0,
+  "checkpoint_cycle": 1725,
+  "completed_measurement_cycles": 20,
+  "elapsed_solver_seconds": 325.12736414199753,
   "block_cycles": 20,
   "consecutive_passes": 0,
-  "updated_at_Asia_Seoul": "2026-11-18T22:51:00.729350+09:00"
+  "updated_at_Asia_Seoul": "2026-11-18T22:56:29.412553+09:00",
+  "active_block": [
+    1706,
+    1725
+  ],
+  "active_cycle": 1725,
+  "active_step": 3000,
+  "electrons": 108120,
+  "ions": 113532
 }
