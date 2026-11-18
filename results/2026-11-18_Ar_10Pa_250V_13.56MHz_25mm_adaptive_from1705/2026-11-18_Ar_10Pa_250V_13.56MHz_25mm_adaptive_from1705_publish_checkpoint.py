@@ -28,6 +28,9 @@ def publish():
     DEST.mkdir(parents=True, exist_ok=True)
     assert subprocess.check_output(['git','branch','--show-current'], cwd=UPLOAD, text=True).strip() == BRANCH
     state = json.loads((ROOT/'status.json').read_text())
+    status_label = {'running':'계산 중', 'criteria_met':'통계 기준 만족·계산 종료',
+                    'measurement_limit_reached':'측정 상한 도달·기준 재검토 필요',
+                    'paused_at_checkpoint':'체크포인트 저장 후 일시 중단'}.get(state['status'],state['status'])
     for name in ['criteria.json','provenance.json','status.json','adaptive_common.py','run_adaptive.py','publish_checkpoint.py','analyze_adaptive.py','finalize_results.py','RESUME.md']:
         if (ROOT/name).exists():
             shutil.copyfile(ROOT/name, DEST/(KEY+'_'+name))
@@ -61,7 +64,7 @@ def publish():
 원본 C/eduPIC.cc, Ar 10 Pa, 350 K, 전압 진폭 250 V, 13.56 MHz, 전극 간격 25 mm.
 1,705주기 체크포인트에서 재개했으며, 원본 시뮬레이션 소스와 물리 조건은 바꾸지 않았습니다.
 
-**마지막 업로드 상태: {state['status']} / 저장 완료 {state['checkpoint_cycle']:,}주기 / 새 측정 {len(blocks)*20}주기.**
+**마지막 업로드 상태: {status_label} / 저장 완료 {state['checkpoint_cycle']:,}주기 / 새 측정 {len(blocks)*20}주기.**
 이는 업로드 당시 상태입니다. 브라우저 화면은 실시간 CPU 실행 상태를 나타내지 않습니다.
 {report_link}
 ## 중단 기준
@@ -99,7 +102,7 @@ Student-t 배수의 블록 표준오차에 양의 시간상관 보정을 사용�
     (DEST/'README.md').write_text(text)
     index = UPLOAD/'results/README.md'
     content = index.read_text()
-    row = f'| 2026-11-18 | Ar 10 Pa, 전압 진폭 250 V, 13.56 MHz, 전극 간격 25 mm | 추가 측정: {state["status"]}, {state["checkpoint_cycle"]}주기까지 보관 | [결과 폴더]({KEY}/) |'
+    row = f'| 2026-11-18 | Ar 10 Pa, 전압 진폭 250 V, 13.56 MHz, 전극 간격 25 mm | 추가 측정: {status_label}, {state["checkpoint_cycle"]}주기까지 보관 | [결과 폴더]({KEY}/) |'
     lines = [line for line in content.splitlines() if KEY+'/' not in line]
     insert = max(i for i,line in enumerate(lines) if line.startswith('|'))+1
     lines.insert(insert,row)

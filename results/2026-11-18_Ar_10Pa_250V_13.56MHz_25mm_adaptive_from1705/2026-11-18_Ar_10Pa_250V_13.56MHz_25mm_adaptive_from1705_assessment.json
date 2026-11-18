@@ -1,129 +1,129 @@
 {
-  "measurement_cycles": 80,
-  "completed_blocks": 4,
+  "measurement_cycles": 100,
+  "completed_blocks": 5,
   "minimum_measurement_cycles": 100,
   "criteria_file": "criteria.json",
-  "passed": false,
+  "passed": true,
   "note": "Approximate exploratory stopping indicators; not guaranteed total error or simultaneous 95% coverage.",
-  "ready": false,
-  "reason": "minimum_cycles_not_reached",
+  "ready": true,
+  "reason": "criteria_satisfied",
   "indicators": {
     "mean_density_e": {
-      "relative_uncertainty_indicator": 0.0009576654950486845,
-      "positive_acf_inflation": 1.1123719311101135,
+      "relative_uncertainty_indicator": 0.0008829421896718186,
+      "positive_acf_inflation": 1.0904061888155718,
       "positive_autocorrelations": [
-        0.11868565656082147
+        0.09449282830365034
       ],
-      "block_samples": 4,
-      "estimate": 3028220972469693.0,
-      "half_width": 2900022736716.997,
-      "first_last_half_relative_change": 0.0007220530544064791,
+      "block_samples": 5,
+      "estimate": 3028835500969780.0,
+      "half_width": 2674286649381.997,
+      "first_last_half_relative_change": 0.0009931933483412424,
       "tolerance": 0.03,
       "passed": true
     },
     "center_density_e": {
-      "relative_uncertainty_indicator": 0.0020685646584279044,
+      "relative_uncertainty_indicator": 0.002123329330806027,
       "positive_acf_inflation": 1.0,
       "positive_autocorrelations": [],
-      "block_samples": 4,
-      "estimate": 7468580967750000.0,
-      "half_width": 15449242638494.928,
-      "first_last_half_relative_change": 2.6164274156469325e-06,
+      "block_samples": 5,
+      "estimate": 7472884624925000.0,
+      "half_width": 15867395109832.648,
+      "first_last_half_relative_change": 0.0014962108842422033,
       "tolerance": 0.03,
       "passed": true
     },
     "density_profile_e": {
-      "relative_uncertainty_indicator": 0.004650435304018536,
+      "relative_uncertainty_indicator": 0.003632361438720267,
       "positive_acf_inflation": 1.0,
       "positive_autocorrelations": [],
-      "block_samples": 4,
-      "first_last_half_relative_change": 0.003246866562040459,
+      "block_samples": 5,
+      "first_last_half_relative_change": 0.003484302043544807,
       "tolerance": 0.03,
       "passed": true
     },
     "mean_power_e": {
-      "relative_uncertainty_indicator": 0.005353330587627367,
+      "relative_uncertainty_indicator": 0.004806225325802793,
       "positive_acf_inflation": 1.0,
       "positive_autocorrelations": [],
-      "block_samples": 4,
-      "estimate": 1582.0324694729823,
-      "half_width": 8.469142809449375,
-      "first_last_half_relative_change": 0.002533322955336231,
+      "block_samples": 5,
+      "estimate": 1583.8339190045829,
+      "half_width": 7.612262693385315,
+      "first_last_half_relative_change": 0.001324629247748925,
       "tolerance": 0.03,
       "passed": true
     },
     "heating_map_e": {
-      "relative_uncertainty_indicator": 0.05343439133387314,
+      "relative_uncertainty_indicator": 0.041739711942520255,
       "positive_acf_inflation": 1.0,
       "positive_autocorrelations": [],
-      "block_samples": 4,
-      "first_last_half_relative_change": 0.03577393358733109,
+      "block_samples": 5,
+      "first_last_half_relative_change": 0.03646850362067231,
       "tolerance": 0.05,
-      "passed": false
+      "passed": true
     },
     "mean_density_i": {
-      "relative_uncertainty_indicator": 0.0009590032876612213,
-      "positive_acf_inflation": 1.1296014195397692,
+      "relative_uncertainty_indicator": 0.0008669681609270424,
+      "positive_acf_inflation": 1.0949113354387368,
       "positive_autocorrelations": [
-        0.13799968351313094
+        0.09941541623611892
       ],
-      "block_samples": 4,
-      "estimate": 3179812217083803.0,
-      "half_width": 3049450370328.684,
-      "first_last_half_relative_change": 0.0007387958045145113,
+      "block_samples": 5,
+      "estimate": 3180437489142982.5,
+      "half_width": 2757338040905.712,
+      "first_last_half_relative_change": 0.0009764923592649737,
       "tolerance": 0.03,
       "passed": true
     },
     "center_density_i": {
-      "relative_uncertainty_indicator": 0.0022198811963434232,
+      "relative_uncertainty_indicator": 0.0021590866996594412,
       "positive_acf_inflation": 1.0,
       "positive_autocorrelations": [],
-      "block_samples": 4,
-      "estimate": 7470615093843750.0,
-      "half_width": 16583877971943.098,
-      "first_last_half_relative_change": 8.198131008030349e-05,
+      "block_samples": 5,
+      "estimate": 7474797780425000.0,
+      "half_width": 16138736470359.53,
+      "first_last_half_relative_change": 0.0014115369736331645,
       "tolerance": 0.03,
       "passed": true
     },
     "density_profile_i": {
-      "relative_uncertainty_indicator": 0.009944870839127987,
+      "relative_uncertainty_indicator": 0.007801926359284019,
       "positive_acf_inflation": 1.0,
       "positive_autocorrelations": [],
-      "block_samples": 4,
-      "first_last_half_relative_change": 0.006505209257923067,
+      "block_samples": 5,
+      "first_last_half_relative_change": 0.006402336751744521,
       "tolerance": 0.03,
       "passed": true
     },
     "mean_power_i": {
-      "relative_uncertainty_indicator": 0.00332304664855915,
+      "relative_uncertainty_indicator": 0.0028500792025698343,
       "positive_acf_inflation": 1.0,
       "positive_autocorrelations": [],
-      "block_samples": 4,
-      "estimate": 3296.172777029215,
-      "half_width": 10.953335899778839,
-      "first_last_half_relative_change": 0.0020714197947358085,
+      "block_samples": 5,
+      "estimate": 3298.256589862746,
+      "half_width": 9.400292511506716,
+      "first_last_half_relative_change": 0.002502166593910092,
       "tolerance": 0.03,
       "passed": true
     },
     "heating_map_i": {
-      "relative_uncertainty_indicator": 0.014938658006001342,
+      "relative_uncertainty_indicator": 0.011344041862264455,
       "positive_acf_inflation": 1.0,
       "positive_autocorrelations": [],
-      "block_samples": 4,
-      "first_last_half_relative_change": 0.007919777488972189,
+      "block_samples": 5,
+      "first_last_half_relative_change": 0.007834905291042171,
       "tolerance": 0.05,
       "passed": true
     }
   },
   "particle_count_stationarity": {
     "e": {
-      "block_mean_span": 0.0077005494226491155,
-      "fitted_drift": 0.0114809037396582,
+      "block_mean_span": 0.007428635016634414,
+      "fitted_drift": 0.011168900556370018,
       "passed": true
     },
     "i": {
-      "block_mean_span": 0.0074021835212929495,
-      "fitted_drift": 0.011031413436364901,
+      "block_mean_span": 0.007123278759009388,
+      "fitted_drift": 0.01071775986054219,
       "passed": true
     }
   },
