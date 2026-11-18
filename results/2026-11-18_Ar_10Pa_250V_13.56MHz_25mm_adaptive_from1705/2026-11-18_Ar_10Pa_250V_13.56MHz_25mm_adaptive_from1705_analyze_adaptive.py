@@ -2,6 +2,7 @@
 from pathlib import Path
 import argparse
 import base64
+import csv as csv_module
 import html
 import json
 import os
@@ -181,6 +182,27 @@ def main():
     figures=draw_maps(out,pooled,ncycles,last,state,blocks,arrays,history,history_assess,report_assess)
     block_meta=[json.loads((p/'block.json').read_text()) for p in blocks]
     validations=[json.loads((p/'validation.json').read_text()) for p in blocks]
+    with (out/'csv'/(KEY+'_block_metrics.csv')).open('w',newline='') as f:
+        writer=csv_module.writer(f)
+        writer.writerow(['cycle_start','cycle_end','wall_seconds','mean_ne_m-3','mean_ni_m-3',
+                         'center10pct_ne_m-3','center10pct_ni_m-3','mean_block_jeE_W_m-3','mean_block_jiE_W_m-3',
+                         'mean_ion_energy_powered_eV','mean_ion_energy_grounded_eV'])
+        central=(X>.45*.025)&(X<.55*.025)
+        for b,a in zip(block_meta,arrays):
+            energies=(a['ifed'][:,:1]*a['ifed'][:,1:]).sum(axis=0)
+            writer.writerow(b['cycles_inclusive']+[b['wall_seconds'],
+                 float(np.trapezoid(a['density'][:,1],X)/.025),float(np.trapezoid(a['density'][:,2],X)/.025),
+                 float(a['density'][central,1].mean()),float(a['density'][central,2].mean()),
+                 float(a['powere'].mean()),float(a['poweri'].mean()),float(energies[0]),float(energies[1])])
+    with (out/'csv'/(KEY+'_scalar_summary.csv')).open('w',newline='') as f:
+        writer=csv_module.writer(f)
+        writer.writerow(['condition','cycles_start','cycles_end','measured_cycles','metric','value','unit',
+                         'relative_uncertainty_indicator','first_last_half_relative_change','tolerance','passed'])
+        for name,q in report_assess.get('indicators',{}).items():
+            if 'estimate' in q:
+                writer.writerow(['Ar_10Pa_350K_250Vpeak_13.56MHz_25mm',1706,last,ncycles,name,q['estimate'],
+                                 'W/m3' if 'power' in name else '1/m3',q['relative_uncertainty_indicator'],
+                                 q['first_last_half_relative_change'],q['tolerance'],q['passed']])
     eepf=pooled['eepf_equal_block_mean'];ifed=pooled['ifed_equal_block_mean']
     energy=(ifed[:,:1]*ifed[:,1:]).sum(axis=0)
     phase=np.arange(200)*20/4000+10.5/4000

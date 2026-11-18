@@ -2,20 +2,20 @@
   "status": {
     "status": "running",
     "controller_pid": 27501,
-    "checkpoint_cycle": 1725,
-    "completed_measurement_cycles": 20,
-    "elapsed_solver_seconds": 325.12736414199753,
+    "checkpoint_cycle": 1745,
+    "completed_measurement_cycles": 40,
+    "elapsed_solver_seconds": 654.5339109239976,
     "block_cycles": 20,
     "consecutive_passes": 0,
-    "updated_at_Asia_Seoul": "2026-11-18T22:56:29.412553+09:00",
+    "updated_at_Asia_Seoul": "2026-11-18T23:02:03.813797+09:00",
     "active_block": [
-      1706,
-      1725
+      1726,
+      1745
     ],
-    "active_cycle": 1725,
+    "active_cycle": 1745,
     "active_step": 3000,
-    "electrons": 108120,
-    "ions": 113532
+    "electrons": 108148,
+    "ions": 113526
   },
   "blocks": [
     {
@@ -32,6 +32,22 @@
         "electrons": 108174,
         "ions": 113587,
         "sha256": "ad6cd591e40633f5cd3ef9e47579ade5bab2f2881d089031810678f11b5a2579"
+      }
+    },
+    {
+      "file": "2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705_cycle1726-1745.zip",
+      "bytes": 10240941,
+      "sha256": "664b0be394c06f590f84a16a51cef559b896755e416088cc88ea1a5d5fa9c1df",
+      "cycles": [
+        1726,
+        1745
+      ],
+      "checkpoint": {
+        "cycle": 1745,
+        "time_seconds": 0.00012868731561209304,
+        "electrons": 108170,
+        "ions": 113581,
+        "sha256": "33ecf44702f2edf12c60f5a5be86d4bf1d91bf1119aff8253a5e5098de01e138"
       }
     }
   ],
