@@ -1,0 +1,87 @@
+{
+  "dataset_id": "2026-11-17_Ar_10Pa_250V_13.56MHz_25mm",
+  "filename_date_basis": "Simulation start date in Asia/Seoul",
+  "prepared_at_Asia_Seoul": "2026-11-18T17:20:19+09:00",
+  "status": "INCOMPLETE_NO_ACTIVE_PROCESS_IN_CURRENT_ENVIRONMENT",
+  "source_repository": "YGLSNU/eduPIC_PAL_RF-sheath",
+  "source_commit": "32050728c961a317d6d6acd6bc86d026da403326",
+  "source_implementation": "C/eduPIC.cc",
+  "source_unchanged": true,
+  "source_sha256": "7c7679c0f0c98844940ea911bbb7581ec33f818e8d14427c9837ffdcf1ecea41",
+  "parameters": {
+    "gas": "Ar",
+    "voltage_amplitude_V": 250,
+    "frequency_Hz": 13560000.0,
+    "gap_m": 0.025,
+    "pressure_Pa": 10,
+    "temperature_K": 350,
+    "grid_points": 400,
+    "steps_per_RF_cycle": 4000,
+    "particle_weight": 70000,
+    "initial_particles_per_species": 1000,
+    "electrode_area_m2": 0.0001,
+    "ion_subcycle_steps": 20,
+    "phase_bin_steps": 20
+  },
+  "measurement_requested_cycles": 1000,
+  "measurement_completed_full_cycles_per_log": 774,
+  "last_logged_cycle_and_step": [
+    2475,
+    0
+  ],
+  "last_log_time_Asia_Seoul": "2026-11-17T21:15:59.645915+09:00",
+  "last_logged_electron_ion_counts": [
+    108506,
+    113930
+  ],
+  "restart_checkpoint_cycle": 1700,
+  "restart_checkpoint_electron_ion_counts": [
+    108029,
+    113426
+  ],
+  "restart_checkpoint_sha256": "3bd05aaf6e0259a4bb558b7a92e61ccdab37324cbc7aa35e084010d0f22aea51",
+  "checkpoint_structure_valid": true,
+  "saved_complete_convergence_rows": 2406,
+  "trailing_incomplete_conv_bytes_preserved": "    24",
+  "particle_stationarity_before_measurement": {
+    "passed": true,
+    "cycles": 1700,
+    "window_cycles": 600,
+    "block_cycles": 200,
+    "electron_ion_block_means": [
+      [
+        106934.385,
+        112352.935
+      ],
+      [
+        107528.09,
+        112953.11
+      ],
+      [
+        107896.695,
+        113322.52
+      ]
+    ],
+    "relative_block_span": [
+      0.00895563169491979,
+      0.008589809899823482
+    ],
+    "relative_fitted_drift": [
+      0.013580333261195902,
+      0.013036695494133832
+    ],
+    "criteria": "At least 1500 cycles; three 200-cycle means span <1%, fitted 600-cycle drift <2%, for both species."
+  },
+  "density_snapshot_is_time_averaged": false,
+  "density_snapshot_integrated_superparticle_counts": [
+    108029.0,
+    113425.99999999999
+  ],
+  "main_run_final_measurement_outputs_available": false,
+  "included_early_preview_cycles": [
+    326,
+    330
+  ],
+  "early_preview_is_converged": false,
+  "estimated_restart_measurement_hours": 4.1955950093403676
+}
