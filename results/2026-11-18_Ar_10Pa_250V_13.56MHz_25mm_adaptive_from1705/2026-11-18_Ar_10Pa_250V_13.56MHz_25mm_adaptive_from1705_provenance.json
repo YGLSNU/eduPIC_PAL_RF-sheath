@@ -1,0 +1,42 @@
+{
+  "source_repository": "YGLSNU/eduPIC_PAL_RF-sheath",
+  "source_commit": "32050728c961a317d6d6acd6bc86d026da403326",
+  "source_sha256": "7c7679c0f0c98844940ea911bbb7581ec33f818e8d14427c9837ffdcf1ecea41",
+  "source_unchanged": true,
+  "parameters": {
+    "gas": "Ar",
+    "voltage_amplitude_V": 250,
+    "frequency_Hz": 13560000.0,
+    "gap_m": 0.025,
+    "pressure_Pa": 10,
+    "temperature_K": 350,
+    "grid_points": 400,
+    "steps_per_RF_cycle": 4000,
+    "particle_weight": 70000,
+    "initial_particles_per_species": 1000,
+    "electrode_area_m2": 0.0001,
+    "ion_subcycle_steps": 20,
+    "phase_bin_steps": 20
+  },
+  "input_checkpoint": {
+    "cycle": 1705,
+    "time_seconds": 0.00012573746310573378,
+    "electrons": 107995,
+    "ions": 113437,
+    "sha256": "09c15e9568d92e87b20580927a21a44a8637cad0635f7407da248840e8aa3763"
+  },
+  "started_at_Asia_Seoul": "2026-11-18T22:51:00.721436+09:00",
+  "compile_command": [
+    "g++",
+    "-std=c++11",
+    "-O3",
+    "-march=native",
+    "source-eduPIC.cc",
+    "-o",
+    "edupic"
+  ],
+  "binary_sha256": "68d10cf0b88232c3cd03b530d7ce1609b4ce1a2df3315fb5c7b84d01930c6760",
+  "criteria_sha256": "3674dacb0def3680f92ff6bc89a90f854ad33c41a3e0ac496d5ffafe413573f0",
+  "rng": "Original random_device seed on each invocation; RNG state is not saved.",
+  "measurement_definition": "New independent 20-cycle accumulator blocks after checkpoint 1705; previous five-cycle measurement is not included in stopping statistics."
+}

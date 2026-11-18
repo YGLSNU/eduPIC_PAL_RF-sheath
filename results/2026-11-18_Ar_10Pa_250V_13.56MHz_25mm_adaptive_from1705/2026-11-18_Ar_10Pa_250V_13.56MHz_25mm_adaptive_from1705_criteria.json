@@ -1,0 +1,17 @@
+{
+  "block_cycles": 20,
+  "minimum_measurement_cycles": 100,
+  "maximum_measurement_cycles": 1000,
+  "required_consecutive_passes": 2,
+  "mean_quantity_relative_tolerance": 0.03,
+  "density_profile_relative_tolerance": 0.03,
+  "heating_map_relative_tolerance": 0.05,
+  "coarse_map_shape": [40, 40],
+  "particle_count_window": 600,
+  "particle_count_block_span_tolerance": 0.01,
+  "particle_count_fitted_drift_tolerance": 0.02,
+  "uncertainty_method": "Student-t(0.975) times block standard error; additionally use positive-sequence autocorrelation inflation. Use the larger of 20-cycle and 40-cycle block estimates once at least five 40-cycle blocks are available.",
+  "heating_definition": "Original-code convention: product of pooled phase-binned current density and field. Map criterion uses the L2 norm of pointwise uncertainty indicators divided by the L2 norm of the mean, after averaging to 40 position by 40 phase cells; not a simultaneous confidence band or a relative-error guarantee at every pixel.",
+  "stability_method": "Compare equal-length first and last halves, excluding the middle block when odd. Scalar relative change and density-profile norm change <=3%; coarse electron/ion heating-map norm change <=5%.",
+  "scope": "Exploratory stopping rule for sampling variability and measured drift at fixed original discretization. Approximate statistical indicators, not certified total error or a precision guarantee for tails, electrode distributions, or every individual map cell. Repeated adaptive checks have no sequential-coverage guarantee."
+}
