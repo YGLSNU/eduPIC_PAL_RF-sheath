@@ -3,8 +3,10 @@
 원본 C/eduPIC.cc, Ar 10 Pa, 350 K, 전압 진폭 250 V, 13.56 MHz, 전극 간격 25 mm.
 1,705주기 체크포인트에서 재개했으며, 원본 시뮬레이션 소스와 물리 조건은 바꾸지 않았습니다.
 
-**마지막 업로드 상태: 계산 중 / 저장 완료 1,805주기 / 새 측정 100주기.**
+**마지막 업로드 상태: 통계 기준 만족·계산 종료 / 저장 완료 1,825주기 / 새 측정 120주기.**
 이는 업로드 당시 상태입니다. 브라우저 화면은 실시간 CPU 실행 상태를 나타내지 않습니다.
+
+[최종 보고서·그림](FINAL_REPORT.md)
 
 ## 중단 기준
 
@@ -28,9 +30,10 @@ Student-t 배수의 블록 표준오차에 양의 시간상관 보정을 사용�
 | 1746–1765 | 10.24 MB | [원본 결과·체크포인트 ZIP](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-17-default-incomplete/results/2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705/2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705_cycle1746-1765.zip) |
 | 1766–1785 | 10.24 MB | [원본 결과·체크포인트 ZIP](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-17-default-incomplete/results/2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705/2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705_cycle1766-1785.zip) |
 | 1786–1805 | 10.25 MB | [원본 결과·체크포인트 ZIP](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-17-default-incomplete/results/2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705/2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705_cycle1786-1805.zip) |
+| 1806–1825 | 10.25 MB | [원본 결과·체크포인트 ZIP](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-17-default-incomplete/results/2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705/2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705_cycle1806-1825.zip) |
 
 각 ZIP에는 해당 구간의 15개 DAT, info.txt, 로그, 검사 기록 및 마지막 picdata.bin이 있습니다.
-현재 마지막 재시작 상태는 1805주기입니다.
+현재 마지막 재시작 상태는 1825주기입니다.
 
 - [시작 1,705주기 체크포인트·원본 소스](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-17-default-incomplete/results/2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705/2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705_input_cycle1705_restart.zip)
 - [재시작 방법](2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705_RESUME.md)
