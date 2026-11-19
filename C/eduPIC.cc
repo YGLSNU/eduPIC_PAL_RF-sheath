@@ -47,12 +47,23 @@ const double     EPSILON0       = 8.85418781e-12;             // permittivity of
 
 // simulation parameters
 
+// User-facing pressure is in mTorr; collision physics retains SI units.
+// Compile with -DEDUPIC_VOLTAGE_V=100.0 (or 250.0/300.0) for a voltage scan.
+#ifndef EDUPIC_VOLTAGE_V
+#define EDUPIC_VOLTAGE_V 250.0
+#endif
+#ifndef EDUPIC_PRESSURE_MTORR
+#define EDUPIC_PRESSURE_MTORR 20.0
+#endif
+
 const int        N_G            = 400;                        // number of grid points
 const int        N_T            = 4000;                       // time steps within an RF period
 const double     FREQUENCY      = 13.56e6;                    // driving frequency [Hz]
-const double     VOLTAGE        = 250.0;                      // voltage amplitude [V]
+const double     VOLTAGE        = EDUPIC_VOLTAGE_V;           // sinusoidal peak voltage [V]
 const double     L              = 0.025;                      // electrode gap [m]
-const double     PRESSURE       = 10.0;                       // gas pressure [Pa]
+const double     PRESSURE_MTORR = EDUPIC_PRESSURE_MTORR;      // gas pressure [mTorr]
+const double     MTORR_TO_PA    = 101325.0 / 760000.0;
+const double     PRESSURE_PA    = PRESSURE_MTORR * MTORR_TO_PA; // internal SI conversion
 const double     TEMPERATURE    = 350.0;                      // background gas temperature [K]
 const double     WEIGHT         = 7.0e4;                      // weight of superparticles
 const double     ELECTRODE_AREA = 1.0e-4;                     // (fictive) electrode area [m^2]
@@ -66,7 +77,7 @@ const int        N_SUB          = 20;                                        // 
 const double     DT_I           = N_SUB * DT_E;                              // ion time step [s]
 const double     DX             = L / (double)(N_G - 1);                     // spatial grid division [m]
 const double     INV_DX         = 1.0 / DX;                                  // inverse of spatial grid size [1/m]
-const double     GAS_DENSITY    = PRESSURE / (K_BOLTZMANN * TEMPERATURE);    // background gas density [1/m^3]
+const double     GAS_DENSITY    = PRESSURE_PA / (K_BOLTZMANN * TEMPERATURE); // background gas density [1/m^3]
 const double     OMEGA          = TWO_PI * FREQUENCY;                        // angular frequency [rad/s]
 
 // electron and ion cross sections
@@ -469,8 +480,8 @@ void solve_Poisson (xvector rho1, double tt){
     
     // apply potential to the electrodes - boundary conditions
     
-    pot[0]     = VOLTAGE * cos(OMEGA * tt);         // potential at the powered electrode
-    pot[N_G-1] = 0.0;                               // potential at the grounded electrode
+    pot[0]     = 0.0;                             // lower electrode, x = 0: grounded
+    pot[N_G-1] = VOLTAGE * cos(OMEGA * tt);        // upper electrode, x = L: powered
     
     // solve Poisson equation
     
@@ -489,8 +500,8 @@ void solve_Poisson (xvector rho1, double tt){
     // compute electric field
     
     for(i=1; i<=N_G-2; i++) efield[i] = (pot[i-1] - pot[i+1]) * S;      // electric field at the grid points between the electrodes
-    efield[0]     = (pot[0]     - pot[1])     * INV_DX - rho1[0]     * DX / (2.0 * EPSILON0);   // powered electrode
-    efield[N_G-1] = (pot[N_G-2] - pot[N_G-1]) * INV_DX + rho1[N_G-1] * DX / (2.0 * EPSILON0);   // grounded electrode
+    efield[0]     = (pot[0]     - pot[1])     * INV_DX - rho1[0]     * DX / (2.0 * EPSILON0);   // lower, grounded
+    efield[N_G-1] = (pot[N_G-2] - pot[N_G-1]) * INV_DX + rho1[N_G-1] * DX / (2.0 * EPSILON0);   // upper, powered
 }
 
 //---------------------------------------------------------------------//
@@ -625,8 +636,8 @@ void do_one_cycle (void){
         k = 0;
         while(k < N_e) {    // check boundaries for all electrons in every time step
             out = false;
-            if (x_e[k] < 0) {N_e_abs_pow++; out = true;}    // the electron is out at the powered electrode
-            if (x_e[k] > L) {N_e_abs_gnd++; out = true;}    // the electron is out at the grounded electrode
+            if (x_e[k] < 0) {N_e_abs_gnd++; out = true;}    // lower, grounded electrode
+            if (x_e[k] > L) {N_e_abs_pow++; out = true;}    // upper, powered electrode
             if (out) {                                      // remove the electron, if out
                 x_e [k] = x_e [N_e-1];
                 vx_e[k] = vx_e[N_e-1];
@@ -640,21 +651,21 @@ void do_one_cycle (void){
             k = 0;
             while(k < N_i) {
                 out = false;
-                if (x_i[k] < 0) {       // the ion is out at the powered electrode
-                    N_i_abs_pow++;
+                if (x_i[k] < 0) {       // the ion is out at the lower, grounded electrode
+                    N_i_abs_gnd++;
                     out    = true;
                     v_sqr  = vx_i[k] * vx_i[k] + vy_i[k] * vy_i[k] + vz_i[k] * vz_i[k];
                     energy = 0.5 * AR_MASS *  v_sqr/ EV_TO_J;
                     energy_index = (int)(energy / DE_IFED);
-                    if (energy_index < N_IFED) {ifed_pow[energy_index]++;}       // save IFED at the powered electrode
+                    if (energy_index < N_IFED) {ifed_gnd[energy_index]++;}       // lower, grounded IFED
                 }
-                if (x_i[k] > L) {       // the ion is out at the grounded electrode
-                    N_i_abs_gnd++;
+                if (x_i[k] > L) {       // the ion is out at the upper, powered electrode
+                    N_i_abs_pow++;
                     out    = true;
                     v_sqr  = vx_i[k] * vx_i[k] + vy_i[k] * vy_i[k] + vz_i[k] * vz_i[k];
                     energy = 0.5 * AR_MASS * v_sqr / EV_TO_J;
                     energy_index = (int)(energy / DE_IFED);
-                    if (energy_index < N_IFED) {ifed_gnd[energy_index]++;}        // save IFED at the grounded electrode
+                    if (energy_index < N_IFED) {ifed_pow[energy_index]++;}        // upper, powered IFED
                 }
                 if (out) {  // delete the ion, if out
                     x_i [k] = x_i [N_i-1];
@@ -946,7 +957,8 @@ void check_and_save_info(void){
     fprintf(f,"# of time steps / period              = %12d\n",      N_T);
     fprintf(f,"# of electron / ion time steps        = %12d\n",      N_SUB);
     fprintf(f,"Voltage amplitude                     = %12.3e [V]\n",  VOLTAGE);
-    fprintf(f,"Pressure (Ar)                         = %12.3e [Pa]\n", PRESSURE);
+    fprintf(f,"Pressure (Ar)                         = %12.3e [mTorr]\n", PRESSURE_MTORR);
+    fprintf(f,"Electrodes: lower x=0 grounded; upper x=L sinusoidal powered\n");
     fprintf(f,"Temperature                           = %12.3e [K]\n",  TEMPERATURE);
     fprintf(f,"Superparticle weight                  = %12.3e\n",      WEIGHT);
     fprintf(f,"# of simulation cycles in this run    = %12d\n",      no_of_cycles);
