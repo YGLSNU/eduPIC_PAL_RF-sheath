@@ -3,13 +3,13 @@
 공통 조건: **20 mTorr**, Ar 350 K, 13.56 MHz, 전극 간격 25 mm.
 상부 x=25 mm에 정현파 전압을 인가하고 하부 x=0 mm를 접지했습니다. 표의 전압은 RMS가 아닌 최대 진폭입니다.
 
-마지막 업로드: 2026-11-19T13:16:14.593293+09:00. 이 페이지는 저장된 상태이며 실시간 실행 상태가 아닙니다.
+마지막 업로드: 2026-11-19T13:19:48.145655+09:00. 이 페이지는 저장된 상태이며 실시간 실행 상태가 아닙니다.
 
 | 전압 | 상태 | 새 조건 누적 RF 주기 | 현재 측정 주기 | 결과와 다운로드 |
 |---|---|---:|---:|---|
-| 100 V peak | 계산 중 | 100 | 0 | [저장 상태](2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF/) · [재시작 ZIP](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-19-20mTorr-top-powered/results/2026-11-19_Ar_20mTorr_100-250-300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF_restart.zip) |
-| 250 V peak | 계산 중 | 100 | 0 | [저장 상태](2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF/) · [재시작 ZIP](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-19-20mTorr-top-powered/results/2026-11-19_Ar_20mTorr_100-250-300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF_restart.zip) |
-| 300 V peak | 계산 중 | 150 | 0 | [저장 상태](2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF/) · [재시작 ZIP](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-19-20mTorr-top-powered/results/2026-11-19_Ar_20mTorr_100-250-300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF_restart.zip) |
+| 100 V peak | 계산 중 | 150 | 0 | [저장 상태](2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF/) · [재시작 ZIP](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-19-20mTorr-top-powered/results/2026-11-19_Ar_20mTorr_100-250-300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF_restart.zip) |
+| 250 V peak | 계산 중 | 200 | 0 | [저장 상태](2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF/) · [재시작 ZIP](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-19-20mTorr-top-powered/results/2026-11-19_Ar_20mTorr_100-250-300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF_restart.zip) |
+| 300 V peak | 계산 중 | 250 | 0 | [저장 상태](2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF/) · [재시작 ZIP](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-19-20mTorr-top-powered/results/2026-11-19_Ar_20mTorr_100-250-300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF_restart.zip) |
 
 ![입자 수 변화](2026-11-19_Ar_20mTorr_100-250-300V_13.56MHz_25mm_topRF_progress.png)
 
