@@ -1,28 +1,28 @@
 {
-  "status": "running",
+  "status": "extinguished",
   "phase": "warmup",
   "voltage_peak_V": 100,
   "pressure_mTorr": 20,
-  "checkpoint_cycle": 3150,
+  "checkpoint_cycle": 3250,
   "measurement_epoch": 0,
   "completed_measurement_cycles": 0,
-  "elapsed_solver_seconds": 2140.3173747059773,
+  "elapsed_solver_seconds": 2141.3041898139636,
   "consecutive_passes": 0,
   "controller_pid": 87310,
   "started_at_Asia_Seoul": "2026-11-19T12:58:32.419531+09:00",
-  "updated_at_Asia_Seoul": "2026-11-19T13:34:39.608489+09:00",
+  "updated_at_Asia_Seoul": "2026-11-19T13:34:40.611530+09:00",
   "active_block": [
-    3151,
-    3200
+    3201,
+    3250
   ],
   "particle_count_stationarity": {
     "passed": false,
     "reason": "zero_particle_population"
   },
-  "active_cycle": 3178,
-  "active_step": 0,
+  "active_cycle": 3250,
+  "active_step": 3000,
   "electrons": 0,
-  "ions": 1,
-  "latest_block": "warmup/cycle003101-003150",
-  "solver_pid": 90222
+  "ions": 0,
+  "latest_block": "warmup/cycle003201-003250",
+  "reason": "Both simulated particle populations are zero; no sustained discharge in this realization."
 }

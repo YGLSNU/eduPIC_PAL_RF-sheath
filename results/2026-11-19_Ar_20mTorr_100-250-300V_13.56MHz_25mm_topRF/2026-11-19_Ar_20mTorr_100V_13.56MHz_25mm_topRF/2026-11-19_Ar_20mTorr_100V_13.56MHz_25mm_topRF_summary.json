@@ -1,0 +1,24 @@
+{
+  "voltage_peak_V": 100,
+  "pressure_mTorr": 20,
+  "status": "extinguished",
+  "total_cycles": 3250,
+  "measurement_cycles": 0,
+  "solver_wall_seconds": 2141.3041898139636,
+  "final_checkpoint": {
+    "cycle": 3250,
+    "time_seconds": 0.0002396755161638603,
+    "electrons": 0,
+    "ions": 0,
+    "sha256": "a70525de57c5b11b1126e6fe0abb1e04591679c07eba5f929ce74f84e7280c02"
+  },
+  "first_zero_electron_cycle": 645,
+  "first_zero_ion_cycle": 3216,
+  "mean_density_e": 0.0,
+  "mean_density_i": 0.0,
+  "center_density_e": 0.0,
+  "center_density_i": 0.0,
+  "mean_power_e": 0.0,
+  "mean_power_i": 0.0,
+  "zero_observable_definition": "Deduced from the exactly empty final particle state, not a steady-discharge measurement."
+}

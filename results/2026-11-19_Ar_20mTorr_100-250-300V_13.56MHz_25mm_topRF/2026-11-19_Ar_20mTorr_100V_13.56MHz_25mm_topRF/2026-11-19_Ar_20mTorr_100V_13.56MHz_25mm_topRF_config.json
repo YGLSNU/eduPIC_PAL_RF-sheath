@@ -1,0 +1,65 @@
+{
+  "pressure_mTorr": 20.0,
+  "internal_pressure_Pa": 2.6664473684210526,
+  "voltage_peak_V": [
+    100,
+    250,
+    300
+  ],
+  "frequency_Hz": 13560000.0,
+  "gap_m": 0.025,
+  "gas_temperature_K": 350.0,
+  "upper_electrode": "x=L; Vpeak*cos(omega*t)",
+  "lower_electrode": "x=0; ground",
+  "source_base_commit": "32050728c961a317d6d6acd6bc86d026da403326",
+  "source_sha256": "6b86a4a5b071d0d7eaf46cea42cb82e3f797494978bd7ff488276bc64ebc6531",
+  "seed_original_checkpoint_sha256": "069ecf504bc8ac55315c8f1af27af2cc38f54cf598e3a1aa582be8564e7a250b",
+  "seed_original_cycle": 1825,
+  "seed_reflected_sha256": "81882b13cec9f6c587e8f9ba0b9654b719c95b0b6194ec9eb6f19e4db994874f",
+  "initialization": "Spatial reflection x -> L-x, vx -> -vx of previous 250 V, 75.0062 mTorr stationary state; RF clock reset at an integer cycle. All post-change transients excluded. Particle weight and all other numerical/physical defaults unchanged.",
+  "rng": "Original independent random_device seed per process; checkpoint does not save RNG state.",
+  "parallel_cases": 3,
+  "criteria_sha256": "4b091057f6d5ceddb3cb451f5d27e3909c98b88041df2c206b0e847f3fa0c943",
+  "builds": {
+    "100": {
+      "command": [
+        "g++",
+        "-std=c++11",
+        "-O3",
+        "-march=native",
+        "-DEDUPIC_VOLTAGE_V=100.0",
+        "source-eduPIC.cc",
+        "-o",
+        "edupic"
+      ],
+      "binary_sha256": "794bf8ba4eb1317efaeae0cab1b29db927c5da4a19e0a98251c461703564e5f8"
+    },
+    "250": {
+      "command": [
+        "g++",
+        "-std=c++11",
+        "-O3",
+        "-march=native",
+        "-DEDUPIC_VOLTAGE_V=250.0",
+        "source-eduPIC.cc",
+        "-o",
+        "edupic"
+      ],
+      "binary_sha256": "850ca31ff6c0fe8880fa5290a88075ff6643236a236f8c0df09ebe8b452a4858"
+    },
+    "300": {
+      "command": [
+        "g++",
+        "-std=c++11",
+        "-O3",
+        "-march=native",
+        "-DEDUPIC_VOLTAGE_V=300.0",
+        "source-eduPIC.cc",
+        "-o",
+        "edupic"
+      ],
+      "binary_sha256": "bb8d824ab8376eae10c1ad7778b95bd53b7cf0459232136ca2ada03daa1e2930"
+    }
+  },
+  "implementation_commit": "092fdff7f2e8c24e8cf817ded243ee1ebb5af986"
+}
