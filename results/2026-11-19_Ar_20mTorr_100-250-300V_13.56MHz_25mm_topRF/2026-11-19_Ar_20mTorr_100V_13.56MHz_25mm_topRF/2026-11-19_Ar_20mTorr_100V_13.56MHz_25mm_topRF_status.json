@@ -6,11 +6,11 @@
   "checkpoint_cycle": 200,
   "measurement_epoch": 0,
   "completed_measurement_cycles": 0,
-  "elapsed_solver_seconds": 1472.2665023260197,
+  "elapsed_solver_seconds": 1505.7051998340175,
   "consecutive_passes": 0,
   "controller_pid": 87310,
   "started_at_Asia_Seoul": "2026-11-19T12:58:32.419531+09:00",
-  "updated_at_Asia_Seoul": "2026-11-19T13:23:31.204781+09:00",
+  "updated_at_Asia_Seoul": "2026-11-19T13:24:04.643628+09:00",
   "active_block": [
     201,
     250
@@ -20,10 +20,10 @@
     "reason": "need_600_post_change_cycles",
     "available": 200
   },
-  "active_cycle": 204,
+  "active_cycle": 212,
   "active_step": 1000,
-  "electrons": 45563,
-  "ions": 47982,
+  "electrons": 43720,
+  "ions": 46103,
   "latest_block": "warmup/cycle000151-000200",
   "solver_pid": 89033
 }
