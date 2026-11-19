@@ -1,44 +1,44 @@
 {
-  "updated_at_Asia_Seoul": "2026-11-19T13:07:39.357304+09:00",
+  "updated_at_Asia_Seoul": "2026-11-19T13:16:14.593293+09:00",
   "cases": [
     {
       "voltage_peak_V": 100,
       "status": "running",
       "checkpoint": {
-        "cycle": 50,
-        "time_seconds": 3.6873156342195636e-06,
-        "electrons": 93296,
-        "ions": 96204,
-        "sha256": "299b23aea2c7b2b9157d39979ca2931583b93604d8e6eb4183dfb05509a6e81f"
+        "cycle": 100,
+        "time_seconds": 7.374631268357415e-06,
+        "electrons": 75094,
+        "ions": 77889,
+        "sha256": "812bef77fce52732995159a4a05f9f243caf46bde3824fdefed866c15fd64c2e"
       },
       "restart_file": "2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF_restart.zip",
-      "restart_sha256": "09e4fce38ee07d0f86b7b2ae0e60e392ebbf8ea0e37e6e707431b0107fafd8b0"
+      "restart_sha256": "832814a39948a919568e6def647cf2ea18ca65b2a553492e67191364330c6034"
     },
     {
       "voltage_peak_V": 250,
       "status": "running",
       "checkpoint": {
-        "cycle": 50,
-        "time_seconds": 3.6873156342195636e-06,
-        "electrons": 81007,
-        "ions": 85684,
-        "sha256": "09467dd47282b47a513047029de2cf35da64b94d06720f14777b47ad6966d412"
+        "cycle": 100,
+        "time_seconds": 7.374631268357415e-06,
+        "electrons": 57908,
+        "ions": 62172,
+        "sha256": "1ee4dd940207ac8066988abddcbdab33c499fa21fd2ec4bb548e40e1b30637f6"
       },
       "restart_file": "2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF_restart.zip",
-      "restart_sha256": "62a49d91fc9ef98f681102ed03f7c60c8951dcbc768df1d0ca8c0085bf5b3e9b"
+      "restart_sha256": "c7da3bc7bfc7a8a012ea9af61a4246ec243c5f1c0734d4bef8aa1f660517c44b"
     },
     {
       "voltage_peak_V": 300,
       "status": "running",
       "checkpoint": {
-        "cycle": 50,
-        "time_seconds": 3.6873156342195636e-06,
-        "electrons": 77886,
-        "ions": 83013,
-        "sha256": "93f4175e36e7bb43cf0ffc0b51590489cf1f29c09bc8b5d665a21388a8a8b250"
+        "cycle": 150,
+        "time_seconds": 1.1061946902650041e-05,
+        "electrons": 35569,
+        "ions": 39877,
+        "sha256": "f980b015130be204bb2f4bf4d6e546e57b6119d3a57ab83b3979ae5220ff2d46"
       },
       "restart_file": "2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF_restart.zip",
-      "restart_sha256": "ed233b22cfd292fa3215e0e3494d8648733a84e492fed92ab03f58808b9238aa"
+      "restart_sha256": "3c12ad2fe53996d19a85f713639c9a14273e7a4c2622fd4ca42ba296dbbad2ef"
     }
   ]
 }
