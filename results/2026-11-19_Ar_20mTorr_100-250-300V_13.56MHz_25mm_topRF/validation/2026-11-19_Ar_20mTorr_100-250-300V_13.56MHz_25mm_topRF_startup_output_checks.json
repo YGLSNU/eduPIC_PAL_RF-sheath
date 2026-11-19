@@ -1,0 +1,113 @@
+{
+  "100": {
+    "all_arrays_finite": true,
+    "expected_shapes": true,
+    "phase_mean_density_consistent": true,
+    "binned_jE_consistent": true,
+    "stability": {
+      "omega_pe_dt": {
+        "value": 0.09,
+        "limit": 0.2,
+        "passed": true
+      },
+      "dx_lambda_D": {
+        "value": 0.675,
+        "limit": 1.0,
+        "passed": true
+      },
+      "nu_e_dt": {
+        "value": 0.003,
+        "limit": 0.05,
+        "passed": true
+      },
+      "nu_i_dt": {
+        "value": 0.005,
+        "limit": 0.05,
+        "passed": true
+      }
+    },
+    "eepf_normalization": 1.0000000399490465,
+    "ifed_normalizations": [
+      0.9999889999999991,
+      1.0000109999999995
+    ],
+    "cfl_energy_eV": 32.834,
+    "center_eepf_max_above_cfl": 2.869048e-05,
+    "center_eepf_tail_below_1e_6": false,
+    "fraction_central_electrons_above_cfl": 0.0006202052092140225
+  },
+  "250": {
+    "all_arrays_finite": true,
+    "expected_shapes": true,
+    "phase_mean_density_consistent": true,
+    "binned_jE_consistent": true,
+    "stability": {
+      "omega_pe_dt": {
+        "value": 0.09,
+        "limit": 0.2,
+        "passed": true
+      },
+      "dx_lambda_D": {
+        "value": 0.726,
+        "limit": 1.0,
+        "passed": true
+      },
+      "nu_e_dt": {
+        "value": 0.003,
+        "limit": 0.05,
+        "passed": true
+      },
+      "nu_i_dt": {
+        "value": 0.005,
+        "limit": 0.05,
+        "passed": true
+      }
+    },
+    "eepf_normalization": 1.0000000280651473,
+    "ifed_normalizations": [
+      0.9999789999999992,
+      1.0000010000000015
+    ],
+    "cfl_energy_eV": 32.834,
+    "center_eepf_max_above_cfl": 8.654157e-07,
+    "center_eepf_tail_below_1e_6": true,
+    "fraction_central_electrons_above_cfl": 3.063970620073657e-06
+  },
+  "300": {
+    "all_arrays_finite": true,
+    "expected_shapes": true,
+    "phase_mean_density_consistent": true,
+    "binned_jE_consistent": true,
+    "stability": {
+      "omega_pe_dt": {
+        "value": 0.09,
+        "limit": 0.2,
+        "passed": true
+      },
+      "dx_lambda_D": {
+        "value": 0.72,
+        "limit": 1.0,
+        "passed": true
+      },
+      "nu_e_dt": {
+        "value": 0.003,
+        "limit": 0.05,
+        "passed": true
+      },
+      "nu_i_dt": {
+        "value": 0.005,
+        "limit": 0.05,
+        "passed": true
+      }
+    },
+    "eepf_normalization": 1.0000000082378533,
+    "ifed_normalizations": [
+      1.0000199999999997,
+      1.0000000000000002
+    ],
+    "cfl_energy_eV": 32.834,
+    "center_eepf_max_above_cfl": 1.655233e-06,
+    "center_eepf_tail_below_1e_6": false,
+    "fraction_central_electrons_above_cfl": 1.4885280758321796e-05
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "all_arrays_finite": true,
+  "expected_shapes": true,
+  "phase_mean_density_consistent": true,
+  "binned_jE_consistent": true,
+  "stability": {
+    "omega_pe_dt": {
+      "value": 0.054,
+      "limit": 0.2,
+      "passed": true
+    },
+    "dx_lambda_D": {
+      "value": 0.562,
+      "limit": 1.0,
+      "passed": true
+    },
+    "nu_e_dt": {
+      "value": 0.003,
+      "limit": 0.05,
+      "passed": true
+    },
+    "nu_i_dt": {
+      "value": 0.005,
+      "limit": 0.05,
+      "passed": true
+    }
+  },
+  "eepf_normalization": 1.0000000013419827,
+  "ifed_normalizations": [
+    1.0000020000000005,
+    0.999985
+  ],
+  "cfl_energy_eV": 32.834,
+  "center_eepf_max_above_cfl": 8.469584e-06,
+  "center_eepf_tail_below_1e_6": false,
+  "fraction_central_electrons_above_cfl": 8.519095664579141e-05
+}

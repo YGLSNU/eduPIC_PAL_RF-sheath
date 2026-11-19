@@ -1,0 +1,17 @@
+{
+  "condition": "20 mTorr, 300 V peak, upper powered/lower grounded",
+  "purpose": "Single particle-weight sensitivity check of extinction, not a full grid/particle convergence study.",
+  "production_particle_weight": 70000,
+  "refined_particle_weight": 7000,
+  "splitting_factor": 10,
+  "initial_RF_cycle": 250,
+  "preserved_positions_and_velocities": true,
+  "preserved_total_physical_species_counts": true,
+  "production_first_zero_electron_cycle": 361,
+  "refined_first_zero_electron_cycle": 345,
+  "refined_final_checkpoint_cycle": 350,
+  "refined_final_electrons": 0,
+  "refined_final_ions": 14564,
+  "refined_solver_seconds": 515.1076382640022,
+  "interpretation": "Extinction occurs in both realizations. Exact extinction time changes; this does not establish a laboratory sustainment threshold or quantify total numerical error."
+}

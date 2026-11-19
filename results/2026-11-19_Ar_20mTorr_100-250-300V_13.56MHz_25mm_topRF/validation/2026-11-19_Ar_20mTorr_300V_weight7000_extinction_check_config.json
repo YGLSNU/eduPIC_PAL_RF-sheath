@@ -1,0 +1,26 @@
+{
+  "purpose": "Check whether 300 V extinction persists with ten times more macroparticles at identical initial physical density and phase space. Not part of the three requested production cases.",
+  "pressure_mTorr": 20,
+  "voltage_peak_V": 300,
+  "particle_weight": 7000,
+  "production_particle_weight": 70000,
+  "split_factor": 10,
+  "input_cycle": 250,
+  "input_electrons": 125010,
+  "input_ions": 161940,
+  "seed_source": "/workspace/edupic-results/2026-11-19_Ar_20mTorr_100-250-300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF/warmup/cycle000201-000250/picdata.bin",
+  "seed_sha256": "19f331666663a1cb3a02c7ee17490a89c16eacdff7ba7acff362756af5ab39e0",
+  "source_sha256": "181546871aa37e0f0bdc56db051cee33f7a6b2d6ff998fc516f91265e55aa51b",
+  "maximum_end_cycle": 650,
+  "stop_rule": "Stop at a 20-cycle checkpoint with zero electron macroparticles; no statement about ion clearance.",
+  "compile_command": [
+    "g++",
+    "-std=c++11",
+    "-O3",
+    "-march=native",
+    "-DEDUPIC_VOLTAGE_V=300.0",
+    "source-eduPIC.cc",
+    "-o",
+    "edupic"
+  ]
+}
