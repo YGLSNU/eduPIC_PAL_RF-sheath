@@ -1,5 +1,5 @@
 {
-  "updated_at_Asia_Seoul": "2026-11-19T13:19:48.145655+09:00",
+  "updated_at_Asia_Seoul": "2026-11-19T13:20:51.327214+09:00",
   "cases": [
     {
       "voltage_peak_V": 100,
@@ -12,7 +12,7 @@
         "sha256": "ad615699eb0bc4395124e72853d9658dbb9699d65b7e6370f9a7f5a175bf12e6"
       },
       "restart_file": "2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF_restart.zip",
-      "restart_sha256": "1f5ab117da20117c9e2839e15681fe6469295efbc42f555ef776c46c83585668"
+      "restart_sha256": "35f18ee5f90f60ae1d34ed795af30d67fa7f1f6c7f3fde091865b931a3ad0538"
     },
     {
       "voltage_peak_V": 250,
@@ -25,20 +25,20 @@
         "sha256": "033336126a2ce5051159e8c215e50ea400b797825e8ebc473a9272b3c1d01fd9"
       },
       "restart_file": "2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF_restart.zip",
-      "restart_sha256": "49af43b989bd895c0bc516941065b532d85290e3c8b10ab5897e79ac04efc96c"
+      "restart_sha256": "2ab86b7b596d7b392f5745debb6a90f1d2ba5c53c0fe27bbb2ab8a988e50cb97"
     },
     {
       "voltage_peak_V": 300,
       "status": "running",
       "checkpoint": {
-        "cycle": 250,
-        "time_seconds": 1.8436578171258704e-05,
-        "electrons": 12501,
-        "ions": 16194,
-        "sha256": "19f331666663a1cb3a02c7ee17490a89c16eacdff7ba7acff362756af5ab39e0"
+        "cycle": 600,
+        "time_seconds": 4.424778761138902e-05,
+        "electrons": 0,
+        "ions": 32,
+        "sha256": "d31a650938b15444220a35a30e47a6ab29f567c11765619e73a676cd2f134784"
       },
       "restart_file": "2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF_restart.zip",
-      "restart_sha256": "5e7451ee2cc6c46027821e8ec5954582dc5d9ab189182a8feb8f76476df6a1d5"
+      "restart_sha256": "03d320d33dd149cf6b1b1e85d974700ccfdf23d96981bc6b3db35122aa3b8d9c"
     }
   ]
 }
