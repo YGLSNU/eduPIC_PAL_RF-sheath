@@ -77,7 +77,10 @@ def validate_block(path, start, count):
     eepf_norm = float(np.sum(a['eepf'][:,1]*np.sqrt(a['eepf'][:,0]))*.05)
     ifed_norm = a['ifed'][:,1:].sum(axis=0)
     assert abs(eepf_norm-1) < 2e-5
-    assert np.allclose(ifed_norm, 1, atol=2e-5, rtol=0)
+    # Each of 200 entries is exported with six decimal places. Account for
+    # at most half a last-place rounding unit per bin, independent of sampling.
+    ifed_rounding_bound = a['ifed'].shape[0] * 0.5e-6 + 1e-12
+    assert np.allclose(ifed_norm, 1, atol=ifed_rounding_bound, rtol=0)
     cfl = float(re.search(r'Max e- energy for CFL condition\s*=\s*([\d.eE+-]+)', info)[1])
     tail = float(a['eepf'][a['eepf'][:,0] >= cfl,1].max())
     return dict(all_arrays_finite=True, expected_shapes=True, phase_mean_density_consistent=True,
