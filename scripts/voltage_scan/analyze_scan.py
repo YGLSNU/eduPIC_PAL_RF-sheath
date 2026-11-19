@@ -69,8 +69,59 @@ def summarize_case(root, case):
                    total_cycles=state['checkpoint_cycle'], measurement_cycles=len(blocks) * 20,
                    solver_wall_seconds=state['elapsed_solver_seconds'], final_checkpoint=checkpoint(case / 'latest_checkpoint.bin'))
     if not blocks:
+        summary['first_zero_electron_cycle'] = next((int(row[0]) for row in history if row[1] == 0), None)
+        summary['first_zero_ion_cycle'] = next((int(row[0]) for row in history if row[2] == 0), None)
+        if state['status'] == 'extinguished':
+            # Exactly empty particle state; these zeros are not a sampled plasma average.
+            for name in ['mean_density_e', 'mean_density_i', 'center_density_e', 'center_density_i', 'mean_power_e', 'mean_power_i']:
+                summary[name] = 0.0
+            summary['zero_observable_definition'] = 'Deduced from the exactly empty final particle state, not a steady-discharge measurement.'
         save_json(out / (key + '_summary.json'), summary)
-        (out / 'FINAL_REPORT.md').write_text(f'# {key}\n\n상태: **{state["status"]}**. 최종 정상상태 측정 자료는 없습니다.\n')
+        fig, axs = plt.subplots(1, 2, figsize=(12, 4.8), layout='constrained')
+        for ax in axs:
+            ax.plot(history[:, 0], history[:, 1], label='Electrons')
+            ax.plot(history[:, 0], history[:, 2], label='Ar+ ions')
+            ax.set(xlabel='RF cycles after condition change', ylabel='Superparticles')
+            ax.grid(alpha=.2); ax.legend()
+        if summary['first_zero_electron_cycle']:
+            axs[0].set_xlim(0, min(history[-1, 0], summary['first_zero_electron_cycle'] + 80))
+            axs[0].axvline(summary['first_zero_electron_cycle'], color='gray', ls='--')
+        axs[0].set_title('Discharge decay')
+        axs[1].set_yscale('symlog', linthresh=1)
+        axs[1].set_title('Residual-ion loss to the empty state')
+        fig.suptitle(f'Ar 20 mTorr | {state["voltage_peak_V"]} V peak | upper RF / lower ground\n{state["status"]}: no steady plasma measurement')
+        figure = key + '_extinction.png'; fig.savefig(out / figure, dpi=150)
+        with PdfPages(out / (key + '_all_plots.pdf')) as pdf:
+            pdf.savefig(fig)
+        plt.close(fig)
+        (out / 'FINAL_REPORT.md').write_text(f'''# {key}
+
+상태: **{state['status']} — 정상 방전의 통계 수렴으로 판정하지 않았습니다.**
+
+| 항목 | 결과 |
+|---|---:|
+| 전자 입자가 처음 0이 된 RF 주기 | {summary['first_zero_electron_cycle']} |
+| 이온 입자가 처음 0이 된 RF 주기 | {summary['first_zero_ion_cycle']} |
+| 마지막 저장 RF 주기 | {state['checkpoint_cycle']} |
+| 마지막 전자·이온 입자 수 | {summary['final_checkpoint']['electrons']} · {summary['final_checkpoint']['ions']} |
+| 정상 방전 측정 주기 | 0 |
+
+20 mTorr, {state['voltage_peak_V']} V peak, 13.56 MHz, Ar 350 K, 간격 25 mm 조건입니다.
+원래 수렴 입자 분포를 상하 반전해 시작했으나, 새 조건에서 입자 수가 감소했습니다.
+최종 입자가 모두 없는 상태에서는 플라즈마 밀도와 입자 jE가 0입니다. 이는 빈 입자 상태에서 직접 따라오는 값이며 정상 방전의 측정 평균이 아닙니다.
+전자·이온 에너지 분포는 정규화할 입자가 없어 정의할 수 없으므로, 정상상태 heating·EEPF·IFEDF 그림을 만들지 않았습니다.
+
+이 결과는 현재 1D 모델, 원래 입자 가중치, 충돌 및 완전 흡수 표면 조건에 대한 결과입니다.
+실제 실험의 방전 유지 한계로 바로 해석할 수는 없습니다. 다른 조건을 연구하려면 최종 빈 상태 대신 소멸 전 또는 초기 입자 체크포인트를 사용해야 합니다.
+
+![입자 소멸 과정]({figure})
+''')
+        for name in ['criteria.json', 'config.json', 'source-eduPIC.cc', 'LICENSE']:
+            shutil.copyfile(root / name, out / (key + '_' + name))
+        for name in ['status.json', 'boundary_verification.log']:
+            shutil.copyfile(case / name, out / (key + '_' + name))
+        archive(out / (key + '_summary.zip'), [(p, key + '/' + p.name) for p in out.iterdir() if p.is_file() and p.suffix != '.zip'])
+        save_json(case / 'finalized.json', {'checkpoint_cycle': state['checkpoint_cycle'], 'status': state['status']})
         return out
     criteria = json.loads((root / 'criteria.json').read_text())
     assessment = assess_blocks(blocks, history, criteria)
