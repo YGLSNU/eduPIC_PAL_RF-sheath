@@ -3,35 +3,26 @@
   "phase": "warmup",
   "voltage_peak_V": 100,
   "pressure_mTorr": 20,
-  "checkpoint_cycle": 1100,
+  "checkpoint_cycle": 3150,
   "measurement_epoch": 0,
   "completed_measurement_cycles": 0,
-  "elapsed_solver_seconds": 2108.7006139239966,
+  "elapsed_solver_seconds": 2140.3173747059773,
   "consecutive_passes": 0,
   "controller_pid": 87310,
   "started_at_Asia_Seoul": "2026-11-19T12:58:32.419531+09:00",
-  "updated_at_Asia_Seoul": "2026-11-19T13:34:07.751750+09:00",
+  "updated_at_Asia_Seoul": "2026-11-19T13:34:39.608489+09:00",
   "active_block": [
-    1101,
-    1150
+    3151,
+    3200
   ],
   "particle_count_stationarity": {
-    "e": {
-      "block_mean_span": 3.0,
-      "fitted_drift": 5.174314512186015,
-      "passed": false
-    },
-    "i": {
-      "block_mean_span": 2.893774236387782,
-      "fitted_drift": 4.7124974268207245,
-      "passed": false
-    },
-    "passed": false
+    "passed": false,
+    "reason": "zero_particle_population"
   },
-  "active_cycle": 1100,
-  "active_step": 3000,
+  "active_cycle": 3178,
+  "active_step": 0,
   "electrons": 0,
-  "ions": 12,
-  "latest_block": "warmup/cycle001051-001100",
-  "solver_pid": 90079
+  "ions": 1,
+  "latest_block": "warmup/cycle003101-003150",
+  "solver_pid": 90222
 }
