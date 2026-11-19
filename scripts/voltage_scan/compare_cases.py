@@ -34,6 +34,53 @@ def compare(root, dest):
         rows.append(f'| {voltage} | {label} | {state["checkpoint_cycle"]} | {state.get("completed_measurement_cycles",0)} | '
                     f'{fmt("center_density_e")} | {fmt("center_density_i")} | {fmt("mean_power_e")} | {fmt("mean_power_i")} |')
     out = root / 'comparison_output'; out.mkdir(exist_ok=True)
+    if all(status == 'extinguished' for _, status, _, _ in cases):
+        fig, axs = plt.subplots(1, 2, figsize=(12, 5), layout='constrained')
+        cutoff = 0
+        extinction_rows = []
+        extinction_values = []
+        for voltage, status, summary, arrays in cases:
+            case = root / f'2026-11-19_Ar_20mTorr_{voltage}V_13.56MHz_25mm_topRF'
+            hist = np.loadtxt(case / 'history.dat', ndmin=2)
+            for ax, col in zip(axs, [1, 2]):
+                ax.plot(hist[:, 0], hist[:, col] * 70000 / (1e-4 * .025), label=f'{voltage} V peak')
+                ax.set_yscale('symlog', linthresh=70000 / (1e-4 * .025))
+                ax.grid(alpha=.2); ax.legend()
+            e_zero = summary.get('first_zero_electron_cycle')
+            i_zero = summary.get('first_zero_ion_cycle')
+            cutoff = max(cutoff, e_zero or hist[-1, 0])
+            extinction_rows.append(f'| {voltage} | {e_zero} | {i_zero} | {summary["total_cycles"]} | {summary["solver_wall_seconds"]/60:.2f} |')
+            extinction_values.append([voltage, 20, e_zero, i_zero, summary['total_cycles'], summary['solver_wall_seconds']])
+        axs[0].set(title='Volume-averaged electron density', xlabel='RF cycles after condition change', ylabel='Density (m$^{-3}$)', xlim=(0, cutoff + 80))
+        axs[1].set(title='Volume-averaged ion density', xlabel='RF cycles after condition change', ylabel='Density (m$^{-3}$)')
+        fig.suptitle('Ar 20 mTorr | upper RF / lower ground | no sustained plasma in these production runs\nVolume averages calculated from particle counts and the original particle weight')
+        name = root.name + '_comparison_decay.png'
+        fig.savefig(out / name, dpi=150); plt.close(fig); shutil.copyfile(out / name, dest / name)
+        table = root.name + '_extinction_summary.csv'
+        np.savetxt(out / table, extinction_values, delimiter=',', fmt='%.9g', comments='',
+                   header='voltage_peak_V,pressure_mTorr,first_zero_electron_RF_cycle,first_zero_ion_RF_cycle,last_saved_RF_cycle,solver_wall_seconds')
+        shutil.copyfile(out / table, dest / table)
+        section = f'''\n## 최종 조건별 비교
+
+세 조건 모두 정상 방전의 통계 수렴 기준에 도달하기 전에 전자 입자가 소멸했습니다.
+이후 남은 이온이 모두 빠져나간 빈 상태까지 계산하고 종료했습니다.
+따라서 정상상태 heating·EEPF·IFEDF 측정값은 없습니다. 최종 빈 상태의 밀도와 입자 jE는 0입니다.
+
+| 전압 V peak | 전자 수가 0이 된 주기 | 이온 수가 0이 된 주기 | 마지막 저장 주기 | 조건별 계산 시간 분 |
+|---:|---:|---:|---:|---:|
+{chr(10).join(extinction_rows)}
+
+[비교표 CSV 다운로드]({table})
+
+아래 그림의 밀도는 입자 수 × 입자 가중치 ÷ 계산 영역 부피로 구한 공간평균 밀도입니다.
+입자 수가 적은 구간에서는 한 계산 입자 단위의 계단 변화가 나타납니다.
+
+![조건별 방전 감쇠 비교]({name})
+'''
+        readme = dest / 'README.md'
+        readme.write_text(readme.read_text().split('\n## 최종 조건별 비교')[0] + section)
+        print(readme)
+        return
     plt.rcParams.update({'font.size': 10, 'figure.dpi': 150})
     fig, axs = plt.subplots(2, 2, figsize=(12, 8), layout='constrained')
     colors = ['#2878b5', '#dd8b23', '#a83942']

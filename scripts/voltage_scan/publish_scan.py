@@ -24,8 +24,12 @@ FINAL = ['criteria_met', 'extinguished', 'measurement_limit_reached', 'total_cyc
 
 
 def publish(root):
-    lock = (root / 'publish.lock').open('w')
-    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    with (root / 'publish.lock').open('w') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        return _publish_locked(root)
+
+
+def _publish_locked(root):
     assert subprocess.check_output(['git', 'branch', '--show-current'], cwd=UPLOAD, text=True).strip() == BRANCH
     dest = UPLOAD / 'results' / root.name; dest.mkdir(parents=True, exist_ok=True)
     for name in ['config.json', 'criteria.json', 'source-eduPIC.cc', 'LICENSE']:
@@ -201,6 +205,8 @@ g++ -std=c++11 -O3 -DEDUPIC_VOLTAGE_V={voltage}.0 source-eduPIC.cc -o edupic
     subprocess.run(['git', 'push', 'origin', 'HEAD:refs/heads/' + BRANCH], cwd=UPLOAD, check=True, timeout=180)
     head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=UPLOAD, text=True).strip()
     save_json(root / 'last_github_backup.json', {'commit': head, 'at_Asia_Seoul': updated, 'cases': manifest})
+    if (root / 'publish_error.json').exists():
+        (root / 'publish_error.json').unlink()
     print('PUBLISHED', head, flush=True)
     return statuses
 
