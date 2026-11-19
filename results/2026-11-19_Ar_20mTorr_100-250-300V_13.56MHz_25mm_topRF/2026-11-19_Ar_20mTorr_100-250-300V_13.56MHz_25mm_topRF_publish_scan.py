@@ -72,6 +72,33 @@ g++ -std=c++11 -O3 -DEDUPIC_VOLTAGE_V={voltage}.0 source-eduPIC.cc -o edupic
 입자 위치·속도·시간은 보존되지만 원본 코드는 난수 상태를 저장하지 않아 개별 궤적의 비트 단위 재현은 보장하지 않습니다.
 자동 수렴 판정을 그대로 이어가려면 측정 블록과 전체 컨트롤러 작업 폴더도 필요합니다. 이 ZIP만으로도 물리 상태의 연속 계산은 가능합니다.
 ''')
+        pre_extinction = None
+        if state['status'] == 'extinguished':
+            resume.write_text(resume.read_text() + '\n**이 최종 체크포인트는 입자가 없는 상태입니다. 플라즈마 조건을 바꿔 연구하려면 소멸 전 체크포인트 또는 초기 상태 ZIP을 사용하세요.**\n')
+            candidates = [(p.parent, json.loads(p.read_text())) for p in (case / 'warmup').glob('*/block.json')]
+            candidates = [(p, m) for p, m in candidates if m['output_checkpoint']['electrons'] > 0]
+            if candidates:
+                before, m = max(candidates, key=lambda pair: pair[1]['output_checkpoint']['cycle'])
+                cp = m['output_checkpoint']
+                note = target / (key + '_BEFORE_EXTINCTION.md')
+                note.write_text(f'''# 소멸 전 상태: {key}
+
+RF {cp['cycle']}주기, 전자 {cp['electrons']}개·이온 {cp['ions']}개의 계산 입자입니다.
+이는 과도구간의 입자 상태이며 수렴된 정상 방전으로 해석하지 않습니다.
+
+```sh
+g++ -std=c++11 -O3 -DEDUPIC_VOLTAGE_V={voltage}.0 source-eduPIC.cc -o edupic
+./edupic 20 m
+```
+
+압력을 바꾸려면 빌드 명령에 `-DEDUPIC_PRESSURE_MTORR=원하는값`을 지정하고 새 조건에서 다시 안정화해야 합니다.
+빈 최종 상태에 전압만 변경해서는 전자 충돌 이온화가 다시 시작되지 않으므로, 이 소멸 전 상태 또는 더 조밀한 초기 상태를 사용하세요.
+''')
+                pre_extinction = target / (key + '_before_extinction_restart.zip')
+                archive(pre_extinction, [(before / 'picdata.bin', 'picdata.bin'),
+                                        (root / 'source-eduPIC.cc', 'source-eduPIC.cc'),
+                                        (root / 'config.json', 'config.json'), (root / 'LICENSE', 'LICENSE'),
+                                        (note, 'RESUME.md')])
         entries = [(latest, 'picdata.bin'), (root / 'source-eduPIC.cc', 'source-eduPIC.cc'),
                    (root / 'config.json', 'config.json'), (root / 'criteria.json', 'criteria.json'),
                    (root / 'LICENSE', 'LICENSE'), (resume, 'RESUME.md')]
@@ -100,6 +127,8 @@ g++ -std=c++11 -O3 -DEDUPIC_VOLTAGE_V={voltage}.0 source-eduPIC.cc -o edupic
         base = f'{REPO}/raw/refs/heads/{BRANCH}/results/{root.name}/{key}/'
         link = f'[결과·그림]({key}/FINAL_REPORT.md)' if (target / 'FINAL_REPORT.md').exists() else f'[저장 상태]({key}/)'
         rows.append(f'| {voltage} V peak | {status_label} | {saved:,} | {state.get("completed_measurement_cycles",0)} | {link} · [재시작 ZIP]({base}{restart.name}) |')
+        if pre_extinction:
+            rows[-1] = rows[-1][:-2] + f' · [소멸 전 상태]({base}{pre_extinction.name}) |'
         manifest.append(dict(voltage_peak_V=voltage, status=state['status'], checkpoint=snapshot,
                              restart_file=str(restart.relative_to(dest)), restart_sha256=sha(restart)))
         if (case / 'history.dat').exists():
