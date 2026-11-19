@@ -1,31 +1,31 @@
 {
-  "updated_at_Asia_Seoul": "2026-11-19T13:23:00.135613+09:00",
+  "updated_at_Asia_Seoul": "2026-11-19T13:23:32.552691+09:00",
   "cases": [
     {
       "voltage_peak_V": 100,
       "status": "running",
       "checkpoint": {
-        "cycle": 150,
-        "time_seconds": 1.1061946902650041e-05,
-        "electrons": 59295,
-        "ions": 61901,
-        "sha256": "ad615699eb0bc4395124e72853d9658dbb9699d65b7e6370f9a7f5a175bf12e6"
+        "cycle": 200,
+        "time_seconds": 1.4749262536954372e-05,
+        "electrons": 46327,
+        "ions": 48751,
+        "sha256": "e7e71757d3a4a91875cd673c9c8ba49542593a32a39bbfc6d34c6a981c10d437"
       },
       "restart_file": "2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_100V_13.56MHz_25mm_topRF_restart.zip",
-      "restart_sha256": "d2bb0c5bd0ae9cb8076fbf90b32898ab46397e647fe568a64285b20f463dfd93"
+      "restart_sha256": "5dc9acf087be65ac027e4854570467a08b7fbda87dd27a4c6ec969634d7e2a9f"
     },
     {
       "voltage_peak_V": 250,
       "status": "running",
       "checkpoint": {
-        "cycle": 500,
-        "time_seconds": 3.687315634278036e-05,
+        "cycle": 2650,
+        "time_seconds": 0.00019542772856847137,
         "electrons": 0,
-        "ions": 123,
-        "sha256": "740ddcfaba5ca79c6bb6a35978707e6146967425e16da88ae029d6e3087f0132"
+        "ions": 1,
+        "sha256": "1325f767ec0a977c23ca70b32a5c3e4430d302648224dbb85c4301479ff78cb1"
       },
       "restart_file": "2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_250V_13.56MHz_25mm_topRF_restart.zip",
-      "restart_sha256": "0c96d3d8d18dd807a5a3e4149396820b09a1fb876deb4ff5c8b4d1184d5710e6"
+      "restart_sha256": "d4c2ec70f64930b5e0a477a270b8d83da3b4283e988b7f95eafd30c1bb2a901e"
     },
     {
       "voltage_peak_V": 300,
@@ -38,7 +38,7 @@
         "sha256": "b8118db546bfdb012e41c2efe1c6d2b6d36e09fafd9c6ca76ca57dffe2157dd9"
       },
       "restart_file": "2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF/2026-11-19_Ar_20mTorr_300V_13.56MHz_25mm_topRF_restart.zip",
-      "restart_sha256": "af256b797f08854abbb00f0497a87f7a1bf4515fe0602e78f3d0cdc72443d516"
+      "restart_sha256": "a2b94762e117d7083e253d2146dea7fb64c010df97f8bfbca5ece6da58d2f825"
     }
   ]
 }
