@@ -1,0 +1,37 @@
+{
+  "pressure_mTorr": 20,
+  "gap_m": 0.04,
+  "voltage_peak_V": [
+    100,
+    250,
+    300,
+    400,
+    500
+  ],
+  "frequency_Hz": 13560000.0,
+  "gas_temperature_K": 350,
+  "grid_points": 640,
+  "electron_steps_per_RF": 4000,
+  "weight": 112000,
+  "fictive_area_m2": 0.0001,
+  "init_e": 108314,
+  "init_i": 113766,
+  "source_sha256": "bd1d85cdbfd875c5bfd5df29ccefcd24da03b8776bdccde1148588453cc1586c",
+  "seed_sha256": "282a8de673106c870aa4ad326bdbca8fe90a7db3b573754cee11f9b832e3e2bd",
+  "initialization": "Original common 25 mm dense seed stretched x by 1.6; weight scaled by 1.6 to preserve physical density and velocity distribution at equal x/L. All transients excluded. This is an initialization, not a stationary 40 mm solution.",
+  "numerics": "dx=62.598 um; W/A/L invariant. Fewer particles per cell than 25 mm, roughly 169 electron particles/cell initially. All 40 mm cases use identical discretization and seed.",
+  "surface_model": "100% material absorption, no SEE/reflection, ground-state Ar ionization only.",
+  "rng": "Deterministic seed per independent voltage and block, recorded; legacy particle checkpoint contains no RNG state.",
+  "stop": "Original statistical criteria; stop at first RF with zero electrons; retain previous nonempty checkpoint.",
+  "ifed_bins": 1000,
+  "initial_reference_source_sha256": "194d26faa23810e48690fd8ac62c9eda1405d141c89bc7e323bc2fb897e003c3",
+  "electron_mcc_sampling": "Exp(1) residual optical depth; same conditional 1-exp(-nu*dt) event probability, at most one event per electron per step. Ion MCC unchanged.",
+  "sampling_regression": "validation/optical_depth/verification.json",
+  "sampling_switch_checkpoints": {
+    "250": 51,
+    "400": 51,
+    "100": 51,
+    "300": 51,
+    "500": 51
+  }
+}
