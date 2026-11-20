@@ -1,18 +1,20 @@
 # Ar 20 mTorr · 40 mm · 100–500 V — 계산 진행 중
 
-**아직 최종 수렴·소멸 판정이 완료되지 않았습니다. 아래는 중간 체크포인트입니다.**
+**전체 전압 비교는 진행 중입니다. 아래 표에서 조건별 완료 여부를 확인하세요. 이 ZIP은 해당 시점의 상태 백업입니다.**
 
-저장: 2026-11-20T18:20:12.821775+09:00. 상부 정현파 peak 전압, 하부 접지, Ar 350 K, 13.56 MHz.
+저장: 2026-11-20T19:16:23.323949+09:00. 상부 정현파 peak 전압, 하부 접지, Ar 350 K, 13.56 MHz.
 
 | V peak | 저장 RF주기 | 저장 전자 계산 입자 수 | 상태 |
 |---:|---:|---:|---|
-| 100 | 2440 | 12,612 | 진행 중 |
-| 250 | 1121 | 46,974 | 진행 중 |
-| 300 | 961 | 60,032 | 진행 중 |
-| 400 | 761 | 85,836 | 진행 중 |
-| 500 | 661 | 110,431 | 진행 중 |
+| 100 | 2700 | 12,619 | 기준 충족·계산 종료 |
+| 250 | 2001 | 45,890 | 기준 충족·계산 종료 |
+| 300 | 1801 | 58,041 | 진행 중 |
+| 400 | 1341 | 82,767 | 진행 중 |
+| 500 | 1121 | 108,897 | 진행 중 |
 
-[중간 체크포인트 ZIP 다운로드](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-19-20mTorr-top-powered/results/2026-11-20_Ar_20mTorr_100-250-300-400-500V_13.56MHz_40mm_topRF/2026-11-20_Ar_20mTorr_100-250-300-400-500V_13.56MHz_40mm_topRF_running_checkpoint.zip) · [면적·전력 수지 검토](2026-11-20_Ar_20mTorr_100-250-300-400-500V_13.56MHz_40mm_topRF_AREA_REVIEW.md)
+[체크포인트·완료 조건 평균 자료 ZIP 다운로드](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-19-20mTorr-top-powered/results/2026-11-20_Ar_20mTorr_100-250-300-400-500V_13.56MHz_40mm_topRF/2026-11-20_Ar_20mTorr_100-250-300-400-500V_13.56MHz_40mm_topRF_running_checkpoint.zip) · [면적·전력 수지 검토](2026-11-20_Ar_20mTorr_100-250-300-400-500V_13.56MHz_40mm_topRF_AREA_REVIEW.md)
+
+기준 충족 조건은 ZIP 안의 해당 전압 폴더에서 measurement_average/phase_maps.png와 평균 수치 자료를 확인할 수 있습니다.
 
 ![현재 계산 경향](2026-11-20_Ar_20mTorr_100-250-300-400-500V_13.56MHz_40mm_topRF_comparison.png)
 
