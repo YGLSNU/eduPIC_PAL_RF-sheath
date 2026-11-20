@@ -24,3 +24,4 @@
 
 - [2026-11-19: 20 mTorr, 상부 RF, 100·250·300 V 비교](2026-11-19_Ar_20mTorr_100-250-300V_13.56MHz_25mm_topRF/README.md)
 - [2026-11-20: 20 mTorr 소멸 원인 진단·압력 대조 계산·수정 우선순위](2026-11-20_Ar_20mTorr_extinction_diagnosis/README.md)
+- [2026-11-20: 20 mTorr·40 mm·100–500 V 비교](2026-11-20_Ar_20mTorr_100-250-300-400-500V_13.56MHz_40mm_topRF/README.md)
