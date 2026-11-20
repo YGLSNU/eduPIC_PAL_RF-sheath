@@ -1,0 +1,567 @@
+{
+  "date_Asia_Seoul": "2026-11-20",
+  "production_source_sha256": "6b86a4a5b071d0d7eaf46cea42cb82e3f797494978bd7ff488276bc64ebc6531",
+  "scope": "Five separate, five-RF transient branches; not steady-state results.",
+  "files": {
+    "2026-11-20_Ar_20mTorr_extinction_diagnosis.pdf": {
+      "size": 25840,
+      "sha256": "49f4a7cdfc43729ab7d8962d84d038e459da7a32b1323fff99a42472e5d71fd7"
+    },
+    "2026-11-20_Ar_20mTorr_extinction_diagnosis.png": {
+      "size": 242700,
+      "sha256": "44c988f88b0f2295b03301dc144af50dcced1ce43955cd5dec2b5ae3d052ef1e"
+    },
+    "2026-11-20_Ar_20mTorr_extinction_diagnosis_balance_summary.csv": {
+      "size": 2372,
+      "sha256": "ec39086d5a9892df9337a96006046d9012d6cae9e9a97fd3ac033ae265a43e08"
+    },
+    "2026-11-20_Ar_20mTorr_extinction_diagnosis_balance_summary.json": {
+      "size": 6117,
+      "sha256": "396677e59f4a73f96d34fca137df391dce46545b26c4263bd00f230d9fff02ad"
+    },
+    "2026-11-20_Ar_20mTorr_extinction_diagnosis_diagnostic.cc": {
+      "size": 57266,
+      "sha256": "5acbe3b6b8aa8f73655cbdcfcb95c75f2d490607f070700ac7e67d943b7ec4ef"
+    },
+    "2026-11-20_Ar_20mTorr_extinction_diagnosis_diagnostic.patch": {
+      "size": 6578,
+      "sha256": "47e94108ff22349619598f5171811e14be524b803ea1c389df8157d5c92027cb"
+    },
+    "LICENSE": {
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    "README.md": {
+      "size": 15989,
+      "sha256": "f5b9033719250b67f1631c02ee66ce32f19084f6c7629a669bcbdff1a998ded7"
+    },
+    "analyze_controls.py": {
+      "size": 7258,
+      "sha256": "0aeecf93d24664df63f6ddae5c54550e040d416e2c01d3a04da4663228854679"
+    },
+    "balance_summary.csv": {
+      "size": 2372,
+      "sha256": "ec39086d5a9892df9337a96006046d9012d6cae9e9a97fd3ac033ae265a43e08"
+    },
+    "balance_summary.json": {
+      "size": 6117,
+      "sha256": "396677e59f4a73f96d34fca137df391dce46545b26c4263bd00f230d9fff02ad"
+    },
+    "controls/20mTorr_100V_from400/conv.dat": {
+      "size": 145,
+      "sha256": "6e233892edab06f13daa558feee933e26a89c7578e216dc9b05945253304d6df"
+    },
+    "controls/20mTorr_100V_from400/density.dat": {
+      "size": 14800,
+      "sha256": "b197ceaae74ae217db0a039eedf07f3db4701dc9290c4a144775777824338958"
+    },
+    "controls/20mTorr_100V_from400/eepf.dat": {
+      "size": 54000,
+      "sha256": "cac8f3d27fdd4e19717950a0952aaa59b1c9f508e028284bdbf14ff0e79cf107"
+    },
+    "controls/20mTorr_100V_from400/efield_xt.dat": {
+      "size": 1160482,
+      "sha256": "02a08c84782cb6a7df56aa9085fe5553f4eed77c0fc11e0ea65bb991b1f6ede4"
+    },
+    "controls/20mTorr_100V_from400/ifed.dat": {
+      "size": 5800,
+      "sha256": "ae48e012970e960a4ae253beb57503c7228fc620aa4ab70457b92dcf7290f665"
+    },
+    "controls/20mTorr_100V_from400/info.txt": {
+      "size": 2586,
+      "sha256": "85c73ba439df5d5dc7a1321df65107b1d9e1c69cc7b0e7033ea359a7e5927e9c"
+    },
+    "controls/20mTorr_100V_from400/input_picdata.bin": {
+      "size": 941216,
+      "sha256": "08ba8e8d9abee65ce7f9774cd91a052504f8f8a770a57509ee8cc14a21a56b8b"
+    },
+    "controls/20mTorr_100V_from400/ioniz_xt.dat": {
+      "size": 1120400,
+      "sha256": "3aeeec719984578cb6b5ec162ff43975f7ed61da08052acaa8f0f8b110763005"
+    },
+    "controls/20mTorr_100V_from400/je_xt.dat": {
+      "size": 1152281,
+      "sha256": "bbbc764de2840b603e5e4815d5097b95f0903b6d8adc13a50b5cd8734cd2eeb0"
+    },
+    "controls/20mTorr_100V_from400/ji_xt.dat": {
+      "size": 1160308,
+      "sha256": "0d8cd8907f656e14af5adaad074c43253cc452f8ad97a0be45952f542631f1c9"
+    },
+    "controls/20mTorr_100V_from400/meanee_xt.dat": {
+      "size": 1120400,
+      "sha256": "feb4af6d10e8e64b00c24d758c67ddb1a64a89ce96b653c0ac33c7f90285755a"
+    },
+    "controls/20mTorr_100V_from400/meanei_xt.dat": {
+      "size": 1120400,
+      "sha256": "d215ae3a38d76aa65a36bacf5dfe6fd4924de50418894cc650a510f54556fa99"
+    },
+    "controls/20mTorr_100V_from400/metadata.json": {
+      "size": 1198,
+      "sha256": "5fcb6ee22b05e10ab0b4edda4989849be6316f116bb136a935d95c50d51cf57b"
+    },
+    "controls/20mTorr_100V_from400/ne_xt.dat": {
+      "size": 1120400,
+      "sha256": "f6a750d9a647dc21e3beeb242ffe1c964782899e0b9755a293b604856cb3f11d"
+    },
+    "controls/20mTorr_100V_from400/ni_xt.dat": {
+      "size": 1120400,
+      "sha256": "13e66165486da8dde4b99ae9400d691d2a91f981688c02b3bc422f248c3ba68a"
+    },
+    "controls/20mTorr_100V_from400/particle_balance.csv": {
+      "size": 1119,
+      "sha256": "728a9d638105ccc3d91042c9194aab1289c620730bf68a967724678dac83775c"
+    },
+    "controls/20mTorr_100V_from400/picdata.bin": {
+      "size": 907040,
+      "sha256": "93de68a6de53ce5b2b0d5e27ebfa0131f49fc3d560f0a959c88ced27f140f143"
+    },
+    "controls/20mTorr_100V_from400/pot_xt.dat": {
+      "size": 1127603,
+      "sha256": "b2288538ff44056e317639042127015e7aa638daf505bcafa59b608ef2fd38aa"
+    },
+    "controls/20mTorr_100V_from400/powere_xt.dat": {
+      "size": 1161569,
+      "sha256": "b13339dcaf7e86dc89ba7454801723939aefaf092cb54fa1b3f51a7be3d91baa"
+    },
+    "controls/20mTorr_100V_from400/poweri_xt.dat": {
+      "size": 1127816,
+      "sha256": "3913bea3adf9ce9aa2e1dd64252ef724068682e183f740dd53b89df172c35fc2"
+    },
+    "controls/20mTorr_100V_from400/run.log": {
+      "size": 2068,
+      "sha256": "9eb922ad8d4cc16d4cafeb764b5ca24a0f6e2adcd784d8d98e745743dbb4710c"
+    },
+    "controls/20mTorr_250V_from0/conv.dat": {
+      "size": 145,
+      "sha256": "8d4e8414ca2e8539e01bd625e84dc67eb59c2ae1400ebf62e8dccdef4e5da445"
+    },
+    "controls/20mTorr_250V_from0/density.dat": {
+      "size": 14800,
+      "sha256": "5ac9daab702c7725d6fd53a7a4a981d08797f9f26c31c377f585152241f1b5cc"
+    },
+    "controls/20mTorr_250V_from0/eepf.dat": {
+      "size": 54000,
+      "sha256": "ce3c08805ec9e8eeabe157b0f8702fb4983457ad05d3e72fa06b3152ca46be8d"
+    },
+    "controls/20mTorr_250V_from0/efield_xt.dat": {
+      "size": 1160338,
+      "sha256": "e5f5812f9b0b914e5e12b4394ad6477eee2206d5bbedab190570474cdcbec58a"
+    },
+    "controls/20mTorr_250V_from0/ifed.dat": {
+      "size": 5800,
+      "sha256": "b9311a1b6f939d088afd2f21b34328c056240eee56a4a4755d8dcb891acde5bd"
+    },
+    "controls/20mTorr_250V_from0/info.txt": {
+      "size": 2586,
+      "sha256": "3af0b72e341ae820cc9d812c22dc1c5b2c23dea1d972a0c9ce6b5ff766c79319"
+    },
+    "controls/20mTorr_250V_from0/input_picdata.bin": {
+      "size": 7106592,
+      "sha256": "81882b13cec9f6c587e8f9ba0b9654b719c95b0b6194ec9eb6f19e4db994874f"
+    },
+    "controls/20mTorr_250V_from0/ioniz_xt.dat": {
+      "size": 1120400,
+      "sha256": "a7a55a10dc4e110af4b9d60fa5ba93a3dabcf5f7d8dbbe2eb94f8c1c5ec6ff43"
+    },
+    "controls/20mTorr_250V_from0/je_xt.dat": {
+      "size": 1152542,
+      "sha256": "01ee0ab3e8375fc87c495a0ac789c233b66d640a50f9f18553ef6fe0a1595a80"
+    },
+    "controls/20mTorr_250V_from0/ji_xt.dat": {
+      "size": 1160000,
+      "sha256": "a8af5f9fb579488417a9ff7002248167534bf11cc9dc124b373c24b77739ae01"
+    },
+    "controls/20mTorr_250V_from0/meanee_xt.dat": {
+      "size": 1120400,
+      "sha256": "537802c23a0b1315dc12b6c2dbb21828c23853eb1e17e226e49fae2535282118"
+    },
+    "controls/20mTorr_250V_from0/meanei_xt.dat": {
+      "size": 1120400,
+      "sha256": "8674495bbc1d84dc4eddfe1a235cfd6dd87abc6874d87cc51dcab15e5bea4fe5"
+    },
+    "controls/20mTorr_250V_from0/metadata.json": {
+      "size": 1135,
+      "sha256": "9778d3b40f47fa684272e4aaf7acfbc42b758ed3bb1feefe3dece1746804cc2a"
+    },
+    "controls/20mTorr_250V_from0/ne_xt.dat": {
+      "size": 1120400,
+      "sha256": "34e2eb65c34befc3f26cfffd115df8a59dd4c7fd3c8de3072fefa770af064b85"
+    },
+    "controls/20mTorr_250V_from0/ni_xt.dat": {
+      "size": 1120400,
+      "sha256": "05a397e0e8a1247322e27ccc88bde9b9729583b3de992e24b7f33e48a8d5a54d"
+    },
+    "controls/20mTorr_250V_from0/particle_balance.csv": {
+      "size": 1159,
+      "sha256": "e7fa5ce5955eb4ebed38941cc91ce18d0b16e10561979d9a9fdb80b748636812"
+    },
+    "controls/20mTorr_250V_from0/picdata.bin": {
+      "size": 6925248,
+      "sha256": "a523a4dfbecc08f8763228ca6f36ce3c8c6b8fcaee71b68e9d6db9dfa6a8911a"
+    },
+    "controls/20mTorr_250V_from0/pot_xt.dat": {
+      "size": 1126622,
+      "sha256": "27a39117c32e1daade5c71fc7d7744d89a60066ac674bb79a3962b6d1765a222"
+    },
+    "controls/20mTorr_250V_from0/powere_xt.dat": {
+      "size": 1161182,
+      "sha256": "7f6b0b057ea23137a1ecdb84233e21b3e2d3ca9cf725e1958efe9cbe9785f112"
+    },
+    "controls/20mTorr_250V_from0/poweri_xt.dat": {
+      "size": 1128786,
+      "sha256": "1c2285ad2c31f9ac7061f970b77fce79cadc47453719d9653eab0d44356cfb9c"
+    },
+    "controls/20mTorr_250V_from0/run.log": {
+      "size": 2068,
+      "sha256": "000befe2ecbaa4e1dde9b74e8378bbec223c634a6bf8a88ac8340a827dcdef00"
+    },
+    "controls/20mTorr_250V_from200/conv.dat": {
+      "size": 145,
+      "sha256": "dbb36b61aa76ee0a1c3d2a8a621536ed703bf26622cc103aa384931efc9db30b"
+    },
+    "controls/20mTorr_250V_from200/density.dat": {
+      "size": 14800,
+      "sha256": "531659149eb2f6e1402e2e481a6402707f55dffb894360663516d7269fbbf504"
+    },
+    "controls/20mTorr_250V_from200/eepf.dat": {
+      "size": 54000,
+      "sha256": "0d54dc421ba2b466fffaece8b30e6b27e8e0bdfc89b0cddb709b5d762563b347"
+    },
+    "controls/20mTorr_250V_from200/efield_xt.dat": {
+      "size": 1160383,
+      "sha256": "380609d91a7ef1c2ec1d0ae5b239c26019b7dc8dc2c06bc3dfbeed3448d1f5a2"
+    },
+    "controls/20mTorr_250V_from200/ifed.dat": {
+      "size": 5800,
+      "sha256": "036f1874935f8a5b7428ab04fa0e324e2e66fd7d88e37185e6238e94911e6dc0"
+    },
+    "controls/20mTorr_250V_from200/info.txt": {
+      "size": 2586,
+      "sha256": "71765a6a2453dbd6493eb0edfda269467db6c129aa7da713b73c72201d3e463e"
+    },
+    "controls/20mTorr_250V_from200/input_picdata.bin": {
+      "size": 1853792,
+      "sha256": "033336126a2ce5051159e8c215e50ea400b797825e8ebc473a9272b3c1d01fd9"
+    },
+    "controls/20mTorr_250V_from200/ioniz_xt.dat": {
+      "size": 1120400,
+      "sha256": "6ad3e5490a4cc651de455e805a3050a3ce85b3cd8acf2733a6da7e36ca884ff4"
+    },
+    "controls/20mTorr_250V_from200/je_xt.dat": {
+      "size": 1149418,
+      "sha256": "498054d4b9c0ee468d462a149fe2abfcfe63002e88002e11743719db3eab8f80"
+    },
+    "controls/20mTorr_250V_from200/ji_xt.dat": {
+      "size": 1160483,
+      "sha256": "adc15a3d93f4f5bc45d7f5145c9baa3f3fa414c6901f48db37e2a77dcda302e1"
+    },
+    "controls/20mTorr_250V_from200/meanee_xt.dat": {
+      "size": 1120400,
+      "sha256": "4295d223f721c5bdf5ce2157d77e752658d0569bc9cf75c6f431a27df1610e48"
+    },
+    "controls/20mTorr_250V_from200/meanei_xt.dat": {
+      "size": 1120400,
+      "sha256": "b8b0fdf7a77414495062f1b9bb1445d37bd1d2f1244acf12f72083335a473e66"
+    },
+    "controls/20mTorr_250V_from200/metadata.json": {
+      "size": 1199,
+      "sha256": "aba3e23d098c237c6d6c34535506a24ee4818668a7d7b858d0fb558a11c7257a"
+    },
+    "controls/20mTorr_250V_from200/ne_xt.dat": {
+      "size": 1120400,
+      "sha256": "52d46956aa24b08236dca4b6f1d9ae8e878006cb5585c737b5ea540dd5aaef79"
+    },
+    "controls/20mTorr_250V_from200/ni_xt.dat": {
+      "size": 1120400,
+      "sha256": "bf200f8731efdefcf407b3cd368b8d281c04cd6aa53ff244e6e2dd644e28ba6c"
+    },
+    "controls/20mTorr_250V_from200/particle_balance.csv": {
+      "size": 1145,
+      "sha256": "7e81b74792fd4a196817c39b71c8326337d978c122060370c9a4478c4f65754b"
+    },
+    "controls/20mTorr_250V_from200/picdata.bin": {
+      "size": 1780320,
+      "sha256": "216116def3a958967772e1b1478ec1d73f1a47724864f1c7ce5e9697f3d8e39a"
+    },
+    "controls/20mTorr_250V_from200/pot_xt.dat": {
+      "size": 1129425,
+      "sha256": "490086b614e0f4ff06e8fb669c49e865cac6ec530536f096227982fc5487fa84"
+    },
+    "controls/20mTorr_250V_from200/powere_xt.dat": {
+      "size": 1161469,
+      "sha256": "d9829ae1a4a27cb898a1d36e177b801de282ba0a8df5d3b5518fbdf7d7c1f316"
+    },
+    "controls/20mTorr_250V_from200/poweri_xt.dat": {
+      "size": 1127334,
+      "sha256": "17204c2c16af48a1f0305f5eec4db4ad34c3d7f84937441de81d99da4f438fda"
+    },
+    "controls/20mTorr_250V_from200/run.log": {
+      "size": 2068,
+      "sha256": "df69deca325d3bb58538021cc75e5c0ee6bf51108ae976f55cb9934d99b44c58"
+    },
+    "controls/20mTorr_300V_from200/conv.dat": {
+      "size": 145,
+      "sha256": "2a23aaa0a37b10950b3e689b9cc0a7171751cb5e7547e0181770600358ddc552"
+    },
+    "controls/20mTorr_300V_from200/density.dat": {
+      "size": 14800,
+      "sha256": "70ff0faaa991ac154ea1bbba68e9035f480d1d0fae28f8e96936b67dcb54853b"
+    },
+    "controls/20mTorr_300V_from200/eepf.dat": {
+      "size": 54000,
+      "sha256": "00dff535b8ff2a6780062cf61aab86254b0d21d98300929ea580a49d6f4c11a0"
+    },
+    "controls/20mTorr_300V_from200/efield_xt.dat": {
+      "size": 1160390,
+      "sha256": "4c0c335ec988d6387bcb41b48d5216a78741edd5b4e54fde53e1bbb62cf6c24b"
+    },
+    "controls/20mTorr_300V_from200/ifed.dat": {
+      "size": 5800,
+      "sha256": "be646585e75947c6a8a4cf29837521fe4a274c435ce7b8d6890c6d4339ce804e"
+    },
+    "controls/20mTorr_300V_from200/info.txt": {
+      "size": 2586,
+      "sha256": "30ae681909f87dd416380879dd84f4b9fb2817ef0c2ff7addba0450e847b2e18"
+    },
+    "controls/20mTorr_300V_from200/input_picdata.bin": {
+      "size": 1554112,
+      "sha256": "3085fb49fffaebaf27c142ecadc96939575a2f469e66dad63a5857e977346d5b"
+    },
+    "controls/20mTorr_300V_from200/ioniz_xt.dat": {
+      "size": 1120400,
+      "sha256": "abb7a3dafa1a33668d931a8701270615a34a1c21fb6c82e8b8821c7bbb9e7283"
+    },
+    "controls/20mTorr_300V_from200/je_xt.dat": {
+      "size": 1147925,
+      "sha256": "04ca3b8c839aa8cfa4ec6dce30cc87a1cda222a63b0d55d50b9cea099f2e9efe"
+    },
+    "controls/20mTorr_300V_from200/ji_xt.dat": {
+      "size": 1160573,
+      "sha256": "fae10ecba299d0050738b097dc84edd0268ecdea381d5c62ff2478b011cd0366"
+    },
+    "controls/20mTorr_300V_from200/meanee_xt.dat": {
+      "size": 1120400,
+      "sha256": "83a130b91295e7f811b8e9a81ae9ce456cdad2d3e3d058039b32c0fc29c5eca3"
+    },
+    "controls/20mTorr_300V_from200/meanei_xt.dat": {
+      "size": 1120400,
+      "sha256": "63527896252c4770b1e52d2818a10e8b5ed18ccb7959648baf07a79cdad9e5cb"
+    },
+    "controls/20mTorr_300V_from200/metadata.json": {
+      "size": 1198,
+      "sha256": "58d67e205c2b463f8cba7357dc71db274f6d9ce1ea669eeccca509892090ebe6"
+    },
+    "controls/20mTorr_300V_from200/ne_xt.dat": {
+      "size": 1120400,
+      "sha256": "9186d863b17c9c982a278fe5c47ce9ad04f4938dcfaf2a0ae1fd3db74ce6c302"
+    },
+    "controls/20mTorr_300V_from200/ni_xt.dat": {
+      "size": 1120400,
+      "sha256": "ef6e4617c6aabee9a2d9fbbb8c6c0335c3089fa619d8dc2c111b8467f052a406"
+    },
+    "controls/20mTorr_300V_from200/particle_balance.csv": {
+      "size": 1148,
+      "sha256": "29eef948b739a559e3eb05e609da50689436d47e449e6238bb9b3ee7d1e2acd0"
+    },
+    "controls/20mTorr_300V_from200/picdata.bin": {
+      "size": 1480704,
+      "sha256": "751468ff66be1eff7bbe8f082acd80f0bf644edcce3f082b65600875b003e3b4"
+    },
+    "controls/20mTorr_300V_from200/pot_xt.dat": {
+      "size": 1130276,
+      "sha256": "e5b8885b263420cec3be721cdc88309c239829bdc0cc47fe6b11f4501c7dc44f"
+    },
+    "controls/20mTorr_300V_from200/powere_xt.dat": {
+      "size": 1161231,
+      "sha256": "189070d6eee79a514c22297234157408d684bd84686355ca78cc47f1da725be8"
+    },
+    "controls/20mTorr_300V_from200/poweri_xt.dat": {
+      "size": 1126119,
+      "sha256": "5edc46ffe6b62fb33633c4045c87b6482e7d0c0b24f4b54ff16df4db080b59c8"
+    },
+    "controls/20mTorr_300V_from200/run.log": {
+      "size": 2068,
+      "sha256": "ba516d4eaf711fd3ebeea72acb1e082dfb11e2ee382df48e0810c9fb09e328d8"
+    },
+    "controls/75.006mTorr_250V_from0/conv.dat": {
+      "size": 145,
+      "sha256": "d37ee2dc0d2b4f10918243e4457aace6fbf51473143f642680d8e9a2eb35e98b"
+    },
+    "controls/75.006mTorr_250V_from0/density.dat": {
+      "size": 14800,
+      "sha256": "ecc30f6bc3c0120e7df21655f8a29189b0f905c49b0270d432fd943c0c30c29f"
+    },
+    "controls/75.006mTorr_250V_from0/eepf.dat": {
+      "size": 54000,
+      "sha256": "8ab5188b561b29b09e5812f85a3c8e52b5dcf10f5b99224672321dab4ecb3ab7"
+    },
+    "controls/75.006mTorr_250V_from0/efield_xt.dat": {
+      "size": 1160413,
+      "sha256": "119d724d03e497c1fa6dcb916766c76955bf02570ff66ebc94129c8cc01791f0"
+    },
+    "controls/75.006mTorr_250V_from0/ifed.dat": {
+      "size": 5800,
+      "sha256": "fe16bca0ac660054661aa26e9d05624e756cfb6645638edad7cf7488784c1dd1"
+    },
+    "controls/75.006mTorr_250V_from0/info.txt": {
+      "size": 2586,
+      "sha256": "374ccb4e4bb0773d3bf30aaffd9db1331df09138787d655baab185d08077282e"
+    },
+    "controls/75.006mTorr_250V_from0/input_picdata.bin": {
+      "size": 7106592,
+      "sha256": "81882b13cec9f6c587e8f9ba0b9654b719c95b0b6194ec9eb6f19e4db994874f"
+    },
+    "controls/75.006mTorr_250V_from0/ioniz_xt.dat": {
+      "size": 1120400,
+      "sha256": "3990a837b03d662c1c8ab7072821d55e0f4ac7f5dcaca4cfc5a107f91426c7ad"
+    },
+    "controls/75.006mTorr_250V_from0/je_xt.dat": {
+      "size": 1152724,
+      "sha256": "e2df19efeb010a14d71283e55fc1d12c96b3070eb4c4696a11da25ca7da73da9"
+    },
+    "controls/75.006mTorr_250V_from0/ji_xt.dat": {
+      "size": 1159985,
+      "sha256": "e84a7d277e2e67af6cb2560d9f4dba464f4984099ac479932a1ed7dbffc7e7c3"
+    },
+    "controls/75.006mTorr_250V_from0/meanee_xt.dat": {
+      "size": 1120400,
+      "sha256": "d9b2eec40aeb39d9d3d2a51f2356f9410b1198195d99f7106bfc7211b3fe1bbc"
+    },
+    "controls/75.006mTorr_250V_from0/meanei_xt.dat": {
+      "size": 1120400,
+      "sha256": "4dc370e9a510b860fce1b6a8b5b9c19427070635aae748bdc75bad66d2221e8c"
+    },
+    "controls/75.006mTorr_250V_from0/metadata.json": {
+      "size": 1159,
+      "sha256": "548604c36850f37d4a17be7201540fc644c13f0891b1c45edd5c8f87c7c4143f"
+    },
+    "controls/75.006mTorr_250V_from0/ne_xt.dat": {
+      "size": 1120400,
+      "sha256": "84dad045ca92429f4459a6e7b306ce66aa1656e6bb0c3594bfb1f9884819c8b9"
+    },
+    "controls/75.006mTorr_250V_from0/ni_xt.dat": {
+      "size": 1120400,
+      "sha256": "cb0b2f58cbb6521167d5e7770f2aaaaf1cfb2f08cb5a166110c0ce04db59e096"
+    },
+    "controls/75.006mTorr_250V_from0/particle_balance.csv": {
+      "size": 1164,
+      "sha256": "96c8fce11b6e5a482333306ed0e439abbd66f83c659e74390ed883a04ff575e2"
+    },
+    "controls/75.006mTorr_250V_from0/picdata.bin": {
+      "size": 7104000,
+      "sha256": "056e5b49086de59e1c5e6cfeef71fdfcce721de9474ae4c72e8c39eb9e59cfbe"
+    },
+    "controls/75.006mTorr_250V_from0/pot_xt.dat": {
+      "size": 1126602,
+      "sha256": "c601513dd11346272fc2df3ebd99afa14a3453a21417d44e7cc3f060d93ce259"
+    },
+    "controls/75.006mTorr_250V_from0/powere_xt.dat": {
+      "size": 1160829,
+      "sha256": "0e6235b5e8352496d62e107a92d545d9214e857e1a3ac102ba36d4ad894e958f"
+    },
+    "controls/75.006mTorr_250V_from0/poweri_xt.dat": {
+      "size": 1128386,
+      "sha256": "cb4e50373d2b3679c03a2dfea6d316672d1e5e4ae57e272ff26383c011bc6b11"
+    },
+    "controls/75.006mTorr_250V_from0/run.log": {
+      "size": 2068,
+      "sha256": "413d3996eb610f604dbffe738239450b94b3590f6d0f27e9d8f0585779b1d45e"
+    },
+    "controls_summary.json": {
+      "size": 6227,
+      "sha256": "3a2748bd94e2176cee3df441ad211f07a8c36093e51464284cd49322dbee5ade"
+    },
+    "diagnostic.cc": {
+      "size": 57266,
+      "sha256": "5acbe3b6b8aa8f73655cbdcfcb95c75f2d490607f070700ac7e67d943b7ec4ef"
+    },
+    "diagnostic.patch": {
+      "size": 6578,
+      "sha256": "47e94108ff22349619598f5171811e14be524b803ea1c389df8157d5c92027cb"
+    },
+    "extinction_diagnosis.pdf": {
+      "size": 25840,
+      "sha256": "49f4a7cdfc43729ab7d8962d84d038e459da7a32b1323fff99a42472e5d71fd7"
+    },
+    "extinction_diagnosis.png": {
+      "size": 242700,
+      "sha256": "44c988f88b0f2295b03301dc144af50dcced1ce43955cd5dec2b5ae3d052ef1e"
+    },
+    "instrumentation_input_cycle300.bin": {
+      "size": 430208,
+      "sha256": "6d8762e48b27996d85f5da3b3017156937a59acb1214e313558153704630c730"
+    },
+    "instrumentation_test_diagnostic/conv.dat": {
+      "size": 29,
+      "sha256": "052054a5d39f283d8514cc816b636f0fe2217996a6b25a703e960ccee094991e"
+    },
+    "instrumentation_test_diagnostic/info.txt": {
+      "size": 2586,
+      "sha256": "dfe0900bab221414b86c2d3cd994b69c8ca8c6a4929bdffb8b986258acf2cb47"
+    },
+    "instrumentation_test_diagnostic/particle_balance.csv": {
+      "size": 385,
+      "sha256": "e15105a9511bb2fa8bfb9bdcea1c226f189605969cc3469e4508a9662fda4dcb"
+    },
+    "instrumentation_test_diagnostic/picdata.bin": {
+      "size": 420768,
+      "sha256": "885cf0fae92477d37a6c2304563ca958999292338affdf2c865ec66f86624cdb"
+    },
+    "instrumentation_test_diagnostic/run.log": {
+      "size": 1136,
+      "sha256": "9a6766a75e40799fa588381721df0df3269d89dcf4760532bef11d7feaa4c4d2"
+    },
+    "instrumentation_test_seeded_control/conv.dat": {
+      "size": 29,
+      "sha256": "052054a5d39f283d8514cc816b636f0fe2217996a6b25a703e960ccee094991e"
+    },
+    "instrumentation_test_seeded_control/info.txt": {
+      "size": 2586,
+      "sha256": "dfe0900bab221414b86c2d3cd994b69c8ca8c6a4929bdffb8b986258acf2cb47"
+    },
+    "instrumentation_test_seeded_control/picdata.bin": {
+      "size": 420768,
+      "sha256": "885cf0fae92477d37a6c2304563ca958999292338affdf2c865ec66f86624cdb"
+    },
+    "instrumentation_test_seeded_control/run.log": {
+      "size": 1136,
+      "sha256": "9a6766a75e40799fa588381721df0df3269d89dcf4760532bef11d7feaa4c4d2"
+    },
+    "instrumentation_verification.json": {
+      "size": 219,
+      "sha256": "8a31805ed1972ba7dbce1c6e37bdd68f5e80c4d49c2c2ed0aaf5f8b9059b8420"
+    },
+    "original_histories/100V_history.dat": {
+      "size": 33597,
+      "sha256": "3f63cb507a046919b839a3fdc429d3dfc23cad12f761635e1f4c01d5f732fa7d"
+    },
+    "original_histories/250V_history.dat": {
+      "size": 30488,
+      "sha256": "aed31c48f5d5844167391aa00871197ff7144f0982ec002c00e63ce4dbd946da"
+    },
+    "original_histories/300V_history.dat": {
+      "size": 36567,
+      "sha256": "45d6600be7c07b18bd82fc063116ec86e948a1d681c16d0b57f3c921f880ba74"
+    },
+    "package_report.py": {
+      "size": 4557,
+      "sha256": "a785d1c1ededa2e800c50c50bece91c8080acf078f4e4730d2c90e346395137f"
+    },
+    "production_source.cc": {
+      "size": 54511,
+      "sha256": "6b86a4a5b071d0d7eaf46cea42cb82e3f797494978bd7ff488276bc64ebc6531"
+    },
+    "provenance.json": {
+      "size": 486,
+      "sha256": "cbd60f6ece6cdccf3e42c7b022154938c1ca1d4df109e244072eead7a3ee3376"
+    },
+    "run_controls.py": {
+      "size": 4009,
+      "sha256": "c25ad05c452ed352d201dd457c992f881b1543750087a68090d9cae155e6667a"
+    },
+    "seeded_control.cc": {
+      "size": 54649,
+      "sha256": "4e8116fc67113c1b7aca1899825652f8b99492639aab5dc655a45f21bc1d668d"
+    }
+  }
+}

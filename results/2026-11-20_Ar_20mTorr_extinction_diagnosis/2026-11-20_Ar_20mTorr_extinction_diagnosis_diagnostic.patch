@@ -1,0 +1,119 @@
+--- a/C/eduPIC.cc
++++ b/C/eduPIC.cc
+@@ -164,6 +164,13 @@
+ int      arg1;                                               // used for reading command line arguments
+ char     st0[80];                                            // used for reading command line arguments
+ FILE     *datafile;                                          // used for saving data
++Ullong   diagnostic_ionization_events = 0;
++Ullong   diagnostic_excitation_events = 0;
++double   diagnostic_e_field_J = 0.0;
++double   diagnostic_i_field_J = 0.0;
++double   diagnostic_e_wall_J = 0.0;
++double   diagnostic_i_wall_J = 0.0;
++
+ bool     measurement_mode;                                   // flag that controls measurements and data saving
+ 
+ //---------------------------------------------------------------------------//
+@@ -350,12 +357,14 @@
+         chi = acos(1.0 - 2.0 * R01(MTgen));          // isotropic scattering
+         eta = TWO_PI * R01(MTgen);                   // azimuthal angle
+     } else if (rnd < (t1/t2)){                       // excitation
++        diagnostic_excitation_events++;
+         energy = 0.5 * E_MASS * g * g;               // electron energy
+         energy = fabs(energy - E_EXC_TH * EV_TO_J);  // subtract energy loss for excitation
+         g   = sqrt(2.0 * energy / E_MASS);           // relative velocity after energy loss
+         chi = acos(1.0 - 2.0 * R01(MTgen));          // isotropic scattering
+         eta = TWO_PI * R01(MTgen);                   // azimuthal angle
+     } else {                                         // ionization
++        diagnostic_ionization_events++;
+         energy = 0.5 * E_MASS * g * g;               // electron energy
+         energy = fabs(energy - E_ION_TH * EV_TO_J);  // subtract energy loss of ionization
+         e_ej  = 10.0 * tan(R01(MTgen) * atan(energy/EV_TO_J / 20.0)) * EV_TO_J; // energy of the ejected electron
+@@ -509,6 +518,14 @@
+ //---------------------------------------------------------------------//
+ 
+ void do_one_cycle (void){
++    const int start_ne = N_e, start_ni = N_i;
++    const Ullong start_births = diagnostic_ionization_events;
++    const Ullong start_excitations = diagnostic_excitation_events;
++    const Ullong start_el = N_e_abs_gnd, start_eu = N_e_abs_pow;
++    const Ullong start_il = N_i_abs_gnd, start_iu = N_i_abs_pow;
++    diagnostic_e_field_J = diagnostic_i_field_J = 0.0;
++    diagnostic_e_wall_J = diagnostic_i_wall_J = 0.0;
++
+     const double DV       = ELECTRODE_AREA * DX;
+     const double FACTOR_W = WEIGHT / DV;
+     const double FACTOR_E = DT_E / E_MASS * E_CHARGE;
+@@ -597,7 +614,9 @@
+             
+             // update velocity and position
+             
++            const double diagnostic_v_before = vx_e[k];
+             vx_e[k] -= e_x * FACTOR_E;
++            diagnostic_e_field_J += 0.5 * E_MASS * WEIGHT * (vx_e[k] - diagnostic_v_before) * (vx_e[k] + diagnostic_v_before);
+             x_e[k]  += vx_e[k] * DT_E;
+         }
+         
+@@ -626,7 +645,9 @@
+                 
+                 // update velocity and position and accumulate absorbed energy
+                 
++                const double diagnostic_v_before = vx_i[k];
+                 vx_i[k] += e_x * FACTOR_I;
++                diagnostic_i_field_J += 0.5 * AR_MASS * WEIGHT * (vx_i[k] - diagnostic_v_before) * (vx_i[k] + diagnostic_v_before);
+                 x_i[k]  += vx_i[k] * DT_I;
+             }
+         }
+@@ -639,6 +660,7 @@
+             if (x_e[k] < 0) {N_e_abs_gnd++; out = true;}    // lower, grounded electrode
+             if (x_e[k] > L) {N_e_abs_pow++; out = true;}    // upper, powered electrode
+             if (out) {                                      // remove the electron, if out
++                diagnostic_e_wall_J += 0.5 * E_MASS * WEIGHT * (vx_e[k]*vx_e[k] + vy_e[k]*vy_e[k] + vz_e[k]*vz_e[k]);
+                 x_e [k] = x_e [N_e-1];
+                 vx_e[k] = vx_e[N_e-1];
+                 vy_e[k] = vy_e[N_e-1];
+@@ -668,6 +690,7 @@
+                     if (energy_index < N_IFED) {ifed_pow[energy_index]++;}        // upper, powered IFED
+                 }
+                 if (out) {  // delete the ion, if out
++                    diagnostic_i_wall_J += 0.5 * AR_MASS * WEIGHT * (vx_i[k]*vx_i[k] + vy_i[k]*vy_i[k] + vz_i[k]*vz_i[k]);
+                     x_i [k] = x_i [N_i-1];
+                     vx_i[k] = vx_i[N_i-1];
+                     vy_i[k] = vy_i[N_i-1];
+@@ -728,6 +751,21 @@
+         if ((t % 1000) == 0) printf(" c = %8d  t = %8d  #e = %8d  #i = %8d\n", cycle,t,N_e,N_i);
+     }
+     fprintf(datafile,"%8d  %8d  %8d\n",cycle,N_e,N_i);
++    double electron_K_J = 0, ion_K_J = 0;
++    for (int k = 0; k < N_e; ++k) electron_K_J += 0.5 * E_MASS * WEIGHT * (vx_e[k]*vx_e[k]+vy_e[k]*vy_e[k]+vz_e[k]*vz_e[k]);
++    for (int k = 0; k < N_i; ++k) ion_K_J += 0.5 * AR_MASS * WEIGHT * (vx_i[k]*vx_i[k]+vy_i[k]*vy_i[k]+vz_i[k]*vz_i[k]);
++    FILE *df = fopen("particle_balance.csv", "a");
++    if (!df) {perror("particle_balance.csv"); exit(2);}
++    if (ftell(df) == 0) fprintf(df, "RF_cycle,start_e,start_i,end_e,end_i,ionizations,excitations,e_loss_lower,e_loss_upper,i_loss_lower,i_loss_upper,e_field_work_J,i_field_work_J,e_wall_energy_J,i_wall_energy_J,e_kinetic_J,i_kinetic_J\n");
++    fprintf(df, "%d,%d,%d,%d,%d,%llu,%llu,%llu,%llu,%llu,%llu,%.16e,%.16e,%.16e,%.16e,%.16e,%.16e\n",
++            cycle,start_ne,start_ni,N_e,N_i,
++            (unsigned long long)(diagnostic_ionization_events-start_births),
++            (unsigned long long)(diagnostic_excitation_events-start_excitations),
++            (unsigned long long)(N_e_abs_gnd-start_el),(unsigned long long)(N_e_abs_pow-start_eu),
++            (unsigned long long)(N_i_abs_gnd-start_il),(unsigned long long)(N_i_abs_pow-start_iu),
++            diagnostic_e_field_J,diagnostic_i_field_J,diagnostic_e_wall_J,diagnostic_i_wall_J,electron_K_J,ion_K_J);
++    fclose(df);
++
+ }
+ 
+ //---------------------------------------------------------------------//
+@@ -1049,6 +1087,7 @@
+ //------------------------------------------------------------------------------------------//
+ 
+ int main (int argc, char *argv[]){
++    if (const char *seed = getenv("EDUPIC_DIAGNOSTIC_SEED")) MTgen.seed(static_cast<unsigned>(strtoul(seed, nullptr, 10)));
+     printf(">> eduPIC: starting...\n");
+     printf(">> eduPIC: **************************************************************************\n");
+     printf(">> eduPIC: Copyright (C) 2021 Z. Donko et al.\n");
+@@ -1108,4 +1147,5 @@
+         check_and_save_info();
+     }
+     printf(">> eduPIC: simulation of %d cycle(s) is completed.\n",no_of_cycles);
+-}
++    return 0;
++}
