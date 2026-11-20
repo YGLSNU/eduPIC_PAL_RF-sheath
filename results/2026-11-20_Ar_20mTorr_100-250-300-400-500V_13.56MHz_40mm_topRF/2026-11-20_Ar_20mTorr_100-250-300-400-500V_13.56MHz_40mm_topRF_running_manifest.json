@@ -1,50 +1,50 @@
 {
-  "created_at_Asia_Seoul": "2026-11-20T17:20:11.258678+09:00",
+  "created_at_Asia_Seoul": "2026-11-20T18:20:12.821775+09:00",
   "status": "IN_PROGRESS_NOT_CONVERGED",
   "cases": [
     {
       "voltage_peak_V": 100,
-      "RF_cycle": 421,
-      "electrons": 47917,
-      "ions": 49481,
-      "time_seconds": 3.104719764057952e-05,
-      "sha256": "759b2a7a13fe3c060094fef675864bbf013ad10df2dd494bb3383a1e1dfb79fc",
+      "RF_cycle": 2440,
+      "electrons": 12612,
+      "ions": 13736,
+      "time_seconds": 0.00017994100291008524,
+      "sha256": "3e090e20687e9aeb9aaa812c21b9c213027ede24b92aef5691ca06a16a1e0a76",
       "status_at_snapshot": "running"
     },
     {
       "voltage_peak_V": 250,
-      "RF_cycle": 361,
-      "electrons": 71823,
-      "ions": 74510,
-      "time_seconds": 2.662241887941432e-05,
-      "sha256": "412d449dd8eaeeac6ed97fbfc1d5166879e2892b5872b68d7f8a3f9e2cd1a150",
+      "RF_cycle": 1121,
+      "electrons": 46974,
+      "ions": 49380,
+      "time_seconds": 8.266961651288853e-05,
+      "sha256": "274c5d2c63c37c29cef86c9ec419b0f6cfd679a07552012721ea0fab769cdf7f",
       "status_at_snapshot": "running"
     },
     {
       "voltage_peak_V": 300,
-      "RF_cycle": 361,
-      "electrons": 79655,
-      "ions": 82632,
-      "time_seconds": 2.662241887941432e-05,
-      "sha256": "a14fd7d5a902dfe8b02a6a0ef396e25c04c11e0c1dbf8c5e1f2d9fbf8ed06350",
+      "RF_cycle": 961,
+      "electrons": 60032,
+      "ions": 62830,
+      "time_seconds": 7.087020648745148e-05,
+      "sha256": "5787fd40fda86ac0bbc3fff5003c15d9f4ad6e6c1dce1450a52321b642c6aed5",
       "status_at_snapshot": "running"
     },
     {
       "voltage_peak_V": 400,
-      "RF_cycle": 321,
-      "electrons": 98140,
-      "ions": 101770,
-      "time_seconds": 2.3672566371970854e-05,
-      "sha256": "429a6a76cabbb77113bedb70277184c6fd13ea068c340d1bbf9aeb573dd4fb4f",
+      "RF_cycle": 761,
+      "electrons": 85836,
+      "ions": 89381,
+      "time_seconds": 5.612094395384897e-05,
+      "sha256": "7502ddf70d2e695e202ad7ebe092088704cbfaa37911a85a6deabddf0e70cf88",
       "status_at_snapshot": "running"
     },
     {
       "voltage_peak_V": 500,
-      "RF_cycle": 301,
-      "electrons": 114267,
-      "ions": 118530,
-      "time_seconds": 2.219764011824912e-05,
-      "sha256": "f392b1f7877e04dbc7352466927b80a38d2d298e69cb766a8ec6fc263064c5e3",
+      "RF_cycle": 661,
+      "electrons": 110431,
+      "ions": 114651,
+      "time_seconds": 4.874631268524031e-05,
+      "sha256": "9af45f5cb83a628a8305328fba2f6c376aedde2aff10040eec6b3ea520a98019",
       "status_at_snapshot": "running"
     }
   ],
@@ -85,6 +85,6 @@
       "500": 51
     }
   },
-  "zip_bytes": 25736572,
-  "zip_sha256": "35ded7d6ebdb6b2627ddeffd2cf9d4994f31bcaa9344deead83d8e95633e12da"
+  "zip_bytes": 19827268,
+  "zip_sha256": "b1c3e5dffe233fb1a645981023ac08bb6e6c18cd77626cfbe5e87599caeda3ad"
 }
