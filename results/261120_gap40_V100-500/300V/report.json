@@ -41,8 +41,13 @@
     {
       "id": "density",
       "availability": "RF1782–1921 (140 RF)",
-      "text": "아래 분포 그림의 첫 패널은 전체 측정 구간의 평균 밀도입니다.",
-      "images": []
+      "text": "",
+      "images": [
+        {
+          "path": "figures/density.png",
+          "caption": "전체 측정 구간의 평균 전자·이온 밀도"
+        }
+      ]
     },
     {
       "id": "heating",
@@ -69,8 +74,13 @@
     {
       "id": "ionization",
       "availability": "RF1782–1921 (140 RF)",
-      "text": "평균 전자 에너지와 이온화율은 heating 묶음 그림에 함께 표시했습니다.",
-      "images": []
+      "text": "",
+      "images": [
+        {
+          "path": "figures/ionization.png",
+          "caption": "전체 측정 구간의 평균 전자 에너지·이온화율"
+        }
+      ]
     },
     {
       "id": "distributions",
@@ -97,8 +107,13 @@
     {
       "id": "power",
       "availability": "RF1782–1921 (140 RF)",
-      "text": "field-work는 이산 입자 속도 갱신의 일입니다. 벽 항은 운동에너지 유출이며 전체 벽 열부하가 아닙니다. 미계측 기체 전달·저장 항이 있어 완전한 전력 폐합 표로 해석하지 않습니다.",
-      "images": []
+      "text": "field-work는 이산 입자 속도 갱신의 일이며, 벽 항은 운동에너지 유출입니다. 미계측 기체 전달·저장 항이 있어 완전한 전력 폐합이나 전체 벽 열부하를 뜻하지 않습니다.",
+      "images": [
+        {
+          "path": "figures/power.png",
+          "caption": "전체 측정 구간의 측정된 전력 채널"
+        }
+      ]
     }
   ],
   "downloads": [

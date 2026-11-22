@@ -55,9 +55,9 @@
     "git_blob": "f006f5575609b7dc50ec2c45ee50f6dace3778ec"
   },
   "100V/README.md": {
-    "bytes": 8567,
-    "sha256": "aa7d0bcc1e7d6be141df5f69af6d604cbdbc5deab990fa328020ad90c2875a44",
-    "git_blob": "72506f054fd210f5f32788081f7981d27a1312a8"
+    "bytes": 8776,
+    "sha256": "d33249096bad3867e26f5c2d841ff0116064505728f4d3817ab94bb150ccf3a6",
+    "git_blob": "d062f11a598659d0cfe2147d62c42d64aaf2fc68"
   },
   "100V/data/diagnostics.json": {
     "bytes": 1748,
@@ -99,6 +99,11 @@
     "sha256": "d601e3dc03c750c3d9c1dc1432eefe06fd2d57cb8b6ecfb7fd7842b50415fa6d",
     "git_blob": "00012233c119a80c058bb220f7771477f63315b9"
   },
+  "100V/figures/density.png": {
+    "bytes": 53350,
+    "sha256": "eebb11ba43e0baa2fc8e4de1e2c0851cd8ea56c1d4ec20db2599e298a4e21bd8",
+    "git_blob": "0aa84e5dae601a5ab0a73a8f955b3048fe3454ce"
+  },
   "100V/figures/distributions.png": {
     "bytes": 153990,
     "sha256": "fd9d5595f42bd576d964208f6d14b6c4a350986fc7a54dd622f762f75b3c47e8",
@@ -114,6 +119,16 @@
     "sha256": "e0ab2f79de5fd54d997cfe10bbdc5a8921bf27f8818158bc94f9acb66fd955ed",
     "git_blob": "fc33bc926fe9f3d5bcbff9e29028bd224cb855ff"
   },
+  "100V/figures/ionization.png": {
+    "bytes": 255998,
+    "sha256": "23013f61d54964948ed844db163220ebd209b32d7bc48b6edb37fd2b9d1fee23",
+    "git_blob": "de9d0efcb3a86f810a1d78fb82172bffeb6c0883"
+  },
+  "100V/figures/power.png": {
+    "bytes": 52617,
+    "sha256": "a56c84bb49154d6e88954468377528ebfbdd74da63e80e8760369e402fefa80d",
+    "git_blob": "d6722ed8f42c916a16505a2b87b09ff4d0746a5a"
+  },
   "100V/figures/setup.png": {
     "bytes": 14632,
     "sha256": "b3d190f44e105b425bf6cfc5ca856c852f4a0e83e3a21136cc769a96c2d2d5f3",
@@ -125,9 +140,9 @@
     "git_blob": "e646972f45b30c4a6b86791c5c6c7ca671d2ec56"
   },
   "100V/report.json": {
-    "bytes": 9243,
-    "sha256": "dae81370968c0211a7264d3abac265c3e7cdd908c8824fe3f54c4c5c1940572d",
-    "git_blob": "12dda2bc3dd42b83a6d9a21cb0d3f7ef7e2394b2"
+    "bytes": 9484,
+    "sha256": "e258ea294fe2b812b7292df90cf7260c865dabe44efeb227349680ed24a3a70d",
+    "git_blob": "423370cb4a55da5c205eb0e73fe03bada0790e47"
   },
   "250V/261120_gap40_250V_core.zip": {
     "bytes": 27985808,
@@ -155,9 +170,9 @@
     "git_blob": "7a3f501632e9cb35713cc8365f45b5effcf625c6"
   },
   "250V/README.md": {
-    "bytes": 6994,
-    "sha256": "8fd0b3c8655d0725b2d6b01dc4ddd1abc82fd02073223ab8df5711e5b71411bf",
-    "git_blob": "88756da0f1ee8856125ef35ea4d0dff3a39ec689"
+    "bytes": 7203,
+    "sha256": "527497bb63bd6e5841313fc9cf9c28f885f7ea4bdca12033761aaa7604eec114",
+    "git_blob": "519e4778ffaaf8fc1d9505a4723131b9f360e92f"
   },
   "250V/data/diagnostics.json": {
     "bytes": 1783,
@@ -199,6 +214,11 @@
     "sha256": "6352e1d105114875a9cc6523baa9e568a0f6c629552074eafadd4e68a13daf8b",
     "git_blob": "26cc18f42df933964e630fb582349ea3cc87fa8c"
   },
+  "250V/figures/density.png": {
+    "bytes": 52401,
+    "sha256": "92774f879f7c7e8efa612d6716952fa0b5a5caa3ba8b9e9901a3fd22d769c6a6",
+    "git_blob": "94a8cc6cc179040b856d10a66fc9bf919f79c572"
+  },
   "250V/figures/distributions.png": {
     "bytes": 162507,
     "sha256": "392b06dca5200545efe2182e23370db99038ce31e6908cc5398673678d8f81ca",
@@ -214,6 +234,16 @@
     "sha256": "71cca1ae8e917a2fa058c2110cfaf13f01994d170a8d113e444b40a5e049c59e",
     "git_blob": "4ca1e6ea212f4c06d233724960755fa86e61ed68"
   },
+  "250V/figures/ionization.png": {
+    "bytes": 244268,
+    "sha256": "34b6624bcd5f67ea1a01c4896166561eae8a7a97b853d1b20467428a0979be08",
+    "git_blob": "87db28d5bde6aad54957054fa917f4d9cfb4503e"
+  },
+  "250V/figures/power.png": {
+    "bytes": 52587,
+    "sha256": "f0fa3d0e88116725199344502974e2fd89d7241aebbefd4eb6785209c57b2392",
+    "git_blob": "43f6b39631ed897f2ce73a9a86ae620463bb2278"
+  },
   "250V/figures/setup.png": {
     "bytes": 14690,
     "sha256": "7fe0c45391b13f180d4a135510bf2c799a99343a0c3823431d37321630742ec5",
@@ -225,9 +255,9 @@
     "git_blob": "29fb4374e46a4b19af3fafe5c2dd4d9b55f3c398"
   },
   "250V/report.json": {
-    "bytes": 7454,
-    "sha256": "f21ea35fc0ccf2db4cf31541784c95b2840cb277bd82a77bb17aefe142074ac0",
-    "git_blob": "1bdcee8a6de27c9d14441896bc017c5197278f52"
+    "bytes": 7695,
+    "sha256": "215a3dea7869be09aab20cffa1a98e5514832dc42c863b49360e172a9bfd236f",
+    "git_blob": "f94e187a2b287f0e3ce9ba82a23c340ecb0bf5fb"
   },
   "261120_gap40_V100-500_AREA_REVIEW.md": {
     "bytes": 3667,
@@ -305,9 +335,9 @@
     "git_blob": "030c4ea758a0a0e28467853040c8990765406e93"
   },
   "300V/README.md": {
-    "bytes": 6733,
-    "sha256": "63c13ce368a0da2d005a6412274af1cdbf63c92be509ed4e2643125d1d4100aa",
-    "git_blob": "88f2b8ca7a793634dabfcf7b8e4d042a8528c9cd"
+    "bytes": 6942,
+    "sha256": "4951fc3591012dc2ebea434d9918d8e1fb52750f8b1f48e6db76ac94e4fd9403",
+    "git_blob": "c47e7e7bd81fa1f6a57a54170c43c1c2e24864b7"
   },
   "300V/data/diagnostics.json": {
     "bytes": 1747,
@@ -349,6 +379,11 @@
     "sha256": "e303727cb6a4d517618fafed18048fd3bc4c998cd15d308f2e0803037a11750d",
     "git_blob": "48000332f42b3ad7448d1c1975af62495f0e192d"
   },
+  "300V/figures/density.png": {
+    "bytes": 53874,
+    "sha256": "336628086904b74bd247a05a51f76d98d5208036478036c4f9ad0e170dc16753",
+    "git_blob": "d29d4fb5575ba266b526b83067d7cccc3dc996d3"
+  },
   "300V/figures/distributions.png": {
     "bytes": 163781,
     "sha256": "a4ebdc3ed554555c875f0fba513df930ab323d96ce6daa2e576207504096ceb6",
@@ -364,6 +399,16 @@
     "sha256": "51565af3b355c39f33ba59fc7018baf86a11692b34f15763d73742d47df830a5",
     "git_blob": "0131e644aed44391e93cb64c501ccebd374b0fb9"
   },
+  "300V/figures/ionization.png": {
+    "bytes": 235700,
+    "sha256": "aed925a506ec5cd05521b2ce702cb4e8f2b603495038ab00f5534fc9bf9e7274",
+    "git_blob": "d7b2c46ce714c82afe9e781924a5466f6eb80e17"
+  },
+  "300V/figures/power.png": {
+    "bytes": 53975,
+    "sha256": "659a4daa976b02f33cc69da6cb099d506f2d81e3133519185086e64979fd7137",
+    "git_blob": "3ea8dfb834a9cb31685bc752a6687d0fbdbf748e"
+  },
   "300V/figures/setup.png": {
     "bytes": 14801,
     "sha256": "cb507e70e46534f5323b8da67757f0923bda5e3070e95b7088ca785d2d5a3ec3",
@@ -375,9 +420,9 @@
     "git_blob": "592cb7930e3213bf7c1115ab4a5e69a25a354235"
   },
   "300V/report.json": {
-    "bytes": 7157,
-    "sha256": "6e8a6da2203d592af3157b2b92eba0b50633ebc1ec32174c154a91b6d3dcc48a",
-    "git_blob": "714a799a63ce2f73af140a330690f38f12e24869"
+    "bytes": 7398,
+    "sha256": "dea1cb1ff2a58c117250afb731e9edddc107a1503ac99da602568aa7a08d684d",
+    "git_blob": "0f31d32c57e5593bfcdb48d18d757e3a42c9a2ba"
   },
   "400V/261120_gap40_400V_core.zip": {
     "bytes": 32169006,
@@ -400,9 +445,9 @@
     "git_blob": "274f716faecfe79012b1a09fde49b882eb469421"
   },
   "400V/README.md": {
-    "bytes": 6733,
-    "sha256": "724a82001ac866aef747f1f8db5747568df0a5325cc3f70fc6121f200aff53b4",
-    "git_blob": "f06d30950ee5f2aab28ebe4951799aa9440cd14c"
+    "bytes": 6942,
+    "sha256": "027b75ff58fba2d8893ca6ee8a639e281f0f9ef2048d97a2e15843a8175abf4a",
+    "git_blob": "ba62b3d91afd49e707dc51303d1210f3416b9e61"
   },
   "400V/data/diagnostics.json": {
     "bytes": 1765,
@@ -444,6 +489,11 @@
     "sha256": "767e5ecf08b5e5f2ecebb5c49983d748c6770cfcb9bfaf8ef0890eb9a06f112c",
     "git_blob": "3d02b9296bb80d3ca4b86d5513f9fbc339dd105b"
   },
+  "400V/figures/density.png": {
+    "bytes": 48823,
+    "sha256": "002944c1c078e85d07f2cdd670051c212b5b3a04d26cfcfa9e6bc6a19f85106a",
+    "git_blob": "3efcc163d50b9a7c2a99a2167d9c6ec638b1c49e"
+  },
   "400V/figures/distributions.png": {
     "bytes": 164179,
     "sha256": "9c824702b117ac61f505d0775c8c2a0d7f5267a4d469ed06bcc106c2e56efdd4",
@@ -459,6 +509,16 @@
     "sha256": "8d4d54ae31c8fb250fa33b1aaf32ef537f3f910eb7dabf5807c37caad873aafe",
     "git_blob": "8311d66c2f2c1dcd28a898a3212abe44073267b6"
   },
+  "400V/figures/ionization.png": {
+    "bytes": 231992,
+    "sha256": "f4cfdf613e42eea5aec8cf04cd49bc5d4349bcb1fd647535c329ed54bfb443ad",
+    "git_blob": "2a9b8a20edf8ee9b5c14895632b7592d38ee03d9"
+  },
+  "400V/figures/power.png": {
+    "bytes": 54828,
+    "sha256": "ace1d52a2a027c671ba179c7cfbd6e7b041297930c837db2931e9fb69a25cfda",
+    "git_blob": "0faa503aa2364b0a694a7f5fa832674881286e64"
+  },
   "400V/figures/setup.png": {
     "bytes": 14742,
     "sha256": "df2f6dc8830b64bd3ed46e2ed8563f6c9a11181e0350b5bceb0e0fcfb79a7733",
@@ -470,9 +530,9 @@
     "git_blob": "0ffb728c23cd818c4e5241c7329f1455dda5dbd9"
   },
   "400V/report.json": {
-    "bytes": 7157,
-    "sha256": "8fda72a2cb15b2607d448e534e1db4579c96789f6e7bb83afaa9f55923768d82",
-    "git_blob": "518783721d648499cdf9fa60dfe31efe91ce56b9"
+    "bytes": 7398,
+    "sha256": "30434851e6f00d35067537b1c0740fef16a1561da7d36fe51d9a1f846506cf65",
+    "git_blob": "359d9e59fc50a9097cf91de204ede3631ef9ca2d"
   },
   "500V/261120_gap40_500V_core.zip": {
     "bytes": 35164276,
@@ -495,9 +555,9 @@
     "git_blob": "9189e4cbaf6ddd66a6065fb82892397b9f427b91"
   },
   "500V/README.md": {
-    "bytes": 6735,
-    "sha256": "50c1805cc94979de60039de6c003e964fb5f788ab64079fadfc446d45f8ea91c",
-    "git_blob": "5e22a29cf2de3f309186db67b1de307a0f41ef04"
+    "bytes": 6944,
+    "sha256": "8d024d5fb5bd74c4400fdf9c84362082e7136fac5d5b98a105caaef7cb2407cb",
+    "git_blob": "a61156d8f2d23028d2d6d5ca73a8177633f15814"
   },
   "500V/data/diagnostics.json": {
     "bytes": 1747,
@@ -539,6 +599,11 @@
     "sha256": "7eeb844acb1b7fb12ff531acc2c7c8b11c708403662869eee0a02f403810a58c",
     "git_blob": "ce60aca267b2c438d54c680137513db3c60b1ad4"
   },
+  "500V/figures/density.png": {
+    "bytes": 49560,
+    "sha256": "dec07077e27d5a4fee13bbda6975c420e6e496b77e0924dbe4c69381fe483aaa",
+    "git_blob": "a50ddfbbc2f65553328e0f4188828bc866314a8a"
+  },
   "500V/figures/distributions.png": {
     "bytes": 162012,
     "sha256": "153d44819b4dbb671a331dfc2908fd1b5d61c74ba690d11790e3bc3808ead7a7",
@@ -554,6 +619,16 @@
     "sha256": "677d061eeb338ee5d9484a219fba982dd9a91a556e2017b9319ed265af8bbb9c",
     "git_blob": "21706f7b9e30cfb7f1676a36bdccbd682414aaf0"
   },
+  "500V/figures/ionization.png": {
+    "bytes": 226293,
+    "sha256": "63b39c8348794ef96bbd34e851732298fa7f70b912a8ccffa78821ab91c6c402",
+    "git_blob": "9e66effdf966bf456021bc91bba59222694e3a03"
+  },
+  "500V/figures/power.png": {
+    "bytes": 56913,
+    "sha256": "5586ac2b5d47a54634e063582128f3366c9ccbe29419fe6e86e50467423beac0",
+    "git_blob": "84dc0a3923d9919bf43422a1f5b2360360b7bbce"
+  },
   "500V/figures/setup.png": {
     "bytes": 14771,
     "sha256": "09d89dd47e07b6a8cc36dbdea4a14ff80b8e9ab3395dd55fb32c7cd2e18d22fc",
@@ -565,9 +640,9 @@
     "git_blob": "ec0fd131fe04b93055de83dd81544e890f706b4c"
   },
   "500V/report.json": {
-    "bytes": 7159,
-    "sha256": "2a427550433b6ca525c90b5801860dac51473b405fae08512f82e15c788893d9",
-    "git_blob": "ce96e347a62872a91e22a91ccb3d7a02ceb3ac85"
+    "bytes": 7400,
+    "sha256": "d5b86c7f3f366dcbde8fcb2d79935b5d095b641c69d5e16a63a3edc5dd3ea7f1",
+    "git_blob": "f166a7c25909f962d57777871129c3bec4ed3bab"
   },
   "DETAILS.md": {
     "bytes": 10340,
@@ -575,23 +650,53 @@
     "git_blob": "c49522a9c115d4b75eb12abebcb3529583e21172"
   },
   "README.md": {
-    "bytes": 5617,
-    "sha256": "ce181d2fa30ac38e3874cc205b62b0c35a5700164dfbf4e15dcca2e878ba4834",
-    "git_blob": "98f372b5e482fd4ea66cd73aa9681f837b01de49"
+    "bytes": 7937,
+    "sha256": "d0af48838989e887d8f9f163a7774026163d9be2e4cff7a4249fc5017bc6a1d8",
+    "git_blob": "f9e4c2280531a0830c3cb688619aa6ef310516f0"
   },
   "comparison_metrics.png": {
     "bytes": 132085,
     "sha256": "7bee3219c8aecd994827ade3e479428dc666ce4370dcb47b9887dac8435f6b23",
     "git_blob": "815a4f3da08ffccfac265c33d514b309fec4ace2"
   },
+  "density_compare.png": {
+    "bytes": 142639,
+    "sha256": "c07e45e526020bd0dea42fde871116bd995c26057a84cc3942e5e3548fe0efb9",
+    "git_blob": "b5dd7ce00586af9ee8b04b9a66d3851ae785bc3f"
+  },
+  "distributions_compare.png": {
+    "bytes": 238388,
+    "sha256": "5a9d22e2d355fc1e2a23e9a01d86048dc4f1cabb85f94930c2d7ec2b6d4a7f33",
+    "git_blob": "1c127fd805a5e17d2cdba8caa9b8086f3a0c1f7b"
+  },
+  "fields_compare.png": {
+    "bytes": 323202,
+    "sha256": "065e7268ba345e7fcdb7f970787ce7f86e056559fb6cf6e05d1e15d77a6ede23",
+    "git_blob": "bd37a887bb365168de009b76ae980bbb339400d3"
+  },
   "heating_compare.png": {
     "bytes": 445675,
     "sha256": "0f97bc987c31fcbc06122b3ff89940d9bc0d4fc54bb513dcbd1a8b64eae62472",
     "git_blob": "f3c24cfe9a2992e10d764b16e1d06a6dd21fce8c"
   },
+  "ionization_compare.png": {
+    "bytes": 645692,
+    "sha256": "7e4db55706078027a13812891d7aaf8d4e452103eaadc645b3128eeb75fbdf88",
+    "git_blob": "a4c975bf56f5b824914f0d4deab73652974bae5b"
+  },
+  "power_compare.png": {
+    "bytes": 117978,
+    "sha256": "a0b24a1f2ba8a5ccaee34102af975c02a3dd90c51dc2e78eb9f337af160e0cba",
+    "git_blob": "c8445642b5ae9a4e21656bb13c3991baf4946189"
+  },
   "run.json": {
-    "bytes": 5341,
-    "sha256": "ee211f134d99518752cc51da2b8f4ec9c617b48d76a9306453c2690abfa25d10",
-    "git_blob": "2758184b219666e7cb93948627af7ef314bac974"
+    "bytes": 7445,
+    "sha256": "b8706bf187bd6b1f5ca530afaa745351aa4fc5bbea3872c543719a2ffe336d18",
+    "git_blob": "d633146c105565ab46d7923c2fe280d62a6fc27f"
+  },
+  "walls_compare.png": {
+    "bytes": 109837,
+    "sha256": "064e001bb348af5a77be98e5762f7342f4eae9e8a9c811152d27e8088b666706",
+    "git_blob": "4c8a641b0bdb943885672eb39ad0205da40c9856"
   }
 }

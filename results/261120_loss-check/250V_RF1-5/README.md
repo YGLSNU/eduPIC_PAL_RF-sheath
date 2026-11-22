@@ -73,7 +73,7 @@ TRANSIENT 5 RF | 20.000 mTorr | 250 V | 25 mm | RF 1-5
 
 ## 평균 에너지·이온화
 
-
+5 RF 과도구간; heating 묶음 그림
 
 ## 에너지 분포
 
@@ -85,7 +85,7 @@ TRANSIENT 5 RF | 20.000 mTorr | 250 V | 25 mm | RF 1-5
 
 ## 전극 flux·손실
 
-
+5 RF 입자 흡수 사건 수; particle_balance.csv
 
 ## 전력 전달·손실
 

@@ -44,12 +44,12 @@
     },
     {
       "id": "density",
-      "availability": "각 조건의 최종 측정 평균",
-      "text": "",
+      "availability": "전압별 전체 측정 구간 비교",
+      "text": "각 그림은 100·250·300·400·500 V를 비교합니다. 전압별 상세 그림·CSV는 위 조건별 결과 표에서 열 수 있습니다.",
       "images": [
         {
-          "path": "comparison_metrics.png",
-          "caption": "밀도·측정된 전력 채널·양 전극 이온 flux의 전압 의존성"
+          "path": "density_compare.png",
+          "caption": "전압별 전자·이온 밀도 공간분포. 각 조건의 전체 측정 구간 평균입니다."
         }
       ]
     },
@@ -66,33 +66,59 @@
     },
     {
       "id": "fields",
-      "availability": "100/250/300/400/500V 상세 보고서",
-      "text": "",
-      "images": []
+      "availability": "전압별 전체 측정 구간 비교",
+      "text": "각 그림은 100·250·300·400·500 V를 비교합니다. 전압별 상세 그림·CSV는 위 조건별 결과 표에서 열 수 있습니다.",
+      "images": [
+        {
+          "path": "fields_compare.png",
+          "caption": "위: 전위, 아래: 전기장. 행마다 공통 색상 범위, 각 조건의 전체 측정 구간 평균입니다."
+        }
+      ]
     },
     {
       "id": "ionization",
-      "availability": "각 조건의 상세 보고서",
-      "text": "",
-      "images": []
+      "availability": "전압별 전체 측정 구간 비교",
+      "text": "각 그림은 100·250·300·400·500 V를 비교합니다. 전압별 상세 그림·CSV는 위 조건별 결과 표에서 열 수 있습니다.",
+      "images": [
+        {
+          "path": "ionization_compare.png",
+          "caption": "위: 평균 전자 에너지, 아래: 이온화율. 행마다 공통 색상 범위입니다."
+        }
+      ]
     },
     {
       "id": "distributions",
-      "availability": "마지막20RF 분포를 상세 보고서에 별도 표시",
-      "text": "",
-      "images": []
+      "availability": "전압별 마지막20RF 분포",
+      "text": "각 그림은 100·250·300·400·500 V를 비교합니다. 전압별 상세 그림·CSV는 위 조건별 결과 표에서 열 수 있습니다.",
+      "images": [
+        {
+          "path": "distributions_compare.png",
+          "caption": "중앙 EEPF와 상·하부 전극 IEDF. 각 전압의 마지막20RF 진단만 사용했습니다."
+        }
+      ],
+      "table": "| V peak | 밀도·장·heating·flux 평균 RF | EEPF·IEDF 진단 RF |\n|---:|---|---|\n| 100 | 2001–2700 | 2681–2700 |\n| 250 | 1822–2001 | 1982–2001 |\n| 300 | 1782–1921 | 1902–1921 |\n| 400 | 1662–1801 | 1782–1801 |\n| 500 | 1262–1381 | 1362–1381 |"
     },
     {
       "id": "walls",
-      "availability": "전체 측정 사건 수로 계산한 상·하부 flux",
-      "text": "",
-      "images": []
+      "availability": "전압별 전체 측정 구간 비교",
+      "text": "각 그림은 100·250·300·400·500 V를 비교합니다. 전압별 상세 그림·CSV는 위 조건별 결과 표에서 열 수 있습니다.",
+      "images": [
+        {
+          "path": "walls_compare.png",
+          "caption": "전자·이온 flux는 전체 측정 구간, 평균 이온 입사 에너지는 마지막20RF입니다."
+        }
+      ]
     },
     {
       "id": "power",
-      "availability": "field-work·벽 운동에너지·측정된 충돌 문턱 채널; W/m²",
-      "text": "",
-      "images": []
+      "availability": "전압별 전체 측정 구간 비교",
+      "text": "각 그림은 100·250·300·400·500 V를 비교합니다. 전압별 상세 그림·CSV는 위 조건별 결과 표에서 열 수 있습니다.",
+      "images": [
+        {
+          "path": "power_compare.png",
+          "caption": "입자 field-work와 측정된 에너지 손실 채널. 완전한 에너지 폐합이나 발생기 총 W를 뜻하지 않습니다."
+        }
+      ]
     }
   ],
   "downloads": [
@@ -127,7 +153,7 @@
   ],
   "details": "DETAILS.md",
   "summary": "다섯 조건 모두 전자 소멸 없이 정한 통계 중단 기준을 충족했습니다. 공간·시간 평균 전자 밀도는 100V의 3.55×10¹⁴에서 500V의 3.05×10¹⁵ m⁻³로 증가했습니다. 기존 조밀 입자 상태를 이용한 방전 유지 시험이며 점화 전압 시험과 구분합니다.",
-  "measurement_note": "전압별140/120/180/700 등 상이함; 아래 표와 개별 보고서의 정확한 RF 구간 참조",
+  "measurement_note": "100/250/300/400/500V에서 각각700/180/140/140/120RF 평균. EEPF·IEDF는 각 마지막20RF.",
   "cases": [
     {
       "voltage_V": 100,

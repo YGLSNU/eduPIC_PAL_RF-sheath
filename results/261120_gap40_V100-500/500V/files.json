@@ -20,9 +20,9 @@
     "git_blob": "9189e4cbaf6ddd66a6065fb82892397b9f427b91"
   },
   "README.md": {
-    "bytes": 6735,
-    "sha256": "50c1805cc94979de60039de6c003e964fb5f788ab64079fadfc446d45f8ea91c",
-    "git_blob": "5e22a29cf2de3f309186db67b1de307a0f41ef04"
+    "bytes": 6944,
+    "sha256": "8d024d5fb5bd74c4400fdf9c84362082e7136fac5d5b98a105caaef7cb2407cb",
+    "git_blob": "a61156d8f2d23028d2d6d5ca73a8177633f15814"
   },
   "data/diagnostics.json": {
     "bytes": 1747,
@@ -64,6 +64,11 @@
     "sha256": "7eeb844acb1b7fb12ff531acc2c7c8b11c708403662869eee0a02f403810a58c",
     "git_blob": "ce60aca267b2c438d54c680137513db3c60b1ad4"
   },
+  "figures/density.png": {
+    "bytes": 49560,
+    "sha256": "dec07077e27d5a4fee13bbda6975c420e6e496b77e0924dbe4c69381fe483aaa",
+    "git_blob": "a50ddfbbc2f65553328e0f4188828bc866314a8a"
+  },
   "figures/distributions.png": {
     "bytes": 162012,
     "sha256": "153d44819b4dbb671a331dfc2908fd1b5d61c74ba690d11790e3bc3808ead7a7",
@@ -79,6 +84,16 @@
     "sha256": "677d061eeb338ee5d9484a219fba982dd9a91a556e2017b9319ed265af8bbb9c",
     "git_blob": "21706f7b9e30cfb7f1676a36bdccbd682414aaf0"
   },
+  "figures/ionization.png": {
+    "bytes": 226293,
+    "sha256": "63b39c8348794ef96bbd34e851732298fa7f70b912a8ccffa78821ab91c6c402",
+    "git_blob": "9e66effdf966bf456021bc91bba59222694e3a03"
+  },
+  "figures/power.png": {
+    "bytes": 56913,
+    "sha256": "5586ac2b5d47a54634e063582128f3366c9ccbe29419fe6e86e50467423beac0",
+    "git_blob": "84dc0a3923d9919bf43422a1f5b2360360b7bbce"
+  },
   "figures/setup.png": {
     "bytes": 14771,
     "sha256": "09d89dd47e07b6a8cc36dbdea4a14ff80b8e9ab3395dd55fb32c7cd2e18d22fc",
@@ -90,8 +105,8 @@
     "git_blob": "ec0fd131fe04b93055de83dd81544e890f706b4c"
   },
   "report.json": {
-    "bytes": 7159,
-    "sha256": "2a427550433b6ca525c90b5801860dac51473b405fae08512f82e15c788893d9",
-    "git_blob": "ce96e347a62872a91e22a91ccb3d7a02ceb3ac85"
+    "bytes": 7400,
+    "sha256": "d5b86c7f3f366dcbde8fcb2d79935b5d095b641c69d5e16a63a3edc5dd3ea7f1",
+    "git_blob": "f166a7c25909f962d57777871129c3bec4ed3bab"
   }
 }
