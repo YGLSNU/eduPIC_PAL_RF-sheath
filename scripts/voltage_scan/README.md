@@ -40,7 +40,12 @@ a stop at the next complete checkpoint.
 
 `analyze_scan.py ROOT` checks and exports final averages, CSV, DAT, PNG,
 PDF, and a summary ZIP. `publish_scan.py ROOT --watch` backs up snapshots
-to the dedicated result branch and exports completed cases automatically.
+to `results/20mTorr-topRF` and exports completed cases automatically.
+Uploads use a short `YYMMDD_gap25_V100-300` folder, the standard report,
+and the main/condition-branch catalog updater. See the
+[result guide](../../docs/RESULTS_GUIDE.md).
+`publish_scan.py ROOT --export-only /path/to/EXPORT` prepares a report
+locally without uploading or starting a simulation.
 Publishing uses the user's authorized repository and a separate results
 branch; it does not publish or change the cloud environment.
 
