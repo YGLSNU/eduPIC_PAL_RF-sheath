@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "id": "261122_gap40_V350",
+  "branch": "results/20mTorr-topRF",
+  "date": "2026-11-22",
+  "title": "예제 전용: 실제 실행 기록으로 교체",
+  "status": "incomplete",
+  "changed_conditions": "gap40 mm, 350 V peak",
+  "conditions": {
+    "gas": "Ar", "pressure_mTorr": 20, "temperature_K": 350,
+    "frequency_MHz": 13.56, "waveform": "정현파", "voltage_peak_V": [350],
+    "gap_mm": 40, "electrodes": "상부 RF / 하부 접지",
+    "grid_points": 640, "steps_per_RF": 4000, "weight": 112000
+  },
+  "source": {
+    "description": "사용한 C/Cpp/Rust 계열과 수정 사항",
+    "revision": "실제 소스 commit 또는 SHA256으로 교체",
+    "initialization": "실제 초기 입자 상태 또는 재시작 파일을 기록"
+  },
+  "summary": "실제 계산 종료 이유와 관찰 결과를 기록",
+  "measurement_note": "아직 측정 자료 없음",
+  "sections": [
+    {"id": "convergence", "availability": "아직 자료 없음", "images": []},
+    {"id": "density", "availability": "아직 자료 없음", "images": []},
+    {"id": "heating", "availability": "아직 자료 없음", "images": []},
+    {"id": "fields", "availability": "아직 자료 없음", "images": []},
+    {"id": "ionization", "availability": "아직 자료 없음", "images": []},
+    {"id": "distributions", "availability": "아직 자료 없음", "images": []},
+    {"id": "walls", "availability": "아직 자료 없음", "images": []},
+    {"id": "power", "availability": "아직 자료 없음", "images": []}
+  ],
+  "downloads": []
+}
