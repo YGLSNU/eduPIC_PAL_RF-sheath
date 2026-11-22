@@ -24,9 +24,9 @@
     "electrodes": "상부 x=L RF / 하부 x=0 접지"
   },
   "source": {
-    "description": "상부 RF로 수정한 C/eduPIC.cc 계열, C++11 컴파일",
-    "revision": "실행별 source ZIP·소스 SHA256 기록 참조",
-    "initialization": "기존 수렴 입자 분포를 반전한 공통 상태; 변경 조건의 과도구간은 측정에서 제외"
+    "description": "상부 RF C/eduPIC.cc + 입자·에너지 수지 기록 진단; C++11 컴파일",
+    "revision": "진단 소스 SHA256 5acbe3b6b8aa8f73655cbdcfcb95c75f2d490607f070700ac7e67d943b7ec4ef",
+    "initialization": "20/75.006 mTorr의 250 V 대조는 동일 RF0 입력. 나머지는 기존 20 mTorr 조건별 RF200 또는 RF400 체크포인트에서 재시작. 이어지는 5 RF 과도구간을 진단했습니다."
   },
   "sections": [
     {
@@ -39,49 +39,93 @@
           "caption": "전자 생성·벽 손실과 동일 초기 상태의 압력 대조"
         }
       ],
-      "table": "| 진단 | 압력 mTorr | RF 구간 | 생성/전자 벽 손실 |\n|---|---:|---|---:|\n| 20mTorr_100V_from400 | 20.000 | 401–405 | 0.143 |\n| 20mTorr_250V_from0 | 20.000 | 1–5 | 0.220 |\n| 20mTorr_250V_from200 | 20.000 | 201–205 | 0.271 |\n| 20mTorr_300V_from200 | 20.000 | 201–205 | 0.317 |\n| 75.006mTorr_250V_from0 | 75.006 | 1–5 | 0.993 |"
-    },
-    {
-      "id": "walls",
-      "availability": "전자·이온 벽 흡수 사건 수",
-      "text": "",
-      "images": []
-    },
-    {
-      "id": "power",
-      "availability": "입자 field-work·벽 운동에너지·저장에너지 변화; 과도구간",
-      "text": "",
-      "images": []
+      "table": "| 진단 | 압력 mTorr | RF 구간 | 생성/전자 벽 손실 |\n|---|---:|---|---:|\n| 20mTorr_100V_from400 | 20.000 | 401–405 | 0.143 |\n| 20mTorr_250V_from0 | 20.000 | 1–5 | 0.220 |\n| 20mTorr_250V_from200 | 20.000 | 201–205 | 0.271 |\n| 20mTorr_300V_from200 | 20.000 | 201–205 | 0.317 |\n| 75.006mTorr_250V_from0 | 75.006 | 1–5 | 0.993 |",
+      "data_status": "available"
     },
     {
       "id": "density",
       "availability": "조건별5 RF 과도구간 원시 진단 보존",
-      "text": "조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.",
-      "images": []
+      "text": "모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.",
+      "images": [
+        {
+          "path": "density_compare.png",
+          "caption": "조건 A–E의 5 RF 과도구간 비교"
+        }
+      ],
+      "data_status": "available"
     },
     {
       "id": "heating",
       "availability": "조건별5 RF 과도구간 원시 진단 보존",
-      "text": "- [20.000 mTorr · 100 V · RF401–405 진단 그림](100V_RF401-405/README.md)\n- [20.000 mTorr · 250 V · RF1–5 진단 그림](250V_RF1-5/README.md)\n- [20.000 mTorr · 250 V · RF201–205 진단 그림](250V_RF201-205/README.md)\n- [20.000 mTorr · 300 V · RF201–205 진단 그림](300V_RF201-205/README.md)\n- [75.006 mTorr · 250 V · RF1–5 진단 그림](75mT_250V_RF1-5/README.md)",
-      "images": []
+      "text": "모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.",
+      "images": [
+        {
+          "path": "heating_compare.png",
+          "caption": "조건 A–E의 5 RF 과도구간 비교"
+        }
+      ],
+      "data_status": "available",
+      "table": "| 표식 | 압력 mTorr | V peak | 진단 RF | 상세 보고서 |\n|---|---:|---:|---|---|\n| A | 20.000 | 100 | 401–405 | [그림·CSV](100V_RF401-405/README.md) |\n| B | 20.000 | 250 | 1–5 | [그림·CSV](250V_RF1-5/README.md) |\n| C | 20.000 | 250 | 201–205 | [그림·CSV](250V_RF201-205/README.md) |\n| D | 20.000 | 300 | 201–205 | [그림·CSV](300V_RF201-205/README.md) |\n| E | 75.006 | 250 | 1–5 | [그림·CSV](75mT_250V_RF1-5/README.md) |"
     },
     {
       "id": "fields",
       "availability": "조건별5 RF 과도구간 원시 진단 보존",
-      "text": "조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.",
-      "images": []
+      "text": "모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.",
+      "images": [
+        {
+          "path": "fields_compare.png",
+          "caption": "조건 A–E의 5 RF 과도구간 비교"
+        }
+      ],
+      "data_status": "available"
     },
     {
       "id": "ionization",
       "availability": "조건별5 RF 과도구간 원시 진단 보존",
-      "text": "조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.",
-      "images": []
+      "text": "모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.",
+      "images": [
+        {
+          "path": "ionization_compare.png",
+          "caption": "조건 A–E의 5 RF 과도구간 비교"
+        }
+      ],
+      "data_status": "available"
     },
     {
       "id": "distributions",
       "availability": "조건별5 RF 과도구간 원시 진단 보존",
-      "text": "조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.",
-      "images": []
+      "text": "모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.",
+      "images": [
+        {
+          "path": "distributions_compare.png",
+          "caption": "조건 A–E의 5 RF 과도구간 비교"
+        }
+      ],
+      "data_status": "available"
+    },
+    {
+      "id": "walls",
+      "availability": "전자·이온 벽 흡수 사건 수",
+      "text": "모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.",
+      "images": [
+        {
+          "path": "walls_compare.png",
+          "caption": "조건 A–E의 5 RF 과도구간 비교"
+        }
+      ],
+      "data_status": "available"
+    },
+    {
+      "id": "power",
+      "availability": "입자 field-work·벽 운동에너지·저장에너지 변화; 과도구간",
+      "text": "모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다. 이온·기체·전기장 저장 항을 모두 포함한 완전한 전력 폐합은 아닙니다.",
+      "images": [
+        {
+          "path": "power_compare.png",
+          "caption": "조건 A–E의 5 RF 과도구간 비교"
+        }
+      ],
+      "data_status": "partial"
     }
   ],
   "downloads": [
@@ -109,5 +153,6 @@
   ],
   "details": "DETAILS.md",
   "summary": "동일 초기 상태에서 압력만 바꾼 대조 계산 및 소멸 과정의 짧은 재시작 진단입니다. 정상상태의 전압·압력 의존성으로 해석하지 않습니다.",
-  "measurement_note": "조건별5 RF 진단; 실제 압력·시작 RF는 balance_summary.csv/json 참조"
+  "measurement_note": "조건별5 RF 진단; 실제 압력·시작 RF는 balance_summary.csv/json 참조",
+  "coverage_reviewed_on": "2026-11-22"
 }

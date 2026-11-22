@@ -40,7 +40,8 @@
           "path": "261120_gap40_V100-500_comparison.png",
           "caption": "전체 과도구간을 포함한 밀도·생성/손실 이력"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "density",
@@ -51,7 +52,8 @@
           "path": "density_compare.png",
           "caption": "전압별 전자·이온 밀도 공간분포. 각 조건의 전체 측정 구간 평균입니다."
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "heating",
@@ -62,7 +64,8 @@
           "path": "heating_compare.png",
           "caption": "종별로 공통 색상 범위를 사용한 비교. 개별 조건의 세부 구조는 상세 보고서에서 확인하세요."
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "fields",
@@ -73,7 +76,8 @@
           "path": "fields_compare.png",
           "caption": "위: 전위, 아래: 전기장. 행마다 공통 색상 범위, 각 조건의 전체 측정 구간 평균입니다."
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "ionization",
@@ -84,7 +88,8 @@
           "path": "ionization_compare.png",
           "caption": "위: 평균 전자 에너지, 아래: 이온화율. 행마다 공통 색상 범위입니다."
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "distributions",
@@ -96,7 +101,8 @@
           "caption": "중앙 EEPF와 상·하부 전극 IEDF. 각 전압의 마지막20RF 진단만 사용했습니다."
         }
       ],
-      "table": "| V peak | 밀도·장·heating·flux 평균 RF | EEPF·IEDF 진단 RF |\n|---:|---|---|\n| 100 | 2001–2700 | 2681–2700 |\n| 250 | 1822–2001 | 1982–2001 |\n| 300 | 1782–1921 | 1902–1921 |\n| 400 | 1662–1801 | 1782–1801 |\n| 500 | 1262–1381 | 1362–1381 |"
+      "table": "| V peak | 밀도·장·heating·flux 평균 RF | EEPF·IEDF 진단 RF |\n|---:|---|---|\n| 100 | 2001–2700 | 2681–2700 |\n| 250 | 1822–2001 | 1982–2001 |\n| 300 | 1782–1921 | 1902–1921 |\n| 400 | 1662–1801 | 1782–1801 |\n| 500 | 1262–1381 | 1362–1381 |",
+      "data_status": "available"
     },
     {
       "id": "walls",
@@ -107,7 +113,8 @@
           "path": "walls_compare.png",
           "caption": "전자·이온 flux는 전체 측정 구간, 평균 이온 입사 에너지는 마지막20RF입니다."
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "power",
@@ -118,7 +125,8 @@
           "path": "power_compare.png",
           "caption": "입자 field-work와 측정된 에너지 손실 채널. 완전한 에너지 폐합이나 발생기 총 W를 뜻하지 않습니다."
         }
-      ]
+      ],
+      "data_status": "available"
     }
   ],
   "downloads": [
@@ -144,7 +152,7 @@
       "git_blob": "e3e212ced694e474580a44971a65d7ada5180d7e"
     },
     {
-      "label": "보고서·그림·수치 요약",
+      "label": "수치 요약 CSV",
       "path": "261120_gap40_V100-500_summary.csv",
       "bytes": 2461,
       "sha256": "f69fe719a3ac3c94a1b73cb786e280c348b1fac0aff41814af015cd0a0063d23",
@@ -195,5 +203,6 @@
       "ne_mean_m3": 3053311675927240.5,
       "path": "500V/README.md"
     }
-  ]
+  ],
+  "coverage_reviewed_on": "2026-11-22"
 }

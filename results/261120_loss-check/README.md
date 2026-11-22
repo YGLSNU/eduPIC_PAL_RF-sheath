@@ -17,25 +17,25 @@
 | 면적 / 형상 | 1D3V 동일 면적 평판, 환산 면적 1 cm²; 실제 지름·측벽 제외 |
 | 표면 / 충돌 모델 | 흡수 경계, SEE·전자 반사 없음; ground-state Ar MCC |
 | 격자 / 시간간격 / 입자 가중치 | 400점 / RF당 4000 전자 step / 70000 |
-| 코드 | 상부 RF로 수정한 C/eduPIC.cc 계열, C++11 컴파일 |
-| 소스 이력 | 실행별 source ZIP·소스 SHA256 기록 참조 |
-| 초기·재시작 상태 | 기존 수렴 입자 분포를 반전한 공통 상태; 변경 조건의 과도구간은 측정에서 제외 |
+| 코드 | 상부 RF C/eduPIC.cc + 입자·에너지 수지 기록 진단; C++11 컴파일 |
+| 소스 이력 | 진단 소스 SHA256 5acbe3b6b8aa8f73655cbdcfcb95c75f2d490607f070700ac7e67d943b7ec4ef |
+| 초기·재시작 상태 | 20/75.006 mTorr의 250 V 대조는 동일 RF0 입력. 나머지는 기존 20 mTorr 조건별 RF200 또는 RF400 체크포인트에서 재시작. 이어지는 5 RF 과도구간을 진단했습니다. |
 | 측정 구간 | 조건별5 RF 진단; 실제 압력·시작 RF는 balance_summary.csv/json 참조 |
 
 상태와 그래프는 마지막 저장 자료이며 실시간 CPU 실행 화면은 아닙니다.
 
 ## 자료 범위
 
-| 진단 | 저장·해석 범위 |
-|---|---|
-| 수렴·입자 수지 | 5 RF 과도구간의 입자 생성·손실 |
-| 밀도 공간분포 | 조건별5 RF 과도구간 원시 진단 보존 |
-| RF heating | 조건별5 RF 과도구간 원시 진단 보존 |
-| 전위·전기장 | 조건별5 RF 과도구간 원시 진단 보존 |
-| 평균 에너지·이온화 | 조건별5 RF 과도구간 원시 진단 보존 |
-| 에너지 분포 | 조건별5 RF 과도구간 원시 진단 보존 |
-| 전극 flux·손실 | 전자·이온 벽 흡수 사건 수 |
-| 전력 전달·손실 | 입자 field-work·벽 운동에너지·저장에너지 변화; 과도구간 |
+| 진단 | 제공 상태 | 저장·해석 범위 |
+|---|---|---|
+| 수렴·입자 수지 | 자료 있음 | 5 RF 과도구간의 입자 생성·손실 |
+| 밀도 공간분포 | 자료 있음 | 조건별5 RF 과도구간 원시 진단 보존 |
+| RF heating | 자료 있음 | 조건별5 RF 과도구간 원시 진단 보존 |
+| 전위·전기장 | 자료 있음 | 조건별5 RF 과도구간 원시 진단 보존 |
+| 평균 에너지·이온화 | 자료 있음 | 조건별5 RF 과도구간 원시 진단 보존 |
+| 에너지 분포 | 자료 있음 | 조건별5 RF 과도구간 원시 진단 보존 |
+| 전극 flux·손실 | 자료 있음 | 전자·이온 벽 흡수 사건 수 |
+| 전력 전달·손실 | 부분 자료 | 입자 field-work·벽 운동에너지·저장에너지 변화; 과도구간 |
 
 ## 수렴·입자 수지
 
@@ -53,37 +53,69 @@
 | 20mTorr_300V_from200 | 20.000 | 201–205 | 0.317 |
 | 75.006mTorr_250V_from0 | 75.006 | 1–5 | 0.993 |
 
-## 전극 flux·손실
-
-전자·이온 벽 흡수 사건 수
-
-## 전력 전달·손실
-
-입자 field-work·벽 운동에너지·저장에너지 변화; 과도구간
-
 ## 밀도 공간분포
 
-조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.
+모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.
+
+![조건 A–E의 5 RF 과도구간 비교](density_compare.png)
+
+조건 A–E의 5 RF 과도구간 비교
 
 ## RF heating
 
-- [20.000 mTorr · 100 V · RF401–405 진단 그림](100V_RF401-405/README.md)
-- [20.000 mTorr · 250 V · RF1–5 진단 그림](250V_RF1-5/README.md)
-- [20.000 mTorr · 250 V · RF201–205 진단 그림](250V_RF201-205/README.md)
-- [20.000 mTorr · 300 V · RF201–205 진단 그림](300V_RF201-205/README.md)
-- [75.006 mTorr · 250 V · RF1–5 진단 그림](75mT_250V_RF1-5/README.md)
+모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.
+
+![조건 A–E의 5 RF 과도구간 비교](heating_compare.png)
+
+조건 A–E의 5 RF 과도구간 비교
+
+| 표식 | 압력 mTorr | V peak | 진단 RF | 상세 보고서 |
+|---|---:|---:|---|---|
+| A | 20.000 | 100 | 401–405 | [그림·CSV](100V_RF401-405/README.md) |
+| B | 20.000 | 250 | 1–5 | [그림·CSV](250V_RF1-5/README.md) |
+| C | 20.000 | 250 | 201–205 | [그림·CSV](250V_RF201-205/README.md) |
+| D | 20.000 | 300 | 201–205 | [그림·CSV](300V_RF201-205/README.md) |
+| E | 75.006 | 250 | 1–5 | [그림·CSV](75mT_250V_RF1-5/README.md) |
 
 ## 전위·전기장
 
-조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.
+모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.
+
+![조건 A–E의 5 RF 과도구간 비교](fields_compare.png)
+
+조건 A–E의 5 RF 과도구간 비교
 
 ## 평균 에너지·이온화
 
-조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.
+모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.
+
+![조건 A–E의 5 RF 과도구간 비교](ionization_compare.png)
+
+조건 A–E의 5 RF 과도구간 비교
 
 ## 에너지 분포
 
-조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.
+모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.
+
+![조건 A–E의 5 RF 과도구간 비교](distributions_compare.png)
+
+조건 A–E의 5 RF 과도구간 비교
+
+## 전극 flux·손실
+
+모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다.
+
+![조건 A–E의 5 RF 과도구간 비교](walls_compare.png)
+
+조건 A–E의 5 RF 과도구간 비교
+
+## 전력 전달·손실
+
+모두 5 RF 과도구간이며 서로 다른 초기 상태가 섞여 있습니다. 압력만 바꾼 직접 대조는 250 V·RF1–5의 20/75.006 mTorr 두 조건입니다. 이온·기체·전기장 저장 항을 모두 포함한 완전한 전력 폐합은 아닙니다.
+
+![조건 A–E의 5 RF 과도구간 비교](power_compare.png)
+
+조건 A–E의 5 RF 과도구간 비교
 
 ## 읽는 기준
 
@@ -96,9 +128,9 @@
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| 261120 loss-check | [261120_loss-check.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261120_loss-check/261120_loss-check.pdf) | 0.02 MiB |
+| 261120 loss-check | [261120_loss-check.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261120_loss-check/261120_loss-check.pdf) | 25.2 KiB |
 | all | [261120_loss-check_all.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261120_loss-check/261120_loss-check_all.zip) | 51.68 MiB |
-| balance summary | [261120_loss-check_balance_summary.csv](261120_loss-check_balance_summary.csv) | 0.00 MiB |
+| balance summary | [261120_loss-check_balance_summary.csv](261120_loss-check_balance_summary.csv) | 2.3 KiB |
 
 [전체 파일 목록·SHA256](files.json)
 

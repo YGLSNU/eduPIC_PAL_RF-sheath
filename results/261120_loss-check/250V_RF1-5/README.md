@@ -17,10 +17,10 @@
 | 면적 / 형상 | 1D3V 동일 면적 평판, 환산 면적 1 cm²; 실제 지름·측벽 제외 |
 | 표면 / 충돌 모델 | 흡수 경계, SEE·전자 반사 없음; ground-state Ar MCC |
 | 격자 / 시간간격 / 입자 가중치 | 400점 / RF당 4000 전자 step / 70000 |
-| 코드 | 상부 RF로 수정한 C/eduPIC.cc 계열, C++11 컴파일 |
-| 소스 이력 | 실행별 source ZIP·소스 SHA256 기록 참조 |
+| 코드 | 상부 RF C/eduPIC.cc + 입자·에너지 수지 기록 진단; C++11 컴파일 |
+| 소스 이력 | 진단 소스 SHA256 5acbe3b6b8aa8f73655cbdcfcb95c75f2d490607f070700ac7e67d943b7ec4ef |
 | 초기·재시작 상태 | 20mTorr_250V_from0: 전자108314, 이온113766 계산 입자에서 시작 |
-| 측정 구간 | RF1–5,5 RF. 압력 대조는 동일 초기 입자 상태를 사용. |
+| 측정 구간 | RF1–5, 5 RF 과도구간 진단; 정상상태 평균이 아닙니다. 동일 초기 상태의 압력 대조는 250 V·RF1–5 두 조건입니다. |
 
 상태와 그래프는 마지막 저장 자료이며 실시간 CPU 실행 화면은 아닙니다.
 
@@ -36,24 +36,32 @@
 
 ## 자료 범위
 
-| 진단 | 저장·해석 범위 |
-|---|---|
-| 수렴·입자 수지 | 5 RF 생성·손실; 정상상태 판정 없음 |
-| 밀도 공간분포 | 5 RF 과도구간 평균 |
-| RF heating | 5 RF 과도구간의 위상 평균 |
-| 전위·전기장 | 5 RF 과도구간의 위상 평균 |
-| 평균 에너지·이온화 | 5 RF 과도구간; heating 묶음 그림 |
-| 에너지 분포 | 5 RF 정규화 분포 |
-| 전극 flux·손실 | 5 RF 입자 흡수 사건 수; particle_balance.csv |
-| 전력 전달·손실 | 입자 field-work·벽 운동에너지·운동에너지 변화·추정 충돌 손실; summary.json |
+| 진단 | 제공 상태 | 저장·해석 범위 |
+|---|---|---|
+| 수렴·입자 수지 | 자료 있음 | 5 RF 생성·손실; 정상상태 판정 없음 |
+| 밀도 공간분포 | 자료 있음 | 5 RF 과도구간 평균 |
+| RF heating | 자료 있음 | 5 RF 과도구간의 위상 평균 |
+| 전위·전기장 | 자료 있음 | 5 RF 과도구간의 위상 평균 |
+| 평균 에너지·이온화 | 자료 있음 | 5 RF 과도구간; heating 묶음 그림 |
+| 에너지 분포 | 자료 있음 | 5 RF 정규화 분포 |
+| 전극 flux·손실 | 자료 있음 | 5 RF 입자 흡수 사건 수; particle_balance.csv |
+| 전력 전달·손실 | 부분 자료 | 입자 field-work·벽 운동에너지·운동에너지 변화·추정 충돌 손실; summary.json |
 
 ## 수렴·입자 수지
 
-사건 수와 입력/출력 입자 수가 정확히 일치하는지 검사했습니다.
+
+
+![5 RF 입자 수·생성/손실. 정상상태 수렴 판정이 아닙니다.](figures/particle_balance.png)
+
+5 RF 입자 수·생성/손실. 정상상태 수렴 판정이 아닙니다.
 
 ## 밀도 공간분포
 
-아래 분포 그림 첫 패널에 표시합니다.
+
+
+![5 RF 과도구간 평균 밀도 공간분포](figures/density.png)
+
+5 RF 과도구간 평균 밀도 공간분포
 
 ## RF heating
 
@@ -73,7 +81,11 @@ TRANSIENT 5 RF | 20.000 mTorr | 250 V | 25 mm | RF 1-5
 
 ## 평균 에너지·이온화
 
-5 RF 과도구간; heating 묶음 그림
+
+
+![5 RF 과도구간 평균 전자 에너지·이온화율](figures/ionization.png)
+
+5 RF 과도구간 평균 전자 에너지·이온화율
 
 ## 에너지 분포
 
@@ -85,11 +97,19 @@ TRANSIENT 5 RF | 20.000 mTorr | 250 V | 25 mm | RF 1-5
 
 ## 전극 flux·손실
 
-5 RF 입자 흡수 사건 수; particle_balance.csv
+
+
+![5 RF 흡수 사건 수로 구한 상·하부 전극 flux](figures/wall_flux.png)
+
+5 RF 흡수 사건 수로 구한 상·하부 전극 flux
 
 ## 전력 전달·손실
 
-저장 운동에너지가 변하는 구간이므로 단순 정상상태 파워 수지를 적용하지 않습니다.
+전자 저장 운동에너지가 변하는 과도구간입니다. 이온·기체·전기장 저장 항을 모두 포함한 완전한 전력 폐합이 아닙니다.
+
+![5 RF의 field-work·벽 운동에너지·저장 전자 운동에너지 변화](figures/power.png)
+
+5 RF의 field-work·벽 운동에너지·저장 전자 운동에너지 변화
 
 ## 읽는 기준
 
@@ -102,11 +122,13 @@ TRANSIENT 5 RF | 20.000 mTorr | 250 V | 25 mm | RF 1-5
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| eepf | [eepf.csv](data/eepf.csv) | 0.03 MiB |
-| ifed | [ifed.csv](data/ifed.csv) | 0.00 MiB |
-| info | [info.txt](data/info.txt) | 0.00 MiB |
-| particle_balance | [particle_balance.csv](data/particle_balance.csv) | 0.00 MiB |
-| profiles | [profiles.csv](data/profiles.csv) | 0.04 MiB |
-| summary | [summary.json](data/summary.json) | 0.00 MiB |
+| eepf | [eepf.csv](data/eepf.csv) | 27.6 KiB |
+| ifed | [ifed.csv](data/ifed.csv) | 3.8 KiB |
+| info | [info.txt](data/info.txt) | 2.5 KiB |
+| particle_balance | [particle_balance.csv](data/particle_balance.csv) | 1.1 KiB |
+| profiles | [profiles.csv](data/profiles.csv) | 43.2 KiB |
+| summary | [summary.json](data/summary.json) | 1.1 KiB |
+| 5 RF 전극 flux CSV | [wall_flux.csv](data/wall_flux.csv) | 145 B |
+| 5 RF 측정 전력 채널 CSV | [power_channels.csv](data/power_channels.csv) | 254 B |
 
 [전체 파일 목록·SHA256](files.json)

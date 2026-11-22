@@ -37,16 +37,16 @@
 
 ## 자료 범위
 
-| 진단 | 저장·해석 범위 |
-|---|---|
-| 수렴·입자 수지 | 전 구간 입자 수·생성/손실·최종 통계 지표 |
-| 밀도 공간분포 | RF1662–1801 (140 RF) |
-| RF heating | RF1662–1801 (140 RF) |
-| 전위·전기장 | RF1662–1801 (140 RF) |
-| 평균 에너지·이온화 | RF1662–1801 (140 RF) |
-| 에너지 분포 | 밀도:RF1662–1801 (140 RF); EEPF·IEDF:RF1782–1801 |
-| 전극 flux·손실 | RF1662–1801 (140 RF) |
-| 전력 전달·손실 | RF1662–1801 (140 RF) |
+| 진단 | 제공 상태 | 저장·해석 범위 |
+|---|---|---|
+| 수렴·입자 수지 | 자료 있음 | 전 구간 입자 수·생성/손실·최종 통계 지표 |
+| 밀도 공간분포 | 자료 있음 | RF1662–1801 (140 RF) |
+| RF heating | 자료 있음 | RF1662–1801 (140 RF) |
+| 전위·전기장 | 자료 있음 | RF1662–1801 (140 RF) |
+| 평균 에너지·이온화 | 자료 있음 | RF1662–1801 (140 RF) |
+| 에너지 분포 | 자료 있음 | 밀도:RF1662–1801 (140 RF); EEPF·IEDF:RF1782–1801 |
+| 전극 flux·손실 | 자료 있음 | RF1662–1801 (140 RF) |
+| 전력 전달·손실 | 자료 있음 | RF1662–1801 (140 RF) |
 
 ## 수렴·입자 수지
 
@@ -126,12 +126,12 @@ field-work는 이산 입자 속도 갱신의 일이며, 벽 항은 운동에너�
 | 261120 gap40 400V core | [261120_gap40_400V_core.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261120_gap40_V100-500/400V/261120_gap40_400V_core.zip) | 30.68 MiB |
 | 261120 gap40 400V measurements part01 | [261120_gap40_400V_measurements_part01.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261120_gap40_V100-500/400V/261120_gap40_400V_measurements_part01.zip) | 20.25 MiB |
 | 261120 gap40 400V measurements part02 | [261120_gap40_400V_measurements_part02.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261120_gap40_V100-500/400V/261120_gap40_400V_measurements_part02.zip) | 16.19 MiB |
-| 평균 밀도·heating 공간분포 | [profiles.csv](data/profiles.csv) | 0.07 MiB |
-| 마지막20RF 중앙 EEPF | [eepf_last_block.csv](data/eepf_last_block.csv) | 0.03 MiB |
-| 마지막20RF 양 전극 IEDF | [ifed_last_block.csv](data/ifed_last_block.csv) | 0.02 MiB |
-| 전체 측정 전극 flux | [wall_flux.csv](data/wall_flux.csv) | 0.00 MiB |
-| 전체 측정 전력 채널 | [power_channels.csv](data/power_channels.csv) | 0.00 MiB |
-| 중단 통계 지표 | [sampling_indicators.csv](data/sampling_indicators.csv) | 0.00 MiB |
-| 진단 수치·검증 기록 | [diagnostics.json](data/diagnostics.json) | 0.00 MiB |
+| 평균 밀도·heating 공간분포 | [profiles.csv](data/profiles.csv) | 71.9 KiB |
+| 마지막20RF 중앙 EEPF | [eepf_last_block.csv](data/eepf_last_block.csv) | 31.0 KiB |
+| 마지막20RF 양 전극 IEDF | [ifed_last_block.csv](data/ifed_last_block.csv) | 15.4 KiB |
+| 전체 측정 전극 flux | [wall_flux.csv](data/wall_flux.csv) | 131 B |
+| 전체 측정 전력 채널 | [power_channels.csv](data/power_channels.csv) | 202 B |
+| 중단 통계 지표 | [sampling_indicators.csv](data/sampling_indicators.csv) | 757 B |
+| 진단 수치·검증 기록 | [diagnostics.json](data/diagnostics.json) | 1.7 KiB |
 
 [전체 파일 목록·SHA256](files.json)

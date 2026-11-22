@@ -32,18 +32,73 @@
     {
       "id": "convergence",
       "availability": "전 구간 입자 수와 전자·이온 소멸 시점",
-      "text": "",
+      "text": "[300 V 계산 입자 수10배 검증](validation/README.md)도 함께 보관되어 있습니다.",
       "images": [
         {
-          "path": "261119_gap25_V100-300_comparison_decay.png",
-          "caption": "조건별 공간평균 밀도 감쇠·소멸; 정상 방전의 평균 밀도 비교가 아님"
+          "path": "261119_gap25_V100-300_progress.png",
+          "caption": "전자·이온 계산 입자의 시간 이력. 세 전압 모두 소멸하여 통계 수렴으로 판정하지 않았습니다."
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "density",
       "availability": "입자 수에서 환산한 체적평균 밀도의 시간 이력",
-      "text": "정상 방전의 공간분포와 heating·에너지 분포는 없습니다.",
+      "text": "",
+      "images": [
+        {
+          "path": "261119_gap25_V100-300_comparison_decay.png",
+          "caption": "입자 수에서 환산한 체적평균 밀도의 감쇠 이력입니다. 정상 방전의 공간분포가 아닙니다."
+        }
+      ],
+      "data_status": "partial"
+    },
+    {
+      "id": "heating",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "images": []
+    },
+    {
+      "id": "fields",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "images": []
+    },
+    {
+      "id": "ionization",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "images": []
+    },
+    {
+      "id": "distributions",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "images": []
+    },
+    {
+      "id": "walls",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "images": []
+    },
+    {
+      "id": "power",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
       "images": []
     }
   ],
@@ -102,5 +157,6 @@
       "measurement_rf": 0,
       "path": "300V/README.md"
     }
-  ]
+  ],
+  "coverage_reviewed_on": "2026-11-22"
 }

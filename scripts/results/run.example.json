@@ -7,10 +7,19 @@
   "status": "incomplete",
   "changed_conditions": "gap40 mm, 350 V peak",
   "conditions": {
-    "gas": "Ar", "pressure_mTorr": 20, "temperature_K": 350,
-    "frequency_MHz": 13.56, "waveform": "정현파", "voltage_peak_V": [350],
-    "gap_mm": 40, "electrodes": "상부 RF / 하부 접지",
-    "grid_points": 640, "steps_per_RF": 4000, "weight": 112000
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "waveform": "정현파",
+    "voltage_peak_V": [
+      350
+    ],
+    "gap_mm": 40,
+    "electrodes": "상부 RF / 하부 접지",
+    "grid_points": 640,
+    "steps_per_RF": 4000,
+    "weight": 112000
   },
   "source": {
     "description": "사용한 C/Cpp/Rust 계열과 수정 사항",
@@ -20,14 +29,62 @@
   "summary": "실제 계산 종료 이유와 관찰 결과를 기록",
   "measurement_note": "아직 측정 자료 없음",
   "sections": [
-    {"id": "convergence", "availability": "아직 자료 없음", "images": []},
-    {"id": "density", "availability": "아직 자료 없음", "images": []},
-    {"id": "heating", "availability": "아직 자료 없음", "images": []},
-    {"id": "fields", "availability": "아직 자료 없음", "images": []},
-    {"id": "ionization", "availability": "아직 자료 없음", "images": []},
-    {"id": "distributions", "availability": "아직 자료 없음", "images": []},
-    {"id": "walls", "availability": "아직 자료 없음", "images": []},
-    {"id": "power", "availability": "아직 자료 없음", "images": []}
+    {
+      "id": "convergence",
+      "availability": "아직 자료 없음",
+      "images": [],
+      "data_status": "unavailable",
+      "reason": "아직 해당 진단을 측정·저장하지 않은 예제입니다. 실제 실행의 사유로 바꾸세요."
+    },
+    {
+      "id": "density",
+      "availability": "아직 자료 없음",
+      "images": [],
+      "data_status": "unavailable",
+      "reason": "아직 해당 진단을 측정·저장하지 않은 예제입니다. 실제 실행의 사유로 바꾸세요."
+    },
+    {
+      "id": "heating",
+      "availability": "아직 자료 없음",
+      "images": [],
+      "data_status": "unavailable",
+      "reason": "아직 해당 진단을 측정·저장하지 않은 예제입니다. 실제 실행의 사유로 바꾸세요."
+    },
+    {
+      "id": "fields",
+      "availability": "아직 자료 없음",
+      "images": [],
+      "data_status": "unavailable",
+      "reason": "아직 해당 진단을 측정·저장하지 않은 예제입니다. 실제 실행의 사유로 바꾸세요."
+    },
+    {
+      "id": "ionization",
+      "availability": "아직 자료 없음",
+      "images": [],
+      "data_status": "unavailable",
+      "reason": "아직 해당 진단을 측정·저장하지 않은 예제입니다. 실제 실행의 사유로 바꾸세요."
+    },
+    {
+      "id": "distributions",
+      "availability": "아직 자료 없음",
+      "images": [],
+      "data_status": "unavailable",
+      "reason": "아직 해당 진단을 측정·저장하지 않은 예제입니다. 실제 실행의 사유로 바꾸세요."
+    },
+    {
+      "id": "walls",
+      "availability": "아직 자료 없음",
+      "images": [],
+      "data_status": "unavailable",
+      "reason": "아직 해당 진단을 측정·저장하지 않은 예제입니다. 실제 실행의 사유로 바꾸세요."
+    },
+    {
+      "id": "power",
+      "availability": "아직 자료 없음",
+      "images": [],
+      "data_status": "unavailable",
+      "reason": "아직 해당 진단을 측정·저장하지 않은 예제입니다. 실제 실행의 사유로 바꾸세요."
+    }
   ],
   "downloads": []
 }

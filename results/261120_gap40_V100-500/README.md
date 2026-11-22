@@ -36,16 +36,16 @@
 
 ## 자료 범위
 
-| 진단 | 저장·해석 범위 |
-|---|---|
-| 수렴·입자 수지 | 전압별 종료·안정성·측정 구간 |
-| 밀도 공간분포 | 전압별 전체 측정 구간 비교 |
-| RF heating | 각 조건의 최종 측정 평균 |
-| 전위·전기장 | 전압별 전체 측정 구간 비교 |
-| 평균 에너지·이온화 | 전압별 전체 측정 구간 비교 |
-| 에너지 분포 | 전압별 마지막20RF 분포 |
-| 전극 flux·손실 | 전압별 전체 측정 구간 비교 |
-| 전력 전달·손실 | 전압별 전체 측정 구간 비교 |
+| 진단 | 제공 상태 | 저장·해석 범위 |
+|---|---|---|
+| 수렴·입자 수지 | 자료 있음 | 전압별 종료·안정성·측정 구간 |
+| 밀도 공간분포 | 자료 있음 | 전압별 전체 측정 구간 비교 |
+| RF heating | 자료 있음 | 각 조건의 최종 측정 평균 |
+| 전위·전기장 | 자료 있음 | 전압별 전체 측정 구간 비교 |
+| 평균 에너지·이온화 | 자료 있음 | 전압별 전체 측정 구간 비교 |
+| 에너지 분포 | 자료 있음 | 전압별 마지막20RF 분포 |
+| 전극 flux·손실 | 자료 있음 | 전압별 전체 측정 구간 비교 |
+| 전력 전달·손실 | 자료 있음 | 전압별 전체 측정 구간 비교 |
 
 ## 수렴·입자 수지
 
@@ -130,10 +130,10 @@
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| 조건 비교 | [261120_gap40_V100-500_comparison.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261120_gap40_V100-500/261120_gap40_V100-500_comparison.pdf) | 0.03 MiB |
+| 조건 비교 | [261120_gap40_V100-500_comparison.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261120_gap40_V100-500/261120_gap40_V100-500_comparison.pdf) | 34.8 KiB |
 | 진행 중 시점의 백업 (최종 결과와 구분) | [261120_gap40_V100-500_running_checkpoint.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261120_gap40_V100-500/261120_gap40_V100-500_running_checkpoint.zip) | 51.06 MiB |
 | 실행 소스·공통 초기 상태 | [261120_gap40_V100-500_source_and_initial_state.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261120_gap40_V100-500/261120_gap40_V100-500_source_and_initial_state.zip) | 6.57 MiB |
-| 보고서·그림·수치 요약 | [261120_gap40_V100-500_summary.csv](261120_gap40_V100-500_summary.csv) | 0.00 MiB |
+| 수치 요약 CSV | [261120_gap40_V100-500_summary.csv](261120_gap40_V100-500_summary.csv) | 2.4 KiB |
 
 [전체 파일 목록·SHA256](files.json)
 

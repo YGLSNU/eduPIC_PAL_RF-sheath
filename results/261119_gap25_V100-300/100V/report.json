@@ -36,12 +36,67 @@
           "path": "261119_gap25_100V_extinction.png",
           "caption": "전자·이온 소멸 이력"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "density",
       "availability": "최종 빈 상태; 정상 방전 공간분포 없음",
-      "text": "",
+      "text": "전자 소멸 뒤의 빈 상태는 정상 방전의 측정 평균이 아닙니다.",
+      "images": [
+        {
+          "path": "figures/density.png",
+          "caption": "입자 수·입자 가중치·체적으로 환산한 체적평균 밀도의 시간 변화입니다."
+        }
+      ],
+      "data_status": "partial"
+    },
+    {
+      "id": "heating",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "images": []
+    },
+    {
+      "id": "fields",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "images": []
+    },
+    {
+      "id": "ionization",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "images": []
+    },
+    {
+      "id": "distributions",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "images": []
+    },
+    {
+      "id": "walls",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "images": []
+    },
+    {
+      "id": "power",
+      "data_status": "unavailable",
+      "reason": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.",
       "images": []
     }
   ],
@@ -99,5 +154,6 @@
       "마지막 저장 RF",
       3250
     ]
-  ]
+  ],
+  "coverage_reviewed_on": "2026-11-22"
 }

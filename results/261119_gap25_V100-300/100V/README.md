@@ -34,16 +34,16 @@
 
 ## 자료 범위
 
-| 진단 | 저장·해석 범위 |
-|---|---|
-| 수렴·입자 수지 | 입자 수·소멸 과정 |
-| 밀도 공간분포 | 최종 빈 상태; 정상 방전 공간분포 없음 |
-| RF heating | 저장 자료 없음 |
-| 전위·전기장 | 저장 자료 없음 |
-| 평균 에너지·이온화 | 저장 자료 없음 |
-| 에너지 분포 | 저장 자료 없음 |
-| 전극 flux·손실 | 저장 자료 없음 |
-| 전력 전달·손실 | 저장 자료 없음 |
+| 진단 | 제공 상태 | 저장·해석 범위 |
+|---|---|---|
+| 수렴·입자 수지 | 자료 있음 | 입자 수·소멸 과정 |
+| 밀도 공간분포 | 부분 자료 | 최종 빈 상태; 정상 방전 공간분포 없음 |
+| RF heating | 자료 없음 | 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다. |
+| 전위·전기장 | 자료 없음 | 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다. |
+| 평균 에너지·이온화 | 자료 없음 | 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다. |
+| 에너지 분포 | 자료 없음 | 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다. |
+| 전극 flux·손실 | 자료 없음 | 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다. |
+| 전력 전달·손실 | 자료 없음 | 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다. |
 
 ## 수렴·입자 수지
 
@@ -55,7 +55,35 @@
 
 ## 밀도 공간분포
 
-최종 빈 상태; 정상 방전 공간분포 없음
+전자 소멸 뒤의 빈 상태는 정상 방전의 측정 평균이 아닙니다.
+
+![입자 수·입자 가중치·체적으로 환산한 체적평균 밀도의 시간 변화입니다.](figures/density.png)
+
+입자 수·입자 가중치·체적으로 환산한 체적평균 밀도의 시간 변화입니다.
+
+## RF heating
+
+**자료 없음:** 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.
+
+## 전위·전기장
+
+**자료 없음:** 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.
+
+## 평균 에너지·이온화
+
+**자료 없음:** 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.
+
+## 에너지 분포
+
+**자료 없음:** 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.
+
+## 전극 flux·손실
+
+**자료 없음:** 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.
+
+## 전력 전달·손실
+
+**자료 없음:** 정상 방전 측정에 도달하기 전에 전자가 소멸하여 해당 정상상태 진단을 측정하지 못했습니다.
 
 ## 읽는 기준
 
@@ -68,11 +96,11 @@
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| 261119 gap25 100V all plots | [261119_gap25_100V_all_plots.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261119_gap25_V100-300/100V/261119_gap25_100V_all_plots.pdf) | 0.02 MiB |
-| 261119 gap25 100V before extinction restart | [261119_gap25_100V_before_extinction_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261119_gap25_V100-300/100V/261119_gap25_100V_before_extinction_restart.zip) | 0.12 MiB |
-| 261119 gap25 100V particle counts | [261119_gap25_100V_particle_counts.csv](261119_gap25_100V_particle_counts.csv) | 0.03 MiB |
-| 261119 gap25 100V restart | [261119_gap25_100V_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261119_gap25_V100-300/100V/261119_gap25_100V_restart.zip) | 0.04 MiB |
-| 261119 gap25 100V summary | [261119_gap25_100V_summary.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261119_gap25_V100-300/100V/261119_gap25_100V_summary.zip) | 0.16 MiB |
+| 261119 gap25 100V all plots | [261119_gap25_100V_all_plots.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261119_gap25_V100-300/100V/261119_gap25_100V_all_plots.pdf) | 20.5 KiB |
+| 261119 gap25 100V before extinction restart | [261119_gap25_100V_before_extinction_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261119_gap25_V100-300/100V/261119_gap25_100V_before_extinction_restart.zip) | 122.8 KiB |
+| 261119 gap25 100V particle counts | [261119_gap25_100V_particle_counts.csv](261119_gap25_100V_particle_counts.csv) | 32.9 KiB |
+| 261119 gap25 100V restart | [261119_gap25_100V_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261119_gap25_V100-300/100V/261119_gap25_100V_restart.zip) | 38.0 KiB |
+| 261119 gap25 100V summary | [261119_gap25_100V_summary.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261119_gap25_V100-300/100V/261119_gap25_100V_summary.zip) | 164.5 KiB |
 
 [전체 파일 목록·SHA256](files.json)
 

@@ -36,7 +36,8 @@
           "path": "figures/convergence.png",
           "caption": "녹색 구간이 최종 평균 구간입니다. 통계 지표는 총 오차를 뜻하지 않습니다."
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "density",
@@ -47,7 +48,8 @@
           "path": "figures/density.png",
           "caption": "전체 측정 구간의 평균 전자·이온 밀도"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "heating",
@@ -58,7 +60,8 @@
           "path": "figures/heating.png",
           "caption": "전자·이온의 위상 평균 j×E, 평균 전자 에너지, 이온화율"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "fields",
@@ -69,7 +72,8 @@
           "path": "figures/fields.png",
           "caption": "x=0 하부 접지, x=40mm 상부 RF; 위상0은 인가 전압 양의 최댓값"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "ionization",
@@ -80,7 +84,8 @@
           "path": "figures/ionization.png",
           "caption": "전체 측정 구간의 평균 전자 에너지·이온화율"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "distributions",
@@ -91,7 +96,8 @@
           "path": "figures/distributions.png",
           "caption": "전체 측정 평균 밀도와 마지막 진단의 EEPF·IEDF"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "walls",
@@ -102,7 +108,8 @@
           "path": "figures/walls_power.png",
           "caption": "중앙부 전도전류밀도·전극 입자 flux·측정된 전력 채널"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "power",
@@ -113,7 +120,8 @@
           "path": "figures/power.png",
           "caption": "전체 측정 구간의 측정된 전력 채널"
         }
-      ]
+      ],
+      "data_status": "available"
     }
   ],
   "downloads": [
@@ -258,5 +266,6 @@
       "종료 / 측정 RF",
       "2700 / 700"
     ]
-  ]
+  ],
+  "coverage_reviewed_on": "2026-11-22"
 }
