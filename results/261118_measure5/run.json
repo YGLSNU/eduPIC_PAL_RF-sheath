@@ -37,13 +37,20 @@
           "path": "261118_measure5_convergence.png",
           "caption": "입자 수·측정 구간·측정 통계"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "density",
       "availability": "RF1701–1705 평균",
-      "text": "밀도 곡선과 위상별 분포를 아래 에너지 분포·전위 그림에서 함께 확인할 수 있습니다.",
-      "images": []
+      "text": "",
+      "images": [
+        {
+          "path": "figures/density.png",
+          "caption": "RF1701–1705 평균 전자·이온 밀도. x=0 하부 RF, x=25mm 상부 접지입니다."
+        }
+      ],
+      "data_status": "available"
     },
     {
       "id": "heating",
@@ -54,7 +61,8 @@
           "path": "261118_measure5_heating.png",
           "caption": "전자·이온 heating, 이온화율, 평균 전자 에너지; RF1701–1705 평균"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "fields",
@@ -65,13 +73,20 @@
           "path": "261118_measure5_fields_density.png",
           "caption": "전위·전기장·전자·이온 밀도; 하부RF/상부접지"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "ionization",
       "availability": "RF1701–1705 평균",
-      "text": "이온화율과 평균 에너지는 heating 묶음 그림에 있습니다.",
-      "images": []
+      "text": "",
+      "images": [
+        {
+          "path": "figures/ionization.png",
+          "caption": "RF1701–1705의 평균 전자 에너지·이온화율"
+        }
+      ],
+      "data_status": "available"
     },
     {
       "id": "distributions",
@@ -82,7 +97,8 @@
           "path": "261118_measure5_distributions.png",
           "caption": "밀도 공간분포·중앙 EEPF·양 전극 이온 에너지 분포"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "walls",
@@ -90,16 +106,27 @@
       "text": "",
       "images": [
         {
+          "path": "figures/wall_flux.png",
+          "caption": "원본 info.txt의 구간별 flux를 측정 RF 길이로 가중 평균했습니다. 출력 반올림 정밀도를 유지합니다."
+        },
+        {
           "path": "261118_measure5_currents_ionenergy.png",
           "caption": "전류밀도와 양 전극 이온 에너지 진단; 총 단자 VI 전류와 구분"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "power",
       "availability": "위상 평균 j×E 및 원본 보고서의 평균 전력",
-      "text": "완전한 충돌·벽·전기장 에너지 폐합 진단은 이 원본 실행에 없습니다.",
-      "images": []
+      "text": "완전한 충돌·벽·저장 에너지 수지는 이 원본 실행에 기록되지 않았습니다.",
+      "images": [
+        {
+          "path": "figures/power.png",
+          "caption": "위상 평균 j×E의 공간분포와 원본 정의의 평균 전력밀도입니다. 입자 field-work와 구분합니다."
+        }
+      ],
+      "data_status": "partial"
     }
   ],
   "downloads": [
@@ -123,10 +150,25 @@
       "bytes": 7173821,
       "sha256": "5b68fa6e0bdb72b9c8746a9c47d777e72c2206ff2abd46e6ffb30ca0030cabd3",
       "git_blob": "f473e0f1bf8bd08e9089a0f28d553b3749173f72"
+    },
+    {
+      "label": "측정 구간 전극 flux CSV",
+      "path": "data/wall_flux.csv",
+      "bytes": 93,
+      "sha256": "2afe5e077e2f84da843fdc17c7b19bfd3197a26dd156a1110b1ce664e5990531",
+      "git_blob": "c80de4ee0039a8638dcd005b0de2a01e21d71557"
+    },
+    {
+      "label": "후처리 근거·정밀도",
+      "path": "data/audit_evidence.json",
+      "bytes": 357,
+      "sha256": "ae52f334156b3eaa12fa9fb6562e1d4303f7da28275711a797c0d48e60b02345",
+      "git_blob": "7808436a2dd45ec6a6d9e6de093080c61cd06493"
     }
   ],
   "details": "DETAILS.md",
   "summary": "저장된 플라즈마 상태에서 이어 측정했습니다. 5주기 분포이며 장시간 측정의 통계 기준 통과를 주장하지 않습니다.",
   "measurement_note": "RF1701–1705, 총 5 RF",
-  "setup_image": "figures/setup.png"
+  "setup_image": "figures/setup.png",
+  "coverage_reviewed_on": "2026-11-22"
 }

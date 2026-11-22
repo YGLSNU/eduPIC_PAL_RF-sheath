@@ -71,6 +71,18 @@ def export(root,out,branch='results/20mTorr-topRF'):
             for p in sorted(d.glob('*.png')):
                 if p not in used and any(term in p.stem for term in patterns[name]):images.append({'path':p.name,'caption':title});used.add(p)
             child['sections'].append({'id':name,'availability':'보존된 원본 진단 참조' if state['status']=='criteria_met' else ('입자 수·소멸 이력' if name=='convergence' else '최종 정상 방전 측정 없음'),'images':images})
+        aliases={'density':'distributions','distributions':'distributions','ionization':'heating','power':'heating'}
+        for sec in child['sections']:
+            if not sec.get('images') and sec['id'] in aliases:
+                candidates=[q for q in sorted(d.glob('*.png')) if aliases[sec['id']] in q.stem]
+                if candidates:sec['images']=[{'path':candidates[0].name,'caption':'관련 진단을 포함한 원본 묶음 그림입니다. 평균 구간은 위 표를 따릅니다.'}]
+            if sec.get('images'):
+                sec['data_status']='available' if state['status']=='criteria_met' else 'partial'
+                if sec['id'] in ['walls','power']:
+                    sec['data_status']='partial';sec['text']='전류·입자 에너지 또는 위상 평균 jE 진단입니다. 완전한 벽·충돌·저장 에너지 수지를 모두 측정한 결과가 아닙니다.'
+            else:
+                reason='전자 소멸로 정상 방전의 해당 진단을 측정하지 못했습니다.' if state['status']=='extinguished' else '해당 진단의 측정 자료가 아직 저장되지 않았습니다.'
+                sec.update(data_status='unavailable',reason=reason,text=reason)
         for p in sorted(d.rglob('*')):
             if p.is_file() and p.suffix in ['.zip','.pdf','.csv']:child['downloads'].append({'label':p.stem,'path':p.relative_to(d).as_posix()})
         (d/'report.json').write_text(json.dumps(child,ensure_ascii=False,indent=2)+'\n')
@@ -82,7 +94,21 @@ def export(root,out,branch='results/20mTorr-topRF'):
             for col,label in [(1,'Electrons'),(2,'Ar+ ions')]:ax.plot(a[:,0],a[:,col],label=label)
         ax.set(title=f'{v} V | {state["status"]}',xlabel='RF cycles',ylabel='Macroparticles');ax.legend(fontsize=8)
     save(fig,out/'progress.png')
-    m['sections']=[{'id':'convergence','availability':'저장된 입자 수·상태','images':[{'path':'progress.png','caption':'저장 이력; 실시간 CPU 상태가 아님'}]}]
+    m['sections']=[]
+    for key,title in STANDARD_SECTIONS:
+        sec={'id':key,'availability':'조건별 저장 자료','images':[]}
+        if key=='convergence':sec.update(data_status='available',images=[{'path':'progress.png','caption':'저장 이력; 실시간 CPU 상태가 아님'}])
+        else:
+            available=False
+            for q in out.glob('*/report.json'):
+                child_meta=json.loads(q.read_text())
+                available |= next(s for s in child_meta['sections'] if s['id']==key)['data_status']!='unavailable'
+            if available:
+                sec.update(data_status='partial',text='전압별 '+title+': '+' · '.join(f'[{c["voltage_V"]} V]({c["path"]})' for c in m['cases']))
+            else:
+                reason='해당 정상 방전 측정 자료가 저장되지 않았습니다. 전압별 상태·소멸 또는 중단 이유를 확인하세요.'
+                sec.update(data_status='unavailable',reason=reason,text=reason)
+        m['sections'].append(sec)
     filename=slug+'_source.zip';archive(out/filename,[(root/name,name) for name in ['source-eduPIC.cc','config.json','criteria.json','LICENSE','reflected_initial_cycle0.bin']])
     m['downloads'].append({'label':'실행 소스·공통 초기 상태','path':filename})
     (out/'run.json').write_text(json.dumps(m,ensure_ascii=False,indent=2)+'\n');return m

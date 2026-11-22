@@ -41,12 +41,67 @@
           "path": "261117_initial_incomplete_stationarity1700.png",
           "caption": "저장 시점의 입자 수 안정성"
         }
-      ]
+      ],
+      "data_status": "available"
     },
     {
       "id": "density",
       "availability": "RF1700 단일 시점만 보존",
-      "text": "순간 밀도 CSV는 시간평균과 구분합니다.",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/density.png",
+          "caption": "저장된 RF1700 단일 시점의 밀도입니다. 시간평균·최종 정상 방전 측정과 구분합니다."
+        }
+      ],
+      "data_status": "partial"
+    },
+    {
+      "id": "heating",
+      "data_status": "unavailable",
+      "reason": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
+      "images": []
+    },
+    {
+      "id": "fields",
+      "data_status": "unavailable",
+      "reason": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
+      "images": []
+    },
+    {
+      "id": "ionization",
+      "data_status": "unavailable",
+      "reason": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
+      "images": []
+    },
+    {
+      "id": "distributions",
+      "data_status": "unavailable",
+      "reason": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
+      "images": []
+    },
+    {
+      "id": "walls",
+      "data_status": "unavailable",
+      "reason": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
+      "images": []
+    },
+    {
+      "id": "power",
+      "data_status": "unavailable",
+      "reason": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
+      "availability": "최종 측정 자료 없음",
+      "text": "최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.",
       "images": []
     }
   ],
@@ -97,5 +152,6 @@
   "details": "DETAILS.md",
   "summary": "RF1700 체크포인트와 입자 수 이력을 보존했습니다. 장시간 측정의 최종 분포는 보존되지 않았습니다.",
   "measurement_note": "저장 RF1700 순간 상태. 예비 RF326–330과 미완료 장시간 측정을 최종 정상상태 평균으로 사용하지 않음.",
-  "setup_image": "figures/setup.png"
+  "setup_image": "figures/setup.png",
+  "coverage_reviewed_on": "2026-11-22"
 }

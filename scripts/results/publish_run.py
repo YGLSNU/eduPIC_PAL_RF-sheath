@@ -7,6 +7,7 @@ import tempfile
 import shutil
 import subprocess
 from catalog import git,validate,render_report,refresh_files,commit_files,sync,safe_path
+from audit_coverage import audit
 
 def publish(export,branch,root,push):
     metadata=validate(json.loads((export/'run.json').read_text()))
@@ -23,9 +24,13 @@ def publish(export,branch,root,push):
             child=validate(json.loads(p.read_text()));refresh_files(p.parent,child)
             p.write_text(json.dumps(child,ensure_ascii=False,indent=2)+'\n')
             (p.parent/'README.md').write_text(render_report(child));refresh_files(p.parent,child)
+            errors=audit(child,(p.parent/'README.md').read_text())['failures']
+            if errors:raise ValueError('Incomplete case report: '+'; '.join(errors))
         refresh_files(dest,metadata)
         (dest/'run.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
         (dest/'README.md').write_text(render_report(metadata));refresh_files(dest,metadata)
+        errors=audit(metadata,(dest/'README.md').read_text())['failures']
+        if errors:raise ValueError('Incomplete result report: '+'; '.join(errors))
         files={'results/'+metadata['id']+'/'+safe_path(p.relative_to(dest).as_posix()):p.read_bytes()
                for p in dest.rglob('*') if p.is_file()}
         for attempt in range(3):

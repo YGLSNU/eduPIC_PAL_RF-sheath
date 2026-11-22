@@ -28,16 +28,16 @@ RF1700 체크포인트와 입자 수 이력을 보존했습니다. 장시간 측
 
 ## 자료 범위
 
-| 진단 | 저장·해석 범위 |
-|---|---|
-| 수렴·입자 수지 | 입자 수 이력·저장 상태의 안정성 검사 |
-| 밀도 공간분포 | RF1700 단일 시점만 보존 |
-| RF heating | 저장 자료 없음 |
-| 전위·전기장 | 저장 자료 없음 |
-| 평균 에너지·이온화 | 저장 자료 없음 |
-| 에너지 분포 | 저장 자료 없음 |
-| 전극 flux·손실 | 저장 자료 없음 |
-| 전력 전달·손실 | 저장 자료 없음 |
+| 진단 | 제공 상태 | 저장·해석 범위 |
+|---|---|---|
+| 수렴·입자 수지 | 자료 있음 | 입자 수 이력·저장 상태의 안정성 검사 |
+| 밀도 공간분포 | 부분 자료 | RF1700 단일 시점만 보존 |
+| RF heating | 자료 없음 | 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다. |
+| 전위·전기장 | 자료 없음 | 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다. |
+| 평균 에너지·이온화 | 자료 없음 | 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다. |
+| 에너지 분포 | 자료 없음 | 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다. |
+| 전극 flux·손실 | 자료 없음 | 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다. |
+| 전력 전달·손실 | 자료 없음 | 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다. |
 
 ## 수렴·입자 수지
 
@@ -53,7 +53,35 @@ RF1700 체크포인트와 입자 수 이력을 보존했습니다. 장시간 측
 
 ## 밀도 공간분포
 
-순간 밀도 CSV는 시간평균과 구분합니다.
+
+
+![저장된 RF1700 단일 시점의 밀도입니다. 시간평균·최종 정상 방전 측정과 구분합니다.](figures/density.png)
+
+저장된 RF1700 단일 시점의 밀도입니다. 시간평균·최종 정상 방전 측정과 구분합니다.
+
+## RF heating
+
+**자료 없음:** 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.
+
+## 전위·전기장
+
+**자료 없음:** 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.
+
+## 평균 에너지·이온화
+
+**자료 없음:** 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.
+
+## 에너지 분포
+
+**자료 없음:** 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.
+
+## 전극 flux·손실
+
+**자료 없음:** 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.
+
+## 전력 전달·손실
+
+**자료 없음:** 최종 장시간 측정 분포가 저장되지 않은 미완료 실행입니다.
 
 ## 읽는 기준
 
@@ -67,11 +95,11 @@ RF1700 체크포인트와 입자 수 이력을 보존했습니다. 장시간 측
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
 | incomplete full | [261117_initial_incomplete_full.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261117_initial/261117_initial_incomplete_full.zip) | 11.60 MiB |
-| incomplete overview | [261117_initial_incomplete_overview.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261117_initial/261117_initial_incomplete_overview.pdf) | 0.04 MiB |
-| incomplete particle counts | [261117_initial_incomplete_particle_counts.csv](261117_initial_incomplete_particle_counts.csv) | 0.04 MiB |
-| incomplete snapshot1700 density | [261117_initial_incomplete_snapshot1700_density.csv](261117_initial_incomplete_snapshot1700_density.csv) | 0.03 MiB |
-| incomplete stationarity1700 | [261117_initial_incomplete_stationarity1700.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261117_initial/261117_initial_incomplete_stationarity1700.pdf) | 0.03 MiB |
-| incomplete summary | [261117_initial_incomplete_summary.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261117_initial/261117_initial_incomplete_summary.zip) | 0.54 MiB |
+| incomplete overview | [261117_initial_incomplete_overview.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261117_initial/261117_initial_incomplete_overview.pdf) | 40.0 KiB |
+| incomplete particle counts | [261117_initial_incomplete_particle_counts.csv](261117_initial_incomplete_particle_counts.csv) | 42.4 KiB |
+| incomplete snapshot1700 density | [261117_initial_incomplete_snapshot1700_density.csv](261117_initial_incomplete_snapshot1700_density.csv) | 29.3 KiB |
+| incomplete stationarity1700 | [261117_initial_incomplete_stationarity1700.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261117_initial/261117_initial_incomplete_stationarity1700.pdf) | 28.5 KiB |
+| incomplete summary | [261117_initial_incomplete_summary.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261117_initial/261117_initial_incomplete_summary.zip) | 550.8 KiB |
 
 [전체 파일 목록·SHA256](files.json)
 

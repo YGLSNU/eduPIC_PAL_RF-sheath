@@ -28,16 +28,16 @@
 
 ## 자료 범위
 
-| 진단 | 저장·해석 범위 |
-|---|---|
-| 수렴·입자 수지 | 입자 수·측정 통계 기록 |
-| 밀도 공간분포 | RF1701–1705 평균 |
-| RF heating | RF1701–1705 평균 |
-| 전위·전기장 | RF1701–1705 평균 |
-| 평균 에너지·이온화 | RF1701–1705 평균 |
-| 에너지 분포 | 5 RF 히스토그램 |
-| 전극 flux·손실 | 원본 info.txt의 구간별 flux·이온 에너지 |
-| 전력 전달·손실 | 위상 평균 j×E 및 원본 보고서의 평균 전력 |
+| 진단 | 제공 상태 | 저장·해석 범위 |
+|---|---|---|
+| 수렴·입자 수지 | 자료 있음 | 입자 수·측정 통계 기록 |
+| 밀도 공간분포 | 자료 있음 | RF1701–1705 평균 |
+| RF heating | 자료 있음 | RF1701–1705 평균 |
+| 전위·전기장 | 자료 있음 | RF1701–1705 평균 |
+| 평균 에너지·이온화 | 자료 있음 | RF1701–1705 평균 |
+| 에너지 분포 | 자료 있음 | 5 RF 히스토그램 |
+| 전극 flux·손실 | 자료 있음 | 원본 info.txt의 구간별 flux·이온 에너지 |
+| 전력 전달·손실 | 부분 자료 | 위상 평균 j×E 및 원본 보고서의 평균 전력 |
 
 ## 수렴·입자 수지
 
@@ -49,7 +49,11 @@
 
 ## 밀도 공간분포
 
-밀도 곡선과 위상별 분포를 아래 에너지 분포·전위 그림에서 함께 확인할 수 있습니다.
+
+
+![RF1701–1705 평균 전자·이온 밀도. x=0 하부 RF, x=25mm 상부 접지입니다.](figures/density.png)
+
+RF1701–1705 평균 전자·이온 밀도. x=0 하부 RF, x=25mm 상부 접지입니다.
 
 ## RF heating
 
@@ -69,7 +73,11 @@
 
 ## 평균 에너지·이온화
 
-이온화율과 평균 에너지는 heating 묶음 그림에 있습니다.
+
+
+![RF1701–1705의 평균 전자 에너지·이온화율](figures/ionization.png)
+
+RF1701–1705의 평균 전자 에너지·이온화율
 
 ## 에너지 분포
 
@@ -83,13 +91,21 @@
 
 
 
+![원본 info.txt의 구간별 flux를 측정 RF 길이로 가중 평균했습니다. 출력 반올림 정밀도를 유지합니다.](figures/wall_flux.png)
+
+원본 info.txt의 구간별 flux를 측정 RF 길이로 가중 평균했습니다. 출력 반올림 정밀도를 유지합니다.
+
 ![전류밀도와 양 전극 이온 에너지 진단; 총 단자 VI 전류와 구분](261118_measure5_currents_ionenergy.png)
 
 전류밀도와 양 전극 이온 에너지 진단; 총 단자 VI 전류와 구분
 
 ## 전력 전달·손실
 
-완전한 충돌·벽·전기장 에너지 폐합 진단은 이 원본 실행에 없습니다.
+완전한 충돌·벽·저장 에너지 수지는 이 원본 실행에 기록되지 않았습니다.
+
+![위상 평균 j×E의 공간분포와 원본 정의의 평균 전력밀도입니다. 입자 field-work와 구분합니다.](figures/power.png)
+
+위상 평균 j×E의 공간분포와 원본 정의의 평균 전력밀도입니다. 입자 field-work와 구분합니다.
 
 ## 읽는 기준
 
@@ -102,9 +118,11 @@
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| 전체 그림 PDF | [261118_measure5_all_plots.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261118_measure5/261118_measure5_all_plots.pdf) | 0.54 MiB |
+| 전체 그림 PDF | [261118_measure5_all_plots.pdf](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261118_measure5/261118_measure5_all_plots.pdf) | 549.5 KiB |
 | 전체 보관 자료 | [261118_measure5_full.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261118_measure5/261118_measure5_full.zip) | 23.83 MiB |
 | 보고서·그림·수치 요약 | [261118_measure5_summary.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261118_measure5/261118_measure5_summary.zip) | 6.84 MiB |
+| 측정 구간 전극 flux CSV | [wall_flux.csv](data/wall_flux.csv) | 93 B |
+| 후처리 근거·정밀도 | [audit_evidence.json](data/audit_evidence.json) | 357 B |
 
 [전체 파일 목록·SHA256](files.json)
 
