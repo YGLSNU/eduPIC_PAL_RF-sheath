@@ -158,7 +158,9 @@ def refresh_files(directory,meta):
     entries={}
     for p in sorted(directory.rglob('*')):
         if p.is_file() and p.name!='files.json':
-            entries[p.relative_to(directory).as_posix()]={'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()}
+            data=p.read_bytes()
+            entries[p.relative_to(directory).as_posix()]={'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),
+                'git_blob':hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()}
     for d in meta.get('downloads',[]):
         if d['path'] not in entries:raise FileNotFoundError(directory/d['path'])
         d.update(entries[d['path']])
@@ -232,6 +234,36 @@ def commit_files(root,base,files,message):
         tree=git('write-tree',cwd=root,env=env)
         return git('commit-tree',tree,'-p',base,cwd=root,input=message+'\n')
 
+def refresh_remote_manifests(root,base,files,records,branch):
+    """Reuse hashes for unchanged Git blobs; download only new/changed artifacts."""
+    inventory={}
+    for line in git('ls-tree','-r','--long',base,'results',cwd=root).splitlines():
+        header,path=line.split('\t',1);mode,kind,oid,size=header.split()
+        if kind=='blob':inventory[path]=(oid,int(size))
+    for m in records:
+        if m['branch']!=branch:continue
+        prefix='results/'+m['id']+'/'
+        directories=[prefix]
+        for case in m.get('cases',[]):directories.append(prefix+str(PurePosixPath(case['path']).parent)+'/')
+        # Transient diagnostic subreports may be linked from prose instead of cases.
+        directories+=sorted({str(PurePosixPath(p).parent)+'/' for p in inventory if p.startswith(prefix) and p.endswith('/report.json')})
+        for directory in dict.fromkeys(directories):
+            old=show_json(root,base,directory+'files.json') or {}
+            entries={}
+            paths={p for p in inventory if p.startswith(directory)}|{p for p in files if p.startswith(directory)}
+            for path in sorted(paths):
+                if PurePosixPath(path).name=='files.json':continue
+                relative=path[len(directory):];cached=old.get(relative)
+                if path in files:
+                    content=files[path];data=content.encode() if isinstance(content,str) else content
+                elif cached and cached.get('git_blob')==inventory[path][0] and cached['bytes']==inventory[path][1]:
+                    entries[relative]=cached;continue
+                else:
+                    data=subprocess.run(['git','show',base+':'+path],cwd=root,capture_output=True,check=True).stdout
+                entries[relative]={'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),
+                    'git_blob':hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()}
+            files[directory+'files.json']=json.dumps(entries,ensure_ascii=False,indent=2)+'\n'
+
 def sync(root,remote='origin',push=False,_attempt=0):
     managed,records=refs_and_records(root,remote)
     branches=['main',*managed]
@@ -246,10 +278,13 @@ def sync(root,remote='origin',push=False,_attempt=0):
             if m['branch']!=branch:continue
             prefix='results/'+m['id']+'/'
             files[prefix+'README.md']=render_report(m)
-            for case in m.get('cases',[]):
-                parent=str(PurePosixPath(case['path']).parent)
-                child=show_json(root,base,prefix+parent+'/report.json')
-                if child:files[prefix+parent+'/README.md']=render_report(child)
+            for path in git('ls-tree','-r','--name-only',base,prefix,cwd=root).splitlines():
+                if path.endswith('/report.json'):
+                    child=validate(show_json(root,base,path))
+                    if child['id']!=m['id'] or child['branch']!=branch:
+                        raise ValueError('Child report differs from its run: '+path)
+                    files[str(PurePosixPath(path).parent)+'/README.md']=render_report(child)
+        refresh_remote_manifests(root,base,files,records,branch)
         commit=commit_files(root,base,files,'Update simulation result catalogs')
         if commit:changes[branch]=commit
     if push and changes:

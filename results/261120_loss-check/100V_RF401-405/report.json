@@ -96,37 +96,43 @@
       "label": "eepf",
       "path": "data/eepf.csv",
       "bytes": 27640,
-      "sha256": "8a1292320e2245a8f2a4731a7ad6b2e3c4dba1e6c668c2063f5735a211607f8b"
+      "sha256": "8a1292320e2245a8f2a4731a7ad6b2e3c4dba1e6c668c2063f5735a211607f8b",
+      "git_blob": "805271c9ad37be63d7752a5ce7f0d341e097887d"
     },
     {
       "label": "ifed",
       "path": "data/ifed.csv",
       "bytes": 3236,
-      "sha256": "ae6a051bec98ead8c50f8c322483a8aaf4f167b62c1e755a124517ef8a806bf6"
+      "sha256": "ae6a051bec98ead8c50f8c322483a8aaf4f167b62c1e755a124517ef8a806bf6",
+      "git_blob": "a83b1aca3fd604ec060f9cd333184d7c9de1e2f9"
     },
     {
       "label": "info",
       "path": "data/info.txt",
       "bytes": 2586,
-      "sha256": "85c73ba439df5d5dc7a1321df65107b1d9e1c69cc7b0e7033ea359a7e5927e9c"
+      "sha256": "85c73ba439df5d5dc7a1321df65107b1d9e1c69cc7b0e7033ea359a7e5927e9c",
+      "git_blob": "71df7871377a189b3f12d6304f0cd657c9bdb38e"
     },
     {
       "label": "particle_balance",
       "path": "data/particle_balance.csv",
       "bytes": 1119,
-      "sha256": "728a9d638105ccc3d91042c9194aab1289c620730bf68a967724678dac83775c"
+      "sha256": "728a9d638105ccc3d91042c9194aab1289c620730bf68a967724678dac83775c",
+      "git_blob": "b671e7b64c303417681789d8cb8c0b25f940b7ed"
     },
     {
       "label": "profiles",
       "path": "data/profiles.csv",
       "bytes": 43871,
-      "sha256": "ab81bf9358dca59b471dd1eb6214e7ee21002b46ad958ab4ce88912ad2143a21"
+      "sha256": "ab81bf9358dca59b471dd1eb6214e7ee21002b46ad958ab4ce88912ad2143a21",
+      "git_blob": "3f170746a46d8f506f86da1b560dba262bb730a8"
     },
     {
       "label": "summary",
       "path": "data/summary.json",
       "bytes": 1147,
-      "sha256": "bc67e40f3ba9008160a800bd565adb68845c5bb3c4587215570a9c6bef263e68"
+      "sha256": "bc67e40f3ba9008160a800bd565adb68845c5bb3c4587215570a9c6bef263e68",
+      "git_blob": "0cb24116ea08455301df608eb2d9ddc93eece98d"
     }
   ],
   "report_directory": "results/261120_loss-check/100V_RF401-405",

@@ -106,61 +106,71 @@
       "label": "261120 gap40 500V core",
       "path": "261120_gap40_500V_core.zip",
       "bytes": 35164276,
-      "sha256": "7bdeae2139493f01dc1a5866fc0fa8927a847f589ec7cc94d4c9085c19091802"
+      "sha256": "7bdeae2139493f01dc1a5866fc0fa8927a847f589ec7cc94d4c9085c19091802",
+      "git_blob": "b06eade13b8a3f01d1e800201db8eb01329163be"
     },
     {
       "label": "261120 gap40 500V measurements part01",
       "path": "261120_gap40_500V_measurements_part01.zip",
       "bytes": 21226465,
-      "sha256": "9cd2a0ffb8bb319020db85749ef888340964202430f3be773d902d7fd59dabe3"
+      "sha256": "9cd2a0ffb8bb319020db85749ef888340964202430f3be773d902d7fd59dabe3",
+      "git_blob": "21060d79e9294b4656c256069270a4d79273f164"
     },
     {
       "label": "261120 gap40 500V measurements part02",
       "path": "261120_gap40_500V_measurements_part02.zip",
       "bytes": 11520461,
-      "sha256": "8050f1505f49e4e2063f1c73bbb8f8dbc481c6a0cbdcaf658ebe13050e99f559"
+      "sha256": "8050f1505f49e4e2063f1c73bbb8f8dbc481c6a0cbdcaf658ebe13050e99f559",
+      "git_blob": "7615bee6cde262c63a1b5c4b675f29c50c5416d2"
     },
     {
       "label": "평균 밀도·heating 공간분포",
       "path": "data/profiles.csv",
       "bytes": 73374,
-      "sha256": "5090ac5581b1cbd30dc78c0f747474a37262f333a2ab0519770882509aa4e54c"
+      "sha256": "5090ac5581b1cbd30dc78c0f747474a37262f333a2ab0519770882509aa4e54c",
+      "git_blob": "c319480dd608b267bdfb413ba972ee3b285c46e9"
     },
     {
       "label": "마지막20RF 중앙 EEPF",
       "path": "data/eepf_last_block.csv",
       "bytes": 32724,
-      "sha256": "c7250a61c5e1c74d11329446984cc8f2a713c2a13a28a605ccc372abae957260"
+      "sha256": "c7250a61c5e1c74d11329446984cc8f2a713c2a13a28a605ccc372abae957260",
+      "git_blob": "de5f56c4129f323493d9381ed14c4215446ff16e"
     },
     {
       "label": "마지막20RF 양 전극 IEDF",
       "path": "data/ifed_last_block.csv",
       "bytes": 16232,
-      "sha256": "1ab5fdd2c1952e12ffe2ac215dedbd6fa79dd41d819656570ff2499157f14b7b"
+      "sha256": "1ab5fdd2c1952e12ffe2ac215dedbd6fa79dd41d819656570ff2499157f14b7b",
+      "git_blob": "c8c4cb6b39e93dd327c877c1969f417e462f22ea"
     },
     {
       "label": "전체 측정 전극 flux",
       "path": "data/wall_flux.csv",
       "bytes": 131,
-      "sha256": "51ce3a6ea039bc62ff4b6aec174265d3183957b2c4a26c63df82504d32170254"
+      "sha256": "51ce3a6ea039bc62ff4b6aec174265d3183957b2c4a26c63df82504d32170254",
+      "git_blob": "da4237713d27d553e423039f53960292ae8dbacb"
     },
     {
       "label": "전체 측정 전력 채널",
       "path": "data/power_channels.csv",
       "bytes": 201,
-      "sha256": "0f9ab3c63e8c52193d278725101bc1c9be02024eca4564a7e6ec985e11a7765c"
+      "sha256": "0f9ab3c63e8c52193d278725101bc1c9be02024eca4564a7e6ec985e11a7765c",
+      "git_blob": "dc0ded2cd959a86c915c26f99a8a472a281c7b6d"
     },
     {
       "label": "중단 통계 지표",
       "path": "data/sampling_indicators.csv",
       "bytes": 752,
-      "sha256": "48386c0c9ce8cd49d12afacc8cab7312fc91cf74aba838e24b9d068e595b899a"
+      "sha256": "48386c0c9ce8cd49d12afacc8cab7312fc91cf74aba838e24b9d068e595b899a",
+      "git_blob": "c947f3332fdf3e6d424ac197e0a19270ee173f86"
     },
     {
       "label": "진단 수치·검증 기록",
       "path": "data/diagnostics.json",
       "bytes": 1747,
-      "sha256": "4bb78af4b823e8de2ad9e3569ae1308a71a22b71d8260bff982f2a1036f6dde6"
+      "sha256": "4bb78af4b823e8de2ad9e3569ae1308a71a22b71d8260bff982f2a1036f6dde6",
+      "git_blob": "0ed83b96df193cc6919e691258325cf2eff226af"
     }
   ],
   "report_directory": "results/261120_gap40_V100-500/500V",

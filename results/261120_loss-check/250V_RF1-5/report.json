@@ -96,37 +96,43 @@
       "label": "eepf",
       "path": "data/eepf.csv",
       "bytes": 28214,
-      "sha256": "99b76d9033c5b328d698d075c27a8db4e1233cd1ed1559a3249693af94986833"
+      "sha256": "99b76d9033c5b328d698d075c27a8db4e1233cd1ed1559a3249693af94986833",
+      "git_blob": "d8a6599dc20fb59d562acc49403507b243f59da9"
     },
     {
       "label": "ifed",
       "path": "data/ifed.csv",
       "bytes": 3911,
-      "sha256": "9d6bcfa852f72bee78c9ac619455a37da8cb93da01be5182d830d0afe74e92f5"
+      "sha256": "9d6bcfa852f72bee78c9ac619455a37da8cb93da01be5182d830d0afe74e92f5",
+      "git_blob": "45d7145d7df1b1da00cf06300454de6d5dc9b6c2"
     },
     {
       "label": "info",
       "path": "data/info.txt",
       "bytes": 2586,
-      "sha256": "3af0b72e341ae820cc9d812c22dc1c5b2c23dea1d972a0c9ce6b5ff766c79319"
+      "sha256": "3af0b72e341ae820cc9d812c22dc1c5b2c23dea1d972a0c9ce6b5ff766c79319",
+      "git_blob": "709ea8791d9498954f07850c56051375b493f22f"
     },
     {
       "label": "particle_balance",
       "path": "data/particle_balance.csv",
       "bytes": 1159,
-      "sha256": "e7fa5ce5955eb4ebed38941cc91ce18d0b16e10561979d9a9fdb80b748636812"
+      "sha256": "e7fa5ce5955eb4ebed38941cc91ce18d0b16e10561979d9a9fdb80b748636812",
+      "git_blob": "0bddda694dc716f1f74e9edab679f88abceff9fc"
     },
     {
       "label": "profiles",
       "path": "data/profiles.csv",
       "bytes": 44202,
-      "sha256": "220e55a71f4e6f0c01b404d1af9abc872b2a9ab8f63f9fe35a05c015e96c2c6a"
+      "sha256": "220e55a71f4e6f0c01b404d1af9abc872b2a9ab8f63f9fe35a05c015e96c2c6a",
+      "git_blob": "47ca9186f7200e94e34c80740a2ed02e720ac59e"
     },
     {
       "label": "summary",
       "path": "data/summary.json",
       "bytes": 1151,
-      "sha256": "13624e578de508fd266c16ac6f8f711e6ecd72c33b338a7f221d257d7d1056fd"
+      "sha256": "13624e578de508fd266c16ac6f8f711e6ecd72c33b338a7f221d257d7d1056fd",
+      "git_blob": "d8d2b45308cc350dbfeaa353d093c76788309e3c"
     }
   ],
   "report_directory": "results/261120_loss-check/250V_RF1-5",

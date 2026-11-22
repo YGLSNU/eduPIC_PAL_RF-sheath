@@ -96,37 +96,43 @@
       "label": "eepf",
       "path": "data/eepf.csv",
       "bytes": 30339,
-      "sha256": "93be2f5d0426de3e97566acfcf17ed4229d2c4cf69e37e60ad6b116cf09013b5"
+      "sha256": "93be2f5d0426de3e97566acfcf17ed4229d2c4cf69e37e60ad6b116cf09013b5",
+      "git_blob": "b2f252e46c11c8695ea8d4e798e01c2700d9fd84"
     },
     {
       "label": "ifed",
       "path": "data/ifed.csv",
       "bytes": 4099,
-      "sha256": "7bac602bc7b85649ee719afe85197748fccd57a58a7eaad4040b8cfdb69782a8"
+      "sha256": "7bac602bc7b85649ee719afe85197748fccd57a58a7eaad4040b8cfdb69782a8",
+      "git_blob": "4b244be8c9cbedf6088a8daf622a3037272865eb"
     },
     {
       "label": "info",
       "path": "data/info.txt",
       "bytes": 2586,
-      "sha256": "30ae681909f87dd416380879dd84f4b9fb2817ef0c2ff7addba0450e847b2e18"
+      "sha256": "30ae681909f87dd416380879dd84f4b9fb2817ef0c2ff7addba0450e847b2e18",
+      "git_blob": "bbe23548b69cd3c765de794b0be01a7f4a32c431"
     },
     {
       "label": "particle_balance",
       "path": "data/particle_balance.csv",
       "bytes": 1148,
-      "sha256": "29eef948b739a559e3eb05e609da50689436d47e449e6238bb9b3ee7d1e2acd0"
+      "sha256": "29eef948b739a559e3eb05e609da50689436d47e449e6238bb9b3ee7d1e2acd0",
+      "git_blob": "dbb2e77b70c739c1477a5d8fc7e1ac0a2ccb7f7b"
     },
     {
       "label": "profiles",
       "path": "data/profiles.csv",
       "bytes": 43828,
-      "sha256": "34f2b7f113c68a7991b10a8ed031c6349e52a96de52c66fa56b875bedac4a3b4"
+      "sha256": "34f2b7f113c68a7991b10a8ed031c6349e52a96de52c66fa56b875bedac4a3b4",
+      "git_blob": "db5cdcd443cadb31111870e101024ef16cee6629"
     },
     {
       "label": "summary",
       "path": "data/summary.json",
       "bytes": 1152,
-      "sha256": "ee8f40ca6d8d5d49e4d6da0b6bce465cc1ea96cd03a4166a40f67ea73f77ca09"
+      "sha256": "ee8f40ca6d8d5d49e4d6da0b6bce465cc1ea96cd03a4166a40f67ea73f77ca09",
+      "git_blob": "150f49d5cc392ffe13b249af3b588eb74acbaab4"
     }
   ],
   "report_directory": "results/261120_loss-check/300V_RF201-205",
