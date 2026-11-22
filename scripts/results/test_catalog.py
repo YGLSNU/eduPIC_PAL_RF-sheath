@@ -1,6 +1,7 @@
 """Meaningful offline coverage for multi-branch publishing; no real GitHub writes."""
 from pathlib import Path
 import copy
+import hashlib
 import json
 import subprocess
 import tempfile
@@ -42,6 +43,9 @@ class CatalogTests(unittest.TestCase):
         self.assertIn('미완료',report);self.assertIn('상부 RF / 하부 접지',report)
         self.assertEqual(git('show','refs/remotes/origin/main:C/eduPIC.cc',cwd=self.root),'original solver fixture')
         self.assertEqual(git('rev-parse','refs/remotes/origin/results/20mTorr-topRF:results/'+self.meta['id']+'/raw.bin',cwd=self.root),self.original)
+        entries=json.loads(git('show','refs/remotes/origin/results/20mTorr-topRF:results/'+self.meta['id']+'/files.json',cwd=self.root))
+        readme=git('show','refs/remotes/origin/results/20mTorr-topRF:results/'+self.meta['id']+'/README.md',cwd=self.root)+'\n'
+        self.assertEqual(entries['README.md']['sha256'],hashlib.sha256(readme.encode()).hexdigest())
         self.assertEqual(sync(self.root,push=True),{})
 
     def test_publisher_registers_new_run_and_automatically_updates_main(self):
