@@ -101,7 +101,12 @@ def render_report(m):
         lines.append(f'| {title} | {escape(sec.get("availability", "저장 자료 없음"))} |')
     lines.append('')
     for sec in m['sections']:
-        lines += [f'## {sec.get("title",dict(STANDARD_SECTIONS).get(sec["id"],sec["id"]))}', '',sec.get('text',''),'']
+        body=sec.get('text','').strip()
+        if not body and not sec.get('images') and not sec.get('table'):
+            body=sec.get('availability') or '저장 자료 없음'
+            if m.get('cases'):
+                body+='\n\n전압별 상세 보고서: '+' · '.join(f'[{case["voltage_V"]} V]({case["path"]})' for case in m['cases'])
+        lines += [f'## {sec.get("title",dict(STANDARD_SECTIONS).get(sec["id"],sec["id"]))}', '',body,'']
         for im in sec.get('images',[]):
             lines += [f'![{im.get("caption",sec["id"])}]({im["path"]})','',im.get('caption',''),'']
         if sec.get('table'):lines += [sec['table'],'']
