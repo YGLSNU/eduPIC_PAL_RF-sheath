@@ -8,17 +8,17 @@
 
 | 자료 | 링크 | 크기 |
 |---|---|---|
-| 요약 ZIP: 보고서, 그림, CSV | [요약 ZIP 다운로드](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-17-default-incomplete/results/2026-11-17_Ar_10Pa_250V_13.56MHz_25mm/2026-11-17_Ar_10Pa_250V_13.56MHz_25mm_incomplete_summary.zip) | 0.56 MB |
-| 전체 ZIP: 요약 + 원본 로그, 재시작 데이터, 소스, 예비 결과, 매뉴얼 | [전체 ZIP 다운로드](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/2026-11-17-default-incomplete/results/2026-11-17_Ar_10Pa_250V_13.56MHz_25mm/2026-11-17_Ar_10Pa_250V_13.56MHz_25mm_incomplete_full.zip) | 12.17 MB |
+| 요약 ZIP: 보고서, 그림, CSV | [요약 ZIP 다운로드](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261117_initial/261117_initial_incomplete_summary.zip) | 0.56 MB |
+| 전체 ZIP: 요약 + 원본 로그, 재시작 데이터, 소스, 예비 결과, 매뉴얼 | [전체 ZIP 다운로드](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/75mTorr/results/261117_initial/261117_initial_incomplete_full.zip) | 12.17 MB |
 
 직접 다운로드가 열리지 않으면 아래 파일 페이지에서 Download raw(다운로드 아이콘)를 선택하세요.
 
-- [요약 ZIP 파일 페이지](2026-11-17_Ar_10Pa_250V_13.56MHz_25mm_incomplete_summary.zip)
-- [전체 ZIP 파일 페이지](2026-11-17_Ar_10Pa_250V_13.56MHz_25mm_incomplete_full.zip)
-- [보고서 바로 읽기](2026-11-17_Ar_10Pa_250V_13.56MHz_25mm_incomplete_report.md)
-- [순간 밀도 CSV](2026-11-17_Ar_10Pa_250V_13.56MHz_25mm_incomplete_snapshot1700_density.csv) / [입자 수 CSV](2026-11-17_Ar_10Pa_250V_13.56MHz_25mm_incomplete_particle_counts.csv)
+- [요약 ZIP 파일 페이지](261117_initial_incomplete_summary.zip)
+- [전체 ZIP 파일 페이지](261117_initial_incomplete_full.zip)
+- [보고서 바로 읽기](261117_initial_incomplete_report.md)
+- [순간 밀도 CSV](261117_initial_incomplete_snapshot1700_density.csv) / [입자 수 CSV](261117_initial_incomplete_particle_counts.csv)
 
-![입자 수 기록과 1,700주기 순간 밀도](2026-11-17_Ar_10Pa_250V_13.56MHz_25mm_incomplete_overview.png)
+![입자 수 기록과 1,700주기 순간 밀도](261117_initial_incomplete_overview.png)
 
 오른쪽 그림은 **단일 시점의 밀도이며 시간평균 결과가 아닙니다.**
 ZIP을 풀고 이름이 report.html로 끝나는 파일을 브라우저에서 열면 그림과 설명을 함께 볼 수 있습니다.

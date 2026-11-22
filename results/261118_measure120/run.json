@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "id": "261118_measure120",
+  "branch": "results/75mTorr",
+  "date": "2026-11-18",
+  "report_updated": "2026-11-22",
+  "title": "통계 기준에 따른 추가 측정",
+  "status": "criteria_met",
+  "changed_conditions": "추가 측정 120 RF",
+  "conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 75.00616827041698,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "voltage_peak_V": [
+      250
+    ],
+    "gap_mm": 25,
+    "steps_per_RF": 4000,
+    "grid_points": 400,
+    "weight": 70000,
+    "electrodes": "하부 x=0 RF / 상부 x=L 접지",
+    "original_pressure_Pa": 10
+  },
+  "source": {
+    "description": "원본 C/eduPIC.cc 계열, C++11 컴파일",
+    "revision": "32050728c961a317d6d6acd6bc86d026da403326",
+    "initialization": "원본 초기화 후 저장 상태에서 연속 계산"
+  },
+  "sections": [
+    {
+      "id": "convergence",
+      "availability": "입자 수·측정 통계 기록",
+      "text": "",
+      "images": [
+        {
+          "path": "261118_measure120_convergence.png",
+          "caption": "입자 수·측정 구간·측정 통계"
+        },
+        {
+          "path": "261118_measure120_stopping_criteria.png",
+          "caption": "항목별 통계 중단 지표와 기준"
+        }
+      ]
+    },
+    {
+      "id": "density",
+      "availability": "RF1706–1825, 6개20RF블록 평균",
+      "text": "밀도 곡선과 위상별 분포를 아래 에너지 분포·전위 그림에서 함께 확인할 수 있습니다.",
+      "images": []
+    },
+    {
+      "id": "heating",
+      "availability": "RF1706–1825, 6개20RF블록 평균",
+      "text": "",
+      "images": [
+        {
+          "path": "261118_measure120_heating.png",
+          "caption": "전자·이온 heating, 이온화율, 평균 전자 에너지; RF1706–1825, 6개20RF블록 평균"
+        }
+      ]
+    },
+    {
+      "id": "fields",
+      "availability": "RF1706–1825, 6개20RF블록 평균",
+      "text": "",
+      "images": [
+        {
+          "path": "261118_measure120_fields_density.png",
+          "caption": "전위·전기장·전자·이온 밀도; 하부RF/상부접지"
+        }
+      ]
+    },
+    {
+      "id": "ionization",
+      "availability": "RF1706–1825, 6개20RF블록 평균",
+      "text": "이온화율과 평균 에너지는 heating 묶음 그림에 있습니다.",
+      "images": []
+    },
+    {
+      "id": "distributions",
+      "availability": "정규화된 분포의 equal-block mean",
+      "text": "전체 사건 수로 가중한 PDF와 구간별 정규화 PDF의 평균은 다릅니다. 저장 방식에 따른 정의를 유지했습니다.",
+      "images": [
+        {
+          "path": "261118_measure120_distributions.png",
+          "caption": "밀도 공간분포·중앙 EEPF·양 전극 이온 에너지 분포"
+        }
+      ]
+    },
+    {
+      "id": "walls",
+      "availability": "원본 info.txt의 구간별 flux·이온 에너지",
+      "text": "",
+      "images": [
+        {
+          "path": "261118_measure120_currents_ionenergy.png",
+          "caption": "전류밀도와 양 전극 이온 에너지 진단; 총 단자 VI 전류와 구분"
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "availability": "위상 평균 j×E 및 원본 보고서의 평균 전력",
+      "text": "완전한 충돌·벽·전기장 에너지 폐합 진단은 이 원본 실행에 없습니다.",
+      "images": []
+    }
+  ],
+  "downloads": [
+    {
+      "label": "전체 그림 PDF",
+      "path": "261118_measure120_all_plots.pdf",
+      "bytes": 454502,
+      "sha256": "1c91f608ff0f7cefcbe47548116a207249a178ea34010b05c8ee5d4ef4e86c6c"
+    },
+    {
+      "label": "cycle1706-1725",
+      "path": "261118_measure120_cycle1706-1725.zip",
+      "bytes": 10240029,
+      "sha256": "7a46b9b9d5e30d6f7b61ede610f309fa427226d3d45d025b47104a97e230e1b7"
+    },
+    {
+      "label": "cycle1726-1745",
+      "path": "261118_measure120_cycle1726-1745.zip",
+      "bytes": 10240941,
+      "sha256": "664b0be394c06f590f84a16a51cef559b896755e416088cc88ea1a5d5fa9c1df"
+    },
+    {
+      "label": "cycle1746-1765",
+      "path": "261118_measure120_cycle1746-1765.zip",
+      "bytes": 10238424,
+      "sha256": "03f88b02b7756d06ef63856572810e0fce11dade0e9e8113ea84cd8a3cecb1a1"
+    },
+    {
+      "label": "cycle1766-1785",
+      "path": "261118_measure120_cycle1766-1785.zip",
+      "bytes": 10241161,
+      "sha256": "fa21dba608ec4daf4d816e163351601c29817bee559dae06e4452cd185b167ac"
+    },
+    {
+      "label": "cycle1786-1805",
+      "path": "261118_measure120_cycle1786-1805.zip",
+      "bytes": 10252072,
+      "sha256": "37e826c80d2d9d79162db3e6a63348c439e77db6f21c88329df310b4d3e21a06"
+    },
+    {
+      "label": "cycle1806-1825",
+      "path": "261118_measure120_cycle1806-1825.zip",
+      "bytes": 10245928,
+      "sha256": "4f8e7c0fa71dc7668351fff78f08bc179e57d5417903ec0efeb6052b7d831718"
+    },
+    {
+      "label": "input cycle1705 restart",
+      "path": "261118_measure120_input_cycle1705_restart.zip",
+      "bytes": 6811191,
+      "sha256": "25c960a15af1a832936246c827a3de881c4ac897701346d3794474aaeee19549"
+    },
+    {
+      "label": "최종 RF1825 재시작",
+      "path": "261118_measure120_restart_cycle1825.zip",
+      "bytes": 6850439,
+      "sha256": "a50536142978c2eb395651130584874b54fcab4b906ef018349510890c1c17ac"
+    },
+    {
+      "label": "보고서·그림·수치 요약",
+      "path": "261118_measure120_summary.zip",
+      "bytes": 13261271,
+      "sha256": "96637fa6a7e4882858246494635e79ba276878aa0adb1be1dbebd426b72cefe6"
+    }
+  ],
+  "details": "DETAILS.md",
+  "summary": "저장된 플라즈마 상태에서 이어 측정했습니다. 최근 600주기 안정성과 3%/5% 측정 지표를 연속 두 번 충족했습니다.",
+  "measurement_note": "RF1706–1825, 총120 RF; 이전5주기 제외",
+  "metrics": [
+    [
+      "공간·시간 평균 전자 밀도",
+      "3.0295e+15 m⁻³"
+    ],
+    [
+      "공간·시간 평균 이온 밀도",
+      "3.1811e+15 m⁻³"
+    ],
+    [
+      "최종 저장 / 새 측정",
+      "RF1825 / 120 RF"
+    ]
+  ],
+  "setup_image": "figures/setup.png"
+}

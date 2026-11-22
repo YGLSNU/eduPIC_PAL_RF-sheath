@@ -1,11 +1,23 @@
-# eduPIC 실행 결과
+# eduPIC 연구 결과 · 실행 목록
 
-실행일과 핵심 물리 조건으로 결과를 구분합니다. 각 폴더의 README에서 보고서와 다운로드 링크를 확인하세요.
+**이 페이지를 북마크하면 실행일·변경 조건으로 결과와 다운로드를 찾을 수 있습니다.**
 
-| 실행일 (한국 시각) | 조건 | 상태 | 자료 |
-|---|---|---|---|
-| 2026-11-17 | Ar 10 Pa, 전압 진폭 250 V, 13.56 MHz, 전극 간격 25 mm | 미완료: 수렴 1,700주기 확인, 최종 측정 분포 없음 | [결과 폴더](2026-11-17_Ar_10Pa_250V_13.56MHz_25mm/) |
-| 2026-11-18 | Ar 10 Pa, 전압 진폭 250 V, 13.56 MHz, 전극 간격 25 mm | 수렴 확인 후 1,701–1,705주기 측정 완료 (5주기 통계) | [결과 폴더](2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_cycle1701-1705/) |
-| 2026-11-18 | Ar 10 Pa, 전압 진폭 250 V, 13.56 MHz, 전극 간격 25 mm | 추가 측정: 통계 기준 만족·계산 종료, 1825주기까지 보관 | [결과 폴더](2026-11-18_Ar_10Pa_250V_13.56MHz_25mm_adaptive_from1705/) |
+[전체 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [75 mTorr 기본 조건](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/75mTorr) · [20 mTorr 상부 RF](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 코드](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/simulation/20mTorr-topRF)
 
-파일명 날짜는 결과를 정리하거나 업로드한 날짜가 아니라 실제 실행 시작일입니다.
+공통 조건: Ar **75.006 mTorr (원본 10 Pa)**, 350 K, 13.56 MHz, 250 V peak, gap 25 mm. **하부 x=0 RF / 상부 x=L 접지**. 이 조건들은 실행 이름에서 생략합니다.
+
+## 실행 기록
+
+| 실행일 KST | 실행 / 바꾼 조건 | 주요 조건 | 상태 | 결과 |
+|---|---|---|---|---|
+| 2026-11-18 | **261118_measure5**<br>측정 구간 5 RF | 75.0062 mTorr · 25 mm · 250 V peak | 측정 완료·통계 기준 별도 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261118_measure5/README.md) |
+| 2026-11-18 | **261118_measure120**<br>추가 측정 120 RF | 75.0062 mTorr · 25 mm · 250 V peak | 통계 기준 충족 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261118_measure120/README.md) |
+| 2026-11-17 | **261117_initial**<br>초기 실행·RF1700 저장 | 75.0062 mTorr · 25 mm · 250 V peak | 미완료 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261117_initial/README.md) |
+
+각 보고서 첫 화면에서 조건표·평균 구간·종료 이유를 확인할 수 있습니다. 소멸·미완료는 정상 방전의 통계 수렴과 다르게 표시합니다.
+
+## 이후 결과 추가
+
+새 실행은 `results/YYMMDD_바꾼조건/run.json`과 그래프·자료를 함께 등록합니다. 등록 도구가 보고서와 목록을 갱신하며, GitHub Actions도 결과 push 뒤 전체 목록을 동기화합니다.
+
+[파일 이름·보고서·업로드 기준](../docs/RESULTS_GUIDE.md) · [브랜치·이름 변경 이력](../docs/MIGRATION.md) · [eduPIC 원본 소개·논문·라이선스](../docs/UPSTREAM.md)

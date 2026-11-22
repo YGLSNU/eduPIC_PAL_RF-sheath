@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "branch": "results/75mTorr",
+  "common_conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 75.00616827041698,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "voltage_peak_V": [
+      250
+    ],
+    "gap_mm": 25,
+    "steps_per_RF": 4000,
+    "grid_points": 400,
+    "weight": 70000,
+    "electrodes": "하부 x=0 RF / 상부 x=L 접지",
+    "original_pressure_Pa": 10
+  }
+}

@@ -1,13 +1,23 @@
-This is the eduPIC 1.0 plasma simulation code.
+# eduPIC 연구 결과 · 실행 목록
 
-eduPIC is an introductory, particle-based code for radio-frequency plasma simulation that utilizes the Particle-In-Cell simulation approach combined with the Monte Carlo treatment of collision processes (PIC/MCC). The code has been developed by Z. Donko, A. Derzsi, M. Vass, B. Horvath, S. Wilczek, B. Hartmann, and P. Hartmann, (c) 2021.
+**이 페이지를 북마크하면 실행일·변경 조건으로 결과와 다운로드를 찾을 수 있습니다.**
 
-The physical basis of the simulation approach as well as specific details of the code are presented in the tutorial article: Z. Donko et al. Plasma Sources Science and Technology 2021, XXXX When you use this code, explicit referencing to this publication is required.
+[전체 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [75 mTorr 기본 조건](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/75mTorr) · [20 mTorr 상부 RF](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 코드](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/simulation/20mTorr-topRF)
 
-The code is provided in three different programming languages: C, C++, and Rust. All versions, especially the basic C version, have been developed focusing on transparency. Instructions for code compilation and execution, as well as explanations of the program output and example results of a study of capacitively coupled plasmas are provided in the paper cited above. 
+공통 조건: Ar **75.006 mTorr (원본 10 Pa)**, 350 K, 13.56 MHz, 250 V peak, gap 25 mm. **하부 x=0 RF / 상부 x=L 접지**. 이 조건들은 실행 이름에서 생략합니다.
 
-A more detailed User Manual is provided for the C code.
+## 실행 기록
 
-eduPIC is a starting tool that is fully functional but has limited capabilities. Further development and optimization for your own specific needs are encouraged. These additions and extensions are, however, not planned to be incorporated into the code provided here. Please contact us if you experience any issues with the code, at donko.zoltan@wigner.hu
+| 실행일 KST | 실행 / 바꾼 조건 | 주요 조건 | 상태 | 결과 |
+|---|---|---|---|---|
+| 2026-11-18 | **261118_measure5**<br>측정 구간 5 RF | 75.0062 mTorr · 25 mm · 250 V peak | 측정 완료·통계 기준 별도 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261118_measure5/README.md) |
+| 2026-11-18 | **261118_measure120**<br>추가 측정 120 RF | 75.0062 mTorr · 25 mm · 250 V peak | 통계 기준 충족 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261118_measure120/README.md) |
+| 2026-11-17 | **261117_initial**<br>초기 실행·RF1700 저장 | 75.0062 mTorr · 25 mm · 250 V peak | 미완료 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261117_initial/README.md) |
 
-eduPIC is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details in the LICENSE file or visit https://www.gnu.org/licenses/gpl-3.0.html. 
+각 보고서 첫 화면에서 조건표·평균 구간·종료 이유를 확인할 수 있습니다. 소멸·미완료는 정상 방전의 통계 수렴과 다르게 표시합니다.
+
+## 이후 결과 추가
+
+새 실행은 `results/YYMMDD_바꾼조건/run.json`과 그래프·자료를 함께 등록합니다. 등록 도구가 보고서와 목록을 갱신하며, GitHub Actions도 결과 push 뒤 전체 목록을 동기화합니다.
+
+[파일 이름·보고서·업로드 기준](docs/RESULTS_GUIDE.md) · [브랜치·이름 변경 이력](docs/MIGRATION.md) · [eduPIC 원본 소개·논문·라이선스](docs/UPSTREAM.md)
