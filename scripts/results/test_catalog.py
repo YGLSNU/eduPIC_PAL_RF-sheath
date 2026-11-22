@@ -6,8 +6,11 @@ import json
 import subprocess
 import tempfile
 import unittest
+from unittest.mock import patch
 from catalog import git,validate,render_report,sync
 from publish_run import publish
+import publish_run
+from catalog import commit_files
 
 HERE=Path(__file__).parent
 
@@ -64,6 +67,22 @@ class CatalogTests(unittest.TestCase):
     def test_invalid_dates_and_paths_are_rejected(self):
         m=copy.deepcopy(self.meta);m['date']='2026-11-23'
         with self.assertRaises(ValueError):validate(m)
+
+    def test_upload_survives_a_concurrent_catalog_commit(self):
+        export=Path(self.tmp.name)/'export';export.mkdir()
+        m=copy.deepcopy(self.meta);m.update(id='261123_gap40_V400',date='2026-11-23')
+        (export/'run.json').write_text(json.dumps(m))
+        raced=[]
+        def racing_git(*args,**kwargs):
+            if args[0]=='push' and not raced:
+                raced.append(True)
+                base=git('rev-parse','refs/remotes/origin/'+m['branch'],cwd=self.root)
+                commit=commit_files(self.root,base,{'README.md':'Concurrent index fixture\n'},'Simulate index writer')
+                git('push','origin',commit+':refs/heads/'+m['branch'],cwd=self.root)
+            return git(*args,**kwargs)
+        with patch.object(publish_run,'git',side_effect=racing_git):publish(export,m['branch'],self.root,True)
+        index=json.loads(git('show','refs/remotes/origin/main:results/catalog.json',cwd=self.root))
+        self.assertEqual(len(index),2);self.assertEqual(raced,[True])
         m=copy.deepcopy(self.meta);m['downloads']=[{'label':'Bad','path':'../../outside'}]
         with self.assertRaises(ValueError):validate(m)
         m=copy.deepcopy(self.meta);m['status']='unknown'

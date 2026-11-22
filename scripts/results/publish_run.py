@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import tempfile
 import shutil
+import subprocess
 from catalog import git,validate,render_report,refresh_files,commit_files,sync,safe_path
 
 def publish(export,branch,root,push):
@@ -25,12 +26,17 @@ def publish(export,branch,root,push):
         refresh_files(dest,metadata)
         (dest/'run.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2)+'\n')
         (dest/'README.md').write_text(render_report(metadata));refresh_files(dest,metadata)
-        git('fetch','--no-tags','origin','refs/heads/'+branch+':refs/remotes/origin/'+branch,cwd=root)
-        base='refs/remotes/origin/'+branch
         files={'results/'+metadata['id']+'/'+safe_path(p.relative_to(dest).as_posix()):p.read_bytes()
                for p in dest.rglob('*') if p.is_file()}
-        commit=commit_files(root,base,files,'Save '+metadata['id']+' simulation report and data')
-        if commit and push:git('push','origin',commit+':refs/heads/'+branch,cwd=root)
+        for attempt in range(3):
+            git('fetch','--no-tags','origin','refs/heads/'+branch+':refs/remotes/origin/'+branch,cwd=root)
+            base='refs/remotes/origin/'+branch
+            commit=commit_files(root,base,files,'Save '+metadata['id']+' simulation report and data')
+            try:
+                if commit and push:git('push','origin',commit+':refs/heads/'+branch,cwd=root)
+                break
+            except subprocess.CalledProcessError:
+                if attempt==2:raise
         if push:sync(root,push=True)
         return commit
 
