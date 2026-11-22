@@ -7,13 +7,16 @@ import hashlib
 import json
 import re
 from catalog import REPO,validate,git
+from audit_coverage import audit
 
 def verify(trees,checksums=True):
-    failures=[];links=0;hashes=0;reports=0
+    failures=[];links=0;hashes=0;reports=0;coverage={'inline':0,'linked':0,'unavailable':0,'missing':0}
+    edges={};report_paths=set();starts={str((root/'README.md').resolve()) for root in trees.values()}
     for branch,root in trees.items():
         documents=[root/'README.md',*(root/'docs').glob('*.md'),*(root/'results').rglob('*.md'),*(root/'results').rglob('*.html')]
         for doc in documents:
             text=doc.read_text()
+            source=str(doc.resolve());edges.setdefault(source,set())
             targets=re.findall(r'!?\[[^\]]*\]\(([^\s)]+)\)',text)
             targets+=re.findall(r'(?:href|src)=[\"\']([^\"\']+)',text)
             for target in targets:
@@ -39,8 +42,15 @@ def verify(trees,checksums=True):
                 else:p=doc.parent/path
                 links+=1
                 if not p.exists():failures.append(f'{doc}: missing {target} -> {p}')
+                else:
+                    dest=p/'README.md' if p.is_dir() and (p/'README.md').exists() else p
+                    edges[source].add(str(dest.resolve()))
         for metadata in [*(root/'results').glob('*/run.json'),*(root/'results').glob('*/*/report.json')]:
             m=validate(json.loads(metadata.read_text()));reports+=1
+            report_paths.add(str((metadata.parent/'README.md').resolve()))
+            result=audit(m,(metadata.parent/'README.md').read_text())
+            failures.extend(str(metadata)+': '+s for s in result['failures'])
+            for kind in result['coverage'].values():coverage[kind]+=1
             if m['branch']!=branch:failures.append(f'{metadata}: branch mismatch')
             for s in m['sections']:
                 for im in s.get('images',[]):
@@ -51,7 +61,12 @@ def verify(trees,checksums=True):
                     p=manifest.parent/name;hashes+=1
                     if not p.exists() or p.stat().st_size!=entry['bytes'] or hashlib.sha256(p.read_bytes()).hexdigest()!=entry['sha256']:
                         failures.append(f'{manifest}: stale checksum {name}')
-    return {'reports':reports,'links':links,'hashes':hashes,'failures':failures}
+    reachable=set(starts);pending=list(starts)
+    while pending:
+        for target in edges.get(pending.pop(),[]):
+            if target not in reachable:reachable.add(target);pending.append(target)
+    for path in sorted(report_paths-reachable):failures.append('Report is not reachable from any bookmark page: '+path)
+    return {'reports':reports,'reachable_reports':len(report_paths&reachable),'diagnostic_coverage':coverage,'links':links,'hashes':hashes,'failures':failures}
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--tree',action='append',required=True);p.add_argument('--skip-checksums',action='store_true')

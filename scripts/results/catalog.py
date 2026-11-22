@@ -55,6 +55,12 @@ def label(status):return STATUS.get(status,status)
 def blob(branch,path):return f'{WEB}/blob/{branch}/{path}'
 def raw(branch,path):return f'{WEB}/raw/refs/heads/{branch}/{path}'
 
+def file_size(value):
+    if value is None:return '—'
+    if value<1024:return f'{value} B'
+    if value<1048576:return f'{value/1024:.1f} KiB'
+    return f'{value/1048576:.2f} MiB'
+
 def condition_rows(c):
     p=c.get('pressure_mTorr'); pressure=f'{p:g} mTorr' if isinstance(p,(int,float)) else str(p)
     if c.get('original_pressure_Pa') is not None:pressure+=f' (원조건 {c["original_pressure_Pa"]:g} Pa)'
@@ -94,14 +100,17 @@ def render_report(m):
             n=case.get('ne_mean_m3'); n=f'{n:.3e}' if n is not None else '—'
             lines.append(f'| {case["voltage_V"]} | {label(case["status"])} | {case.get("total_rf","—")} | {case.get("measurement_rf",0)} | {n} | [그림·다운로드]({case["path"]}) |')
         lines.append('')
-    lines += ['## 자료 범위','','| 진단 | 저장·해석 범위 |','|---|---|']
+    lines += ['## 자료 범위','','| 진단 | 제공 상태 | 저장·해석 범위 |','|---|---|---|']
     by_id={x['id']:x for x in m['sections']}
     for key,title in STANDARD_SECTIONS:
         sec=by_id.get(key,{})
-        lines.append(f'| {title} | {escape(sec.get("availability", "저장 자료 없음"))} |')
+        state={'available':'자료 있음','partial':'부분 자료','unavailable':'자료 없음'}.get(sec.get('data_status'),'그래프 제공' if sec.get('images') else '상세 설명 참조')
+        scope=sec.get('reason') if sec.get('data_status')=='unavailable' else sec.get('availability','저장 자료 없음')
+        lines.append(f'| {title} | {state} | {escape(scope)} |')
     lines.append('')
     for sec in m['sections']:
         body=sec.get('text','').strip()
+        if sec.get('data_status')=='unavailable':body='**자료 없음:** '+sec['reason']
         if not body and not sec.get('images') and not sec.get('table'):
             body=sec.get('availability') or '저장 자료 없음'
             if m.get('cases'):
@@ -119,7 +128,7 @@ def render_report(m):
     base=m.get('report_directory',f'results/{m["id"]}')
     for d in m.get('downloads',[]):
         path=d['path'];url=raw(m['branch'],base+'/'+path) if path.endswith(('.zip','.pdf','.npz')) else path
-        size=f'{d["bytes"]/1048576:.2f} MiB' if d.get('bytes') is not None else '—'
+        size=file_size(d.get('bytes'))
         lines.append(f'| {escape(d["label"])} | [{Path(path).name}]({url}) | {size} |')
     lines += ['', '[전체 파일 목록·SHA256](files.json)', '']
     if m.get('details'):lines += [f'[기존 상세 기록]({m["details"]})','']
@@ -153,7 +162,7 @@ def render_catalog(records,branch):
     if not visible:lines += ['| — | 등록된 실행 없음 | — | — | — |']
     lines += ['', '각 보고서 첫 화면에서 조건표·평균 구간·종료 이유를 확인할 수 있습니다. 소멸·미완료는 정상 방전의 통계 수렴과 다르게 표시합니다.','',
               '## 이후 결과 추가','','새 실행은 `results/YYMMDD_바꾼조건/run.json`과 그래프·자료를 함께 등록합니다. 등록 도구가 보고서와 목록을 갱신하며, GitHub Actions도 결과 push 뒤 전체 목록을 동기화합니다.', '',
-              '[파일 이름·보고서·업로드 기준](docs/RESULTS_GUIDE.md) · [브랜치·이름 변경 이력](docs/MIGRATION.md) · [eduPIC 원본 소개·논문·라이선스](docs/UPSTREAM.md)', '']
+              '[파일 이름·보고서·업로드 기준](docs/RESULTS_GUIDE.md) · [전체 결과 점검 기록](docs/RESULT_AUDIT.md) · [브랜치·이름 변경 이력](docs/MIGRATION.md) · [eduPIC 원본 소개·논문·라이선스](docs/UPSTREAM.md)', '']
     return '\n'.join(lines)
 
 def load_local(root):
@@ -270,6 +279,7 @@ def refresh_remote_manifests(root,base,files,records,branch):
             files[directory+'files.json']=json.dumps(entries,ensure_ascii=False,indent=2)+'\n'
 
 def sync(root,remote='origin',push=False,_attempt=0):
+    from audit_coverage import audit
     managed,records=refs_and_records(root,remote)
     branches=['main',*managed]
     if git('rev-parse','--verify',f'refs/remotes/{remote}/{CODE_BRANCH}',cwd=root,check=False):branches.append(CODE_BRANCH)
@@ -283,12 +293,17 @@ def sync(root,remote='origin',push=False,_attempt=0):
             if m['branch']!=branch:continue
             prefix='results/'+m['id']+'/'
             files[prefix+'README.md']=render_report(m)
+            errors=audit(m,files[prefix+'README.md'])['failures']
+            if errors:raise ValueError(m['id']+': '+'; '.join(errors))
             for path in git('ls-tree','-r','--name-only',base,prefix,cwd=root).splitlines():
                 if path.endswith('/report.json'):
                     child=validate(show_json(root,base,path))
                     if child['id']!=m['id'] or child['branch']!=branch:
                         raise ValueError('Child report differs from its run: '+path)
-                    files[str(PurePosixPath(path).parent)+'/README.md']=render_report(child)
+                    text=render_report(child)
+                    errors=audit(child,text)['failures']
+                    if errors:raise ValueError(path+': '+'; '.join(errors))
+                    files[str(PurePosixPath(path).parent)+'/README.md']=text
         refresh_remote_manifests(root,base,files,records,branch)
         commit=commit_files(root,base,files,'Update simulation result catalogs')
         if commit:changes[branch]=commit
