@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "id": "261119_gap25_V100-300",
+  "branch": "results/20mTorr-topRF",
+  "date": "2026-11-19",
+  "report_updated": "2026-11-22",
+  "title": "gap25 mm 전압 비교",
+  "status": "extinguished",
+  "changed_conditions": "gap25 mm · 100/250/300 V",
+  "conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "voltage_peak_V": [
+      100,
+      250,
+      300
+    ],
+    "gap_mm": 25,
+    "steps_per_RF": 4000,
+    "grid_points": 400,
+    "weight": 70000,
+    "electrodes": "상부 x=L RF / 하부 x=0 접지"
+  },
+  "source": {
+    "description": "상부 RF로 수정한 C/eduPIC.cc 계열, C++11 컴파일",
+    "revision": "실행별 source ZIP·소스 SHA256 기록 참조",
+    "initialization": "기존 수렴 입자 분포를 반전한 공통 상태; 변경 조건의 과도구간은 측정에서 제외"
+  },
+  "sections": [
+    {
+      "id": "convergence",
+      "availability": "전 구간 입자 수와 전자·이온 소멸 시점",
+      "text": "",
+      "images": [
+        {
+          "path": "261119_gap25_V100-300_comparison_decay.png",
+          "caption": "조건별 공간평균 밀도 감쇠·소멸; 정상 방전의 평균 밀도 비교가 아님"
+        }
+      ]
+    },
+    {
+      "id": "density",
+      "availability": "입자 수에서 환산한 체적평균 밀도의 시간 이력",
+      "text": "정상 방전의 공간분포와 heating·에너지 분포는 없습니다.",
+      "images": []
+    }
+  ],
+  "downloads": [
+    {
+      "label": "전체 결과",
+      "path": "261119_gap25_V100-300_all_results.zip",
+      "bytes": 10199775,
+      "sha256": "c764b74528887ee91388e31fbf6c916b59cef23e3ef40bc1d811f7ca05998acb"
+    },
+    {
+      "label": "조건 비교",
+      "path": "261119_gap25_V100-300_comparison.csv",
+      "bytes": 359,
+      "sha256": "58b7c703bb0ecc7ac445ccc1ac6345b45d78f085b8b793adec9b9565f82c0d22"
+    },
+    {
+      "label": "extinction summary",
+      "path": "261119_gap25_V100-300_extinction_summary.csv",
+      "bytes": 219,
+      "sha256": "986ac7458abfcd79d0afa2e26d985bfb6b66cfdaaf5f9091ca96232308e02f78"
+    },
+    {
+      "label": "공통 초기 상태",
+      "path": "261119_gap25_V100-300_initial_state.zip",
+      "bytes": 6828521,
+      "sha256": "2dc9ff8620f01aa068baf91b8def55973383b90afb82a65a6f905d4bd7bc9ec4"
+    }
+  ],
+  "details": "DETAILS.md",
+  "summary": "세 조건 모두 정상 방전 측정에 들어가기 전에 전자가 소멸했습니다. 소멸 과정과 재시작 상태를 보관합니다.",
+  "measurement_note": "정상 방전의 최종 측정 0 RF. 전자 소멸 뒤 남은 이온이 빠져나간 구간까지 기록.",
+  "cases": [
+    {
+      "voltage_V": 100,
+      "status": "extinguished",
+      "total_rf": 3250,
+      "measurement_rf": 0,
+      "path": "100V/README.md"
+    },
+    {
+      "voltage_V": 250,
+      "status": "extinguished",
+      "total_rf": 3100,
+      "measurement_rf": 0,
+      "path": "250V/README.md"
+    },
+    {
+      "voltage_V": 300,
+      "status": "extinguished",
+      "total_rf": 3800,
+      "measurement_rf": 0,
+      "path": "300V/README.md"
+    }
+  ]
+}

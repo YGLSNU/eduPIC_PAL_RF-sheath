@@ -1,0 +1,8 @@
+# Simulation result delivery
+
+- For every authorized simulation result upload, include conditions, code/source provenance, initial checkpoint, RF averaging interval, actual stop reason, available core diagnostic plots, and direct downloads. Distinguish stationary results, extinction, incomplete runs, and short transient diagnostics.
+- Organize result branches by shared conditions without dates: `results/75mTorr`, `results/20mTorr-topRF`. Source development is `simulation/20mTorr-topRF`; default `main` is the central result catalog and original-code entry.
+- Use `results/YYMMDD_changedconditions/`; omit branch-common gas/frequency/pressure/electrode settings from names, but always record the full conditions in `run.json` and the report. Day is actual execution start in Asia/Seoul. Separate report update date from execution date.
+- Every new or updated export must include `run.json` following `docs/RESULTS_GUIDE.md`. Use `python scripts/results/publish_run.py EXPORT --branch results/CONDITION --push` to upload and refresh catalogs. If publishing by another route, run `python scripts/results/catalog.py sync --push` afterward.
+- Regenerate reports and validate links, scientific units, averaging intervals, and checksums before uploading. Keep raw solver output and restart provenance intact. Do not pool normalized EEPFs without weights; label equal-block means or last-block measurements explicitly. Heating is the recorded phase-mean j times phase-mean E unless a different validated diagnostic is identified.
+- Verify the GitHub report and at least a representative direct archive download after publication. No additional permission is needed for uploads the user has already requested. Do not publish a cloud environment as part of result delivery.

@@ -1,0 +1,66 @@
+{
+  "voltage_V": 300,
+  "total_rf": 1921,
+  "measurement_rf": 140,
+  "measurement_first_rf": 1782,
+  "measurement_last_rf": 1921,
+  "distribution_first_rf": 1902,
+  "distribution_last_rf": 1921,
+  "ne_mean_m3": 1629714157606812.0,
+  "ni_mean_m3": 1707174382986083.2,
+  "birth_loss_ratio": 1.0059601798330122,
+  "wall_flux_m2_s": {
+    "e_loss_lower": 2.12913696e+18,
+    "e_loss_upper": 2.09344704e+18,
+    "i_loss_lower": 2.104512e+18,
+    "i_loss_upper": 2.1159024e+18
+  },
+  "power_W_m2": {
+    "e_field_work_J": 31.16388833891746,
+    "i_field_work_J": 90.38063865465122,
+    "e_wall_energy_J": 4.717156216135773,
+    "i_wall_energy_J": 51.10337188186034,
+    "excitation_ionization_threshold_J": 26.381729073011503
+  },
+  "mean_ion_energy_last_block_eV": {
+    "upper": 76.3776855,
+    "lower": 75.375251
+  },
+  "basic_numerical_checks": {
+    "all_arrays_finite": true,
+    "expected_shapes": true,
+    "phase_mean_density_consistent": true,
+    "binned_jE_consistent": true,
+    "stability": {
+      "omega_pe_dt": {
+        "value": 0.062,
+        "limit": 0.2,
+        "passed": true
+      },
+      "dx_lambda_D": {
+        "value": 0.393,
+        "limit": 1.0,
+        "passed": true
+      },
+      "nu_e_dt": {
+        "value": 0.003,
+        "limit": 0.05,
+        "passed": true
+      },
+      "nu_i_dt": {
+        "value": 0.005,
+        "limit": 0.05,
+        "passed": true
+      }
+    },
+    "eepf_normalization": 1.0000000028291818,
+    "ifed_normalizations": [
+      1.0000090000000001,
+      0.9999719999999984
+    ],
+    "cfl_energy_eV": 32.772,
+    "center_eepf_max_above_cfl": 3.13107e-06,
+    "center_eepf_tail_below_1e_6": false
+  },
+  "source_sha256": "bd1d85cdbfd875c5bfd5df29ccefcd24da03b8776bdccde1148588453cc1586c"
+}

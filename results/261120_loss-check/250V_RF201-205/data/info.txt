@@ -1,0 +1,42 @@
+########################## eduPIC simulation report ############################
+Simulation parameters:
+Gap distance                          =    2.500e-02 [m]
+# of grid divisions                   =          400
+Frequency                             =    1.356e+07 [Hz]
+# of time steps / period              =         4000
+# of electron / ion time steps        =           20
+Voltage amplitude                     =    2.500e+02 [V]
+Pressure (Ar)                         =    2.000e+01 [mTorr]
+Electrodes: lower x=0 grounded; upper x=L sinusoidal powered
+Temperature                           =    3.500e+02 [K]
+Superparticle weight                  =    7.000e+04
+# of simulation cycles in this run    =            5
+--------------------------------------------------------------------------------
+Plasma characteristics:
+Electron density @ center             =    2.668e+15 [m^{-3}]
+Plasma frequency @ center             =    2.914e+09 [rad/s]
+Debye length @ center                 =    1.085e-04 [m]
+Electron collision frequency          =    8.865e+06 [1/s]
+Ion collision frequency               =    6.814e+05 [1/s]
+--------------------------------------------------------------------------------
+Stability and accuracy conditions:
+Plasma frequency @ center * DT_E      =        0.054 (OK if less than 0.20)
+DX / Debye length @ center            =        0.578 (OK if less than 1.00)
+Max. electron coll. frequency * DT_E  =        0.003 (OK if less than 0.05)
+Max. ion coll. frequency * DT_I       =        0.005 (OK if less than 0.05)
+Max e- energy for CFL condition       =       32.834 [eV]
+Check EEPF to ensure that CFL is fulfilled for the majority of the electrons!
+--------------------------------------------------------------------------------
+Particle characteristics at the electrodes:
+Ion flux at powered electrode         =    1.500e+18 [m^{-2} s^{-1}]
+Ion flux at grounded electrode        =    1.511e+18 [m^{-2} s^{-1}]
+Mean ion energy at powered electrode  =    6.202e+01 [eV]
+Mean ion energy at grounded electrode =    6.045e+01 [eV]
+Electron flux at powered electrode    =    1.466e+18 [m^{-2} s^{-1}]
+Electron flux at grounded electrode   =    1.477e+18 [m^{-2} s^{-1}]
+--------------------------------------------------------------------------------
+Absorbed power calculated as <j*E>:
+Electron power density (average)      =    2.980e+02 [W m^{-3}]
+Ion power density (average)           =    2.053e+03 [W m^{-3}]
+Total power density(average)          =    2.351e+03 [W m^{-3}]
+--------------------------------------------------------------------------------

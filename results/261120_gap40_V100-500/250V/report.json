@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "id": "261120_gap40_V100-500",
+  "branch": "results/20mTorr-topRF",
+  "date": "2026-11-20",
+  "report_updated": "2026-11-22",
+  "title": "250 V · gap40 mm",
+  "status": "criteria_met",
+  "changed_conditions": "gap40 mm · 250 V",
+  "conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "voltage_peak_V": [
+      250
+    ],
+    "gap_mm": 40,
+    "steps_per_RF": 4000,
+    "grid_points": 640,
+    "weight": 112000,
+    "electrodes": "상부 x=L RF / 하부 x=0 접지"
+  },
+  "source": {
+    "description": "상부 RF로 수정한 C/eduPIC.cc 계열, C++11 컴파일",
+    "revision": "source ZIP의 source-eduPIC.cc SHA256 bd1d85cdbfd875c5bfd5df29ccefcd24da03b8776bdccde1148588453cc1586c",
+    "initialization": "25mm 공통 조밀 입자 상태의 x×1.6, 가중치70000→112000으로 물리 밀도·속도분포 보존; 과도구간 제외"
+  },
+  "sections": [
+    {
+      "id": "convergence",
+      "availability": "전 구간 입자 수·생성/손실·최종 통계 지표",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/convergence.png",
+          "caption": "녹색 구간이 최종 평균 구간입니다. 통계 지표는 총 오차를 뜻하지 않습니다."
+        }
+      ]
+    },
+    {
+      "id": "density",
+      "availability": "RF1822–2001 (180 RF)",
+      "text": "아래 분포 그림의 첫 패널은 전체 측정 구간의 평균 밀도입니다.",
+      "images": []
+    },
+    {
+      "id": "heating",
+      "availability": "RF1822–2001 (180 RF)",
+      "text": "각 조건의 상세 그림은 자체 색상 범위입니다. 전압 간 공통 범위 비교는 상위 비교 페이지를 사용하세요.",
+      "images": [
+        {
+          "path": "figures/heating.png",
+          "caption": "전자·이온의 위상 평균 j×E, 평균 전자 에너지, 이온화율"
+        }
+      ]
+    },
+    {
+      "id": "fields",
+      "availability": "RF1822–2001 (180 RF)",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/fields.png",
+          "caption": "x=0 하부 접지, x=40mm 상부 RF; 위상0은 인가 전압 양의 최댓값"
+        }
+      ]
+    },
+    {
+      "id": "ionization",
+      "availability": "RF1822–2001 (180 RF)",
+      "text": "평균 전자 에너지와 이온화율은 heating 묶음 그림에 함께 표시했습니다.",
+      "images": []
+    },
+    {
+      "id": "distributions",
+      "availability": "밀도:RF1822–2001 (180 RF); EEPF·IEDF:RF1982–2001",
+      "text": "EEPF의 전체 측정 사건 수가 보존되지 않아 정규화된 블록을 임의로 합치지 않았습니다. 마지막20RF 분포를 명확히 구분해 제공합니다.",
+      "images": [
+        {
+          "path": "figures/distributions.png",
+          "caption": "전체 측정 평균 밀도와 마지막 진단의 EEPF·IEDF"
+        }
+      ]
+    },
+    {
+      "id": "walls",
+      "availability": "RF1822–2001 (180 RF)",
+      "text": "양 전극의 flux는 전체 측정 사건 수로 계산했습니다. 평균 이온 입사 에너지는 마지막 진단에서 상부64.49eV, 하부64.17eV입니다.",
+      "images": [
+        {
+          "path": "figures/walls_power.png",
+          "caption": "중앙부 전도전류밀도·전극 입자 flux·측정된 전력 채널"
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "availability": "RF1822–2001 (180 RF)",
+      "text": "field-work는 이산 입자 속도 갱신의 일입니다. 벽 항은 운동에너지 유출이며 전체 벽 열부하가 아닙니다. 미계측 기체 전달·저장 항이 있어 완전한 전력 폐합 표로 해석하지 않습니다.",
+      "images": []
+    }
+  ],
+  "downloads": [
+    {
+      "label": "261120 gap40 250V core",
+      "path": "261120_gap40_250V_core.zip",
+      "bytes": 27985808,
+      "sha256": "e479fa02831273bf39d6a4a2ddad653f0b8c15d72fffa45528b7f724ef418dc2"
+    },
+    {
+      "label": "261120 gap40 250V measurements part01",
+      "path": "261120_gap40_250V_measurements_part01.zip",
+      "bytes": 21389982,
+      "sha256": "f76f64295d37b1a2c4170ec438b16b21aac685d3a2b6aacaf535305511e70a84"
+    },
+    {
+      "label": "261120 gap40 250V measurements part02",
+      "path": "261120_gap40_250V_measurements_part02.zip",
+      "bytes": 21459986,
+      "sha256": "65fa2e2c2ced9ed35d151cfe9c114ce45f705f6913dc509a9deae0930bd48f5a"
+    },
+    {
+      "label": "261120 gap40 250V measurements part03",
+      "path": "261120_gap40_250V_measurements_part03.zip",
+      "bytes": 6617494,
+      "sha256": "de6a7bec9f0121efeb49b8d57447475b2217922673fcec48c301c423ed6c82fa"
+    },
+    {
+      "label": "평균 밀도·heating 공간분포",
+      "path": "data/profiles.csv",
+      "bytes": 73394,
+      "sha256": "7b2204d7cd0b36fd08ec575ccf3b2c907a1b09292c96297ba17ca8d9a51bd310"
+    },
+    {
+      "label": "마지막20RF 중앙 EEPF",
+      "path": "data/eepf_last_block.csv",
+      "bytes": 30503,
+      "sha256": "3616d02da7024811d394964c7bd17e528e9d87fe2b8db30261a7411353c98577"
+    },
+    {
+      "label": "마지막20RF 양 전극 IEDF",
+      "path": "data/ifed_last_block.csv",
+      "bytes": 15126,
+      "sha256": "349721e15d6a9b99d1da68d3d58112d8283606563dc163be3228c97da315e01e"
+    },
+    {
+      "label": "전체 측정 전극 flux",
+      "path": "data/wall_flux.csv",
+      "bytes": 164,
+      "sha256": "470c18cd5972be823bd4e5945eef2d8bc0d88689225d90da92d9daebca48c2b5"
+    },
+    {
+      "label": "전체 측정 전력 채널",
+      "path": "data/power_channels.csv",
+      "bytes": 204,
+      "sha256": "90f92ee704cab8094455f0600a3c0cff7cd95933db05747abece5a09fd4e0d98"
+    },
+    {
+      "label": "중단 통계 지표",
+      "path": "data/sampling_indicators.csv",
+      "bytes": 747,
+      "sha256": "bdc03a3a1a36a2369861b3cd859724d7cbc0a3ae4c96d221fcb6a2fdb9611ac0"
+    },
+    {
+      "label": "진단 수치·검증 기록",
+      "path": "data/diagnostics.json",
+      "bytes": 1783,
+      "sha256": "e51de81be5865cf99c1ab478f8e76c4e35727af426c7f1259190a2674db64884"
+    }
+  ],
+  "report_directory": "results/261120_gap40_V100-500/250V",
+  "setup_image": "figures/setup.png",
+  "summary": "600 RF 입자 수 안정성과 밀도·평균량3%, heating5%의 통계 지표를 연속 두 번 충족한 뒤 종료했습니다.",
+  "measurement_note": "RF1822–2001 (180 RF); EEPF·IEDF만 마지막 진단 RF1982–2001",
+  "metrics": [
+    [
+      "공간·시간 평균 전자 밀도",
+      "1.2844e+15 m⁻³"
+    ],
+    [
+      "공간·시간 평균 이온 밀도",
+      "1.3511e+15 m⁻³"
+    ],
+    [
+      "생성/전자 벽 손실",
+      "0.99980"
+    ],
+    [
+      "종료 / 측정 RF",
+      "2001 / 180"
+    ]
+  ]
+}

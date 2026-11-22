@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "id": "261120_loss-check",
+  "branch": "results/20mTorr-topRF",
+  "date": "2026-11-20",
+  "report_updated": "2026-11-22",
+  "title": "20.000 mTorr · 250 V · RF1–5 진단",
+  "status": "diagnostic",
+  "changed_conditions": "20.000 mTorr, 250 V, 시작상태 RF0",
+  "conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20.0,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "voltage_peak_V": [
+      250
+    ],
+    "gap_mm": 25,
+    "steps_per_RF": 4000,
+    "grid_points": 400,
+    "weight": 70000,
+    "electrodes": "상부 x=L RF / 하부 x=0 접지"
+  },
+  "source": {
+    "description": "상부 RF로 수정한 C/eduPIC.cc 계열, C++11 컴파일",
+    "revision": "실행별 source ZIP·소스 SHA256 기록 참조",
+    "initialization": "20mTorr_250V_from0: 전자108314, 이온113766 계산 입자에서 시작"
+  },
+  "sections": [
+    {
+      "id": "convergence",
+      "availability": "5 RF 생성·손실; 정상상태 판정 없음",
+      "text": "사건 수와 입력/출력 입자 수가 정확히 일치하는지 검사했습니다.",
+      "images": []
+    },
+    {
+      "id": "density",
+      "availability": "5 RF 과도구간 평균",
+      "text": "아래 분포 그림 첫 패널에 표시합니다.",
+      "images": []
+    },
+    {
+      "id": "heating",
+      "availability": "5 RF 과도구간의 위상 평균",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/heating.png",
+          "caption": "TRANSIENT 5 RF | 20.000 mTorr | 250 V | 25 mm | RF 1-5"
+        }
+      ]
+    },
+    {
+      "id": "fields",
+      "availability": "5 RF 과도구간의 위상 평균",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/fields.png",
+          "caption": "TRANSIENT 5 RF | 20.000 mTorr | 250 V | 25 mm | RF 1-5"
+        }
+      ]
+    },
+    {
+      "id": "ionization",
+      "availability": "5 RF 과도구간; heating 묶음 그림",
+      "text": "",
+      "images": []
+    },
+    {
+      "id": "distributions",
+      "availability": "5 RF 정규화 분포",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/distributions.png",
+          "caption": "이온·전자 분포의 표본 길이는 5 RF이며 정상상태 통계가 아닙니다."
+        }
+      ]
+    },
+    {
+      "id": "walls",
+      "availability": "5 RF 입자 흡수 사건 수; particle_balance.csv",
+      "text": "",
+      "images": []
+    },
+    {
+      "id": "power",
+      "availability": "입자 field-work·벽 운동에너지·운동에너지 변화·추정 충돌 손실; summary.json",
+      "text": "저장 운동에너지가 변하는 구간이므로 단순 정상상태 파워 수지를 적용하지 않습니다.",
+      "images": []
+    }
+  ],
+  "downloads": [
+    {
+      "label": "eepf",
+      "path": "data/eepf.csv",
+      "bytes": 28214,
+      "sha256": "99b76d9033c5b328d698d075c27a8db4e1233cd1ed1559a3249693af94986833"
+    },
+    {
+      "label": "ifed",
+      "path": "data/ifed.csv",
+      "bytes": 3911,
+      "sha256": "9d6bcfa852f72bee78c9ac619455a37da8cb93da01be5182d830d0afe74e92f5"
+    },
+    {
+      "label": "info",
+      "path": "data/info.txt",
+      "bytes": 2586,
+      "sha256": "3af0b72e341ae820cc9d812c22dc1c5b2c23dea1d972a0c9ce6b5ff766c79319"
+    },
+    {
+      "label": "particle_balance",
+      "path": "data/particle_balance.csv",
+      "bytes": 1159,
+      "sha256": "e7fa5ce5955eb4ebed38941cc91ce18d0b16e10561979d9a9fdb80b748636812"
+    },
+    {
+      "label": "profiles",
+      "path": "data/profiles.csv",
+      "bytes": 44202,
+      "sha256": "220e55a71f4e6f0c01b404d1af9abc872b2a9ab8f63f9fe35a05c015e96c2c6a"
+    },
+    {
+      "label": "summary",
+      "path": "data/summary.json",
+      "bytes": 1151,
+      "sha256": "13624e578de508fd266c16ac6f8f711e6ecd72c33b338a7f221d257d7d1056fd"
+    }
+  ],
+  "report_directory": "results/261120_loss-check/250V_RF1-5",
+  "setup_image": "figures/setup.png",
+  "summary": "5 RF 과도구간 진단입니다. 이 그림은 정상상태 수렴 결과가 아니며, 원인 분석용 재시작 표본입니다.",
+  "measurement_note": "RF1–5,5 RF. 압력 대조는 동일 초기 입자 상태를 사용.",
+  "metrics": [
+    [
+      "생성 / 전자 벽 손실",
+      "768 / 3489 = 0.2201"
+    ],
+    [
+      "전자 수 변화",
+      "108314→105593 (-2.512%)"
+    ],
+    [
+      "입자 수지 잔차",
+      "e=0, i=0"
+    ]
+  ]
+}

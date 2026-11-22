@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "branch": "results/20mTorr-topRF",
+  "common_conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "steps_per_RF": 4000,
+    "electrodes": "상부 x=L RF / 하부 x=0 접지"
+  }
+}

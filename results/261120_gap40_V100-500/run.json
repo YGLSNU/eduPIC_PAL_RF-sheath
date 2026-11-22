@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "id": "261120_gap40_V100-500",
+  "branch": "results/20mTorr-topRF",
+  "date": "2026-11-20",
+  "report_updated": "2026-11-22",
+  "title": "gap40 mm 전압 비교",
+  "status": "criteria_met",
+  "changed_conditions": "gap40 mm · 100/250/300/400/500 V",
+  "conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "voltage_peak_V": [
+      100,
+      250,
+      300,
+      400,
+      500
+    ],
+    "gap_mm": 40,
+    "steps_per_RF": 4000,
+    "grid_points": 640,
+    "weight": 112000,
+    "electrodes": "상부 x=L RF / 하부 x=0 접지"
+  },
+  "source": {
+    "description": "상부 RF로 수정한 C/eduPIC.cc 계열, C++11 컴파일",
+    "revision": "실행 source ZIP·config의 SHA256 및 샘플러 검증 기록 참조",
+    "initialization": "기존25mm 상태를40mm로 변환하면서 물리 밀도와 속도 분포 보존; 과도구간 제외"
+  },
+  "sections": [
+    {
+      "id": "convergence",
+      "availability": "전압별 종료·안정성·측정 구간",
+      "text": "",
+      "images": [
+        {
+          "path": "261120_gap40_V100-500_comparison.png",
+          "caption": "전체 과도구간을 포함한 밀도·생성/손실 이력"
+        }
+      ]
+    },
+    {
+      "id": "density",
+      "availability": "각 조건의 최종 측정 평균",
+      "text": "",
+      "images": [
+        {
+          "path": "comparison_metrics.png",
+          "caption": "밀도·측정된 전력 채널·양 전극 이온 flux의 전압 의존성"
+        }
+      ]
+    },
+    {
+      "id": "heating",
+      "availability": "각 조건의 최종 측정 평균",
+      "text": "",
+      "images": [
+        {
+          "path": "heating_compare.png",
+          "caption": "종별로 공통 색상 범위를 사용한 비교. 개별 조건의 세부 구조는 상세 보고서에서 확인하세요."
+        }
+      ]
+    },
+    {
+      "id": "fields",
+      "availability": "100/250/300/400/500V 상세 보고서",
+      "text": "",
+      "images": []
+    },
+    {
+      "id": "ionization",
+      "availability": "각 조건의 상세 보고서",
+      "text": "",
+      "images": []
+    },
+    {
+      "id": "distributions",
+      "availability": "마지막20RF 분포를 상세 보고서에 별도 표시",
+      "text": "",
+      "images": []
+    },
+    {
+      "id": "walls",
+      "availability": "전체 측정 사건 수로 계산한 상·하부 flux",
+      "text": "",
+      "images": []
+    },
+    {
+      "id": "power",
+      "availability": "field-work·벽 운동에너지·측정된 충돌 문턱 채널; W/m²",
+      "text": "",
+      "images": []
+    }
+  ],
+  "downloads": [
+    {
+      "label": "조건 비교",
+      "path": "261120_gap40_V100-500_comparison.pdf",
+      "bytes": 35674,
+      "sha256": "8b667d7ee40bd7c074b74cb8f3ec6461cc2376ba31e1e8f747edd528764644e3"
+    },
+    {
+      "label": "진행 중 시점의 백업 (최종 결과와 구분)",
+      "path": "261120_gap40_V100-500_running_checkpoint.zip",
+      "bytes": 53536891,
+      "sha256": "2ec1577fc2d198cbe617a2edee812b31d96998898fc166b704357c14ffc09074"
+    },
+    {
+      "label": "실행 소스·공통 초기 상태",
+      "path": "261120_gap40_V100-500_source_and_initial_state.zip",
+      "bytes": 6885194,
+      "sha256": "60c6688095f52c4f3ca4ac6cb0b3c4a240a15d9ee4b9505661b0c2aaac1447d6"
+    },
+    {
+      "label": "보고서·그림·수치 요약",
+      "path": "261120_gap40_V100-500_summary.csv",
+      "bytes": 2461,
+      "sha256": "f69fe719a3ac3c94a1b73cb786e280c348b1fac0aff41814af015cd0a0063d23"
+    }
+  ],
+  "details": "DETAILS.md",
+  "summary": "다섯 조건 모두 전자 소멸 없이 정한 통계 중단 기준을 충족했습니다. 기존 조밀 입자 상태를 이용한 방전 유지 시험이며 점화 전압 시험과 구분합니다.",
+  "measurement_note": "전압별140/120/180/700 등 상이함; 아래 표와 개별 보고서의 정확한 RF 구간 참조",
+  "cases": [
+    {
+      "voltage_V": 100,
+      "status": "criteria_met",
+      "total_rf": 2700,
+      "measurement_rf": 700,
+      "ne_mean_m3": 355234362936427.1,
+      "path": "100V/README.md"
+    },
+    {
+      "voltage_V": 250,
+      "status": "criteria_met",
+      "total_rf": 2001,
+      "measurement_rf": 180,
+      "ne_mean_m3": 1284367277995370.8,
+      "path": "250V/README.md"
+    },
+    {
+      "voltage_V": 300,
+      "status": "criteria_met",
+      "total_rf": 1921,
+      "measurement_rf": 140,
+      "ne_mean_m3": 1629714157606812.0,
+      "path": "300V/README.md"
+    },
+    {
+      "voltage_V": 400,
+      "status": "criteria_met",
+      "total_rf": 1801,
+      "measurement_rf": 140,
+      "ne_mean_m3": 2314073003267687.0,
+      "path": "400V/README.md"
+    },
+    {
+      "voltage_V": 500,
+      "status": "criteria_met",
+      "total_rf": 1381,
+      "measurement_rf": 120,
+      "ne_mean_m3": 3053311675927240.5,
+      "path": "500V/README.md"
+    }
+  ]
+}

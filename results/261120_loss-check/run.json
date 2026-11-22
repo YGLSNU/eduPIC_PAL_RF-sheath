@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "id": "261120_loss-check",
+  "branch": "results/20mTorr-topRF",
+  "date": "2026-11-20",
+  "report_updated": "2026-11-22",
+  "title": "소멸 원인·압력 대조 진단",
+  "status": "diagnostic",
+  "changed_conditions": "벽 손실 진단 · 20↔75.006 mTorr 대조",
+  "conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "voltage_peak_V": [
+      100,
+      250,
+      300
+    ],
+    "gap_mm": 25,
+    "steps_per_RF": 4000,
+    "grid_points": 400,
+    "weight": 70000,
+    "electrodes": "상부 x=L RF / 하부 x=0 접지"
+  },
+  "source": {
+    "description": "상부 RF로 수정한 C/eduPIC.cc 계열, C++11 컴파일",
+    "revision": "실행별 source ZIP·소스 SHA256 기록 참조",
+    "initialization": "기존 수렴 입자 분포를 반전한 공통 상태; 변경 조건의 과도구간은 측정에서 제외"
+  },
+  "sections": [
+    {
+      "id": "convergence",
+      "availability": "5 RF 과도구간의 입자 생성·손실",
+      "text": "",
+      "images": [
+        {
+          "path": "261120_loss-check.png",
+          "caption": "전자 생성·벽 손실과 동일 초기 상태의 압력 대조"
+        }
+      ],
+      "table": "| 진단 | 압력 mTorr | RF 구간 | 생성/전자 벽 손실 |\n|---|---:|---|---:|\n| 20mTorr_100V_from400 | 20.000 | 401–405 | 0.143 |\n| 20mTorr_250V_from0 | 20.000 | 1–5 | 0.220 |\n| 20mTorr_250V_from200 | 20.000 | 201–205 | 0.271 |\n| 20mTorr_300V_from200 | 20.000 | 201–205 | 0.317 |\n| 75.006mTorr_250V_from0 | 75.006 | 1–5 | 0.993 |"
+    },
+    {
+      "id": "walls",
+      "availability": "전자·이온 벽 흡수 사건 수",
+      "text": "",
+      "images": []
+    },
+    {
+      "id": "power",
+      "availability": "입자 field-work·벽 운동에너지·저장에너지 변화; 과도구간",
+      "text": "",
+      "images": []
+    },
+    {
+      "id": "density",
+      "availability": "조건별5 RF 과도구간 원시 진단 보존",
+      "text": "조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.",
+      "images": []
+    },
+    {
+      "id": "heating",
+      "availability": "조건별5 RF 과도구간 원시 진단 보존",
+      "text": "- [20.000 mTorr · 100 V · RF401–405 진단 그림](100V_RF401-405/README.md)\n- [20.000 mTorr · 250 V · RF1–5 진단 그림](250V_RF1-5/README.md)\n- [20.000 mTorr · 250 V · RF201–205 진단 그림](250V_RF201-205/README.md)\n- [20.000 mTorr · 300 V · RF201–205 진단 그림](300V_RF201-205/README.md)\n- [75.006 mTorr · 250 V · RF1–5 진단 그림](75mT_250V_RF1-5/README.md)",
+      "images": []
+    },
+    {
+      "id": "fields",
+      "availability": "조건별5 RF 과도구간 원시 진단 보존",
+      "text": "조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.",
+      "images": []
+    },
+    {
+      "id": "ionization",
+      "availability": "조건별5 RF 과도구간 원시 진단 보존",
+      "text": "조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.",
+      "images": []
+    },
+    {
+      "id": "distributions",
+      "availability": "조건별5 RF 과도구간 원시 진단 보존",
+      "text": "조건별 위상 그림과 분포는 위 진단 보고서 링크에서 확인합니다.",
+      "images": []
+    }
+  ],
+  "downloads": [
+    {
+      "label": "261120 loss-check",
+      "path": "261120_loss-check.pdf",
+      "bytes": 25840,
+      "sha256": "49f4a7cdfc43729ab7d8962d84d038e459da7a32b1323fff99a42472e5d71fd7"
+    },
+    {
+      "label": "all",
+      "path": "261120_loss-check_all.zip",
+      "bytes": 54194907,
+      "sha256": "bb557ab420dbcd63877feec42f169defaa379030770c1c856fad2076b6603301"
+    },
+    {
+      "label": "balance summary",
+      "path": "261120_loss-check_balance_summary.csv",
+      "bytes": 2372,
+      "sha256": "ec39086d5a9892df9337a96006046d9012d6cae9e9a97fd3ac033ae265a43e08"
+    }
+  ],
+  "details": "DETAILS.md",
+  "summary": "동일 초기 상태에서 압력만 바꾼 대조 계산 및 소멸 과정의 짧은 재시작 진단입니다. 정상상태의 전압·압력 의존성으로 해석하지 않습니다.",
+  "measurement_note": "조건별5 RF 진단; 실제 압력·시작 RF는 balance_summary.csv/json 참조"
+}

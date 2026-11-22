@@ -1,0 +1,216 @@
+[
+  {
+    "id": "261117_initial",
+    "branch": "results/75mTorr",
+    "date": "2026-11-17",
+    "title": "기본 조건 초기 실행",
+    "status": "incomplete",
+    "changed_conditions": "초기 실행·RF1700 저장",
+    "conditions": {
+      "gas": "Ar",
+      "pressure_mTorr": 75.00616827041698,
+      "temperature_K": 350,
+      "frequency_MHz": 13.56,
+      "voltage_peak_V": [
+        250
+      ],
+      "gap_mm": 25,
+      "steps_per_RF": 4000,
+      "grid_points": 400,
+      "weight": 70000,
+      "electrodes": "하부 x=0 RF / 상부 x=L 접지",
+      "original_pressure_Pa": 10
+    },
+    "summary": "RF1700 체크포인트와 입자 수 이력을 보존했습니다. 장시간 측정의 최종 분포는 보존되지 않았습니다."
+  },
+  {
+    "id": "261118_measure120",
+    "branch": "results/75mTorr",
+    "date": "2026-11-18",
+    "title": "통계 기준에 따른 추가 측정",
+    "status": "criteria_met",
+    "changed_conditions": "추가 측정 120 RF",
+    "conditions": {
+      "gas": "Ar",
+      "pressure_mTorr": 75.00616827041698,
+      "temperature_K": 350,
+      "frequency_MHz": 13.56,
+      "voltage_peak_V": [
+        250
+      ],
+      "gap_mm": 25,
+      "steps_per_RF": 4000,
+      "grid_points": 400,
+      "weight": 70000,
+      "electrodes": "하부 x=0 RF / 상부 x=L 접지",
+      "original_pressure_Pa": 10
+    },
+    "summary": "저장된 플라즈마 상태에서 이어 측정했습니다. 최근 600주기 안정성과 3%/5% 측정 지표를 연속 두 번 충족했습니다."
+  },
+  {
+    "id": "261118_measure5",
+    "branch": "results/75mTorr",
+    "date": "2026-11-18",
+    "title": "수렴 상태 이후 5 RF 측정",
+    "status": "measurement_complete",
+    "changed_conditions": "측정 구간 5 RF",
+    "conditions": {
+      "gas": "Ar",
+      "pressure_mTorr": 75.00616827041698,
+      "temperature_K": 350,
+      "frequency_MHz": 13.56,
+      "voltage_peak_V": [
+        250
+      ],
+      "gap_mm": 25,
+      "steps_per_RF": 4000,
+      "grid_points": 400,
+      "weight": 70000,
+      "electrodes": "하부 x=0 RF / 상부 x=L 접지",
+      "original_pressure_Pa": 10
+    },
+    "summary": "저장된 플라즈마 상태에서 이어 측정했습니다. 5주기 분포이며 장시간 측정의 통계 기준 통과를 주장하지 않습니다."
+  },
+  {
+    "id": "261119_gap25_V100-300",
+    "branch": "results/20mTorr-topRF",
+    "date": "2026-11-19",
+    "title": "gap25 mm 전압 비교",
+    "status": "extinguished",
+    "changed_conditions": "gap25 mm · 100/250/300 V",
+    "conditions": {
+      "gas": "Ar",
+      "pressure_mTorr": 20,
+      "temperature_K": 350,
+      "frequency_MHz": 13.56,
+      "voltage_peak_V": [
+        100,
+        250,
+        300
+      ],
+      "gap_mm": 25,
+      "steps_per_RF": 4000,
+      "grid_points": 400,
+      "weight": 70000,
+      "electrodes": "상부 x=L RF / 하부 x=0 접지"
+    },
+    "cases": [
+      {
+        "voltage_V": 100,
+        "status": "extinguished",
+        "total_rf": 3250,
+        "measurement_rf": 0,
+        "path": "100V/README.md"
+      },
+      {
+        "voltage_V": 250,
+        "status": "extinguished",
+        "total_rf": 3100,
+        "measurement_rf": 0,
+        "path": "250V/README.md"
+      },
+      {
+        "voltage_V": 300,
+        "status": "extinguished",
+        "total_rf": 3800,
+        "measurement_rf": 0,
+        "path": "300V/README.md"
+      }
+    ],
+    "summary": "세 조건 모두 정상 방전 측정에 들어가기 전에 전자가 소멸했습니다. 소멸 과정과 재시작 상태를 보관합니다."
+  },
+  {
+    "id": "261120_gap40_V100-500",
+    "branch": "results/20mTorr-topRF",
+    "date": "2026-11-20",
+    "title": "gap40 mm 전압 비교",
+    "status": "criteria_met",
+    "changed_conditions": "gap40 mm · 100/250/300/400/500 V",
+    "conditions": {
+      "gas": "Ar",
+      "pressure_mTorr": 20,
+      "temperature_K": 350,
+      "frequency_MHz": 13.56,
+      "voltage_peak_V": [
+        100,
+        250,
+        300,
+        400,
+        500
+      ],
+      "gap_mm": 40,
+      "steps_per_RF": 4000,
+      "grid_points": 640,
+      "weight": 112000,
+      "electrodes": "상부 x=L RF / 하부 x=0 접지"
+    },
+    "cases": [
+      {
+        "voltage_V": 100,
+        "status": "criteria_met",
+        "total_rf": 2700,
+        "measurement_rf": 700,
+        "ne_mean_m3": 355234362936427.1,
+        "path": "100V/README.md"
+      },
+      {
+        "voltage_V": 250,
+        "status": "criteria_met",
+        "total_rf": 2001,
+        "measurement_rf": 180,
+        "ne_mean_m3": 1284367277995370.8,
+        "path": "250V/README.md"
+      },
+      {
+        "voltage_V": 300,
+        "status": "criteria_met",
+        "total_rf": 1921,
+        "measurement_rf": 140,
+        "ne_mean_m3": 1629714157606812.0,
+        "path": "300V/README.md"
+      },
+      {
+        "voltage_V": 400,
+        "status": "criteria_met",
+        "total_rf": 1801,
+        "measurement_rf": 140,
+        "ne_mean_m3": 2314073003267687.0,
+        "path": "400V/README.md"
+      },
+      {
+        "voltage_V": 500,
+        "status": "criteria_met",
+        "total_rf": 1381,
+        "measurement_rf": 120,
+        "ne_mean_m3": 3053311675927240.5,
+        "path": "500V/README.md"
+      }
+    ],
+    "summary": "다섯 조건 모두 전자 소멸 없이 정한 통계 중단 기준을 충족했습니다. 기존 조밀 입자 상태를 이용한 방전 유지 시험이며 점화 전압 시험과 구분합니다."
+  },
+  {
+    "id": "261120_loss-check",
+    "branch": "results/20mTorr-topRF",
+    "date": "2026-11-20",
+    "title": "소멸 원인·압력 대조 진단",
+    "status": "diagnostic",
+    "changed_conditions": "벽 손실 진단 · 20↔75.006 mTorr 대조",
+    "conditions": {
+      "gas": "Ar",
+      "pressure_mTorr": 20,
+      "temperature_K": 350,
+      "frequency_MHz": 13.56,
+      "voltage_peak_V": [
+        100,
+        250,
+        300
+      ],
+      "gap_mm": 25,
+      "steps_per_RF": 4000,
+      "grid_points": 400,
+      "weight": 70000,
+      "electrodes": "상부 x=L RF / 하부 x=0 접지"
+    },
+    "summary": "동일 초기 상태에서 압력만 바꾼 대조 계산 및 소멸 과정의 짧은 재시작 진단입니다. 정상상태의 전압·압력 의존성으로 해석하지 않습니다."
+  }
+]

@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "id": "261119_gap25_V100-300",
+  "branch": "results/20mTorr-topRF",
+  "date": "2026-11-19",
+  "report_updated": "2026-11-22",
+  "title": "300 V · gap25 mm 소멸 결과",
+  "status": "extinguished",
+  "changed_conditions": "gap25 mm · 300 V",
+  "conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "voltage_peak_V": [
+      300
+    ],
+    "gap_mm": 25,
+    "steps_per_RF": 4000,
+    "grid_points": 400,
+    "weight": 70000,
+    "electrodes": "상부 x=L RF / 하부 x=0 접지"
+  },
+  "source": {
+    "description": "상부 RF로 수정한 C/eduPIC.cc 계열, C++11 컴파일",
+    "revision": "실행별 source ZIP·소스 SHA256 기록 참조",
+    "initialization": "기존 수렴 입자 분포를 반전한 공통 상태; 변경 조건의 과도구간은 측정에서 제외"
+  },
+  "sections": [
+    {
+      "id": "convergence",
+      "availability": "입자 수·소멸 과정",
+      "text": "",
+      "images": [
+        {
+          "path": "261119_gap25_300V_extinction.png",
+          "caption": "전자·이온 소멸 이력"
+        }
+      ]
+    },
+    {
+      "id": "density",
+      "availability": "최종 빈 상태; 정상 방전 공간분포 없음",
+      "text": "",
+      "images": []
+    }
+  ],
+  "downloads": [
+    {
+      "label": "261119 gap25 300V all plots",
+      "path": "261119_gap25_300V_all_plots.pdf",
+      "bytes": 20205,
+      "sha256": "e99b81afac893de7cf0ee38dbdc6651f6d5d74d4a77ec45d888e1d1df749e602"
+    },
+    {
+      "label": "261119 gap25 300V before extinction restart",
+      "path": "261119_gap25_300V_before_extinction_restart.zip",
+      "bytes": 141577,
+      "sha256": "98797759e487f179002a2ba1006473d94146fd233ae5020b95ea2c5ef7beaef1"
+    },
+    {
+      "label": "261119 gap25 300V particle counts",
+      "path": "261119_gap25_300V_particle_counts.csv",
+      "bytes": 36619,
+      "sha256": "d7a6b8ee39266de9e038cada03a55aad918268126ee795211552a75f507b5e91"
+    },
+    {
+      "label": "261119 gap25 300V restart",
+      "path": "261119_gap25_300V_restart.zip",
+      "bytes": 38146,
+      "sha256": "e601e8151d06d1dc79b926e5faed68a79fb3f98760847df9d55cd395f90aab02"
+    },
+    {
+      "label": "261119 gap25 300V summary",
+      "path": "261119_gap25_300V_summary.zip",
+      "bytes": 163296,
+      "sha256": "2df7b8ce597ad9b4a3987b98380c6df51e20ab10eb9ee5b5c0417a689fd7290c"
+    }
+  ],
+  "details": "DETAILS.md",
+  "report_directory": "results/261119_gap25_V100-300/300V",
+  "summary": "전자 소멸은 정상 방전의 통계 수렴이 아닙니다. 다른 조건을 이어 계산하려면 소멸 전 입자 상태를 사용합니다.",
+  "measurement_note": "정상 방전 최종 측정 없음",
+  "metrics": [
+    [
+      "전자 소멸 RF",
+      361
+    ],
+    [
+      "이온 소멸 RF",
+      3785
+    ],
+    [
+      "마지막 저장 RF",
+      3800
+    ]
+  ]
+}
