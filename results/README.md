@@ -27,4 +27,4 @@
 
 새 실행은 `results/YYMMDD_바꾼조건/run.json`과 그래프·자료를 함께 등록합니다. 등록 도구가 보고서와 목록을 갱신하며, GitHub Actions도 결과 push 뒤 전체 목록을 동기화합니다.
 
-[파일 이름·보고서·업로드 기준](../docs/RESULTS_GUIDE.md) · [브랜치·이름 변경 이력](../docs/MIGRATION.md) · [eduPIC 원본 소개·논문·라이선스](../docs/UPSTREAM.md)
+[파일 이름·보고서·업로드 기준](../docs/RESULTS_GUIDE.md) · [전체 결과 점검 기록](../docs/RESULT_AUDIT.md) · [브랜치·이름 변경 이력](../docs/MIGRATION.md) · [eduPIC 원본 소개·논문·라이선스](../docs/UPSTREAM.md)
