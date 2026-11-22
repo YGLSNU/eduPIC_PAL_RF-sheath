@@ -68,6 +68,16 @@ class CatalogTests(unittest.TestCase):
         m=copy.deepcopy(self.meta);m['date']='2026-11-23'
         with self.assertRaises(ValueError):validate(m)
 
+    def test_overview_sections_without_inline_images_link_to_case_reports(self):
+        m=copy.deepcopy(self.meta)
+        m['sections']=[{'id':'fields','availability':'전압별 상세 보고서에 저장','images':[],'text':''}]
+        m['cases']=[{'voltage_V':100,'status':'incomplete','path':'100V/README.md'},
+                    {'voltage_V':300,'status':'incomplete','path':'300V/README.md'}]
+        text=render_report(m).split('## 전위·전기장\n',1)[1].split('\n## ',1)[0]
+        self.assertIn('전압별 상세 보고서에 저장',text)
+        self.assertIn('[100 V](100V/README.md)',text)
+        self.assertIn('[300 V](300V/README.md)',text)
+
     def test_upload_survives_a_concurrent_catalog_commit(self):
         export=Path(self.tmp.name)/'export';export.mkdir()
         m=copy.deepcopy(self.meta);m.update(id='261123_gap40_V400',date='2026-11-23')
