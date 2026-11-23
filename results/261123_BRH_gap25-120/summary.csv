@@ -2,8 +2,8 @@ gap_mm,V_peak,status,phase,completed_RF,measured_RF,electrons,ions,last_seconds_
 25,250,extinguished,warmup,245,0,0,1169,0.11900520593238374,RF245에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니다. 정상 EEDF/BRH를 정의하지 않습니다.
 30,250,measurement_limit_reached,measurement,2851,1000,7433,9433,2.274558907948085,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
 40,250,measurement_limit_reached,measurement,1602,1000,45894,48277,14.821383060351945,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
-50,250,running,measurement,1791,440,76725,79122,24.797066671799985,위상·입자 진단 측정 중; 최종 BRH 판정 전
-60,250,running,measurement,2551,800,101420,103727,35.792465818551136,위상·입자 진단 측정 중; 최종 BRH 판정 전
+50,250,running,measurement,1831,480,76759,79154,24.771074716199657,위상·입자 진단 측정 중; 최종 BRH 판정 전
+60,250,running,measurement,2591,840,101467,103789,33.52869485800038,위상·입자 진단 측정 중; 최종 BRH 판정 전
 80,250,queued,warmup,0,0,,,,실행 대기 중
-100,250,running,warmup,2049,0,209998,212150,25.438815421835823,배경 입자 수 안정화 중
+100,250,running,warmup,2100,0,210238,212369,52.50429426698247,배경 입자 수 안정화 중
 120,250,running,warmup,1549,0,269365,271464,31.71528858646907,배경 입자 수 안정화 중
