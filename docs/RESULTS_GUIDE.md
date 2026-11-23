@@ -68,6 +68,12 @@ GitHub Actions의 **Update simulation result catalogs**도 결과 push와 매시
 
 자동 갱신은 run.json을 읽어 목록과 보고서를 작성합니다. 임의의 ZIP 하나에서 알 수 없는 압력·평균 구간을 추측하지 않으므로 **새 실행에는 run.json이 필요합니다**. 시뮬레이션은 업로드 도구나 Actions에서 자동으로 시작하지 않습니다.
 
+## BRH·gap 스캔 템플릿
+
+[BRH 진행·결과](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md) · [BRH 진단·실행 설명](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/simulation/20mTorr-topRF/scripts/brh_scan/README.md)
+
+gap 스캔은 부모 `run.json`에 `scan_parameter: "gap_mm"`를 지정하고 cases에 `gap_mm`를 기록합니다. 하위 폴더는 `40mm/`처럼 짧게 씁니다. 표에는 gap이 표시되고 전압은 조건표에 남습니다. 선택 필드 `related_links: [{"label": "설명", "url": "METHOD.md"}]`로 관련 분석을 연결할 수 있습니다. BRH는 기본8개 진단에 왕복·위상·signed field work·충돌·표본 수 항목을 추가합니다. 진행 중이나 소멸한 조건에서 BRH 발생을 미리 결론내리지 않습니다.
+
 ## 재현·파일 무결성
 
 - 현재 경로의 `files.json`이 재구성 후 파일 목록과 SHA256입니다.
