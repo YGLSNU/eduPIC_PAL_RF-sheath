@@ -25,7 +25,7 @@ std::vector<Slot> slots(MAX_N_P);
 std::vector<Track> tracks;
 std::vector<int> free_tracks;
 uint64_t next_uid=1, kicks=0, sampled_kicks=0, hist_overflow=0, hist_samples=0;
-double start_time=0, sample_work_eV=0, all_work_eV=0, max_ledger_error=0;
+double start_time=0, epoch_start_time=0, sample_work_eV=0, all_work_eV=0, max_ledger_error=0;
 double min_sheath_ratio=.8, ref_fraction=.25;
 int current_step=0,phase_bin=0;
 std::vector<double> work_map(N_G*NP,0.);
@@ -63,6 +63,8 @@ template<class T>void read_vec(std::istream &o,std::vector<T> &v,size_t limit){u
 
 void initialize() {
     start_time=Time;
+    epoch_start_time=Time;
+    if(const char *s=getenv("EDUPIC_BRH_MEASUREMENT_START_S"))epoch_start_time=atof(s);
     if(const char *s=getenv("EDUPIC_BRH_REFERENCE_FRACTION"))ref_fraction=atof(s);
     if(!(ref_fraction>.1 && ref_fraction<.45))fail("reference plane outside (0.1,0.45)");
     std::ifstream state("brh_state.bin",std::ios::binary);
@@ -120,14 +122,14 @@ void encounter(int k,int side) {
     Track &a=tracks[slots[k].track];a.seq++;
     Encounter current={};current.valid=true;current.seq=a.seq;current.t=Time+DT_E;current.turn=a.turn;
     current.W=a.W;current.C=a.C;current.K=K(vx_e[k],vy_e[k],vz_e[k]);for(int q=0;q<3;q++)current.n[q]=a.n[q];
-    if(measurement_mode && a.entry_t>=start_time) {
+    if(measurement_mode && a.entry_t>=epoch_start_time) {
         fprintf(encounters,"%llu,%llu,%llu,%d,%.16g,%.16g,%.16g,%.12g,%.12g,%.12g,%.12g,%.12g,%.12g,%.9g\n",(unsigned long long)a.uid,(unsigned long long)a.parent,(unsigned long long)a.seq,side,a.entry_t,a.turn,current.t,a.entry_K,a.entry_Ex,current.K,K(vx_e[k],0,0),a.W-a.entry_W,a.C-a.entry_C,a.turn_ratio);
     }
     Encounter &old=a.last[side];
     if(old.valid && a.last[1-side].valid && a.last[1-side].seq>old.seq) {
         double tau=(current.t-old.t)/PERIOD,W=current.W-old.W,C=current.C-old.C,dK=current.K-old.K;
         double residual=dK-W-C;bool near=fabs(tau-1)<=.1;a.streak[side]=near?a.streak[side]+1:0;
-        if(measurement_mode && old.t>=start_time) {
+        if(measurement_mode && old.t>=epoch_start_time) {
             max_ledger_error=std::max(max_ledger_error,fabs(residual));
             fprintf(returns,"%llu,%d,%.16g,%.16g,%.12g,%.12g,%.12g,%.12g,%.12g,%.12g,%.12g,%.12g,%llu,%llu,%llu,%d,%d,%.12g\n",(unsigned long long)a.uid,side,old.t,current.t,tau,phase(old.t),phase(current.t),phase(old.turn),phase(current.turn),W,C,dK,(unsigned long long)(current.n[0]-old.n[0]),(unsigned long long)(current.n[1]-old.n[1]),(unsigned long long)(current.n[2]-old.n[2]),near?1:0,a.streak[side],residual);
         }
@@ -182,7 +184,7 @@ void save() {
     std::ofstream hx("brh_hist_Ex_counts.bin",std::ios::binary);hx.write(reinterpret_cast<char*>(hist_Ex.data()),sizeof(uint64_t)*hist_Ex.size());
     std::ofstream out("brh_meta.json");out<<std::setprecision(17)
       <<"{\n\"schema_version\":1,\"sample_stride\":"<<STRIDE<<",\"reference_fraction\":"<<ref_fraction<<",\"turn_ne_ni_max\":"<<min_sheath_ratio
-      <<",\"measurement_start_s\":"<<start_time<<",\"measurement_end_s\":"<<Time<<",\"RF_last\":"<<cycles_done
+      <<",\"measurement_start_s\":"<<start_time<<",\"epoch_start_s\":"<<epoch_start_time<<",\"measurement_end_s\":"<<Time<<",\"RF_last\":"<<cycles_done
       <<",\"grid_points\":"<<N_G<<",\"phase_bins\":"<<NP<<",\"hist_shape\":["<<NX<<","<<NP<<",2,"<<NE<<"],\"hist_total_samples\":"<<hist_samples<<",\"hist_E_overflow_samples\":"<<hist_overflow
       <<",\"all_fieldwork_eV\":"<<all_work_eV<<",\"sample_fieldwork_eV\":"<<sample_work_eV<<",\"all_kicks\":"<<kicks<<",\"sample_kicks\":"<<sampled_kicks
       <<",\"maximum_return_energy_ledger_residual_eV\":"<<max_ledger_error

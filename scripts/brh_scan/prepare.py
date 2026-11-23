@@ -56,26 +56,30 @@ def seed_case(cp,L,ng,rng,weight=112000.,nt=8000):
     return np.concatenate([[0.,0.,en.shape[1]],en.ravel(),[ion.shape[1]],ion.ravel()]).astype('<f8')
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('root',type=Path);args=p.parse_args();root=args.root.resolve();root.mkdir(parents=True,exist_ok=True)
+    p=argparse.ArgumentParser();p.add_argument('root',type=Path);p.add_argument('--source',type=Path,help='40mm optical-depth source (or published source_control.cc)');p.add_argument('--checkpoint',type=Path,help='Original 40mm 4000-step/RF, 640-grid reference40.bin; not a new BRH checkpoint');args=p.parse_args();root=args.root.resolve();root.mkdir(parents=True,exist_ok=True)
     if (root/'config.json').exists():raise SystemExit('Already prepared; use run_scan.py to resume existing work')
-    source=(REFERENCE/'source-eduPIC.cc').read_text()
+    source_path=args.source or REFERENCE/'source-eduPIC.cc';source=source_path.read_text()
     source=source.replace('const int        N_T            = 4000;', '#ifndef EDUPIC_STEPS_PER_RF\n#define EDUPIC_STEPS_PER_RF 8000\n#endif\nconst int        N_T            = EDUPIC_STEPS_PER_RF;')
     source=source.replace('const int        N_SUB          = 20;', '#ifndef EDUPIC_ION_SUBCYCLING\n#define EDUPIC_ION_SUBCYCLING 40\n#endif\nconst int        N_SUB          = EDUPIC_ION_SUBCYCLING;')
     source=source.replace('const int N_BIN                     = 20;', 'const int N_BIN                     = N_T / 200;')
     (root/'source_control.cc').write_text(source)
-    status=json.loads((REFERENCE/'250V/status.json').read_text());cp=REFERENCE/'250V'/status['latest_block']/'picdata.bin'
+    if args.checkpoint:cp=args.checkpoint.resolve()
+    else:
+        status=json.loads((REFERENCE/'250V/status.json').read_text());cp=REFERENCE/'250V'/status['latest_block']/'picdata.bin'
     shutil.copy2(cp,root/'reference40.bin');shutil.copy2(REPO/'LICENSE',root/'LICENSE')
     settings={'id':'261123_BRH_gap25-120','date':'2026-11-23','started_at_Asia_Seoul':datetime.now(ZoneInfo('Asia/Seoul')).isoformat(),
         'gas':'Ar','pressure_mTorr':20,'temperature_K':350,'frequency_Hz':13.56e6,'voltage_peak_V':250,
         'gaps_mm':[25,30,40,50,60,80,100,120],'weight':112000.,'fictive_area_m2':1e-4,'dx_target_m':6.25e-5,
         'electron_steps_per_RF':8000,'phase_bins':200,'ion_subcycling':40,'max_workers':3,
-        'source_reference_SHA256':sha(REFERENCE/'source-eduPIC.cc'),'reference_checkpoint_SHA256':sha(cp),
+        'source_reference_SHA256':sha(source_path),'reference_checkpoint_SHA256':sha(cp),
         'reference_checkpoint_path':str(cp),'control_source_SHA256':sha(root/'source_control.cc'),
         'initialization':'40 mm 250 V converged particle distribution resampled to keep common initial physical density and constant macroparticle weight; x stretched, clone jitter; leapfrog velocities synchronized and restaggered. All changed-condition transients excluded.',
         'surface':'absorbing material walls; no SEE or material reflection','electron_MCC':'same residual optical-depth Ar ground-state MCC at all gaps; at most one event per step','Coulomb_binary_collisions':False}
     put(root/'config.json',settings)
-    criteria=json.loads((REFERENCE/'criteria.json').read_text());criteria['minimum_measurement_cycles']=200
-    criteria.update(BRH_fraction_relative_tolerance=.1,BRH_fraction_absolute_tolerance=.005,BRH_phase_return_window_RF=.1,BRH_required_consecutive_round_trips=2)
+    criteria_path=source_path.parent/'criteria.json'
+    if not criteria_path.exists():criteria_path=REFERENCE/'criteria.json'
+    criteria=json.loads(criteria_path.read_text());criteria['minimum_measurement_cycles']=200
+    criteria.update(BRH_fraction_relative_tolerance=.1,BRH_fraction_absolute_tolerance=.005,BRH_phase_return_window_RF=.1,BRH_required_consecutive_round_trips=2,BRH_work_relative_tolerance=.1,BRH_work_absolute_tolerance_eV=.1,BRH_minimum_candidate_returns=100,BRH_minimum_candidate_UIDs=30)
     put(root/'criteria.json',criteria)
     for gap in settings['gaps_mm']:
         d=root/f'{gap}mm';d.mkdir();ng=math.ceil(gap*.001/settings['dx_target_m'])+1

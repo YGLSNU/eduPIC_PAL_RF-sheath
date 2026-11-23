@@ -3,7 +3,8 @@
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
-import argparse,copy,csv,json,shutil,zipfile
+import argparse,copy,csv,json,os,shutil,zipfile
+os.environ.setdefault('MPLCONFIGDIR','/tmp/edupic-matplotlib')
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
@@ -45,11 +46,12 @@ def core_plots(d,out,L,note):
             phaseplot(data,plots,L,figs/f'{key}.png',note,signed)
             sections[key]=image_section(key,[im(f'figures/{key}.png',note)])
     if (d/'eepf.dat').exists() and (d/'ifed.dat').exists():
+        dist_note=(d/'distribution_note.txt').read_text() if (d/'distribution_note.txt').exists() else note
         e=np.loadtxt(d/'eepf.dat');i=np.loadtxt(d/'ifed.dat');fig,axs=plt.subplots(1,2,figsize=(10,4))
         axs[0].semilogy(e[:,0],np.where(e[:,1]>0,e[:,1],np.nan));axs[0].set(xlim=(0,60),xlabel='E (eV)',ylabel='EEPF (eV$^{-3/2}$)',title='Central 10% of gap')
         for j,lab in [(1,'upper RF'),(2,'lower GND')]:axs[1].plot(i[:,0],i[:,j],label=lab)
-        axs[1].set(xlabel='Ion energy (eV)',ylabel='PDF (eV$^{-1}$)');axs[1].legend();fig.suptitle(note);save(fig,figs/'distributions.png')
-        sections['distributions']=image_section('distributions',[im('figures/distributions.png',note+'; 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다.')])
+        axs[1].set(xlabel='Ion energy (eV)',ylabel='PDF (eV$^{-1}$)');axs[1].legend();fig.suptitle(dist_note);save(fig,figs/'distributions.png')
+        sections['distributions']=image_section('distributions',[im('figures/distributions.png',dist_note+'; 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다.')])
     if (d/'particle_balance.csv').exists():
         rows=list(csv.DictReader((d/'particle_balance.csv').open()))
         if rows:
@@ -77,12 +79,15 @@ def export(root,out):
     base={'schema_version':1,'id':cfg['id'],'branch':BRANCH,'date':cfg['date'],'report_updated':date,'conditions':conditions,'source':source,
         'related_links':[{'label':'BRH 진단·판정 기준','url':'../METHOD.md'}]}
     histories={};cases=[];summaryrows=[];child_meta=[]
-    for gap in cfg['gaps_mm']:
-        d=root/f'{gap}mm';target=out/f'{gap}mm';target.mkdir(exist_ok=True);(target/'figures').mkdir(exist_ok=True)
+    entries=[(g,f'{g}mm',False) for g in cfg['gaps_mm']]
+    if (root/'pilot40mm/measurement_summary.json').exists() and json.loads((root/'pilot40mm/status.json').read_text())['status']=='diagnostic':entries.append((40,'pilot40mm',True))
+    for gap,folder,is_pilot in entries:
+        d=root/folder;target=out/folder;target.mkdir(exist_ok=True);(target/'figures').mkdir(exist_ok=True)
         state=json.loads((d/'status.json').read_text());cpRF=state.get('checkpoint_cycle',0);meas=state.get('measured_RF',0);phase=state['phase']
-        status='incomplete' if state['status']=='queued' else state['status']
+        status=state['status']
         shutil.copy2(d/'status.json',target/'status.json');sections={k:unavailable(k,'해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.') for k in KEYS}
-        history=np.loadtxt(d/'history.dat',ndmin=2) if (d/'history.dat').exists() else np.empty((0,3));histories[gap]=history
+        history=np.loadtxt(d/'history.dat',ndmin=2) if (d/'history.dat').exists() else np.empty((0,3))
+        if not is_pilot:histories[gap]=history
         if len(history):
             np.savetxt(target/'history.csv',history,delimiter=',',header='RF,e_macroparticles,i_macroparticles',comments='',fmt='%d')
             fig,axs=plt.subplots(1,2,figsize=(11,4));axs[0].plot(history[:,0],history[:,1],label='e');axs[0].plot(history[:,0],history[:,2],label='ion');axs[0].legend()
@@ -97,6 +102,16 @@ def export(root,out):
             native_note=state.get('pooled_note',f'Warmup snapshot RF {block.get("RF_first","?")}–{block.get("RF_last","?")} (transient, not stationary)')
             sections.update(core_plots(nd,target,gap,native_note))
         downloads=[{'label':'저장된 실행 상태·실제 RF·종료 사유','path':'status.json'}]
+        if native:
+            nd=Path(native);signature=sha(nd/'particle_balance.csv') if (nd/'particle_balance.csv').exists() else str(nd)
+            cache=target/'core_manifest.json';old_core=json.loads(cache.read_text()) if cache.exists() else {}
+            core_name=f'261123_{folder}_core.zip'
+            if old_core.get('signature')!=signature:
+                with zipfile.ZipFile(target/core_name,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=3) as z:
+                    for f in nd.iterdir():
+                        if f.is_file() and (f.name.endswith('_xt.dat') or f.name in ['density.dat','eepf.dat','ifed.dat','info.txt','particle_balance.csv','block.json','validation.json','block_windows.json','distribution_note.txt']):z.write(f,f.name)
+                put(cache,{'signature':signature,'measurement_note':native_note})
+            downloads.append({'label':'표준 진단 원시 수치·이력: '+native_note,'path':core_name})
         if len(history):downloads.append({'label':'입자 수 이력 CSV','path':'history.csv'})
         # Archive only completed checkpoints. Keep an explicitly dated checkpoint
         # until 500 more RF or a terminal state, avoiding an upload per block.
@@ -104,7 +119,7 @@ def export(root,out):
         final=status in ['criteria_met','extinguished','measurement_limit_reached','total_cycle_limit_reached','paused_error','paused_at_checkpoint']
         cp=Path(state.get('checkpoint_path',d/'input_cycle0.bin'))
         if not old or cpRF-old.get('RF',-10000)>=500 or (final and old.get('checkpoint_SHA256')!=sha(cp)):
-            archive=target/f'261123_gap{gap}_restart.zip'
+            archive=target/f'261123_{folder}_restart.zip'
             with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=3) as z:
                 z.write(cp,'picdata.bin')
                 for f in ['brh_state.bin','brh_rng.txt']:
@@ -115,17 +130,19 @@ def export(root,out):
         brhtext='아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.'
         if (d/'measurement_summary.json').exists():
             from postprocess import export_diagnostics
-            brh_sections,brh_downloads,brhtext=export_diagnostics(d,target)
+            brh_sections,brh_downloads,brhtext=export_diagnostics(d,target,state.get('measurement_summary_path'))
             sections.update(brh_sections);downloads+=brh_downloads
         sections['bounce']=sections.get('bounce',unavailable('bounce',brhtext));sections['bounce']['title']='BRH 왕복·위상·에너지 진단'
         state_reason=state.get('reason') or state.get('error') or ('실행 대기 중' if state['status']=='queued' else ('배경 입자 수 안정화 중' if phase=='warmup' else '위상·입자 진단 측정 중; 최종 BRH 판정 전'))
         if status=='extinguished':state_reason=f'RF{cpRF}에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니다. 정상 EEDF/BRH를 정의하지 않습니다.'
-        m=copy.deepcopy(base);m.update(title=f'BRH · gap {gap} mm · 250 V',status=status,changed_conditions=f'BRH gap {gap} mm',report_directory=f'results/{RUN}/{gap}mm',
+        m=copy.deepcopy(base);m.update(title=f'BRH · gap {gap} mm · 250 V'+(' · 짧은20RF 예비 진단' if is_pilot else ''),status=status,changed_conditions=f'BRH gap {gap} mm'+(' short pilot' if is_pilot else ''),report_directory=f'results/{RUN}/{folder}',
             summary=state_reason+' '+brhtext,measurement_note=native_note,sections=list(sections.values()),downloads=downloads,
             metrics=[['저장 체크포인트',f'RF {cpRF}'],['정상 측정 누적',f'{meas} RF'],['현재 단계',phase],['안정성 확인',json.dumps(state.get('stationarity',{}),ensure_ascii=False)],['진행 상태 갱신',state.get('updated_at_Asia_Seoul','미시작')]])
-        m['conditions']['gap_mm']=gap;m['conditions']['grid_points']=state['grid_points'];put(target/'report.json',m);child_meta.append(m)
-        cases.append({'gap_mm':gap,'voltage_V':250,'status':status,'total_rf':cpRF,'measurement_rf':meas,'ne_mean_m3':state.get('ne_mean_m3'),'path':f'{gap}mm/README.md'})
-        summaryrows.append([gap,250,status,phase,cpRF,meas,state.get('electrons',''),state.get('ions',''),state.get('last_RF_seconds',''),state_reason])
+        if is_pilot:m['source']['initialization']='Main40mm의 중간 체크포인트에서 별도2RF 이력 채움 +20RF 진단. 정한600RF 안정화·200RF 측정 기준 미충족. 초기 상태: '+json.dumps(state['pilot_initial_checkpoint'])
+        m['conditions']['gap_mm']=gap;m['conditions']['grid_points']=state['grid_points'];put(target/'report.json',m);child_meta.append((folder,m))
+        if not is_pilot:
+            cases.append({'gap_mm':gap,'voltage_V':250,'status':status,'total_rf':cpRF,'measurement_rf':meas,'ne_mean_m3':state.get('ne_mean_m3'),'path':f'{gap}mm/README.md'})
+            summaryrows.append([gap,250,status,phase,cpRF,meas,state.get('electrons',''),state.get('ions',''),state.get('last_RF_seconds',''),state_reason])
     figs=out/'figures';figs.mkdir(exist_ok=True);fig,axs=plt.subplots(1,2,figsize=(11,4))
     for gap,a in histories.items():
         if len(a):
@@ -136,7 +153,12 @@ def export(root,out):
     fig.suptitle('Gap scan: completed snapshots only; not a BRH verdict');save(fig,figs/'progress.png')
     with (out/'summary.csv').open('w') as f:
         w=csv.writer(f);w.writerow(['gap_mm','V_peak','status','phase','completed_RF','measured_RF','electrons','ions','last_seconds_per_RF','reason']);w.writerows(summaryrows)
-    active=any(c['status'] in ['running','incomplete'] for c in cases);status='running' if active else ('criteria_met' if all(c['status']=='criteria_met' for c in cases) else 'measurement_complete')
+    active=any(c['status'] in ['running','incomplete','queued'] for c in cases)
+    status='running' if active else ('criteria_met' if all(c['status']=='criteria_met' for c in cases) else 'measurement_complete')
+    if not active:
+        for terminal in ['paused_error','paused_at_checkpoint','measurement_limit_reached','total_cycle_limit_reached']:
+            if any(c['status']==terminal for c in cases):status=terminal;break
+        if all(c['status']=='extinguished' for c in cases):status='extinguished'
     parent=copy.deepcopy(base);parent.update(title='Bounce resonance heating · gap 스캔',status=status,scan_parameter='gap_mm',changed_conditions='BRH · gap25/30/40/50/60/80/100/120 mm',
         summary='250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다.',
         measurement_note='안정화: 마지막600RF의 3×200RF 평균 변화<1%, fitted drift<2%. 정상 진단: 최소200RF, 20RF블록. 평균량/밀도3%, heating5% 및 BRH 통계 별도. 상한1000RF에서 미충족은 미수렴으로 표시.',
@@ -146,7 +168,9 @@ def export(root,out):
             [{'id':'bounce','title':'BRH 왕복·위상·에너지 진단','text':'왕복 진단의 자료·그림·사건 통계는 조건별 상세 보고서에서 제공합니다.\n\n'+' · '.join(f'[{g} mm]({g}mm/README.md#brh-왕복위상에너지-진단)' for g in cfg['gaps_mm']),'images':[]}],
         downloads=[{'label':'조건별 진행 요약 CSV','path':'summary.csv'},{'label':'공통 설정','path':'config.json'},{'label':'수렴·중단 기준','path':'criteria.json'}])
     if (out/'diagnostics_validated.json').exists():parent['downloads'].append({'label':'수동 진단·재시작 검증','path':'diagnostics_validated.json'})
-    source_files=[root/f for f in ['source_control.cc','source_brh.cc','brh_diagnostics.hpp','config.json','criteria.json','diagnostics_validated.json','LICENSE'] if (root/f).exists()]
+    if any(pilot for _,_,pilot in entries):
+        parent['sections'].append({'id':'pilot','title':'40mm 짧은 예비 진단 · 본 스캔과 구분','text':'[20RF 예비 진단의 조건·수치·그림·다운로드](pilot40mm/README.md). 본 gap 스캔의 수렴 결과가 아니며 BRH 확정 자료로 사용하지 않습니다.','images':[im('pilot40mm/figures/brh_returns.png','실제20RF의 왕복·위상·signed energy 진단. 상세 페이지에 위치별 EEPF와 순간 일 지도도 있습니다.')]})
+    source_files=[root/f for f in ['source_control.cc','source_brh.cc','brh_diagnostics.hpp','reference40.bin','config.json','criteria.json','diagnostics_validated.json','LICENSE'] if (root/f).exists()]
     script_files=list((REPO/'scripts/brh_scan').glob('*.py'))+list((REPO/'scripts/brh_scan').glob('*.md'))
     sig=''.join(sha(f) for f in source_files+sorted(script_files));cached=out/'source_signature.txt'
     if not cached.exists() or cached.read_text()!=sig:
@@ -155,7 +179,7 @@ def export(root,out):
             for f in (REPO/'scripts/brh_scan').glob('*.py'):z.write(f,'scripts/brh_scan/'+f.name)
             if (REPO/'scripts/brh_scan/README.md').exists():z.write(REPO/'scripts/brh_scan/README.md','README.md')
         cached.write_text(sig)
-    parent['downloads'].append({'label':'실행 소스·진단·설정','path':'261123_BRH_source.zip'})
+    parent['downloads'].append({'label':'실행 소스·진단·설정·원본40mm 기준 입자','path':'261123_BRH_source.zip'})
     if (REPO/'scripts/brh_scan/METHOD.md').exists():shutil.copy2(REPO/'scripts/brh_scan/METHOD.md',out/'METHOD.md')
     put(out/'run.json',parent)
     # Rendering, checksums and coverage audit are shared with existing uploads.
@@ -163,7 +187,7 @@ def export(root,out):
     sys.path.insert(0,str(REPO/'scripts/results'))
     from catalog import render_report,refresh_files
     from audit_coverage import audit
-    for directory,meta in [(out/f'{g}mm',m) for g,m in zip(cfg['gaps_mm'],child_meta)]+[(out,parent)]:
+    for directory,meta in [(out/folder,m) for folder,m in child_meta]+[(out,parent)]:
         refresh_files(directory,meta);put(directory/('run.json' if directory==out else 'report.json'),meta)
         (directory/'README.md').write_text(render_report(meta));refresh_files(directory,meta)
         assert not audit(meta,(directory/'README.md').read_text())['failures']

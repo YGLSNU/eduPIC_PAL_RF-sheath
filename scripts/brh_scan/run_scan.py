@@ -61,6 +61,7 @@ def run_case(root,gap):
 def main():
     p=argparse.ArgumentParser();p.add_argument('root',type=Path);p.add_argument('--gaps',type=int,nargs='*');a=p.parse_args();root=a.root.resolve()
     lock=(root/'controller.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+    (root/'controller_finished.json').unlink(missing_ok=True)
     cfg=json.loads((root/'config.json').read_text());gaps=a.gaps or [40,25,60,100,30,50,80,120]
     put(root/'controller.json',{'pid':os.getpid(),'started_at_Asia_Seoul':now(),'gaps_mm':gaps,'max_workers':cfg['max_workers']})
     with ThreadPoolExecutor(max_workers=cfg['max_workers']) as pool:

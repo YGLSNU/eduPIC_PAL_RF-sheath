@@ -26,6 +26,8 @@ python -u scripts/brh_scan/run_scan.py /workspace/edupic-brh/261123_BRH_gap25-12
 
 `prepare.py`는 기존 실행을 덮어쓰지 않습니다. 재개할 때는 마지막 명령을 사용하며 완료 조건을 건너뜁니다. 파일 잠금으로 제어기의 중복 실행을 막습니다. 완결 블록 뒤 멈추려면 실행 폴더에 `STOP_AFTER_BLOCK` 파일을 만들고 재개 전 지웁니다. 강제 종료하면 진행 중인 블록 대신 **마지막 완결 체크포인트**에서 재시작합니다.
 
+다른 컴퓨터에는 기존 절대경로의 reference가 없을 수 있습니다. 결과 페이지의 source ZIP에 `source_control.cc`, **원본40mm·4000step/RF·640격자의** `reference40.bin`과 criteria가 들어 있습니다. 이를 풀고 `prepare.py ROOT --source EXTRACT/source_control.cc --checkpoint EXTRACT/reference40.bin`으로 초기화할 수 있습니다. 새 BRH 체크포인트는 아래의 세 파일 재시작 방식을 사용합니다.
+
 입자만 담은 `picdata.bin`은 통계적인 재시작이 가능합니다. 새 BRH 측정은 **`picdata.bin`, `brh_state.bin`, `brh_rng.txt` 세 파일을 함께** 보관해야 UID·왕복 이력·MCC 잔여 optical depth·난수 상태를 연속 복원합니다. 컴파일 조건과 소스도 같아야 합니다. 블록별 히스토그램은 재시작 상태와 별도입니다.
 
 ## 보고서 갱신
@@ -36,5 +38,7 @@ python scripts/results/publish_run.py /workspace/edupic-brh/export/261123_BRH_ga
 ```
 
 기존 등록 도구가 조건별 보고서·크기·SHA256·최상위 북마크를 갱신합니다. 결과 페이지의 시각은 **마지막 업로드 자료**이며 실시간 CPU 상태는 아닙니다. 클라우드가 종료되면 계산·자동 업로드도 멈추지만 이미 GitHub에 저장한 결과는 남습니다. 제어기/업로더의 동작은 실행 폴더의 PID·로그로 확인합니다.
+
+자동 업로더는 `python -u scripts/brh_scan/watch_publish.py ROOT`로 실행합니다. **15분 간격**, 소멸/기준 충족 등 상태 변화, 최종 종료 때 저장된 블록을 게시합니다. `ROOT/STOP_PUBLISH`로 업로드만 중단할 수 있습니다. `controller.log`, `publisher.log`, `last_publication.json`에 실행·게시 기록을 남깁니다. GitHub Actions는 목록을 동기화하며 클라우드의 PIC 계산을 대신하지 않습니다.
 
 완료 전에는 소멸·안정화·정상 측정·통계 상한을 구분합니다. 최소600RF의 배경 안정화 뒤 최소200RF의 진단을 계획하므로 여러 시간이 걸릴 수 있습니다. BRH 유무는 METHOD의 사건 통계와 추가 검증을 함께 보고 판정합니다.
