@@ -66,6 +66,39 @@ def core_plots(d,out,L,note):
             sections['power']=image_section('power',[im('figures/power.png',note+'; 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다.')])
     return sections
 
+def compare_brh(series,out):
+    """Only post-background measurement epochs; never mix in the short pilot."""
+    rows=[];fig,axs=plt.subplots(1,2,figsize=(11,4))
+    for gap,status,s in sorted(series):
+        assessment=s['background_and_BRH_assessment'].get('BRH',{});f=s['candidate_return_fraction'];w=s['candidate_mean_signed_work_eV']
+        ef=assessment.get('candidate_return_fraction',{}).get('half_width');ew=assessment.get('candidate_signed_work_eV',{}).get('half_width')
+        rows.append([gap,status,s['first_RF'],s['last_RF'],s['measured_RF'],s['powered_side_returns'],s['candidate_returns'],s['distinct_candidate_UIDs'],f,ef,w,ew,s.get('candidate_mean_net_dK_eV')])
+        if f is not None:axs[0].errorbar(gap,100*f,yerr=100*ef if ef is not None else None,fmt='o',capsize=3,color='tab:blue')
+        if w is not None:axs[1].errorbar(gap,w,yerr=ew,fmt='o',capsize=3,color='tab:orange',label='1T phase candidate' if len(axs[1].lines)==0 else None)
+        if s['all_return_mean_signed_work_eV'] is not None:axs[1].plot(gap,s['all_return_mean_signed_work_eV'],'x',color='k')
+    axs[0].set(xlabel='Gap (mm)',ylabel='1T candidate / detected returns (%)');axs[1].set(xlabel='Gap (mm)',ylabel='Mean signed field work (eV / return)');axs[1].axhline(0,color='k',lw=.7)
+    for ax in axs:ax.grid(alpha=.2);ax.set_xlim(20,125)
+    fig.suptitle('Available measurement windows; dots without bars lack block uncertainty\nOrange: phase candidates; black crosses: all detected upper-side returns');save(fig,out/'figures/brh_gap_compare.png')
+    with (out/'brh_gap_summary.csv').open('w') as f:
+        writer=csv.writer(f);writer.writerow(['gap_mm','status','RF_first','RF_last','measured_RF','detected_upper_returns','candidate_returns','candidate_UIDs','candidate_event_fraction','fraction_uncertainty_indicator','candidate_fieldwork_eV','work_uncertainty_eV','candidate_net_dK_eV']);writer.writerows(rows)
+    table='| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |\n|---:|---|---|---:|---:|---:|---:|\n'
+    for r in rows:
+        table+=f'| {r[0]} | {r[1]} | {r[2]}–{r[3]} ({r[4]}RF) | {r[5]} / {r[6]} | {r[7]} | '+(f'{100*r[8]:.3f}' if r[8] is not None else '—')+' | '+(f'{r[10]:.4g}' if r[10] is not None else '—')+' |\n'
+    images=[im('figures/brh_gap_compare.png','검출 왕복 사건 중 기본1T 후보의 비율과 signed field work. 전체 전자의 BRH 밀도 분율이 아닙니다. 검은×는 전체 검출 왕복의 평균입니다.')]
+    if len(series)>=2:
+        fig,axs=plt.subplots(1,2,figsize=(11,4))
+        for gap,status,s in sorted(series):
+            with np.load(Path(s['pooled_data_path'])/'histogram_counts.npz') as z:
+                edge=z['energy_edges_eV'];width=np.diff(edge);energy=(edge[:-1]+edge[1:])/2
+                for ax,k in zip(axs,['E_counts','Ex_counts']):
+                    counts=z[k][9:11].sum(axis=(0,1,2))[:270];pdf=counts/max(counts.sum(),1)/width
+                    if k=='E_counts':pdf=pdf/np.sqrt(energy)
+                    ax.semilogy(energy,np.where(pdf>0,pdf,np.nan),label=f'{gap} mm, {s["measured_RF"]} RF')
+        axs[0].set(xlabel='Total E (eV)',ylabel='Central 10% EEPF (eV$^{-3/2}$)',xlim=(0,60));axs[1].set(xlabel='Axial Ex (eV)',ylabel='Central 10% axial-energy PDF (eV$^{-1}$)',xlim=(0,40))
+        for ax in axs:ax.legend(fontsize=7);ax.grid(alpha=.2)
+        fig.suptitle('Gap comparison; raw counts pooled within each actual measurement window');save(fig,out/'figures/eepf_gap_compare.png');images.append(im('figures/eepf_gap_compare.png','각gap의 실제 측정 RF를 범례에 표시했습니다. 중앙10%, E<500eV로 정규화한 원시 counts 기반 비교입니다.'))
+    return {'id':'BRH_gap_compare','title':'기본1T 반복 후보·EEDF의 gap 비교','data_status':'partial','text':'600RF 배경 안정화 뒤 수집한 측정 구간만 비교하며, 별도20RF pilot은 제외합니다. 단일gap이나 통계 중단 기준 전 자료만으로 BRH를 확정하지 않습니다. error bar는20/40RF 블록 불확실도 지표이며, 막대가 없는 점은 아직 블록 추정이 없습니다.','images':images,'table':table}
+
 def export(root,out):
     out.mkdir(parents=True,exist_ok=True);cfg=json.loads((root/'config.json').read_text());criteria=json.loads((root/'criteria.json').read_text());date=datetime.now(ZoneInfo('Asia/Seoul')).isoformat(timespec='seconds')
     for f in ['config.json','criteria.json','diagnostics_validated.json','measurement_engine_validated.json']:
@@ -78,7 +111,7 @@ def export(root,out):
         'initialization':'40mm·250V RF2001 저장 입자에서 분포 재표본·x 변환·시간 stagger 변환. gap별 초기 물리 밀도와 가중치 고정. 과도구간은 정상 측정에서 제외.'}
     base={'schema_version':1,'id':cfg['id'],'branch':BRANCH,'date':cfg['date'],'report_updated':date,'conditions':conditions,'source':source,
         'related_links':[{'label':'BRH 진단·판정 기준','url':'../METHOD.md'}]}
-    histories={};cases=[];summaryrows=[];child_meta=[]
+    histories={};cases=[];summaryrows=[];child_meta=[];brh_series=[]
     entries=[(g,f'{g}mm',False) for g in cfg['gaps_mm']]
     if (root/'pilot40mm/measurement_summary.json').exists() and json.loads((root/'pilot40mm/status.json').read_text())['status']=='diagnostic':entries.append((40,'pilot40mm',True))
     for gap,folder,is_pilot in entries:
@@ -133,6 +166,7 @@ def export(root,out):
             from postprocess import export_diagnostics
             brh_sections,brh_downloads,brhtext=export_diagnostics(d,target,state.get('measurement_summary_path'))
             sections.update(brh_sections);downloads+=brh_downloads
+            if not is_pilot:brh_series.append((gap,status,json.loads(Path(state['measurement_summary_path']).read_text())))
         sections['bounce']=sections.get('bounce',unavailable('bounce',brhtext));sections['bounce']['title']='BRH 왕복·위상·에너지 진단'
         state_reason=state.get('reason') or state.get('error') or ('실행 대기 중' if state['status']=='queued' else ('배경 입자 수 안정화 중' if phase=='warmup' else '위상·입자 진단 측정 중; 최종 BRH 판정 전'))
         if status=='extinguished':state_reason=f'RF{cpRF}에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니다. 정상 EEDF/BRH를 정의하지 않습니다.'
@@ -170,6 +204,8 @@ def export(root,out):
         downloads=[{'label':'조건별 진행 요약 CSV','path':'summary.csv'},{'label':'공통 설정','path':'config.json'},{'label':'수렴·중단 기준','path':'criteria.json'}])
     if (out/'diagnostics_validated.json').exists():parent['downloads'].append({'label':'수동 진단·재시작 검증','path':'diagnostics_validated.json'})
     if (out/'measurement_engine_validated.json').exists():parent['downloads'].append({'label':'측정 제어·통합·압축·상한 중단 실행 검증','path':'measurement_engine_validated.json'})
+    if brh_series:
+        parent['sections'].append(compare_brh(brh_series,out));parent['downloads'].append({'label':'gap별 BRH 사건·에너지·불확실도 요약 CSV','path':'brh_gap_summary.csv'})
     if any(pilot for _,_,pilot in entries):
         parent['sections'].append({'id':'pilot','title':'40mm 짧은 예비 진단 · 본 스캔과 구분','text':'[20RF 예비 진단의 조건·수치·그림·다운로드](pilot40mm/README.md). 본 gap 스캔의 수렴 결과가 아니며 BRH 확정 자료로 사용하지 않습니다.','images':[im('pilot40mm/figures/brh_returns.png','실제20RF의 왕복·위상·signed energy 진단. 상세 페이지에 위치별 EEPF와 순간 일 지도도 있습니다.')]})
     source_files=[root/f for f in ['source_control.cc','source_brh.cc','brh_diagnostics.hpp','reference40.bin','config.json','criteria.json','diagnostics_validated.json','measurement_engine_validated.json','LICENSE'] if (root/f).exists()]
