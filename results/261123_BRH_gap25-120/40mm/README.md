@@ -2,9 +2,9 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 40 mm** · 보고서 갱신 2026-11-23T20:30:26+09:00
+**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 40 mm** · 보고서 갱신 2026-11-23T20:46:47+09:00
 
-위상·입자 진단 측정 중; 최종 BRH 판정 전 검출된 상부 기준 왕복 169923개, 고유 UID 13127개. 위상 반복 후보 385개(고유 UID 358개). 검출 왕복 중 후보 비율 0.227%. 후보의 평균 signed field work 4.188 eV/왕복. 충돌을 합친 후보의 순 운동에너지 변화 0.9377 eV/왕복. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.
+위상·입자 진단 측정 중; 최종 BRH 판정 전 검출된 상부 기준 왕복 178704개, 고유 UID 13678개. 위상 반복 후보 411개(고유 UID 382개). 검출 왕복 중 후보 비율 0.230%. 후보의 평균 signed field work 4.25 eV/왕복. 충돌을 합친 후보의 순 운동에너지 변화 0.9737 eV/왕복. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.
 
 ## 실행 조건
 
@@ -20,7 +20,7 @@
 | 코드 | 40mm 기준 C/eduPIC.cc 계열을 C++11로 컴파일; 8k step/RF, 동일 optical-depth MCC, 수동 BRH 입자 진단 |
 | 소스 이력 | control SHA256 734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1; 진단 소스·헤더 SHA는 검증 기록/ZIP 참조 |
 | 초기·재시작 상태 | 40mm·250V RF2001 저장 입자에서 분포 재표본·x 변환·시간 stagger 변환. gap별 초기 물리 밀도와 가중치 고정. 과도구간은 정상 측정에서 제외. |
-| 측정 구간 | Measurement RF 603–1402 (800 RF) |
+| 측정 구간 | Measurement RF 603–1442 (840 RF) |
 
 상태와 그래프는 마지막 저장 자료이며 실시간 CPU 실행 화면은 아닙니다.
 
@@ -30,11 +30,11 @@
 
 | 물리량 | 값 |
 |---|---|
-| 저장 체크포인트 | RF 1402 |
-| 정상 측정 누적 | 800 RF |
+| 저장 체크포인트 | RF 1442 |
+| 정상 측정 누적 | 840 RF |
 | 현재 단계 | measurement |
 | 안정성 확인 | {"e": {"block_mean_span": 0.005816185954442053, "fitted_drift": 0.007930020466917402, "passed": true}, "i": {"block_mean_span": 0.0057470727955321555, "fitted_drift": 0.007611220025945358, "passed": true}, "passed": true} |
-| 진행 상태 갱신 | 2026-11-23T20:30:24.187099+09:00 |
+| 진행 상태 갱신 | 2026-11-23T20:43:15.189328+09:00 |
 
 ## 자료 범위
 
@@ -53,77 +53,77 @@
 
 
 
-![저장된 이력 RF1–1402. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.](figures/convergence.png)
+![저장된 이력 RF1–1442. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.](figures/convergence.png)
 
-저장된 이력 RF1–1402. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.
+저장된 이력 RF1–1442. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.
 
 ## 밀도 공간분포
 
 
 
-![Measurement RF 603–1402 (800 RF)](figures/density.png)
+![Measurement RF 603–1442 (840 RF)](figures/density.png)
 
-Measurement RF 603–1402 (800 RF)
+Measurement RF 603–1442 (840 RF)
 
 ## RF heating
 
 
 
-![Measurement RF 603–1402 (800 RF)](figures/heating.png)
+![Measurement RF 603–1442 (840 RF)](figures/heating.png)
 
-Measurement RF 603–1402 (800 RF)
+Measurement RF 603–1442 (840 RF)
 
 ## 전위·전기장
 
 
 
-![Measurement RF 603–1402 (800 RF)](figures/fields.png)
+![Measurement RF 603–1442 (840 RF)](figures/fields.png)
 
-Measurement RF 603–1402 (800 RF)
+Measurement RF 603–1442 (840 RF)
 
 ## 평균 에너지·이온화
 
 
 
-![Measurement RF 603–1402 (800 RF)](figures/ionization.png)
+![Measurement RF 603–1442 (840 RF)](figures/ionization.png)
 
-Measurement RF 603–1402 (800 RF)
+Measurement RF 603–1442 (840 RF)
 
 ## 에너지 분포
 
 
 
-![Last native block RF 1383–1402 only (20 RF); pooled EEDF uses raw new histogram counts; 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다.](figures/distributions.png)
+![Last native block RF 1423–1442 only (20 RF); pooled EEDF uses raw new histogram counts; 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다.](figures/distributions.png)
 
-Last native block RF 1383–1402 only (20 RF); pooled EEDF uses raw new histogram counts; 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다.
+Last native block RF 1423–1442 only (20 RF); pooled EEDF uses raw new histogram counts; 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다.
 
 ## 전극 flux·손실
 
 
 
-![Measurement RF 603–1402 (800 RF)](figures/walls.png)
+![Measurement RF 603–1442 (840 RF)](figures/walls.png)
 
-Measurement RF 603–1402 (800 RF)
+Measurement RF 603–1442 (840 RF)
 
 ## 전력 전달·손실
 
 
 
-![Measurement RF 603–1402 (800 RF); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다.](figures/power.png)
+![Measurement RF 603–1442 (840 RF); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다.](figures/power.png)
 
-Measurement RF 603–1402 (800 RF); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다.
+Measurement RF 603–1442 (840 RF); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다.
 
 ## BRH 왕복·위상·에너지 진단
 
-검출된 상부 기준 왕복 169923개, 고유 UID 13127개. 위상 반복 후보 385개(고유 UID 358개). 검출 왕복 중 후보 비율 0.227%. 후보의 평균 signed field work 4.188 eV/왕복. 충돌을 합친 후보의 순 운동에너지 변화 0.9377 eV/왕복. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.
+검출된 상부 기준 왕복 178704개, 고유 UID 13678개. 위상 반복 후보 411개(고유 UID 382개). 검출 왕복 중 후보 비율 0.230%. 후보의 평균 signed field work 4.25 eV/왕복. 충돌을 합친 후보의 순 운동에너지 변화 0.9737 eV/왕복. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.
 
-![RF 603–1402 (800 RF); exploratory diagnostics; 에너지 부호와 독립적으로 정한 반복 위상 후보. 충돌/경계 검출 조건은 METHOD 참조.](figures/brh_returns.png)
+![RF 603–1442 (840 RF); exploratory diagnostics; 에너지 부호와 독립적으로 정한 반복 위상 후보. 충돌/경계 검출 조건은 METHOD 참조.](figures/brh_returns.png)
 
-RF 603–1402 (800 RF); exploratory diagnostics; 에너지 부호와 독립적으로 정한 반복 위상 후보. 충돌/경계 검출 조건은 METHOD 참조.
+RF 603–1442 (840 RF); exploratory diagnostics; 에너지 부호와 독립적으로 정한 반복 위상 후보. 충돌/경계 검출 조건은 METHOD 참조.
 
-![RF 603–1402 (800 RF); exploratory diagnostics; 실제 전기장 회전 시각의 위상 재현성과 연속 왕복 횟수. 기준면 재도착 위상과 구분합니다.](figures/phase_persistence.png)
+![RF 603–1442 (840 RF); exploratory diagnostics; 실제 전기장 회전 시각의 위상 재현성과 연속 왕복 횟수. 기준면 재도착 위상과 구분합니다.](figures/phase_persistence.png)
 
-RF 603–1402 (800 RF); exploratory diagnostics; 실제 전기장 회전 시각의 위상 재현성과 연속 왕복 횟수. 기준면 재도착 위상과 구분합니다.
+RF 603–1442 (840 RF); exploratory diagnostics; 실제 전기장 회전 시각의 위상 재현성과 연속 왕복 횟수. 기준면 재도착 위상과 구분합니다.
 
 ![첫 측정 블록의 처음5RF, 해시 추출 UID 중 기록이 긴 최대12개 궤적 예시. 집단 전체의 BRH 증거로 단독 사용하지 않습니다.](figures/trajectories.png)
 
@@ -133,21 +133,21 @@ RF 603–1402 (800 RF); exploratory diagnostics; 실제 전기장 회전 시각�
 
 
 
-![RF 603–1402 (800 RF); exploratory diagnostics; 전체 E와 Ex를 구분합니다. 각 위치에서 E<500eV 사건으로 정규화.](figures/eepf_positions.png)
+![RF 603–1442 (840 RF); exploratory diagnostics; 전체 E와 Ex를 구분합니다. 각 위치에서 E<500eV 사건으로 정규화.](figures/eepf_positions.png)
 
-RF 603–1402 (800 RF); exploratory diagnostics; 전체 E와 Ex를 구분합니다. 각 위치에서 E<500eV 사건으로 정규화.
+RF 603–1442 (840 RF); exploratory diagnostics; 전체 E와 Ex를 구분합니다. 각 위치에서 E<500eV 사건으로 정규화.
 
-![RF 603–1402 (800 RF); exploratory diagnostics; 중앙10%의 위상별 EEDF.](figures/phase_eedf.png)
+![RF 603–1442 (840 RF); exploratory diagnostics; 중앙10%의 위상별 EEDF.](figures/phase_eedf.png)
 
-RF 603–1402 (800 RF); exploratory diagnostics; 중앙10%의 위상별 EEDF.
+RF 603–1442 (840 RF); exploratory diagnostics; 중앙10%의 위상별 EEDF.
 
 ## 순간 전기장 일 지도
 
 
 
-![RF 603–1402 (800 RF); exploratory diagnostics; 순간 kick 에너지의 평균. 표준 heating의 <j>×<E>와 다릅니다.](figures/instantaneous_work.png)
+![RF 603–1442 (840 RF); exploratory diagnostics; 순간 kick 에너지의 평균. 표준 heating의 <j>×<E>와 다릅니다.](figures/instantaneous_work.png)
 
-RF 603–1402 (800 RF); exploratory diagnostics; 순간 kick 에너지의 평균. 표준 heating의 <j>×<E>와 다릅니다.
+RF 603–1442 (840 RF); exploratory diagnostics; 순간 kick 에너지의 평균. 표준 heating의 <j>×<E>와 다릅니다.
 
 ## 읽는 기준
 
@@ -160,16 +160,17 @@ RF 603–1402 (800 RF); exploratory diagnostics; 순간 kick 에너지의 평균
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| 저장된 실행 상태·실제 RF·종료 사유 | [status.json](status.json) | 9.2 KiB |
-| 표준 진단 원시 수치·이력: Measurement RF 603–1402 (800 RF) | [261123_40mm_core.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_core.zip) | 7.43 MiB |
-| 입자 수 이력 CSV | [history.csv](history.csv) | 22.2 KiB |
-| 재시작 입자·동반 상태 (저장 RF 1222; 보고서의 최신 RF와 다를 수 있음) | [261123_40mm_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_restart.zip) | 3.90 MiB |
+| 저장된 실행 상태·실제 RF·종료 사유 | [status.json](status.json) | 9.4 KiB |
+| 표준 진단 원시 수치·이력: Measurement RF 603–1442 (840 RF) | [261123_40mm_core.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_core.zip) | 7.51 MiB |
+| 입자 수 이력 CSV | [history.csv](history.csv) | 22.9 KiB |
+| 재시작 입자·동반 상태 (저장 RF 1442; 보고서의 최신 RF와 다를 수 있음) | [261123_40mm_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_restart.zip) | 3.89 MiB |
 | 재시작 파일 provenance | [restart_manifest.json](restart_manifest.json) | 190 B |
-| BRH 사건·원시 energy counts·probe·일 지도 (1/4; 분할 시 모두 받기) | [261123_40mm_BRH_data_p01.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_BRH_data_p01.zip) | 46.20 MiB |
-| BRH 사건·원시 energy counts·probe·일 지도 (2/4; 분할 시 모두 받기) | [261123_40mm_BRH_data_p02.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_BRH_data_p02.zip) | 48.00 MiB |
-| BRH 사건·원시 energy counts·probe·일 지도 (3/4; 분할 시 모두 받기) | [261123_40mm_BRH_data_p03.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_BRH_data_p03.zip) | 44.56 MiB |
-| BRH 사건·원시 energy counts·probe·일 지도 (4/4; 분할 시 모두 받기) | [261123_40mm_BRH_data_p04.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_BRH_data_p04.zip) | 15.29 MiB |
-| BRH 수치·표본 수·해석 범위 | [measurement_summary.json](measurement_summary.json) | 8.9 KiB |
-| 위치별 EEPF CSV (raw count 포함) | [position_eepf.csv](data/position_eepf.csv) | 291.2 KiB |
+| BRH 사건·원시 energy counts·probe·일 지도 (1/5; 분할 시 모두 받기) | [261123_40mm_BRH_data_p01.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_BRH_data_p01.zip) | 48.00 MiB |
+| BRH 사건·원시 energy counts·probe·일 지도 (2/5; 분할 시 모두 받기) | [261123_40mm_BRH_data_p02.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_BRH_data_p02.zip) | 542.0 KiB |
+| BRH 사건·원시 energy counts·probe·일 지도 (3/5; 분할 시 모두 받기) | [261123_40mm_BRH_data_p03.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_BRH_data_p03.zip) | 48.00 MiB |
+| BRH 사건·원시 energy counts·probe·일 지도 (4/5; 분할 시 모두 받기) | [261123_40mm_BRH_data_p04.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_BRH_data_p04.zip) | 44.91 MiB |
+| BRH 사건·원시 energy counts·probe·일 지도 (5/5; 분할 시 모두 받기) | [261123_40mm_BRH_data_p05.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/40mm/261123_40mm_BRH_data_p05.zip) | 19.99 MiB |
+| BRH 수치·표본 수·해석 범위 | [measurement_summary.json](measurement_summary.json) | 9.0 KiB |
+| 위치별 EEPF CSV (raw count 포함) | [position_eepf.csv](data/position_eepf.csv) | 291.6 KiB |
 
 [전체 파일 목록·SHA256](files.json)
