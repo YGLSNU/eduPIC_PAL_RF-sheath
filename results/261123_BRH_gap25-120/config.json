@@ -23,7 +23,7 @@
   "electron_steps_per_RF": 8000,
   "phase_bins": 200,
   "ion_subcycling": 40,
-  "max_workers": 3,
+  "max_workers": 4,
   "source_reference_SHA256": "bd1d85cdbfd875c5bfd5df29ccefcd24da03b8776bdccde1148588453cc1586c",
   "reference_checkpoint_SHA256": "7a8c9bd9014e0f9b81e2964fa903a9c30ae2d48308ba925b14e6ac1b05051b39",
   "reference_checkpoint_path": "/workspace/edupic-results/2026-11-20_Ar_20mTorr_100-250-300-400-500V_13.56MHz_40mm_topRF/250V/blocks/cycle001982-002001/picdata.bin",
@@ -31,5 +31,6 @@
   "initialization": "40 mm 250 V converged particle distribution resampled to keep common initial physical density and constant macroparticle weight; x stretched, clone jitter; leapfrog velocities synchronized and restaggered. All changed-condition transients excluded.",
   "surface": "absorbing material walls; no SEE or material reflection",
   "electron_MCC": "same residual optical-depth Ar ground-state MCC at all gaps; at most one event per step",
-  "Coulomb_binary_collisions": false
+  "Coulomb_binary_collisions": false,
+  "parallelism_note": "Initially 3 cases during diagnostic validation; increase to 4 only after a completed-block pause. Physics and random seeds per RF block preserved."
 }

@@ -1,0 +1,32 @@
+{
+  "gap_mm": 40,
+  "grid_points": 641,
+  "weight": 112000,
+  "status": "diagnostic",
+  "phase": "short_pilot_complete",
+  "checkpoint_cycle": 271,
+  "measured_RF": 20,
+  "checkpoint_path": "/workspace/edupic-brh/261123_BRH_gap25-120/pilot40mm/measurement/picdata.bin",
+  "pilot_initial_checkpoint": {
+    "cycle": 249,
+    "time_seconds": 1.8362831858704094e-05,
+    "electrons": 46191,
+    "ions": 48638,
+    "sha256": "659f572b2acad3427816b9c685a45de2a346a9afb35b28e9cb075dd460ef61b0"
+  },
+  "started_at_Asia_Seoul": "2026-11-23T16:09:39.716450+09:00",
+  "reason": "Short 20 RF validation pilot; main gap scan convergence criteria have NOT been met.",
+  "solver_pid": 500566,
+  "active_RF": [
+    252,
+    271
+  ],
+  "updated_at_Asia_Seoul": "2026-11-23T16:14:25.473866+09:00",
+  "electrons": 46005,
+  "ions": 48384,
+  "measurement_blocks": [
+    "/workspace/edupic-brh/261123_BRH_gap25-120/pilot40mm/measurement"
+  ],
+  "pooled_native_path": "/workspace/edupic-brh/261123_BRH_gap25-120/pilot40mm/pooled",
+  "pooled_note": "Short diagnostic RF 252–271 (20 RF; not convergence-qualified)"
+}

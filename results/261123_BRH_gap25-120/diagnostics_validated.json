@@ -13,6 +13,12 @@
     "picdata.bin": true,
     "brh_rng.txt": true
   },
+  "internal_boundary_events_and_raw_histograms": {
+    "brh_roundtrips.csv": true,
+    "brh_encounters.csv": true,
+    "brh_hist_E_counts.bin": true,
+    "brh_hist_Ex_counts.bin": true
+  },
   "fifth_RF_continuation_byte_identity": {
     "picdata.bin": true,
     "brh_roundtrips.csv": true,
@@ -20,9 +26,9 @@
     "brh_hist_E_counts.bin": true,
     "brh_work_sum_eV.bin": true
   },
-  "maximum_return_energy_ledger_residual_eV": 8.171241461241152e-14,
+  "maximum_return_energy_ledger_residual_eV": 2.2382096176443156e-13,
   "source_SHA256": "cfb0169f87714aff0a93cd968a2358bfe8af4b6635fe15bdc5488187d6b78a8a",
-  "header_SHA256": "68bff93d8d7608d5c1cdfca1432782b49199ed7409a9bdbeb037aa68d63486d3",
+  "header_SHA256": "01386a6acae318458b431f66c38e8d0eb004cc06aece551daedf70d768362d6d",
   "compiler_flags": [
     "g++",
     "-std=c++11",

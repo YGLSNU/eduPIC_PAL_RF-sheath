@@ -23,5 +23,9 @@
   "BRH_fraction_relative_tolerance": 0.1,
   "BRH_fraction_absolute_tolerance": 0.005,
   "BRH_phase_return_window_RF": 0.1,
-  "BRH_required_consecutive_round_trips": 2
+  "BRH_required_consecutive_round_trips": 2,
+  "BRH_work_relative_tolerance": 0.1,
+  "BRH_work_absolute_tolerance_eV": 0.1,
+  "BRH_minimum_candidate_returns": 100,
+  "BRH_minimum_candidate_UIDs": 30
 }

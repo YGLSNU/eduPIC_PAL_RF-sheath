@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**전자 소멸** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 25 mm** · 보고서 갱신 2026-11-23T15:57:45+09:00
+**전자 소멸** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 25 mm** · 보고서 갱신 2026-11-23T16:23:37+09:00
 
 RF245에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니다. 정상 EEDF/BRH를 정의하지 않습니다. 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.
 
@@ -53,9 +53,9 @@ RF245에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니�
 
 
 
-![조건 변경 후 RF1–245. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.](figures/convergence.png)
+![저장된 이력 RF1–245. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.](figures/convergence.png)
 
-조건 변경 후 RF1–245. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.
+저장된 이력 RF1–245. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.
 
 ## 밀도 공간분포
 
@@ -129,6 +129,7 @@ Warmup snapshot RF 200–200 (transient, not stationary); 이산 field work와 �
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
 | 저장된 실행 상태·실제 RF·종료 사유 | [status.json](status.json) | 1.5 KiB |
+| 표준 진단 원시 수치·이력: Warmup snapshot RF 200–200 (transient, not stationary) | [261123_25mm_core.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/25mm/261123_25mm_core.zip) | 3.54 MiB |
 | 입자 수 이력 CSV | [history.csv](history.csv) | 3.4 KiB |
 | 재시작 입자·동반 상태 (저장 RF 245; 보고서의 최신 RF와 다를 수 있음) | [261123_gap25_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/25mm/261123_gap25_restart.zip) | 35.7 KiB |
 | 재시작 파일 provenance | [restart_manifest.json](restart_manifest.json) | 148 B |
