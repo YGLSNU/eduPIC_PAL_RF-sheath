@@ -19,16 +19,16 @@
   "initial_e": 114725,
   "status": "running",
   "phase": "measurement",
-  "checkpoint_cycle": 2400,
-  "measured_RF": 0,
-  "elapsed_solver_seconds": 59750.666849540954,
+  "checkpoint_cycle": 2420,
+  "measured_RF": 20,
+  "elapsed_solver_seconds": 61122.37936248991,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "started_at_Asia_Seoul": "2026-11-23T15:49:35.225173+09:00",
   "controller_pid": 504290,
-  "updated_at_Asia_Seoul": "2026-11-24T08:32:57.948879+09:00",
+  "updated_at_Asia_Seoul": "2026-11-24T08:55:59.458623+09:00",
   "active_RF": [
-    2401,
-    2420
+    2421,
+    2440
   ],
   "stationarity": {
     "e": {
@@ -43,15 +43,67 @@
     },
     "passed": true
   },
-  "solver_pid": 614822,
-  "checkpoint_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/history_fill/RF002399-002400/picdata.bin",
-  "electrons": 211290,
-  "ions": 213452,
-  "last_block_seconds": 58.44215517299017,
-  "last_RF_seconds": 29.221077586495085,
+  "solver_pid": 617225,
+  "checkpoint_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002401-002420/picdata.bin",
+  "electrons": 211357,
+  "ions": 213497,
+  "last_block_seconds": 1371.7125129489577,
+  "last_RF_seconds": 68.58562564744788,
   "last_diagnostic_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/warmup/RF002300-002300",
   "measurement_start_RF": 2401,
   "history_filled": true,
   "measurement_start_time_s": 0.00017699115039264087,
-  "measurement_blocks": []
+  "measurement_blocks": [
+    "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002401-002420"
+  ],
+  "assessment": {
+    "passed": false,
+    "measurement_cycles": 20,
+    "completed_blocks": 1,
+    "particle_count_stationarity": {
+      "e": {
+        "block_mean_span": 0.009309561339506478,
+        "fitted_drift": 0.013882925964833238,
+        "passed": true
+      },
+      "i": {
+        "block_mean_span": 0.009274138066036731,
+        "fitted_drift": 0.01382535162639022,
+        "passed": true
+      },
+      "passed": true
+    },
+    "reason": "insufficient_blocks",
+    "background_passed": false,
+    "BRH": {
+      "powered_side_returns": 377,
+      "candidate_returns": 0,
+      "distinct_return_UIDs": 365,
+      "distinct_candidate_UIDs": 0,
+      "candidate_return_fraction": {
+        "estimate": null,
+        "half_width": null,
+        "first_last_change": null,
+        "passed_data": false
+      },
+      "candidate_signed_work_eV": {
+        "estimate": null,
+        "half_width": null,
+        "first_last_change": null,
+        "passed_data": false
+      },
+      "fraction_tolerance": 0.005,
+      "work_tolerance_eV": 0.1,
+      "fraction_passed": false,
+      "work_passed": false,
+      "passed": false,
+      "note": "Fractions are among detected complete powered-side round trips, not a density fraction. Block/40-RF estimates include dependence heuristically; rare-tail/model/grid error is separate."
+    }
+  },
+  "consecutive_passes": 0,
+  "pooled_native_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/pooled_epoch1_RF002420",
+  "measurement_summary_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/brh_pooled_RF002420/summary.json",
+  "data_invalidation_reason": null,
+  "pooled_note": "Measurement RF 2401–2420 (20 RF)",
+  "ne_mean_m3": null
 }
