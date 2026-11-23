@@ -1,0 +1,26 @@
+{
+  "gap_mm": 30,
+  "grid_points": 481,
+  "weight": 112000.0,
+  "compile_command": [
+    "g++",
+    "-std=c++11",
+    "-O3",
+    "-march=native",
+    "-ffp-contract=off",
+    "-DEDUPIC_GAP_M=0.030000000",
+    "-DEDUPIC_GRID_POINTS=481",
+    "-DEDUPIC_WEIGHT=112000.0",
+    "/workspace/edupic-brh/261123_BRH_gap25-120/source_control.cc",
+    "-o",
+    "/workspace/edupic-brh/261123_BRH_gap25-120/30mm/solver_warm"
+  ],
+  "initial_SHA256": "f0a355f2fbdd2fbac139eb050bada62c965d262f8eac48cc4f32a6f84d94143c",
+  "initial_e": 34418,
+  "status": "queued",
+  "phase": "warmup",
+  "checkpoint_cycle": 0,
+  "measured_RF": 0,
+  "elapsed_solver_seconds": 0.0,
+  "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1"
+}

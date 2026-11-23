@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "id": "261123_BRH_gap25-120",
+  "branch": "results/20mTorr-topRF",
+  "date": "2026-11-23",
+  "report_updated": "2026-11-23T15:57:45+09:00",
+  "conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "voltage_peak_V": [
+      250
+    ],
+    "gap_mm": 25,
+    "steps_per_RF": 8000,
+    "grid_points": 401,
+    "weight": 112000,
+    "electrodes": "상부 x=L RF / 하부 x=0 접지",
+    "surface_model": "흡수 벽, SEE·물질 반사 없음; ground-state Ar optical-depth MCC (탄성·여기·이온화); binary Coulomb 충돌 없음"
+  },
+  "source": {
+    "description": "40mm 기준 C/eduPIC.cc 계열을 C++11로 컴파일; 8k step/RF, 동일 optical-depth MCC, 수동 BRH 입자 진단",
+    "revision": "control SHA256 734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1; 진단 소스·헤더 SHA는 검증 기록/ZIP 참조",
+    "initialization": "40mm·250V RF2001 저장 입자에서 분포 재표본·x 변환·시간 stagger 변환. gap별 초기 물리 밀도와 가중치 고정. 과도구간은 정상 측정에서 제외."
+  },
+  "related_links": [
+    {
+      "label": "BRH 진단·판정 기준",
+      "url": "../METHOD.md"
+    }
+  ],
+  "title": "BRH · gap 25 mm · 250 V",
+  "status": "extinguished",
+  "changed_conditions": "BRH gap 25 mm",
+  "report_directory": "results/261123_BRH_gap25-120/25mm",
+  "summary": "RF245에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니다. 정상 EEDF/BRH를 정의하지 않습니다. 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
+  "measurement_note": "Warmup snapshot RF 200–200 (transient, not stationary)",
+  "sections": [
+    {
+      "id": "convergence",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/convergence.png",
+          "caption": "조건 변경 후 RF1–245. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+        }
+      ]
+    },
+    {
+      "id": "density",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/density.png",
+          "caption": "Warmup snapshot RF 200–200 (transient, not stationary)"
+        }
+      ]
+    },
+    {
+      "id": "heating",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/heating.png",
+          "caption": "Warmup snapshot RF 200–200 (transient, not stationary)"
+        }
+      ]
+    },
+    {
+      "id": "fields",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/fields.png",
+          "caption": "Warmup snapshot RF 200–200 (transient, not stationary)"
+        }
+      ]
+    },
+    {
+      "id": "ionization",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/ionization.png",
+          "caption": "Warmup snapshot RF 200–200 (transient, not stationary)"
+        }
+      ]
+    },
+    {
+      "id": "distributions",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/distributions.png",
+          "caption": "Warmup snapshot RF 200–200 (transient, not stationary); 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다."
+        }
+      ]
+    },
+    {
+      "id": "walls",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/walls.png",
+          "caption": "Warmup snapshot RF 200–200 (transient, not stationary)"
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/power.png",
+          "caption": "Warmup snapshot RF 200–200 (transient, not stationary); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다."
+        }
+      ]
+    },
+    {
+      "id": "bounce",
+      "data_status": "unavailable",
+      "reason": "아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
+      "images": [],
+      "title": "BRH 왕복·위상·에너지 진단"
+    }
+  ],
+  "downloads": [
+    {
+      "label": "저장된 실행 상태·실제 RF·종료 사유",
+      "path": "status.json",
+      "bytes": 1519,
+      "sha256": "6dda9874491ea04e04cd9166ae6bda7318625dcc23452a0abbbb95597779e508",
+      "git_blob": "2da5d27897ea7242bdce82ee3b6878b6f19d63eb"
+    },
+    {
+      "label": "입자 수 이력 CSV",
+      "path": "history.csv",
+      "bytes": 3510,
+      "sha256": "9a013ec4db4f5a37fe1523affde7d18d81aa804dc5f5ec5ba61eea71767717e3",
+      "git_blob": "3b0398176df240d0ae0f08d7cc4fca9e0d40dd3a"
+    },
+    {
+      "label": "재시작 입자·동반 상태 (저장 RF 245; 보고서의 최신 RF와 다를 수 있음)",
+      "path": "261123_gap25_restart.zip",
+      "bytes": 36569,
+      "sha256": "6530cdff1888369339c03aac028e31c113d23089feca1897e1bb81b47f23530b",
+      "git_blob": "5ae595a96020863e2deb9542a79ddcedbcf08291"
+    },
+    {
+      "label": "재시작 파일 provenance",
+      "path": "restart_manifest.json",
+      "bytes": 148,
+      "sha256": "b45dd9fac6fbd9b89a4ef6800589e78c79b76550c2f90e3e4af88841abf52caf",
+      "git_blob": "956963e18d70ffb2107dd9d4498e568eabba8f5a"
+    }
+  ],
+  "metrics": [
+    [
+      "저장 체크포인트",
+      "RF 245"
+    ],
+    [
+      "정상 측정 누적",
+      "0 RF"
+    ],
+    [
+      "현재 단계",
+      "warmup"
+    ],
+    [
+      "안정성 확인",
+      "{\"passed\": false, \"available_RF\": 200, \"required_RF\": 600}"
+    ],
+    [
+      "진행 상태 갱신",
+      "2026-11-23T15:49:35.214656+09:00"
+    ]
+  ]
+}
