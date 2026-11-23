@@ -3,7 +3,7 @@
   "id": "261123_BRH_gap25-120",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-23",
-  "report_updated": "2026-11-23T18:21:03+09:00",
+  "report_updated": "2026-11-23T18:37:04+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -164,18 +164,18 @@
       "git_blob": "d6636db35e8de31f4d483f0680f966010b896fcc"
     },
     {
-      "label": "재시작 입자·동반 상태 (저장 RF 249; 보고서의 최신 RF와 다를 수 있음)",
+      "label": "재시작 입자·동반 상태 (저장 RF 400; 보고서의 최신 RF와 다를 수 있음)",
       "path": "261123_100mm_restart.zip",
-      "bytes": 11068158,
-      "sha256": "65b9d54398669f01ecbcce0cba14805a075ef690367db34dce125f25d8388479",
-      "git_blob": "6cd4e7ef0d668ee7176ec7b5a6ebcf12ce3185b2"
+      "bytes": 11498562,
+      "sha256": "f71f0092830d78139814edea018c3c9e53dbc65ad82ca06d385095d64caa2a51",
+      "git_blob": "85bee914c6f4bd7273b0554ebcba718ac3fd619c"
     },
     {
       "label": "재시작 파일 provenance",
       "path": "restart_manifest.json",
       "bytes": 190,
-      "sha256": "ef3b3ac1db969bb63bee3583f14446b1233ac1e1b9f984d0c717dc7a2fedd1af",
-      "git_blob": "723205326492cdab1cd31344164ba3bd7d62cb8d"
+      "sha256": "42b3dcbab55392109272fe279e537884b0aff9d72b64cc3114e00154ea6415dd",
+      "git_blob": "d28b9b1208c06db0c664907f7c25fc43bbcfdd49"
     }
   ],
   "metrics": [
