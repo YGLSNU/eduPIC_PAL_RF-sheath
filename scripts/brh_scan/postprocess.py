@@ -1,6 +1,6 @@
 """Pool raw diagnostic counts and signed particle work with explicit censoring."""
 from pathlib import Path
-import csv,gzip,json,shutil,zipfile
+import csv,gzip,json,shutil,time
 import numpy as np
 from common import put
 from brh_stats import read_table,return_stats
@@ -32,7 +32,10 @@ def process_blocks(case,blocks,assessment):
     np.save(dest/'work_sum_eV.npy',work)
     for name in ['brh_roundtrips','brh_encounters','brh_trajectories','brh_probes','brh_wall_e']:
         with gzip.open(dest/(name+'.csv.gz'),'wt') as out:
-            for j,p in enumerate(blocks):
+            # Illustrative trajectories use the first measured five RF only;
+            # full event/probe/history diagnostics still pool every block.
+            selected=blocks[:1] if name=='brh_trajectories' else blocks
+            for j,p in enumerate(selected):
                 original=p/(name+'.csv');src=original.open() if original.exists() else gzip.open(str(original)+'.gz','rt')
                 with src:
                     header=src.readline()
@@ -59,6 +62,13 @@ def process_blocks(case,blocks,assessment):
     put(case/'measurement_summary.json',summary);put(dest/'summary.json',summary)
     if len(upper):np.save(dest/'upper_returns.npy',upper)
     return summary
+
+def prune_derived(case):
+    """Keep raw blocks; discard reproducible old aggregate directories only."""
+    for pattern in ['brh_pooled_RF*','pooled_epoch*_RF*']:
+        dirs=sorted([p for p in case.glob(pattern) if p.is_dir()],key=lambda p:p.stat().st_mtime)
+        for p in dirs[:-3]:
+            if time.time()-p.stat().st_mtime>3600:shutil.rmtree(p)
 
 def export_diagnostics(case,target,summary_path=None):
     # Imported lazily so background numeric analysis does not initialize plotting.
@@ -135,11 +145,8 @@ def export_diagnostics(case,target,summary_path=None):
         for ix in range(20):
             for j in range(270):w.writerow([(ix+.5)/20,E[j],width[j],int(n[ix,j]),ee[ix,j],pdf[ix,j]])
     shutil.copy2(summary_path,target/'measurement_summary.json')
-    archive=target/f'261123_{target.name}_BRH_data.zip'
-    with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=3) as z:
-        for p in d.glob('*'):
-            if p.is_file():z.write(p,p.name)
-        z.write(summary_path,'measurement_summary.json')
+    from archive import package
+    archives=package([(p,p.name) for p in sorted(d.glob('*')) if p.is_file()]+[(summary_path,'measurement_summary.json')],target,f'261123_{target.name}_BRH_data')
     text=f'검출된 상부 기준 왕복 {s["powered_side_returns"]}개, 고유 UID {s["distinct_return_UIDs"]}개. 위상 반복 후보 {s["candidate_returns"]}개(고유 UID {s["distinct_candidate_UIDs"]}개). '
     if s['candidate_return_fraction'] is not None:text+=f'검출 왕복 중 후보 비율 {s["candidate_return_fraction"]*100:.3f}%. '
     if s['candidate_mean_signed_work_eV'] is not None:text+=f'후보의 평균 signed field work {s["candidate_mean_signed_work_eV"]:.4g} eV/왕복. '
@@ -149,5 +156,5 @@ def export_diagnostics(case,target,summary_path=None):
         'spatial_eepf':image_section('spatial_eepf',[im('figures/eepf_positions.png',note+'; 전체 E와 Ex를 구분합니다. 각 위치에서 E<500eV 사건으로 정규화.'),im('figures/phase_eedf.png',note+'; 중앙10%의 위상별 EEDF.')]),
         'instantaneous_work':image_section('instantaneous_work',[im('figures/instantaneous_work.png',note+'; 순간 kick 에너지의 평균. 표준 heating의 <j>×<E>와 다릅니다.')])}
     sections['bounce']['title']='BRH 왕복·위상·에너지 진단';sections['spatial_eepf']['title']='위치별 EEPF·Ex 및 위상별 EEDF';sections['instantaneous_work']['title']='순간 전기장 일 지도'
-    downloads=[{'label':'BRH 사건·위치/위상 원시 energy counts·연속 probe·일 지도','path':archive.name},{'label':'BRH 수치·표본 수·해석 범위','path':'measurement_summary.json'},{'label':'위치별 EEPF CSV (raw count 포함)','path':'data/position_eepf.csv'}]
+    downloads=[{'label':f'BRH 사건·원시 energy counts·probe·일 지도 ({j+1}/{len(archives)}; 분할 시 모두 받기)','path':p.name} for j,p in enumerate(archives)]+[{'label':'BRH 수치·표본 수·해석 범위','path':'measurement_summary.json'},{'label':'위치별 EEPF CSV (raw count 포함)','path':'data/position_eepf.csv'}]
     return sections,downloads,text

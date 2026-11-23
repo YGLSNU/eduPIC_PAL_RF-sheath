@@ -1,10 +1,10 @@
 """Numeric/selection regressions complement the real solver validation."""
 from pathlib import Path
-import csv,json,tempfile,unittest
+import csv,hashlib,json,os,subprocess,sys,tempfile,time,unittest,zipfile
 import numpy as np
 from brh_stats import return_stats,assess
 from measurement import pool_native
-from postprocess import block_hist,compress_block,edges
+from postprocess import block_hist,compress_block,edges,prune_derived
 
 CRITERIA={'block_cycles':20,'minimum_measurement_cycles':200,'particle_count_window':600,'particle_count_block_span_tolerance':.01,'particle_count_fitted_drift_tolerance':.02,
     'heating_map_relative_tolerance':.05,'mean_quantity_relative_tolerance':.03,'BRH_fraction_absolute_tolerance':.005,'BRH_fraction_relative_tolerance':.1,'BRH_required_consecutive_round_trips':2}
@@ -67,5 +67,29 @@ class DiagnosticsTests(unittest.TestCase):
         self.assertEqual(sections['bounce']['data_status'],'unavailable')
         self.assertIn('invalidated',sections['bounce']['reason'])
         self.assertFalse(any('BRH_data.zip' in d['path'] for d in m['downloads']))
+
+    def test_split_archives_restore_exact_bytes_and_have_reproducible_hashes(self):
+        from archive import package
+        source=self.root/'payload.bin';original=np.random.default_rng(101).integers(0,256,180000,dtype=np.uint8).tobytes();source.write_bytes(original)
+        target=self.root/'packages';target.mkdir();archives=package([(source,'payload.bin')],target,'test',limit=65536)
+        self.assertGreater(len(archives),1);before=[hashlib.sha256(p.read_bytes()).hexdigest() for p in archives]
+        extract=self.root/'extract';extract.mkdir()
+        for p in archives:
+            self.assertLess(p.stat().st_size,95*1024)
+            with zipfile.ZipFile(p) as z:
+                self.assertIsNone(z.testzip());self.assertTrue(all(i.date_time==(1980,1,1,0,0,0) for i in z.infolist()));z.extractall(extract)
+        subprocess.run([sys.executable,str(extract/'reassemble_brh.py')],cwd=extract,check=True,capture_output=True)
+        self.assertEqual((extract/'payload.bin').read_bytes(),original)
+        again=package([(source,'payload.bin')],target,'test',limit=65536)
+        self.assertEqual(before,[hashlib.sha256(p.read_bytes()).hexdigest() for p in again])
+
+    def test_derived_cleanup_keeps_raw_blocks_and_latest_snapshots(self):
+        raw=self.root/'measurement_epoch1/RF000001-000020';raw.mkdir(parents=True);(raw/'raw.bin').write_bytes(b'original')
+        for j in range(5):
+            p=self.root/f'brh_pooled_RF{j:06d}';p.mkdir();os.utime(p,(time.time()-10000+j,time.time()-10000+j))
+        prune_derived(self.root)
+        self.assertTrue((raw/'raw.bin').exists())
+        self.assertFalse((self.root/'brh_pooled_RF000000').exists());self.assertFalse((self.root/'brh_pooled_RF000001').exists())
+        self.assertTrue(all((self.root/f'brh_pooled_RF{j:06d}').exists() for j in [2,3,4]))
 
 if __name__=='__main__':unittest.main()

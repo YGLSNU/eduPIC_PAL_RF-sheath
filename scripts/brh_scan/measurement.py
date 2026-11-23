@@ -107,10 +107,11 @@ def measure_case(root,d,state,previous,history):
             assessment=assess(blocks,history,criteria,gap);put(d/'assessment.json',assessment);put(work/'assessment.json',assessment)
             pooled=d/f'pooled_epoch{epoch}_RF{cp["cycle"]:06d}';pool_native(blocks,pooled)
             # Aggregate BRH/EEDF raw counts, not normalized block distributions.
-            from postprocess import process_blocks,compress_block
+            from postprocess import process_blocks,compress_block,prune_derived
             brh_summary=process_blocks(d,blocks,assessment);compress_block(work)
             passes=passes+1 if assessment['passed'] else 0
             update(status='running',phase='measurement',measured_RF=len(blocks)*criteria['block_cycles'],measurement_blocks=[str(p) for p in blocks],assessment=assessment,consecutive_passes=passes,pooled_native_path=str(pooled),measurement_summary_path=str(Path(brh_summary['pooled_data_path'])/'summary.json'),data_invalidation_reason=None,pooled_note=f'Measurement RF {state["measurement_start_RF"]}–{cp["cycle"]} ({len(blocks)*criteria["block_cycles"]} RF)',ne_mean_m3=assessment.get('indicators',{}).get('mean_density_e',{}).get('estimate'))
+            prune_derived(d)
             if passes>=criteria['required_consecutive_passes']:update(status='criteria_met',reason='Background and exploratory BRH fraction/signed-work stopping criteria passed twice. Grid/seed/diagnostic sensitivity checks remain separate.');return state
             # Strong secular profile drift invalidates this measurement epoch.
             drift=max([v['first_last_half_relative_change'] for k,v in assessment.get('indicators',{}).items() if k.startswith('density_profile')]+[0])
