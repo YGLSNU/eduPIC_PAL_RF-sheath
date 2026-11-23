@@ -2,9 +2,9 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**실행 대기** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 30 mm** · 보고서 갱신 2026-11-23T21:19:34+09:00
+**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 30 mm** · 보고서 갱신 2026-11-23T21:34:03+09:00
 
-실행 대기 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.
+배경 입자 수 안정화 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.
 
 ## 실행 조건
 
@@ -33,8 +33,8 @@
 | 저장 체크포인트 | RF 0 |
 | 정상 측정 누적 | 0 RF |
 | 현재 단계 | warmup |
-| 안정성 확인 | {} |
-| 진행 상태 갱신 | 2026-11-23T16:27:43.311627+09:00 |
+| 안정성 확인 | {"passed": false, "available_RF": 0, "required_RF": 600} |
+| 진행 상태 갱신 | 2026-11-23T21:33:45.232545+09:00 |
 
 ## 자료 범위
 
@@ -96,7 +96,7 @@
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| 저장된 실행 상태·실제 RF·종료 사유 | [status.json](status.json) | 891 B |
+| 저장된 실행 상태·실제 RF·종료 사유 | [status.json](status.json) | 1.0 KiB |
 | 재시작 입자·동반 상태 (저장 RF 0; 보고서의 최신 RF와 다를 수 있음) | [261123_gap30_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/30mm/261123_gap30_restart.zip) | 2.07 MiB |
 | 재시작 파일 provenance | [restart_manifest.json](restart_manifest.json) | 146 B |
 
