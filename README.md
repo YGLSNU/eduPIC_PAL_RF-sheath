@@ -6,6 +6,8 @@
 
 공통 조건: Ar **75.006 mTorr (원본 10 Pa)**, 350 K, 13.56 MHz, 250 V peak, gap 25 mm. **하부 x=0 RF / 상부 x=L 접지**. 이 조건들은 실행 이름에서 생략합니다.
 
+**BRH (bounce resonance heating):** [gap 스캔 진행·결과](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md) · [진단·실행 설명](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/simulation/20mTorr-topRF/scripts/brh_scan/README.md)
+
 ## 실행 기록
 
 | 실행일 KST | 실행 / 바꾼 조건 | 주요 조건 | 상태 | 결과 |
