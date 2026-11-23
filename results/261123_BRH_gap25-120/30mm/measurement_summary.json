@@ -1,0 +1,144 @@
+{
+  "measurement_blocks": [
+    "/workspace/edupic-brh/261123_BRH_gap25-120/30mm/measurement_epoch1/RF001852-001871",
+    "/workspace/edupic-brh/261123_BRH_gap25-120/30mm/measurement_epoch1/RF001872-001891",
+    "/workspace/edupic-brh/261123_BRH_gap25-120/30mm/measurement_epoch1/RF001892-001911",
+    "/workspace/edupic-brh/261123_BRH_gap25-120/30mm/measurement_epoch1/RF001912-001931",
+    "/workspace/edupic-brh/261123_BRH_gap25-120/30mm/measurement_epoch1/RF001932-001951",
+    "/workspace/edupic-brh/261123_BRH_gap25-120/30mm/measurement_epoch1/RF001952-001971",
+    "/workspace/edupic-brh/261123_BRH_gap25-120/30mm/measurement_epoch1/RF001972-001991",
+    "/workspace/edupic-brh/261123_BRH_gap25-120/30mm/measurement_epoch1/RF001992-002011",
+    "/workspace/edupic-brh/261123_BRH_gap25-120/30mm/measurement_epoch1/RF002012-002031"
+  ],
+  "pooled_data_path": "/workspace/edupic-brh/261123_BRH_gap25-120/30mm/brh_pooled_RF002031",
+  "first_RF": 1852,
+  "last_RF": 2031,
+  "measured_RF": 180,
+  "duration_s": 1.3274336278616683e-05,
+  "background_and_BRH_assessment": {
+    "passed": false,
+    "measurement_cycles": 180,
+    "completed_blocks": 9,
+    "particle_count_stationarity": {
+      "e": {
+        "block_mean_span": 0.03160949902922877,
+        "fitted_drift": 0.0482189012527459,
+        "passed": false
+      },
+      "i": {
+        "block_mean_span": 0.02548689547053161,
+        "fitted_drift": 0.03911671332764377,
+        "passed": false
+      },
+      "passed": false
+    },
+    "ready": false,
+    "background_passed": false,
+    "BRH": {
+      "powered_side_returns": 5535,
+      "candidate_returns": 67,
+      "distinct_return_UIDs": 1388,
+      "distinct_candidate_UIDs": 60,
+      "candidate_return_fraction": {
+        "estimate": 0.012104787714543812,
+        "half_width": 0.002161383285302594,
+        "first_last_change": 0.0011161444053641827,
+        "passed_data": true
+      },
+      "candidate_signed_work_eV": {
+        "estimate": 4.481712637648428,
+        "half_width": 1.6529763296391342,
+        "first_last_change": 0.5155659154155403,
+        "passed_data": true
+      },
+      "fraction_tolerance": 0.005,
+      "work_tolerance_eV": 0.44817126376484284,
+      "fraction_passed": true,
+      "work_passed": false,
+      "passed": false,
+      "note": "Fractions are among detected complete powered-side round trips, not a density fraction. Block/40-RF estimates include dependence heuristically; rare-tail/model/grid error is separate."
+    },
+    "indicators": {
+      "mean_density_e": {
+        "relative_uncertainty_indicator": 0.005092455531888018,
+        "first_last_half_relative_change": 0.005919943909268032,
+        "tolerance": 0.03,
+        "passed": true,
+        "estimate": 277043070632668.88,
+        "half_width": 1410829517614.5776
+      },
+      "density_profile_e": {
+        "relative_uncertainty_indicator": 0.011291954734453406,
+        "first_last_half_relative_change": 0.008772634021368839,
+        "tolerance": 0.03,
+        "passed": true
+      },
+      "mean_power_e": {
+        "relative_uncertainty_indicator": 0.009194664112066058,
+        "first_last_half_relative_change": 0.011605298281145152,
+        "tolerance": 0.03,
+        "passed": true,
+        "estimate": 493.0696515428363,
+        "half_width": 4.5336098297898335
+      },
+      "heating_map_e": {
+        "relative_uncertainty_indicator": 0.05530040712870048,
+        "first_last_half_relative_change": 0.054528049512696665,
+        "tolerance": 0.05,
+        "passed": false
+      },
+      "mean_density_i": {
+        "relative_uncertainty_indicator": 0.0044415756230378675,
+        "first_last_half_relative_change": 0.004949790192305779,
+        "tolerance": 0.03,
+        "passed": true,
+        "estimate": 352031475693009.25,
+        "half_width": 1563574420980.1174
+      },
+      "density_profile_i": {
+        "relative_uncertainty_indicator": 0.02349215102114235,
+        "first_last_half_relative_change": 0.022108747591103126,
+        "tolerance": 0.03,
+        "passed": true
+      },
+      "mean_power_i": {
+        "relative_uncertainty_indicator": 0.004610729751569263,
+        "first_last_half_relative_change": 0.005847538919299561,
+        "tolerance": 0.03,
+        "passed": true,
+        "estimate": 1299.1337318348064,
+        "half_width": 5.989954548637947
+      },
+      "heating_map_i": {
+        "relative_uncertainty_indicator": 0.017882411748760346,
+        "first_last_half_relative_change": 0.01436897083380506,
+        "tolerance": 0.05,
+        "passed": true
+      }
+    },
+    "reason": "continue_sampling",
+    "note": "Exploratory block uncertainty and first/last-half drift. No certified total-error or sequential confidence guarantee; EEDF tails and discretization need separate checks."
+  },
+  "all_fieldwork_eV": 1100346.8490057432,
+  "sample_fieldwork_eV": 66357.81564184408,
+  "all_kicks": 10685947010,
+  "sample_kicks": 638395573,
+  "hist_total_samples": 267148639,
+  "hist_E_overflow_samples": 0,
+  "max_energy_ledger_error_eV": 5.8539839642435254e-12,
+  "powered_side_returns": 5535,
+  "distinct_return_UIDs": 1388,
+  "candidate_returns": 67,
+  "distinct_candidate_UIDs": 60,
+  "candidate_return_fraction": 0.012104787714543812,
+  "candidate_mean_signed_work_eV": 4.481712637648427,
+  "candidate_mean_parent_collision_dK_eV": -4.828966379701874,
+  "candidate_mean_net_dK_eV": -0.34725374204795384,
+  "all_return_mean_signed_work_eV": 7.2114363010509965,
+  "candidate_signed_fieldwork_sum_eV": 300.2747467224446,
+  "sample_inclusion_probability": 0.0625,
+  "selection": "Both sheaths; same-side outward reference crossings, upper side only for primary statistics. abs(tau_RF-1)<=0.10 for >=2 consecutive returns, regardless of energy sign.",
+  "scope": "Complete observed intervals only, censored at beginning/end of global measurement epoch; intervals crossing internal 20-RF boundaries retained. Collision-induced reversals alone do not qualify. This is a detected-return event fraction, not a whole-plasma BRH density fraction.",
+  "verdict": "탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.",
+  "candidate_fieldwork_power_per_area_Wm2_estimate": 0.06494629624185329
+}
