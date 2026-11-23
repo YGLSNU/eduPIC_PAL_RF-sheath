@@ -3,7 +3,7 @@
   "id": "261123_BRH_gap25-120",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-23",
-  "report_updated": "2026-11-23T17:48:53+09:00",
+  "report_updated": "2026-11-23T18:04:55+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -45,7 +45,7 @@
       "images": [
         {
           "path": "figures/convergence.png",
-          "caption": "저장된 이력 RF1–300. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+          "caption": "저장된 이력 RF1–349. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
         }
       ]
     },
@@ -145,9 +145,9 @@
     {
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
-      "bytes": 1406,
-      "sha256": "db53bfb421763f1d4ca3dc59609de606825d94d9d2f7d5f552ef504f43187b98",
-      "git_blob": "53debd272122924444f0af13f95b90ffc70e561d"
+      "bytes": 1405,
+      "sha256": "f06a326cd24db538019105f7e4321b5614407df59b0a005fe0250b6d69130c5a",
+      "git_blob": "60969275f86f626cce16bb7dc8cba3a0acd10451"
     },
     {
       "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 300–300 (transient, not stationary)",
@@ -159,9 +159,9 @@
     {
       "label": "입자 수 이력 CSV",
       "path": "history.csv",
-      "bytes": 5329,
-      "sha256": "2f660c36329b3ac3e21e3abe10df4c86656cdcd05ca32a2cabc1f193e8e14fb4",
-      "git_blob": "2cde29aba05464f2f43fdf7c6160f726b284bd11"
+      "bytes": 6211,
+      "sha256": "9a169a121eafff6157163c62aa24af9e2fa9b33e772d97eb0acde20da0f85ede",
+      "git_blob": "8781a7a40e84cf5a001f20f382d3a8cffde88755"
     },
     {
       "label": "재시작 입자·동반 상태 (저장 RF 249; 보고서의 최신 RF와 다를 수 있음)",
@@ -181,7 +181,7 @@
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 300"
+      "RF 349"
     ],
     [
       "정상 측정 누적",
@@ -193,11 +193,11 @@
     ],
     [
       "안정성 확인",
-      "{\"passed\": false, \"available_RF\": 300, \"required_RF\": 600}"
+      "{\"passed\": false, \"available_RF\": 349, \"required_RF\": 600}"
     ],
     [
       "진행 상태 갱신",
-      "2026-11-23T17:40:45.420876+09:00"
+      "2026-11-23T18:00:16.149912+09:00"
     ]
   ]
 }
