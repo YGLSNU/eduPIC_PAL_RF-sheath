@@ -17,7 +17,7 @@ WEB = 'https://github.com/' + REPO
 CODE_BRANCH = 'simulation/20mTorr-topRF'
 STATUS = {'criteria_met':'통계 기준 충족', 'measurement_complete':'측정 완료·통계 기준 별도',
           'extinguished':'전자 소멸', 'incomplete':'미완료', 'diagnostic':'과도구간 진단',
-          'running':'계산 중', 'building':'컴파일 중', 'paused_error':'오류로 중단', 'paused_at_checkpoint':'체크포인트 중단',
+          'running':'계산 중', 'queued':'실행 대기', 'building':'컴파일 중', 'paused_error':'오류로 중단', 'paused_at_checkpoint':'체크포인트 중단',
           'measurement_limit_reached':'측정 상한·기준 미충족', 'total_cycle_limit_reached':'주기 상한·기준 미충족'}
 STANDARD_SECTIONS = [('convergence','수렴·입자 수지'), ('density','밀도 공간분포'),
                      ('heating','RF heating'), ('fields','전위·전기장'),
