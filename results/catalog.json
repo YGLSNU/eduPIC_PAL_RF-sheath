@@ -257,10 +257,10 @@
       {
         "gap_mm": 30,
         "voltage_V": 250,
-        "status": "running",
-        "total_rf": 2811,
-        "measurement_rf": 940,
-        "ne_mean_m3": 279874616469204.5,
+        "status": "measurement_limit_reached",
+        "total_rf": 2851,
+        "measurement_rf": 1000,
+        "ne_mean_m3": 279789017652346.2,
         "path": "30mm/README.md"
       },
       {
@@ -275,7 +275,7 @@
       {
         "gap_mm": 50,
         "voltage_V": 250,
-        "status": "queued",
+        "status": "running",
         "total_rf": 0,
         "measurement_rf": 0,
         "ne_mean_m3": null,
@@ -312,7 +312,7 @@
         "gap_mm": 120,
         "voltage_V": 250,
         "status": "running",
-        "total_rf": 749,
+        "total_rf": 800,
         "measurement_rf": 0,
         "ne_mean_m3": null,
         "path": "120mm/README.md"
