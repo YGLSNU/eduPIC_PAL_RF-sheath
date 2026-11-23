@@ -78,6 +78,16 @@ class CatalogTests(unittest.TestCase):
         self.assertIn('[100 V](100V/README.md)',text)
         self.assertIn('[300 V](300V/README.md)',text)
 
+    def test_gap_scan_keeps_gap_labels_and_related_report_links(self):
+        m=copy.deepcopy(self.meta);m['scan_parameter']='gap_mm'
+        m['cases']=[{'gap_mm':40,'status':'running','path':'40mm/README.md'},
+                    {'gap_mm':100,'status':'incomplete','path':'100mm/README.md'}]
+        m['sections']=[{'id':'fields','availability':'상세 보고서','images':[]}]
+        m['related_links']=[{'label':'BRH 진단','url':'METHOD.md'}]
+        page=render_report(m)
+        self.assertIn('| Gap mm |',page);self.assertIn('[100 mm](100mm/README.md)',page)
+        self.assertIn('[BRH 진단](METHOD.md)',page);self.assertNotIn('[100 V]',page)
+
     def test_upload_survives_a_concurrent_catalog_commit(self):
         export=Path(self.tmp.name)/'export';export.mkdir()
         m=copy.deepcopy(self.meta);m.update(id='261123_gap40_V400',date='2026-11-23')

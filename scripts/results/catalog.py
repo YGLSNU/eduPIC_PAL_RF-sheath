@@ -88,17 +88,21 @@ def render_report(m):
               f'| 초기·재시작 상태 | {escape(s.get("initialization","기록 참조"))} |',
               f'| 측정 구간 | {escape(m.get("measurement_note","측정 없음"))} |', '',
               '상태와 그래프는 마지막 저장 자료이며 실시간 CPU 실행 화면은 아닙니다.', '']
+    if m.get('related_links'):
+        lines += [' · '.join(f'[{x["label"]}]({x["url"]})' for x in m['related_links']),'']
     if m.get('setup_image'):lines += [f'![전극 연결]({m["setup_image"]})','']
     if m.get('metrics'):
         lines += ['## 핵심 수치','','| 물리량 | 값 |','|---|---|']
         lines += [f'| {escape(a)} | {escape(b)} |' for a,b in m['metrics']]
         lines.append('')
     if m.get('cases'):
-        lines += ['## 조건별 결과','','| V peak | 상태 | 종료 RF | 측정 RF | 평균 전자 밀도 m⁻³ | 보고서 |',
+        gap_scan=m.get('scan_parameter')=='gap_mm'
+        case_key,case_unit=('gap_mm','mm') if gap_scan else ('voltage_V','V')
+        lines += ['## 조건별 결과','',f'| {"Gap mm" if gap_scan else "V peak"} | 상태 | 종료 RF | 측정 RF | 평균 전자 밀도 m⁻³ | 보고서 |',
                   '|---:|---|---:|---:|---:|---|']
         for case in m['cases']:
             n=case.get('ne_mean_m3'); n=f'{n:.3e}' if n is not None else '—'
-            lines.append(f'| {case["voltage_V"]} | {label(case["status"])} | {case.get("total_rf","—")} | {case.get("measurement_rf",0)} | {n} | [그림·다운로드]({case["path"]}) |')
+            lines.append(f'| {case[case_key]} | {label(case["status"])} | {case.get("total_rf","—")} | {case.get("measurement_rf",0)} | {n} | [그림·다운로드]({case["path"]}) |')
         lines.append('')
     lines += ['## 자료 범위','','| 진단 | 제공 상태 | 저장·해석 범위 |','|---|---|---|']
     by_id={x['id']:x for x in m['sections']}
@@ -114,7 +118,7 @@ def render_report(m):
         if not body and not sec.get('images') and not sec.get('table'):
             body=sec.get('availability') or '저장 자료 없음'
             if m.get('cases'):
-                body+='\n\n전압별 상세 보고서: '+' · '.join(f'[{case["voltage_V"]} V]({case["path"]})' for case in m['cases'])
+                body+='\n\n조건별 상세 보고서: '+' · '.join(f'[{case[case_key]} {case_unit}]({case["path"]})' for case in m['cases'])
         lines += [f'## {sec.get("title",dict(STANDARD_SECTIONS).get(sec["id"],sec["id"]))}', '',body,'']
         for im in sec.get('images',[]):
             lines += [f'![{im.get("caption",sec["id"])}]({im["path"]})','',im.get('caption',''),'']
@@ -135,7 +139,7 @@ def render_report(m):
     return '\n'.join(lines).rstrip()+'\n'
 
 def record(m):
-    return {k:m[k] for k in ['id','branch','date','title','status','changed_conditions','conditions','cases','summary'] if k in m}
+    return {k:m[k] for k in ['id','branch','date','title','status','changed_conditions','conditions','cases','scan_parameter','summary'] if k in m}
 
 def render_catalog(records,branch):
     all_records=sorted(records,key=lambda m:(m['date'],m['id']),reverse=True)
@@ -153,6 +157,10 @@ def render_catalog(records,branch):
                   '[컴파일·전압별 실행 설명](scripts/voltage_scan/README.md) · [결과 등록 방법](docs/RESULTS_GUIDE.md)', '']
     else:
         lines += ['`main`은 원본 코드와 전체 결과의 입구, `simulation/*`은 실행 코드, `results/*`은 공통 조건별 결과 보관입니다. GitHub는 저장·열람 장소이며 계산은 클라우드 실행 환경에서 수행합니다.','']
+    brh=[m for m in all_records if '_BRH_' in m['id']]
+    if brh:
+        latest=brh[0]
+        lines += [f'**BRH (bounce resonance heating):** [gap 스캔 진행·결과]({blob(latest["branch"],"results/"+latest["id"]+"/README.md")}) · [진단·실행 설명]({blob(CODE_BRANCH,"scripts/brh_scan/README.md")})','']
     lines += ['## 실행 기록','','| 실행일 KST | 실행 / 바꾼 조건 | 주요 조건 | 상태 | 결과 |','|---|---|---|---|---|']
     for m in visible:
         c=m['conditions'];p=c.get('pressure_mTorr');p=f'{p:g}' if isinstance(p,(float,int)) else str(p)
