@@ -17,13 +17,23 @@
   ],
   "initial_SHA256": "e071ac7671354a42079aac33e55e13ba8bb306cd38d3eec9b397940f26ec1b26",
   "initial_e": 91780,
-  "status": "queued",
+  "status": "running",
   "phase": "warmup",
   "checkpoint_cycle": 0,
   "measured_RF": 0,
   "elapsed_solver_seconds": 0.0,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "started_at_Asia_Seoul": "2026-11-23T16:20:18.955467+09:00",
-  "controller_pid": 497118,
-  "updated_at_Asia_Seoul": "2026-11-23T16:27:43.312022+09:00"
+  "controller_pid": 504290,
+  "updated_at_Asia_Seoul": "2026-11-24T08:22:47.527606+09:00",
+  "active_RF": [
+    1,
+    49
+  ],
+  "stationarity": {
+    "passed": false,
+    "available_RF": 0,
+    "required_RF": 600
+  },
+  "solver_pid": 613359
 }
