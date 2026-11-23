@@ -3,7 +3,7 @@
   "id": "261123_BRH_gap25-120",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-23",
-  "report_updated": "2026-11-24T08:23:00+09:00",
+  "report_updated": "2026-11-24T08:40:44+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -34,7 +34,7 @@
   "status": "running",
   "changed_conditions": "BRH gap 100 mm",
   "report_directory": "results/261123_BRH_gap25-120/100mm",
-  "summary": "배경 입자 수 안정화 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
+  "summary": "위상·입자 진단 측정 중; 최종 BRH 판정 전 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
   "measurement_note": "Warmup snapshot RF 2300–2300 (transient, not stationary)",
   "sections": [
     {
@@ -45,7 +45,7 @@
       "images": [
         {
           "path": "figures/convergence.png",
-          "caption": "저장된 이력 RF1–2349. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+          "caption": "저장된 이력 RF1–2400. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
         }
       ]
     },
@@ -145,9 +145,9 @@
     {
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
-      "bytes": 1618,
-      "sha256": "0f848b28e66f64657f881f58311b5b38d61b883c8875e97f490e0e14efb8db7c",
-      "git_blob": "c7f0215dadc707fbb24b82a129dc595111583201"
+      "bytes": 1769,
+      "sha256": "91b35f35d39ef6591a6fa041e701df82981a69e6946daef88b85b29042942eae",
+      "git_blob": "bd056143c1db4abc0404fab8ac70d5bfdf5a460d"
     },
     {
       "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 2300–2300 (transient, not stationary)",
@@ -159,9 +159,9 @@
     {
       "label": "입자 수 이력 CSV",
       "path": "history.csv",
-      "bytes": 43561,
-      "sha256": "987422462aa2f996515431209a2114404d2dfdc6d22385ee484a94e75317b8f2",
-      "git_blob": "4f76c50151774592f87b0cf84fdcafdb3645bc01"
+      "bytes": 44530,
+      "sha256": "bac1b3f90a92964d7c7a62196f40f7a19ca4f5d809c59ba717bfc8141bd4f88e",
+      "git_blob": "595c765c625be9015c2e8d37a1cf0ff987ea269b"
     },
     {
       "label": "재시작 입자·동반 상태 (저장 RF 2300; 보고서의 최신 RF와 다를 수 있음)",
@@ -181,7 +181,7 @@
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 2349"
+      "RF 2400"
     ],
     [
       "정상 측정 누적",
@@ -189,15 +189,15 @@
     ],
     [
       "현재 단계",
-      "warmup"
+      "measurement"
     ],
     [
       "안정성 확인",
-      "{\"e\": {\"block_mean_span\": 0.01061849133930323, \"fitted_drift\": 0.01584378330331037, \"passed\": false}, \"i\": {\"block_mean_span\": 0.010578027247590046, \"fitted_drift\": 0.015780074732466405, \"passed\": false}, \"passed\": false}"
+      "{\"e\": {\"block_mean_span\": 0.009763649272028815, \"fitted_drift\": 0.014558319346078175, \"passed\": true}, \"i\": {\"block_mean_span\": 0.009727408927639755, \"fitted_drift\": 0.014502433789035471, \"passed\": true}, \"passed\": true}"
     ],
     [
       "진행 상태 갱신",
-      "2026-11-24T08:12:20.371459+09:00"
+      "2026-11-24T08:32:57.948879+09:00"
     ]
   ]
 }
