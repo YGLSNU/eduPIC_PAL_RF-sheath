@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**전자 소멸** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 25 mm** · 보고서 갱신 2026-11-23T19:09:12+09:00
+**전자 소멸** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 25 mm** · 보고서 갱신 2026-11-23T19:25:32+09:00
 
 RF245에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니다. 정상 EEDF/BRH를 정의하지 않습니다. 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.
 
