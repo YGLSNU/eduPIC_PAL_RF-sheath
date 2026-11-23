@@ -3,7 +3,7 @@
   "id": "261123_BRH_gap25-120",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-23",
-  "report_updated": "2026-11-24T04:17:21+09:00",
+  "report_updated": "2026-11-24T04:34:25+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -45,7 +45,7 @@
       "images": [
         {
           "path": "figures/convergence.png",
-          "caption": "저장된 이력 RF1–1800. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+          "caption": "저장된 이력 RF1–1849. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
         }
       ]
     },
@@ -145,9 +145,9 @@
     {
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
-      "bytes": 1617,
-      "sha256": "0f20dab46292f180a7605e97cbccc7f0260da30de40f80e1310deea4f21d1010",
-      "git_blob": "48f13fd5081a44b1627468e50dfd9fe655f5e578"
+      "bytes": 1618,
+      "sha256": "639ac32a77e18cef66e0e7c7d77b49502639402e541ea02328f82d127784c9ec",
+      "git_blob": "079beb48d692afc9841df566d75f9e400f335cef"
     },
     {
       "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 1800–1800 (transient, not stationary)",
@@ -159,29 +159,29 @@
     {
       "label": "입자 수 이력 CSV",
       "path": "history.csv",
-      "bytes": 33130,
-      "sha256": "15b201428c13e6f4718c7c567a73e3372ced3431d5efbfec06f1a4240ada8e5d",
-      "git_blob": "754eb75c620b764defc5a488656bc321c1dc6c66"
+      "bytes": 34061,
+      "sha256": "7919fff0cb10b62a967af34005fa4bbeb3157aaec9306b73e2ad532b09d184cf",
+      "git_blob": "f31d0a6a6c4382a417c19423f7854078528596b1"
     },
     {
-      "label": "재시작 입자·동반 상태 (저장 RF 1649; 보고서의 최신 RF와 다를 수 있음)",
+      "label": "재시작 입자·동반 상태 (저장 RF 1849; 보고서의 최신 RF와 다를 수 있음)",
       "path": "261123_100mm_restart.zip",
-      "bytes": 12812888,
-      "sha256": "c52326078968e48b46bbec782abf22af78873522376d6a8691f550ecfa7763c2",
-      "git_blob": "f7ccae66cc39a1099982e4712d52c9d411efda51"
+      "bytes": 12905595,
+      "sha256": "9bf5c2717a70d59a0f5b12be081b40414d446acdd028387acf263a78f1e61e9d",
+      "git_blob": "42691562f78496d3e6a8235f7c17b9f1ba7b1a7e"
     },
     {
       "label": "재시작 파일 provenance",
       "path": "restart_manifest.json",
-      "bytes": 189,
-      "sha256": "5191c38e6a02d7dd892835849a91304377c882bcc38275a3e9b504abbc45894b",
-      "git_blob": "0d84fe3d130b90e2f9b0dd6300fd1c36ac3b1901"
+      "bytes": 191,
+      "sha256": "e86bc6e2c0188f8dc7c96f3665f65b5290af1c290faf740b923d5f9a05e63f7f",
+      "git_blob": "88b0705643f314ff7b3b1a753abaeabcd55e88ea"
     }
   ],
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 1800"
+      "RF 1849"
     ],
     [
       "정상 측정 누적",
@@ -193,11 +193,11 @@
     ],
     [
       "안정성 확인",
-      "{\"e\": {\"block_mean_span\": 0.01878889695916966, \"fitted_drift\": 0.028180522386140328, \"passed\": false}, \"i\": {\"block_mean_span\": 0.01864173712182333, \"fitted_drift\": 0.027962443264998242, \"passed\": false}, \"passed\": false}"
+      "{\"e\": {\"block_mean_span\": 0.01797563458167488, \"fitted_drift\": 0.02696221785003003, \"passed\": false}, \"i\": {\"block_mean_span\": 0.017830134398397247, \"fitted_drift\": 0.026745376154261678, \"passed\": false}, \"passed\": false}"
     ],
     [
       "진행 상태 갱신",
-      "2026-11-24T04:13:33.449585+09:00"
+      "2026-11-24T04:34:47.939470+09:00"
     ]
   ]
 }
