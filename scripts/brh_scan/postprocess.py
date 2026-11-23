@@ -50,6 +50,7 @@ def process_blocks(case,blocks,assessment):
         'background_and_BRH_assessment':assessment,**sums,'max_energy_ledger_error_eV':max(m['maximum_return_energy_ledger_residual_eV'] for m in metadata),
         'powered_side_returns':len(upper),'distinct_return_UIDs':len(np.unique(upper['uid'])) if len(upper) else 0,'candidate_returns':int(candidate.sum()),'distinct_candidate_UIDs':len(np.unique(upper['uid'][candidate])) if candidate.any() else 0,
         'candidate_return_fraction':float(candidate.mean()) if len(upper) else None,'candidate_mean_signed_work_eV':float(upper['W_field_eV'][candidate].mean()) if candidate.any() else None,
+        'candidate_mean_parent_collision_dK_eV':float(upper['dK_collision_parent_eV'][candidate].mean()) if candidate.any() else None,'candidate_mean_net_dK_eV':float(upper['dK_staggered_eV'][candidate].mean()) if candidate.any() else None,
         'all_return_mean_signed_work_eV':float(upper['W_field_eV'].mean()) if len(upper) else None,'candidate_signed_fieldwork_sum_eV':float(upper['W_field_eV'][candidate].sum()) if candidate.any() else 0.,
         'sample_inclusion_probability':1/16,'selection':'Both sheaths; same-side outward reference crossings, upper side only for primary statistics. abs(tau_RF-1)<=0.10 for >=2 consecutive returns, regardless of energy sign.',
         'scope':'Complete observed intervals only, censored at beginning/end of global measurement epoch; intervals crossing internal 20-RF boundaries retained. Collision-induced reversals alone do not qualify. This is a detected-return event fraction, not a whole-plasma BRH density fraction.',
@@ -134,7 +135,7 @@ def export_diagnostics(case,target,summary_path=None):
         for ix in range(20):
             for j in range(270):w.writerow([(ix+.5)/20,E[j],width[j],int(n[ix,j]),ee[ix,j],pdf[ix,j]])
     shutil.copy2(summary_path,target/'measurement_summary.json')
-    archive=target/f'261123_gap{gap}_BRH_data.zip'
+    archive=target/f'261123_{target.name}_BRH_data.zip'
     with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=3) as z:
         for p in d.glob('*'):
             if p.is_file():z.write(p,p.name)
@@ -142,6 +143,7 @@ def export_diagnostics(case,target,summary_path=None):
     text=f'검출된 상부 기준 왕복 {s["powered_side_returns"]}개, 고유 UID {s["distinct_return_UIDs"]}개. 위상 반복 후보 {s["candidate_returns"]}개(고유 UID {s["distinct_candidate_UIDs"]}개). '
     if s['candidate_return_fraction'] is not None:text+=f'검출 왕복 중 후보 비율 {s["candidate_return_fraction"]*100:.3f}%. '
     if s['candidate_mean_signed_work_eV'] is not None:text+=f'후보의 평균 signed field work {s["candidate_mean_signed_work_eV"]:.4g} eV/왕복. '
+    if s.get('candidate_mean_net_dK_eV') is not None:text+=f'충돌을 합친 후보의 순 운동에너지 변화 {s["candidate_mean_net_dK_eV"]:.4g} eV/왕복. '
     text+='전체 전자의 BRH 밀도 분율이 아닙니다. '+s['verdict']
     sections={'bounce':image_section('bounce',[im('figures/brh_returns.png',note+'; 에너지 부호와 독립적으로 정한 반복 위상 후보. 충돌/경계 검출 조건은 METHOD 참조.')]+extra,text),
         'spatial_eepf':image_section('spatial_eepf',[im('figures/eepf_positions.png',note+'; 전체 E와 Ex를 구분합니다. 각 위치에서 E<500eV 사건으로 정규화.'),im('figures/phase_eedf.png',note+'; 중앙10%의 위상별 EEDF.')]),

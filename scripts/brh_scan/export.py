@@ -94,7 +94,7 @@ def export(root,out):
             axs[0].set(xlabel='RF cycles since changed-gap initialization',ylabel='Macroparticle count')
             volume=1e-4*gap/1000;axs[1].plot(history[:,0],history[:,1]*112000/volume,label='e');axs[1].plot(history[:,0],history[:,2]*112000/volume,label='ion')
             axs[1].set(xlabel='RF cycles',ylabel='Volume-mean density (m$^{-3}$)');fig.suptitle(f'{gap} mm; {phase}; completed checkpoint RF {cpRF}');save(fig,target/'figures/convergence.png')
-            sections['convergence']=image_section('convergence',[im('figures/convergence.png',f'조건 변경 후 RF1–{int(history[-1,0])}. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.')])
+            sections['convergence']=image_section('convergence',[im('figures/convergence.png',f'저장된 이력 RF{int(history[0,0])}–{int(history[-1,0])}. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.')])
         native=state.get('pooled_native_path') or state.get('last_diagnostic_path')
         native_note='아직 phase 측정 없음'
         if native:
@@ -137,7 +137,7 @@ def export(root,out):
         if status=='extinguished':state_reason=f'RF{cpRF}에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니다. 정상 EEDF/BRH를 정의하지 않습니다.'
         m=copy.deepcopy(base);m.update(title=f'BRH · gap {gap} mm · 250 V'+(' · 짧은20RF 예비 진단' if is_pilot else ''),status=status,changed_conditions=f'BRH gap {gap} mm'+(' short pilot' if is_pilot else ''),report_directory=f'results/{RUN}/{folder}',
             summary=state_reason+' '+brhtext,measurement_note=native_note,sections=list(sections.values()),downloads=downloads,
-            metrics=[['저장 체크포인트',f'RF {cpRF}'],['정상 측정 누적',f'{meas} RF'],['현재 단계',phase],['안정성 확인',json.dumps(state.get('stationarity',{}),ensure_ascii=False)],['진행 상태 갱신',state.get('updated_at_Asia_Seoul','미시작')]])
+            metrics=[['저장 체크포인트',f'RF {cpRF}'],['예비 진단 누적' if is_pilot else '정상 측정 누적',f'{meas} RF'],['현재 단계',phase],['안정성 확인',json.dumps(state.get('stationarity',{}),ensure_ascii=False)],['진행 상태 갱신',state.get('updated_at_Asia_Seoul','미시작')]])
         if is_pilot:m['source']['initialization']='Main40mm의 중간 체크포인트에서 별도2RF 이력 채움 +20RF 진단. 정한600RF 안정화·200RF 측정 기준 미충족. 초기 상태: '+json.dumps(state['pilot_initial_checkpoint'])
         m['conditions']['gap_mm']=gap;m['conditions']['grid_points']=state['grid_points'];put(target/'report.json',m);child_meta.append((folder,m))
         if not is_pilot:

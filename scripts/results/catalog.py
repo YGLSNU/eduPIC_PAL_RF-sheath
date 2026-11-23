@@ -153,7 +153,7 @@ def render_catalog(records,branch):
         lines += ['공통 조건: Ar **20 mTorr**, 350 K, 13.56 MHz, **상부 RF / 하부 접지**. gap·전압 등 변경한 조건은 각 실행 이름에 표시합니다. 압력 대조 진단은 개별 보고서의 실제 압력을 따릅니다.','']
     elif branch==CODE_BRANCH:
         lines += ['이 브랜치는 **시뮬레이션을 실행·관리하는 코드 작업 브랜치**입니다. 이전 이름의 voltage scan은 전압을 바꿔 독립 계산한다는 뜻입니다.', '',
-                  '`C/eduPIC.cc` 계열을 C++11로 컴파일하며, `scripts/voltage_scan/`이 조건별 실행·체크포인트·통계 중단을 관리합니다. 현재 이 브랜치의 solver는 25 mm 설정입니다. 40 mm 실행에 사용한 소스는 해당 결과의 source ZIP에 있습니다.', '',
+                  '`C/eduPIC.cc` 계열을 C++11로 컴파일하며, 기존 `scripts/voltage_scan/`과 `C/eduPIC.cc`는 25 mm 전압 스캔용입니다. BRH는 `C/eduPIC_brh.cc`와 `scripts/brh_scan/`에서 gap별로 별도 컴파일합니다. 실제 실행 조건과 보관 소스는 각 결과의 run.json·source ZIP을 따릅니다.', '',
                   '[컴파일·전압별 실행 설명](scripts/voltage_scan/README.md) · [결과 등록 방법](docs/RESULTS_GUIDE.md)', '']
     else:
         lines += ['`main`은 원본 코드와 전체 결과의 입구, `simulation/*`은 실행 코드, `results/*`은 공통 조건별 결과 보관입니다. GitHub는 저장·열람 장소이며 계산은 클라우드 실행 환경에서 수행합니다.','']

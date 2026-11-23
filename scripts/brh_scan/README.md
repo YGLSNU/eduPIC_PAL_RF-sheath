@@ -14,7 +14,7 @@ Ar **20 mTorr**, 350 K, **13.56 MHz, 250 V peak** 정현파. **상부 x=L RF, �
 
 ## 실행·이어 계산
 
-현재 실행 폴더는 `/workspace/edupic-brh/261123_BRH_gap25-120`입니다. Python3, NumPy, SciPy, Matplotlib, g++가 필요합니다. 기본 제어기는 gap3개를 동시에 계산합니다.
+현재 실행 폴더는 `/workspace/edupic-brh/261123_BRH_gap25-120`입니다. Python3, NumPy, SciPy, Matplotlib, g++가 필요합니다. 제어기는 gap4개를 동시에 계산합니다. 초기 검증 중에는 진단용 CPU를 남기기 위해3개로 시작했고, 검증 후 완결 체크포인트에서4개로 늘렸습니다.
 
 ```bash
 # 최초 준비: 기존 reference 경로는 prepare.py 참조

@@ -70,7 +70,7 @@ def main():
     settings={'id':'261123_BRH_gap25-120','date':'2026-11-23','started_at_Asia_Seoul':datetime.now(ZoneInfo('Asia/Seoul')).isoformat(),
         'gas':'Ar','pressure_mTorr':20,'temperature_K':350,'frequency_Hz':13.56e6,'voltage_peak_V':250,
         'gaps_mm':[25,30,40,50,60,80,100,120],'weight':112000.,'fictive_area_m2':1e-4,'dx_target_m':6.25e-5,
-        'electron_steps_per_RF':8000,'phase_bins':200,'ion_subcycling':40,'max_workers':3,
+        'electron_steps_per_RF':8000,'phase_bins':200,'ion_subcycling':40,'max_workers':4,
         'source_reference_SHA256':sha(source_path),'reference_checkpoint_SHA256':sha(cp),
         'reference_checkpoint_path':str(cp),'control_source_SHA256':sha(root/'source_control.cc'),
         'initialization':'40 mm 250 V converged particle distribution resampled to keep common initial physical density and constant macroparticle weight; x stretched, clone jitter; leapfrog velocities synchronized and restaggered. All changed-condition transients excluded.',
