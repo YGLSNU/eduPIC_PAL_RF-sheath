@@ -3,7 +3,7 @@
   "id": "261123_BRH_gap25-120",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-23",
-  "report_updated": "2026-11-23T16:35:53+09:00",
+  "report_updated": "2026-11-23T16:45:42+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -45,7 +45,7 @@
       "images": [
         {
           "path": "figures/convergence.png",
-          "caption": "저장된 이력 RF1–100. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+          "caption": "저장된 이력 RF1–149. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
         }
       ]
     },
@@ -146,8 +146,8 @@
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
       "bytes": 1404,
-      "sha256": "39b603c7ba14edc607a8a50a04bb00b052ca05d14517a0cb78182f601d789eef",
-      "git_blob": "f126a4a87762d6f48e0b90843cac2fd7d0b5edb3"
+      "sha256": "aaffcfe7def43b38ceb3aa1eda3106708ea25b3c0bd70fa2d07076a8d7ac3946",
+      "git_blob": "325ffc0e1adb0e3625af4ede4966b1367687c0aa"
     },
     {
       "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 100–100 (transient, not stationary)",
@@ -159,9 +159,9 @@
     {
       "label": "입자 수 이력 CSV",
       "path": "history.csv",
-      "bytes": 1729,
-      "sha256": "d102b0f56ca193c1028a1eacb108fd204143908ef3b0724c089ac0fac91008d4",
-      "git_blob": "adecfde66c0682553e749cc8d816b063f45ac888"
+      "bytes": 2611,
+      "sha256": "f196cd9e804f382bc2b88dea2904525c26a1626195623dc32710abd94b85aae0",
+      "git_blob": "b4436df275fcc7bb00fc62ce3abd1fc61b914bc3"
     },
     {
       "label": "재시작 입자·동반 상태 (저장 RF 100; 보고서의 최신 RF와 다를 수 있음)",
@@ -181,7 +181,7 @@
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 100"
+      "RF 149"
     ],
     [
       "정상 측정 누적",
@@ -193,11 +193,11 @@
     ],
     [
       "안정성 확인",
-      "{\"passed\": false, \"available_RF\": 100, \"required_RF\": 600}"
+      "{\"passed\": false, \"available_RF\": 149, \"required_RF\": 600}"
     ],
     [
       "진행 상태 갱신",
-      "2026-11-23T16:28:26.398275+09:00"
+      "2026-11-23T16:45:26.081879+09:00"
     ]
   ]
 }
