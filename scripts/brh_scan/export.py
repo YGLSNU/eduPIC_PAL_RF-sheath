@@ -85,7 +85,8 @@ def export(root,out):
         d=root/folder;target=out/folder;target.mkdir(exist_ok=True);(target/'figures').mkdir(exist_ok=True)
         state=json.loads((d/'status.json').read_text());cpRF=state.get('checkpoint_cycle',0);meas=state.get('measured_RF',0);phase=state['phase']
         status=state['status']
-        shutil.copy2(d/'status.json',target/'status.json');sections={k:unavailable(k,'해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.') for k in KEYS}
+        missing_reason=state.get('data_invalidation_reason') or '해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.'
+        shutil.copy2(d/'status.json',target/'status.json');sections={k:unavailable(k,missing_reason) for k in KEYS}
         history=np.loadtxt(d/'history.dat',ndmin=2) if (d/'history.dat').exists() else np.empty((0,3))
         if not is_pilot:histories[gap]=history
         if len(history):
@@ -99,7 +100,7 @@ def export(root,out):
         native_note='아직 phase 측정 없음'
         if native:
             nd=Path(native);block=json.loads((nd/'block.json').read_text()) if (nd/'block.json').exists() else {}
-            native_note=state.get('pooled_note',f'Warmup snapshot RF {block.get("RF_first","?")}–{block.get("RF_last","?")} (transient, not stationary)')
+            native_note=state.get('pooled_note') or f'Warmup snapshot RF {block.get("RF_first","?")}–{block.get("RF_last","?")} (transient, not stationary)'
             sections.update(core_plots(nd,target,gap,native_note))
         downloads=[{'label':'저장된 실행 상태·실제 RF·종료 사유','path':'status.json'}]
         if native:
@@ -127,8 +128,8 @@ def export(root,out):
                 z.writestr('provenance.json',json.dumps({'RF':cpRF,'gap_mm':gap,'source_control_SHA256':cfg['control_source_SHA256'],'checkpoint_SHA256':sha(cp),'companion_state':(cp.parent/'brh_state.bin').exists(),'note':'Without brh companion, RNG and optical-depth draws restart statistically; with companion all are restored. Diagnostic histograms are per measurement block.'},indent=2))
             old={'RF':cpRF,'checkpoint_SHA256':sha(cp),'archive':archive.name,'backup_time_unix':time.time()};put(archive_meta,old)
         downloads += [{'label':f'재시작 입자·동반 상태 (저장 RF {old["RF"]}; 보고서의 최신 RF와 다를 수 있음)','path':old['archive']},{'label':'재시작 파일 provenance','path':'restart_manifest.json'}]
-        brhtext='아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.'
-        if (d/'measurement_summary.json').exists():
+        brhtext=state.get('data_invalidation_reason') or '아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.'
+        if state.get('measurement_summary_path') or is_pilot:
             from postprocess import export_diagnostics
             brh_sections,brh_downloads,brhtext=export_diagnostics(d,target,state.get('measurement_summary_path'))
             sections.update(brh_sections);downloads+=brh_downloads

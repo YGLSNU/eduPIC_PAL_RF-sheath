@@ -51,4 +51,21 @@ class DiagnosticsTests(unittest.TestCase):
         self.assertTrue(result['background_passed']);self.assertTrue(result['BRH']['passed']);self.assertTrue(result['passed'])
         self.assertEqual(result['BRH']['candidate_signed_work_eV']['estimate'],0.)
 
+    def test_export_excludes_old_epoch_diagnostics_after_profile_drift(self):
+        from export import export
+        root=self.root/'run';root.mkdir();case=root/'40mm';case.mkdir();out=self.root/'export'
+        cfg={'id':'261123_BRH_gap25-120','date':'2026-11-23','gaps_mm':[40],'control_source_SHA256':'fixture'}
+        (root/'config.json').write_text(json.dumps(cfg));(root/'criteria.json').write_text(json.dumps(CRITERIA))
+        # Native checkpoint shape is valid; the saved summary is deliberately
+        # unusable to catch any accidental reuse of the discarded epoch.
+        np.array([0.,0.,0.,0.],dtype='<f8').tofile(case/'input_cycle0.bin')
+        (case/'measurement_summary.json').write_text('{}')
+        state={'gap_mm':40,'grid_points':641,'status':'running','phase':'rewarmup','checkpoint_cycle':0,'measured_RF':0,'measurement_summary_path':None,'pooled_native_path':None,
+               'data_invalidation_reason':'Profile drift invalidated prior measurement epoch.'}
+        (case/'status.json').write_text(json.dumps(state));export(root,out)
+        m=json.loads((out/'40mm/report.json').read_text());sections={s['id']:s for s in m['sections']}
+        self.assertEqual(sections['bounce']['data_status'],'unavailable')
+        self.assertIn('invalidated',sections['bounce']['reason'])
+        self.assertFalse(any('BRH_data.zip' in d['path'] for d in m['downloads']))
+
 if __name__=='__main__':unittest.main()

@@ -93,6 +93,7 @@ def measure_case(root,d,state,previous,history):
             if checkpoint(previous)['cycle']+2>criteria['maximum_total_cycles']:update(status='total_cycle_limit_reached',reason='History-fill block would exceed total RF cap');return state
             work,cp=execute(2,'history_fill')
             if cp['electrons']==0:update(status='extinguished',reason='Electrons extinct during BRH history fill');return state
+            state.pop('reason',None)
             update(history_filled=True,measurement_start_RF=cp['cycle']+1,measurement_start_time_s=cp['time_seconds'],measured_RF=0,measurement_blocks=[])
         passes=state.get('consecutive_passes',0);reset=False
         while True:
@@ -109,12 +110,14 @@ def measure_case(root,d,state,previous,history):
             from postprocess import process_blocks,compress_block
             brh_summary=process_blocks(d,blocks,assessment);compress_block(work)
             passes=passes+1 if assessment['passed'] else 0
-            update(status='running',phase='measurement',measured_RF=len(blocks)*criteria['block_cycles'],measurement_blocks=[str(p) for p in blocks],assessment=assessment,consecutive_passes=passes,pooled_native_path=str(pooled),measurement_summary_path=str(Path(brh_summary['pooled_data_path'])/'summary.json'),pooled_note=f'Measurement RF {state["measurement_start_RF"]}–{cp["cycle"]} ({len(blocks)*criteria["block_cycles"]} RF)',ne_mean_m3=assessment.get('indicators',{}).get('mean_density_e',{}).get('estimate'))
+            update(status='running',phase='measurement',measured_RF=len(blocks)*criteria['block_cycles'],measurement_blocks=[str(p) for p in blocks],assessment=assessment,consecutive_passes=passes,pooled_native_path=str(pooled),measurement_summary_path=str(Path(brh_summary['pooled_data_path'])/'summary.json'),data_invalidation_reason=None,pooled_note=f'Measurement RF {state["measurement_start_RF"]}–{cp["cycle"]} ({len(blocks)*criteria["block_cycles"]} RF)',ne_mean_m3=assessment.get('indicators',{}).get('mean_density_e',{}).get('estimate'))
             if passes>=criteria['required_consecutive_passes']:update(status='criteria_met',reason='Background and exploratory BRH fraction/signed-work stopping criteria passed twice. Grid/seed/diagnostic sensitivity checks remain separate.');return state
             # Strong secular profile drift invalidates this measurement epoch.
             drift=max([v['first_last_half_relative_change'] for k,v in assessment.get('indicators',{}).items() if k.startswith('density_profile')]+[0])
             if assessment.get('ready') and drift>criteria['density_profile_relative_tolerance']:
-                update(measurement_epoch=epoch+1,history_filled=False,measurement_blocks=[],measured_RF=0,consecutive_passes=0,phase='rewarmup',discarded_epoch={'epoch':epoch,'reason':'density-profile secular drift','relative_change':drift,'RF_last':cp['cycle']});reset=True;break
+                update(measurement_epoch=epoch+1,history_filled=False,measurement_blocks=[],measured_RF=0,consecutive_passes=0,phase='rewarmup',pooled_native_path=None,measurement_summary_path=None,last_diagnostic_path=None,pooled_note=None,ne_mean_m3=None,
+                       data_invalidation_reason='밀도 분포의 장기 변화로 이전 측정 epoch를 제외했습니다. 다시 안정화한 뒤 새 측정 구간을 수집합니다. 원자료는 보존됩니다.',
+                       discarded_epoch={'epoch':epoch,'reason':'density-profile secular drift','relative_change':drift,'RF_last':cp['cycle']});reset=True;break
         if reset:
             # Refresh the stationary background, then start a new UID/measurement
             # epoch. Earlier diagnostic blocks remain archived and are excluded.
