@@ -3,7 +3,7 @@
   "id": "261123_BRH_gap25-120",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-23",
-  "report_updated": "2026-11-23T19:57:56+09:00",
+  "report_updated": "2026-11-23T20:14:08+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -72,9 +72,9 @@
       "gap_mm": 40,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 1282,
-      "measurement_rf": 680,
-      "ne_mean_m3": 1287933451639835.5,
+      "total_rf": 1342,
+      "measurement_rf": 740,
+      "ne_mean_m3": 1287704795771917.2,
       "path": "40mm/README.md"
     },
     {
@@ -90,7 +90,7 @@
       "gap_mm": 60,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 1249,
+      "total_rf": 1349,
       "measurement_rf": 0,
       "ne_mean_m3": null,
       "path": "60mm/README.md"
@@ -117,7 +117,7 @@
       "gap_mm": 120,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 400,
+      "total_rf": 449,
       "measurement_rf": 0,
       "ne_mean_m3": null,
       "path": "120mm/README.md"
@@ -195,7 +195,7 @@
           "caption": "검출 왕복 사건 중 기본1T 후보의 비율과 signed field work. 전체 전자의 BRH 밀도 분율이 아닙니다. 검은×는 전체 검출 왕복의 평균입니다."
         }
       ],
-      "table": "| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |\n|---:|---|---|---:|---:|---:|---:|\n| 40 | running | 603–1282 (680RF) | 144657 / 329 | 306 | 0.227 | 4.179 |\n"
+      "table": "| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |\n|---:|---|---|---:|---:|---:|---:|\n| 40 | running | 603–1342 (740RF) | 157254 / 362 | 336 | 0.230 | 4.064 |\n"
     },
     {
       "id": "pilot",
@@ -214,8 +214,8 @@
       "label": "조건별 진행 요약 CSV",
       "path": "summary.csv",
       "bytes": 835,
-      "sha256": "52ce23a621c78429aec1be6742c80da5e7fae8b01eb85832180909dfae7458a7",
-      "git_blob": "790a1c82f8eecc7b9c2531bb651ae634e9161264"
+      "sha256": "90b9830e8217c01b60f0a5e370f506adc552e415afc51ffc9da3bfa89ca30d81",
+      "git_blob": "3b7a5d5ded611045c2fb9dfc942ab8731ea90aa5"
     },
     {
       "label": "공통 설정",
@@ -248,9 +248,9 @@
     {
       "label": "gap별 BRH 사건·에너지·불확실도 요약 CSV",
       "path": "brh_gap_summary.csv",
-      "bytes": 361,
-      "sha256": "5f6584ece9152397059cc00bed092f823e2bf8e7b80a7754d460549aff7e46b1",
-      "git_blob": "5ddb0e602d12a9088fa284c41246774e48435696"
+      "bytes": 356,
+      "sha256": "2784d866e4fd1a9d43922138f90de6b7f33c2afdb4195b9d943cd2d807ee1859",
+      "git_blob": "046a73e389ed1b6e865f1e2184489ebb7b98651c"
     },
     {
       "label": "실행 소스·진단·설정·원본40mm 기준 입자",
