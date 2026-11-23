@@ -3,7 +3,7 @@
   "id": "261123_BRH_gap25-120",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-23",
-  "report_updated": "2026-11-23T23:33:20+09:00",
+  "report_updated": "2026-11-23T23:49:50+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -45,7 +45,7 @@
       "images": [
         {
           "path": "figures/convergence.png",
-          "caption": "저장된 이력 RF1–800. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+          "caption": "저장된 이력 RF1–849. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
         }
       ]
     },
@@ -146,8 +146,8 @@
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
       "bytes": 1614,
-      "sha256": "45d5e6af1ee76cf5ae74aad1fe5f79cda09b3af3c7bae9fd6c7e05e1a86e2587",
-      "git_blob": "a2cf48452276a38bb49a384267a4edda24226460"
+      "sha256": "fb15a307830000803c6736102269fec7176c3e7d4cfdc9236bfdc9bea21e5559",
+      "git_blob": "3e790455e46cf9abbcf43377ca6d9fd60572bd03"
     },
     {
       "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 800–800 (transient, not stationary)",
@@ -159,9 +159,9 @@
     {
       "label": "입자 수 이력 CSV",
       "path": "history.csv",
-      "bytes": 14329,
-      "sha256": "d3ef87d1e695ad9a1aca5b9347a5a638a0470eacca6c4056cf2cf849c7d21369",
-      "git_blob": "0f2b0cd7be57c61f110a741d112cbe309b0dd39b"
+      "bytes": 15211,
+      "sha256": "5691987301c8ba665ca2b448656f1b3d68b995ecbd7ba016a4094bedc99be7f1",
+      "git_blob": "cd295aab3f36617c7a38cfc8789e0bfbdb6c5799"
     },
     {
       "label": "재시작 입자·동반 상태 (저장 RF 800; 보고서의 최신 RF와 다를 수 있음)",
@@ -181,7 +181,7 @@
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 800"
+      "RF 849"
     ],
     [
       "정상 측정 누적",
@@ -193,11 +193,11 @@
     ],
     [
       "안정성 확인",
-      "{\"e\": {\"block_mean_span\": 0.05276740702865855, \"fitted_drift\": 0.07942572615958049, \"passed\": false}, \"i\": {\"block_mean_span\": 0.052760982846941494, \"fitted_drift\": 0.07942324875648137, \"passed\": false}, \"passed\": false}"
+      "{\"e\": {\"block_mean_span\": 0.047387900857477835, \"fitted_drift\": 0.07129176288093109, \"passed\": false}, \"i\": {\"block_mean_span\": 0.04735236041580859, \"fitted_drift\": 0.0712438484929991, \"passed\": false}, \"passed\": false}"
     ],
     [
       "진행 상태 갱신",
-      "2026-11-23T23:16:50.188654+09:00"
+      "2026-11-23T23:43:52.354090+09:00"
     ]
   ]
 }
