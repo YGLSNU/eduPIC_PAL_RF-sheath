@@ -19,27 +19,27 @@
   "initial_e": 114725,
   "status": "running",
   "phase": "warmup",
-  "checkpoint_cycle": 149,
+  "checkpoint_cycle": 200,
   "measured_RF": 0,
-  "elapsed_solver_seconds": 2906.015249926015,
+  "elapsed_solver_seconds": 4007.192422881024,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "started_at_Asia_Seoul": "2026-11-23T15:49:35.225173+09:00",
   "controller_pid": 504290,
-  "updated_at_Asia_Seoul": "2026-11-23T16:45:26.081879+09:00",
+  "updated_at_Asia_Seoul": "2026-11-23T17:03:47.453634+09:00",
   "active_RF": [
-    150,
-    198
+    201,
+    249
   ],
   "stationarity": {
     "passed": false,
-    "available_RF": 149,
+    "available_RF": 200,
     "required_RF": 600
   },
-  "solver_pid": 507126,
-  "checkpoint_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/warmup/RF000101-000149/picdata.bin",
-  "electrons": 172486,
-  "ions": 174384,
-  "last_block_seconds": 1019.6318264679867,
-  "last_RF_seconds": 20.80881278506095,
-  "last_diagnostic_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/warmup/RF000100-000100"
+  "solver_pid": 510397,
+  "checkpoint_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/warmup/RF000200-000200/picdata.bin",
+  "electrons": 176186,
+  "ions": 178125,
+  "last_block_seconds": 48.605549054045696,
+  "last_RF_seconds": 48.605549054045696,
+  "last_diagnostic_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/warmup/RF000200-000200"
 }
