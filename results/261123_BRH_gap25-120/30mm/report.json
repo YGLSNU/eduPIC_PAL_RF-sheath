@@ -3,7 +3,7 @@
   "id": "261123_BRH_gap25-120",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-23",
-  "report_updated": "2026-11-23T16:23:37+09:00",
+  "report_updated": "2026-11-23T16:30:06+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -31,10 +31,10 @@
     }
   ],
   "title": "BRH · gap 30 mm · 250 V",
-  "status": "paused_at_checkpoint",
+  "status": "queued",
   "changed_conditions": "BRH gap 30 mm",
   "report_directory": "results/261123_BRH_gap25-120/30mm",
-  "summary": "배경 입자 수 안정화 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
+  "summary": "실행 대기 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
   "measurement_note": "아직 phase 측정 없음",
   "sections": [
     {
@@ -97,9 +97,9 @@
     {
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
-      "bytes": 905,
-      "sha256": "7675c139ae3e2dc299427cb497c0a1fba307d0ec1403b94bd46aa9293dbe4a1f",
-      "git_blob": "60096bff10d7425514d92ee77e0ceb4e5f62a9d9"
+      "bytes": 891,
+      "sha256": "9c63a0c40819f79c1535eaa61a8559684da6c619e18cf0bf430f974c274d9a3c",
+      "git_blob": "36e4d370d5a8fc600c0830f9241c1982e94fa4b5"
     },
     {
       "label": "재시작 입자·동반 상태 (저장 RF 0; 보고서의 최신 RF와 다를 수 있음)",
@@ -135,7 +135,7 @@
     ],
     [
       "진행 상태 갱신",
-      "2026-11-23T16:20:18.935456+09:00"
+      "2026-11-23T16:27:43.311627+09:00"
     ]
   ]
 }

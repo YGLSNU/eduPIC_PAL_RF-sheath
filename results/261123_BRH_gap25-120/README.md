@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF)
 
-**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH · gap25/30/40/50/60/80/100/120 mm** · 보고서 갱신 2026-11-23T16:23:37+09:00
+**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH · gap25/30/40/50/60/80/100/120 mm** · 보고서 갱신 2026-11-23T16:30:06+09:00
 
 250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다.
 
@@ -31,13 +31,13 @@
 | Gap mm | 상태 | 종료 RF | 측정 RF | 평균 전자 밀도 m⁻³ | 보고서 |
 |---:|---|---:|---:|---:|---|
 | 25 | 전자 소멸 | 245 | 0 | — | [그림·다운로드](25mm/README.md) |
-| 30 | 체크포인트 중단 | 0 | 0 | — | [그림·다운로드](30mm/README.md) |
-| 40 | 체크포인트 중단 | 398 | 0 | — | [그림·다운로드](40mm/README.md) |
-| 50 | 체크포인트 중단 | 0 | 0 | — | [그림·다운로드](50mm/README.md) |
-| 60 | 계산 중 | 200 | 0 | — | [그림·다운로드](60mm/README.md) |
-| 80 | 체크포인트 중단 | 0 | 0 | — | [그림·다운로드](80mm/README.md) |
-| 100 | 체크포인트 중단 | 99 | 0 | — | [그림·다운로드](100mm/README.md) |
-| 120 | 체크포인트 중단 | 0 | 0 | — | [그림·다운로드](120mm/README.md) |
+| 30 | 실행 대기 | 0 | 0 | — | [그림·다운로드](30mm/README.md) |
+| 40 | 계산 중 | 400 | 0 | — | [그림·다운로드](40mm/README.md) |
+| 50 | 실행 대기 | 0 | 0 | — | [그림·다운로드](50mm/README.md) |
+| 60 | 계산 중 | 249 | 0 | — | [그림·다운로드](60mm/README.md) |
+| 80 | 실행 대기 | 0 | 0 | — | [그림·다운로드](80mm/README.md) |
+| 100 | 계산 중 | 100 | 0 | — | [그림·다운로드](100mm/README.md) |
+| 120 | 계산 중 | 0 | 0 | — | [그림·다운로드](120mm/README.md) |
 
 ## 자료 범위
 
@@ -127,10 +127,11 @@ gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측�
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| 조건별 진행 요약 CSV | [summary.csv](summary.csv) | 890 B |
+| 조건별 진행 요약 CSV | [summary.csv](summary.csv) | 767 B |
 | 공통 설정 | [config.json](config.json) | 1.6 KiB |
 | 수렴·중단 기준 | [criteria.json](criteria.json) | 2.3 KiB |
 | 수동 진단·재시작 검증 | [diagnostics_validated.json](diagnostics_validated.json) | 1.3 KiB |
+| 측정 제어·통합·압축·상한 중단 실행 검증 | [measurement_engine_validated.json](measurement_engine_validated.json) | 1.5 KiB |
 | 실행 소스·진단·설정·원본40mm 기준 입자 | [261123_BRH_source.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/261123_BRH_source.zip) | 2.83 MiB |
 
 [전체 파일 목록·SHA256](files.json)
