@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**과도구간 진단** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 40 mm short pilot** · 보고서 갱신 2026-11-23T16:45:42+09:00
+**과도구간 진단** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 40 mm short pilot** · 보고서 갱신 2026-11-23T16:55:32+09:00
 
 Short 20 RF validation pilot; main gap scan convergence criteria have NOT been met. 검출된 상부 기준 왕복 3008개, 고유 UID 1177개. 위상 반복 후보 12개(고유 UID 11개). 검출 왕복 중 후보 비율 0.399%. 후보의 평균 signed field work 4.78 eV/왕복. 충돌을 합친 후보의 순 운동에너지 변화 -1.092 eV/왕복. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.
 
@@ -165,7 +165,7 @@ RF 252–271 (20 RF); exploratory diagnostics; 순간 kick 에너지의 평균. 
 | 입자 수 이력 CSV | [history.csv](history.csv) | 389 B |
 | 재시작 입자·동반 상태 (저장 RF 271; 보고서의 최신 RF와 다를 수 있음) | [261123_pilot40mm_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/pilot40mm/261123_pilot40mm_restart.zip) | 3.61 MiB |
 | 재시작 파일 provenance | [restart_manifest.json](restart_manifest.json) | 152 B |
-| BRH 사건·원시 energy counts·probe·일 지도 (1/1; 분할 시 모두 받기) | [261123_pilot40mm_BRH_data.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/pilot40mm/261123_pilot40mm_BRH_data.zip) | 9.64 MiB |
+| BRH 사건·원시 energy counts·probe·일 지도 (1/1; 분할 시 모두 받기) | [261123_pilot40mm_BRH_data.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/pilot40mm/261123_pilot40mm_BRH_data.zip) | 9.72 MiB |
 | BRH 수치·표본 수·해석 범위 | [measurement_summary.json](measurement_summary.json) | 2.9 KiB |
 | 위치별 EEPF CSV (raw count 포함) | [position_eepf.csv](data/position_eepf.csv) | 278.4 KiB |
 

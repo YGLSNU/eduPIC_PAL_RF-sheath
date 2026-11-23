@@ -3,7 +3,7 @@
   "id": "261123_BRH_gap25-120",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-23",
-  "report_updated": "2026-11-23T16:45:42+09:00",
+  "report_updated": "2026-11-23T16:55:32+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -39,9 +39,15 @@
   "sections": [
     {
       "id": "convergence",
-      "data_status": "unavailable",
-      "reason": "해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.",
-      "images": []
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/convergence.png",
+          "caption": "저장된 이력 RF1–49. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+        }
+      ]
     },
     {
       "id": "density",
@@ -97,29 +103,36 @@
     {
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
-      "bytes": 1049,
-      "sha256": "1092b741ea62f9f12714b1ef0605bb066ee884be12944be4f62a3f0ae1a6c3fc",
-      "git_blob": "70c9bf4d687a7b5fe2862efa8c26fde6487937d9"
+      "bytes": 1333,
+      "sha256": "09e202a976bfdf3b6d38f907083983a1030ae83bd68d3cd5c93f123f82bdbe7c",
+      "git_blob": "72e7e6b9fdf8dde01dc30440c854870fde121918"
     },
     {
-      "label": "재시작 입자·동반 상태 (저장 RF 0; 보고서의 최신 RF와 다를 수 있음)",
-      "path": "261123_gap120_restart.zip",
-      "bytes": 8683958,
-      "sha256": "d08f265151f11e5d858f98dd805c0747fa83cc4f6770feef0aee1c9336122918",
-      "git_blob": "c2b8d908d02bdf02f62a4dfba7c5f764fd12a225"
+      "label": "입자 수 이력 CSV",
+      "path": "history.csv",
+      "bytes": 861,
+      "sha256": "c5cc6728923d8819779a29d4475d3a4579854c0bbb04dacd9d0db1c5091e0124",
+      "git_blob": "fe8c8c804b12847b0fd892fb2382d140a4aa5007"
+    },
+    {
+      "label": "재시작 입자·동반 상태 (저장 RF 49; 보고서의 최신 RF와 다를 수 있음)",
+      "path": "261123_120mm_restart.zip",
+      "bytes": 13648153,
+      "sha256": "1510d12021337301640e8b047964cd5611fc05e3bd75f11a5f9b465dd1dc30da",
+      "git_blob": "958bccec390a3eeb27ab80628801ffc8d0e57f30"
     },
     {
       "label": "재시작 파일 provenance",
       "path": "restart_manifest.json",
-      "bytes": 147,
-      "sha256": "03f2fcf54754effd3549c4cfad26515f1cb7a9566f1af505d40c43a7ee293c3e",
-      "git_blob": "bc0d0c11c5f69580453e818fe6b33adcfaaeaa1e"
+      "bytes": 189,
+      "sha256": "f7cff40460ee6b4fdcdd781c2cb5761ddbfb1c90262c043b957ff00c51fe34c9",
+      "git_blob": "2879682c3e3f97a81ccdc32864c5e04af121d7bc"
     }
   ],
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 0"
+      "RF 49"
     ],
     [
       "정상 측정 누적",
@@ -131,11 +144,11 @@
     ],
     [
       "안정성 확인",
-      "{\"passed\": false, \"available_RF\": 0, \"required_RF\": 600}"
+      "{\"passed\": false, \"available_RF\": 49, \"required_RF\": 600}"
     ],
     [
       "진행 상태 갱신",
-      "2026-11-23T16:27:43.401966+09:00"
+      "2026-11-23T16:49:23.680053+09:00"
     ]
   ]
 }

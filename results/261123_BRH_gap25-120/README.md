@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF)
 
-**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH · gap25/30/40/50/60/80/100/120 mm** · 보고서 갱신 2026-11-23T16:45:42+09:00
+**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH · gap25/30/40/50/60/80/100/120 mm** · 보고서 갱신 2026-11-23T16:55:32+09:00
 
 250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다.
 
@@ -32,12 +32,12 @@
 |---:|---|---:|---:|---:|---|
 | 25 | 전자 소멸 | 245 | 0 | — | [그림·다운로드](25mm/README.md) |
 | 30 | 실행 대기 | 0 | 0 | — | [그림·다운로드](30mm/README.md) |
-| 40 | 계산 중 | 549 | 0 | — | [그림·다운로드](40mm/README.md) |
+| 40 | 계산 중 | 622 | 20 | — | [그림·다운로드](40mm/README.md) |
 | 50 | 실행 대기 | 0 | 0 | — | [그림·다운로드](50mm/README.md) |
-| 60 | 계산 중 | 300 | 0 | — | [그림·다운로드](60mm/README.md) |
+| 60 | 계산 중 | 349 | 0 | — | [그림·다운로드](60mm/README.md) |
 | 80 | 실행 대기 | 0 | 0 | — | [그림·다운로드](80mm/README.md) |
 | 100 | 계산 중 | 149 | 0 | — | [그림·다운로드](100mm/README.md) |
-| 120 | 계산 중 | 0 | 0 | — | [그림·다운로드](120mm/README.md) |
+| 120 | 계산 중 | 49 | 0 | — | [그림·다운로드](120mm/README.md) |
 
 ## 자료 범위
 
@@ -108,6 +108,19 @@ gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측�
 
 [25 mm](25mm/README.md#brh-왕복위상에너지-진단) · [30 mm](30mm/README.md#brh-왕복위상에너지-진단) · [40 mm](40mm/README.md#brh-왕복위상에너지-진단) · [50 mm](50mm/README.md#brh-왕복위상에너지-진단) · [60 mm](60mm/README.md#brh-왕복위상에너지-진단) · [80 mm](80mm/README.md#brh-왕복위상에너지-진단) · [100 mm](100mm/README.md#brh-왕복위상에너지-진단) · [120 mm](120mm/README.md#brh-왕복위상에너지-진단)
 
+## 기본1T 반복 후보·EEDF의 gap 비교
+
+600RF 배경 안정화 뒤 수집한 측정 구간만 비교하며, 별도20RF pilot은 제외합니다. 단일gap이나 통계 중단 기준 전 자료만으로 BRH를 확정하지 않습니다. error bar는20/40RF 블록 불확실도 지표이며, 막대가 없는 점은 아직 블록 추정이 없습니다.
+
+![검출 왕복 사건 중 기본1T 후보의 비율과 signed field work. 전체 전자의 BRH 밀도 분율이 아닙니다. 검은×는 전체 검출 왕복의 평균입니다.](figures/brh_gap_compare.png)
+
+검출 왕복 사건 중 기본1T 후보의 비율과 signed field work. 전체 전자의 BRH 밀도 분율이 아닙니다. 검은×는 전체 검출 왕복의 평균입니다.
+
+| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |
+|---:|---|---|---:|---:|---:|---:|
+| 40 | running | 603–622 (20RF) | 3222 / 13 | 13 | 0.403 | 5.22 |
+
+
 ## 40mm 짧은 예비 진단 · 본 스캔과 구분
 
 [20RF 예비 진단의 조건·수치·그림·다운로드](pilot40mm/README.md). 본 gap 스캔의 수렴 결과가 아니며 BRH 확정 자료로 사용하지 않습니다.
@@ -127,11 +140,12 @@ gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측�
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| 조건별 진행 요약 CSV | [summary.csv](summary.csv) | 767 B |
+| 조건별 진행 요약 CSV | [summary.csv](summary.csv) | 829 B |
 | 공통 설정 | [config.json](config.json) | 1.6 KiB |
 | 수렴·중단 기준 | [criteria.json](criteria.json) | 2.3 KiB |
 | 수동 진단·재시작 검증 | [diagnostics_validated.json](diagnostics_validated.json) | 1.3 KiB |
 | 측정 제어·통합·압축·상한 중단 실행 검증 | [measurement_engine_validated.json](measurement_engine_validated.json) | 1.5 KiB |
+| gap별 BRH 사건·에너지·불확실도 요약 CSV | [brh_gap_summary.csv](brh_gap_summary.csv) | 315 B |
 | 실행 소스·진단·설정·원본40mm 기준 입자 | [261123_BRH_source.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/261123_BRH_source.zip) | 2.84 MiB |
 
 [전체 파일 목록·SHA256](files.json)
