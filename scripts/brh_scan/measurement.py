@@ -90,6 +90,7 @@ def measure_case(root,d,state,previous,history):
         blocks.sort(key=lambda p:json.loads((p/'block.json').read_text())['RF_first'])
         if not state.get('history_filled'):
             if stopped():update(status='paused_at_checkpoint');return state
+            if checkpoint(previous)['cycle']+2>criteria['maximum_total_cycles']:update(status='total_cycle_limit_reached',reason='History-fill block would exceed total RF cap');return state
             work,cp=execute(2,'history_fill')
             if cp['electrons']==0:update(status='extinguished',reason='Electrons extinct during BRH history fill');return state
             update(history_filled=True,measurement_start_RF=cp['cycle']+1,measurement_start_time_s=cp['time_seconds'],measured_RF=0,measurement_blocks=[])
@@ -97,7 +98,7 @@ def measure_case(root,d,state,previous,history):
         while True:
             cp=checkpoint(previous)
             if stopped():update(status='paused_at_checkpoint');return state
-            if cp['cycle']>=criteria['maximum_total_cycles']:update(status='total_cycle_limit_reached',reason='Total RF cap reached without all requested criteria');return state
+            if cp['cycle']+criteria['block_cycles']>criteria['maximum_total_cycles']:update(status='total_cycle_limit_reached',reason='Next complete diagnostic block would exceed total RF cap');return state
             if len(blocks)*criteria['block_cycles']>=criteria['maximum_measurement_cycles']:update(status='measurement_limit_reached',reason='Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.');return state
             work,cp=execute(criteria['block_cycles'],stage,True)
             if cp['electrons']==0:update(status='extinguished',reason='Electrons extinct during diagnostic measurement');return state
@@ -120,7 +121,7 @@ def measure_case(root,d,state,previous,history):
             while not stationarity(history,criteria)['passed']:
                 if stopped():update(status='paused_at_checkpoint');return state
                 if checkpoint(previous)['cycle']>=criteria['maximum_total_cycles']:update(status='total_cycle_limit_reached');return state
-                work,cp=execute(20,'rewarmup')
+                work,cp=execute(min(20,criteria['maximum_total_cycles']-checkpoint(previous)['cycle']),'rewarmup')
                 if cp['electrons']==0:update(status='extinguished',reason='Extinction during background re-equilibration');return state
             # Discard old companion deliberately: independent new cohort epoch.
             seed=d/f'epoch{epoch+1}_initial';seed.mkdir(exist_ok=True);shutil.copy2(previous,seed/'picdata.bin');previous=seed/'picdata.bin';update(checkpoint_path=str(previous))

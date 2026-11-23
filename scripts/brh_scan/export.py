@@ -3,7 +3,7 @@
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
-import argparse,copy,csv,json,os,shutil,zipfile
+import argparse,copy,csv,json,os,shutil,time,zipfile
 os.environ.setdefault('MPLCONFIGDIR','/tmp/edupic-matplotlib')
 import numpy as np
 import matplotlib
@@ -68,7 +68,7 @@ def core_plots(d,out,L,note):
 
 def export(root,out):
     out.mkdir(parents=True,exist_ok=True);cfg=json.loads((root/'config.json').read_text());criteria=json.loads((root/'criteria.json').read_text());date=datetime.now(ZoneInfo('Asia/Seoul')).isoformat(timespec='seconds')
-    for f in ['config.json','criteria.json','diagnostics_validated.json']:
+    for f in ['config.json','criteria.json','diagnostics_validated.json','measurement_engine_validated.json']:
         if (root/f).exists():shutil.copy2(root/f,out/f)
     conditions={'gas':'Ar','pressure_mTorr':20,'temperature_K':350,'frequency_MHz':13.56,'voltage_peak_V':[250],'gap_mm':cfg['gaps_mm'],
         'steps_per_RF':8000,'grid_points':'401–1921 (dx ≤62.5 µm)','weight':112000,'electrodes':'상부 x=L RF / 하부 x=0 접지',
@@ -118,14 +118,14 @@ def export(root,out):
         archive_meta=target/'restart_manifest.json';old=json.loads(archive_meta.read_text()) if archive_meta.exists() else {}
         final=status in ['criteria_met','extinguished','measurement_limit_reached','total_cycle_limit_reached','paused_error','paused_at_checkpoint']
         cp=Path(state.get('checkpoint_path',d/'input_cycle0.bin'))
-        if not old or cpRF-old.get('RF',-10000)>=500 or (final and old.get('checkpoint_SHA256')!=sha(cp)):
+        if not old or cpRF-old.get('RF',-10000)>=500 or (cpRF>old.get('RF',-1) and time.time()-old.get('backup_time_unix',0)>=3600) or (final and old.get('checkpoint_SHA256')!=sha(cp)):
             archive=target/f'261123_{folder}_restart.zip'
             with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=3) as z:
                 z.write(cp,'picdata.bin')
                 for f in ['brh_state.bin','brh_rng.txt']:
                     if (cp.parent/f).exists():z.write(cp.parent/f,f)
                 z.writestr('provenance.json',json.dumps({'RF':cpRF,'gap_mm':gap,'source_control_SHA256':cfg['control_source_SHA256'],'checkpoint_SHA256':sha(cp),'companion_state':(cp.parent/'brh_state.bin').exists(),'note':'Without brh companion, RNG and optical-depth draws restart statistically; with companion all are restored. Diagnostic histograms are per measurement block.'},indent=2))
-            old={'RF':cpRF,'checkpoint_SHA256':sha(cp),'archive':archive.name};put(archive_meta,old)
+            old={'RF':cpRF,'checkpoint_SHA256':sha(cp),'archive':archive.name,'backup_time_unix':time.time()};put(archive_meta,old)
         downloads += [{'label':f'재시작 입자·동반 상태 (저장 RF {old["RF"]}; 보고서의 최신 RF와 다를 수 있음)','path':old['archive']},{'label':'재시작 파일 provenance','path':'restart_manifest.json'}]
         brhtext='아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.'
         if (d/'measurement_summary.json').exists():
@@ -168,9 +168,10 @@ def export(root,out):
             [{'id':'bounce','title':'BRH 왕복·위상·에너지 진단','text':'왕복 진단의 자료·그림·사건 통계는 조건별 상세 보고서에서 제공합니다.\n\n'+' · '.join(f'[{g} mm]({g}mm/README.md#brh-왕복위상에너지-진단)' for g in cfg['gaps_mm']),'images':[]}],
         downloads=[{'label':'조건별 진행 요약 CSV','path':'summary.csv'},{'label':'공통 설정','path':'config.json'},{'label':'수렴·중단 기준','path':'criteria.json'}])
     if (out/'diagnostics_validated.json').exists():parent['downloads'].append({'label':'수동 진단·재시작 검증','path':'diagnostics_validated.json'})
+    if (out/'measurement_engine_validated.json').exists():parent['downloads'].append({'label':'측정 제어·통합·압축·상한 중단 실행 검증','path':'measurement_engine_validated.json'})
     if any(pilot for _,_,pilot in entries):
         parent['sections'].append({'id':'pilot','title':'40mm 짧은 예비 진단 · 본 스캔과 구분','text':'[20RF 예비 진단의 조건·수치·그림·다운로드](pilot40mm/README.md). 본 gap 스캔의 수렴 결과가 아니며 BRH 확정 자료로 사용하지 않습니다.','images':[im('pilot40mm/figures/brh_returns.png','실제20RF의 왕복·위상·signed energy 진단. 상세 페이지에 위치별 EEPF와 순간 일 지도도 있습니다.')]})
-    source_files=[root/f for f in ['source_control.cc','source_brh.cc','brh_diagnostics.hpp','reference40.bin','config.json','criteria.json','diagnostics_validated.json','LICENSE'] if (root/f).exists()]
+    source_files=[root/f for f in ['source_control.cc','source_brh.cc','brh_diagnostics.hpp','reference40.bin','config.json','criteria.json','diagnostics_validated.json','measurement_engine_validated.json','LICENSE'] if (root/f).exists()]
     script_files=list((REPO/'scripts/brh_scan').glob('*.py'))+list((REPO/'scripts/brh_scan').glob('*.md'))
     sig=''.join(sha(f) for f in source_files+sorted(script_files));cached=out/'source_signature.txt'
     if not cached.exists() or cached.read_text()!=sig:

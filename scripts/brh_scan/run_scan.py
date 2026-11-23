@@ -16,6 +16,7 @@ def run_case(root,gap):
     if state['status'] in ['criteria_met','extinguished','measurement_limit_reached','total_cycle_limit_reached']:return state
     def update(**kw):state.update(kw,updated_at_Asia_Seoul=now());put(d/'status.json',state)
     try:
+        state.pop('error',None);state.pop('reason',None)
         previous=Path(state.get('checkpoint_path',str(d/'input_cycle0.bin')));cp=checkpoint(previous)
         history=np.loadtxt(d/'history.dat',ndmin=2).tolist() if (d/'history.dat').exists() else []
         update(status='running',phase=state.get('phase','warmup'),started_at_Asia_Seoul=state.get('started_at_Asia_Seoul',now()),controller_pid=os.getpid())
@@ -27,7 +28,7 @@ def run_case(root,gap):
             if stable['passed']:
                 update(phase='measurement',stationarity=stable,measurement_start_RF=cp['cycle']+1);break
             # One diagnostic RF every 100 RF; otherwise amortize startup over up to 49 RF.
-            diagnostic=cp['cycle']%100==99;count=1 if diagnostic else min(49,99-cp['cycle']%100)
+            diagnostic=cp['cycle']%100==99;count=min(1 if diagnostic else min(49,99-cp['cycle']%100),criteria['maximum_total_cycles']-cp['cycle'])
             start=cp['cycle']+1;end=cp['cycle']+count;work=d/'warmup'/f'RF{start:06d}-{end:06d}'
             if work.exists():work.rename(work.with_name(work.name+'.interrupted.'+str(time.time_ns())))
             work.mkdir(parents=True);shutil.copy2(previous,work/'picdata.bin')
@@ -64,6 +65,10 @@ def main():
     (root/'controller_finished.json').unlink(missing_ok=True)
     cfg=json.loads((root/'config.json').read_text());gaps=a.gaps or [40,60,100,120,30,50,80,25]
     put(root/'controller.json',{'pid':os.getpid(),'started_at_Asia_Seoul':now(),'gaps_mm':gaps,'max_workers':cfg['max_workers']})
+    for gap in gaps:
+        p=root/f'{gap}mm/status.json';queued=json.loads(p.read_text())
+        if queued['status'] not in ['criteria_met','extinguished','measurement_limit_reached','total_cycle_limit_reached']:
+            queued.update(status='queued',updated_at_Asia_Seoul=now());put(p,queued)
     with ThreadPoolExecutor(max_workers=cfg['max_workers']) as pool:
         futures=[pool.submit(run_case,root,g) for g in gaps]
         for future in as_completed(futures):future.result()

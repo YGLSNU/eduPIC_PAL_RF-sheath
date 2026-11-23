@@ -41,4 +41,6 @@ python scripts/results/publish_run.py /workspace/edupic-brh/export/261123_BRH_ga
 
 자동 업로더는 `python -u scripts/brh_scan/watch_publish.py ROOT`로 실행합니다. **15분 간격**, 소멸/기준 충족 등 상태 변화, 최종 종료 때 저장된 블록을 게시합니다. `ROOT/STOP_PUBLISH`로 업로드만 중단할 수 있습니다. `controller.log`, `publisher.log`, `last_publication.json`에 실행·게시 기록을 남깁니다. GitHub Actions는 목록을 동기화하며 클라우드의 PIC 계산을 대신하지 않습니다.
 
+재시작 ZIP은 매500RF 또는1시간 경과, 종료 시 갱신합니다. 표의 최신 체크포인트와 ZIP의 저장 RF가 다를 수 있으므로 다운로드 옆의 **실제 저장 RF**를 확인하세요. 진단 동반 상태는 현재 컴파일러·아키텍처의 binary 형식입니다. 다른 환경에서는 입자만 이용한 통계적 재시작과 새 진단 이력 작성을 선택할 수 있습니다.
+
 완료 전에는 소멸·안정화·정상 측정·통계 상한을 구분합니다. 최소600RF의 배경 안정화 뒤 최소200RF의 진단을 계획하므로 여러 시간이 걸릴 수 있습니다. BRH 유무는 METHOD의 사건 통계와 추가 검증을 함께 보고 판정합니다.
