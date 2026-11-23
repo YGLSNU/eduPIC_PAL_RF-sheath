@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**실행 대기** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 80 mm** · 보고서 갱신 2026-11-23T21:34:03+09:00
+**실행 대기** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 80 mm** · 보고서 갱신 2026-11-23T21:50:38+09:00
 
 실행 대기 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.
 
