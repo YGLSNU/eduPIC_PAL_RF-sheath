@@ -2,9 +2,9 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md)
 
-**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap 45 mm** · 보고서 갱신 2026-11-25T00:33:40+09:00
+**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap 45 mm** · 보고서 갱신 2026-11-25T00:51:17+09:00
 
-배경 입자 수 안정화 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.
+위상·입자 진단 측정 중; 최종 BRH 판정 전 검출된 상부 기준 왕복 2754개, 고유 UID 1298개. 위상 반복 후보 11개(고유 UID 11개). 검출 왕복 중 후보 비율 0.399%. 후보의 평균 signed field work 5.457 eV/왕복. 충돌을 합친 후보의 순 운동에너지 변화 2.921 eV/왕복. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.
 
 ## 실행 조건
 
@@ -20,7 +20,7 @@
 | 코드 | 40mm 기준 C/eduPIC.cc 계열을 C++11로 컴파일; 8k step/RF, 동일 optical-depth MCC, 수동 BRH 입자 진단 |
 | 소스 이력 | control SHA256 734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1; 진단 소스·헤더 SHA는 검증 기록/ZIP 참조 |
 | 초기·재시작 상태 | 40mm·250V RF2001 저장 입자에서 분포 재표본·x 변환·시간 stagger 변환. gap별 초기 물리 밀도와 가중치 고정. 과도구간은 정상 측정에서 제외. |
-| 측정 구간 | Warmup snapshot RF 1000–1000 (transient, not stationary) |
+| 측정 구간 | Measurement RF 1101–1120 (20 RF) |
 
 상태와 그래프는 마지막 저장 자료이며 실시간 CPU 실행 화면은 아닙니다.
 
@@ -30,11 +30,11 @@
 
 | 물리량 | 값 |
 |---|---|
-| 저장 체크포인트 | RF 1049 |
-| 정상 측정 누적 | 0 RF |
-| 현재 단계 | warmup |
-| 안정성 확인 | {"e": {"block_mean_span": 0.010751473734479128, "fitted_drift": 0.01653217035830531, "passed": false}, "i": {"block_mean_span": 0.010422760254363358, "fitted_drift": 0.01604350774457104, "passed": false}, "passed": false} |
-| 진행 상태 갱신 | 2026-11-25T00:33:56.316028+09:00 |
+| 저장 체크포인트 | RF 1120 |
+| 정상 측정 누적 | 20 RF |
+| 현재 단계 | measurement |
+| 안정성 확인 | {"e": {"block_mean_span": 0.007650743278666371, "fitted_drift": 0.01191847419290895, "passed": true}, "i": {"block_mean_span": 0.007474161606376181, "fitted_drift": 0.011632136627501862, "passed": true}, "passed": true} |
+| 진행 상태 갱신 | 2026-11-25T00:48:01.723684+09:00 |
 
 ## 자료 범위
 
@@ -53,69 +53,101 @@
 
 
 
-![저장된 이력 RF1–1049. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.](figures/convergence.png)
+![저장된 이력 RF1–1120. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.](figures/convergence.png)
 
-저장된 이력 RF1–1049. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.
+저장된 이력 RF1–1120. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.
 
 ## 밀도 공간분포
 
 
 
-![Warmup snapshot RF 1000–1000 (transient, not stationary)](figures/density.png)
+![Measurement RF 1101–1120 (20 RF)](figures/density.png)
 
-Warmup snapshot RF 1000–1000 (transient, not stationary)
+Measurement RF 1101–1120 (20 RF)
 
 ## RF heating
 
 
 
-![Warmup snapshot RF 1000–1000 (transient, not stationary)](figures/heating.png)
+![Measurement RF 1101–1120 (20 RF)](figures/heating.png)
 
-Warmup snapshot RF 1000–1000 (transient, not stationary)
+Measurement RF 1101–1120 (20 RF)
 
 ## 전위·전기장
 
 
 
-![Warmup snapshot RF 1000–1000 (transient, not stationary)](figures/fields.png)
+![Measurement RF 1101–1120 (20 RF)](figures/fields.png)
 
-Warmup snapshot RF 1000–1000 (transient, not stationary)
+Measurement RF 1101–1120 (20 RF)
 
 ## 평균 에너지·이온화
 
 
 
-![Warmup snapshot RF 1000–1000 (transient, not stationary)](figures/ionization.png)
+![Measurement RF 1101–1120 (20 RF)](figures/ionization.png)
 
-Warmup snapshot RF 1000–1000 (transient, not stationary)
+Measurement RF 1101–1120 (20 RF)
 
 ## 에너지 분포
 
 
 
-![Warmup snapshot RF 1000–1000 (transient, not stationary); 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다.](figures/distributions.png)
+![Last native block RF 1101–1120 only (20 RF); pooled EEDF uses raw new histogram counts; 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다.](figures/distributions.png)
 
-Warmup snapshot RF 1000–1000 (transient, not stationary); 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다.
+Last native block RF 1101–1120 only (20 RF); pooled EEDF uses raw new histogram counts; 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다.
 
 ## 전극 flux·손실
 
 
 
-![Warmup snapshot RF 1000–1000 (transient, not stationary)](figures/walls.png)
+![Measurement RF 1101–1120 (20 RF)](figures/walls.png)
 
-Warmup snapshot RF 1000–1000 (transient, not stationary)
+Measurement RF 1101–1120 (20 RF)
 
 ## 전력 전달·손실
 
 
 
-![Warmup snapshot RF 1000–1000 (transient, not stationary); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다.](figures/power.png)
+![Measurement RF 1101–1120 (20 RF); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다.](figures/power.png)
 
-Warmup snapshot RF 1000–1000 (transient, not stationary); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다.
+Measurement RF 1101–1120 (20 RF); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다.
 
 ## BRH 왕복·위상·에너지 진단
 
-**자료 없음:** 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.
+검출된 상부 기준 왕복 2754개, 고유 UID 1298개. 위상 반복 후보 11개(고유 UID 11개). 검출 왕복 중 후보 비율 0.399%. 후보의 평균 signed field work 5.457 eV/왕복. 충돌을 합친 후보의 순 운동에너지 변화 2.921 eV/왕복. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.
+
+![RF 1101–1120 (20 RF); exploratory diagnostics; 에너지 부호와 독립적으로 정한 반복 위상 후보. 충돌/경계 검출 조건은 METHOD 참조.](figures/brh_returns.png)
+
+RF 1101–1120 (20 RF); exploratory diagnostics; 에너지 부호와 독립적으로 정한 반복 위상 후보. 충돌/경계 검출 조건은 METHOD 참조.
+
+![RF 1101–1120 (20 RF); exploratory diagnostics; 실제 전기장 회전 시각의 위상 재현성과 연속 왕복 횟수. 기준면 재도착 위상과 구분합니다.](figures/phase_persistence.png)
+
+RF 1101–1120 (20 RF); exploratory diagnostics; 실제 전기장 회전 시각의 위상 재현성과 연속 왕복 횟수. 기준면 재도착 위상과 구분합니다.
+
+![첫 측정 블록의 처음5RF, 해시 추출 UID 중 기록이 긴 최대12개 궤적 예시. 집단 전체의 BRH 증거로 단독 사용하지 않습니다.](figures/trajectories.png)
+
+첫 측정 블록의 처음5RF, 해시 추출 UID 중 기록이 긴 최대12개 궤적 예시. 집단 전체의 BRH 증거로 단독 사용하지 않습니다.
+
+## 위치별 EEPF·Ex 및 위상별 EEDF
+
+
+
+![RF 1101–1120 (20 RF); exploratory diagnostics; 전체 E와 Ex를 구분합니다. 각 위치에서 E<500eV 사건으로 정규화.](figures/eepf_positions.png)
+
+RF 1101–1120 (20 RF); exploratory diagnostics; 전체 E와 Ex를 구분합니다. 각 위치에서 E<500eV 사건으로 정규화.
+
+![RF 1101–1120 (20 RF); exploratory diagnostics; 중앙10%의 위상별 EEDF.](figures/phase_eedf.png)
+
+RF 1101–1120 (20 RF); exploratory diagnostics; 중앙10%의 위상별 EEDF.
+
+## 순간 전기장 일 지도
+
+
+
+![RF 1101–1120 (20 RF); exploratory diagnostics; 순간 kick 에너지의 평균. 표준 heating의 <j>×<E>와 다릅니다.](figures/instantaneous_work.png)
+
+RF 1101–1120 (20 RF); exploratory diagnostics; 순간 kick 에너지의 평균. 표준 heating의 <j>×<E>와 다릅니다.
 
 ## 읽는 기준
 
@@ -128,10 +160,13 @@ Warmup snapshot RF 1000–1000 (transient, not stationary); 이산 field work와
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| 저장된 실행 상태·실제 RF·종료 사유 | [status.json](status.json) | 1.7 KiB |
-| 표준 진단 원시 수치·이력: Warmup snapshot RF 1000–1000 (transient, not stationary) | [261124_45mm_core.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/45mm/261124_45mm_core.zip) | 6.77 MiB |
-| 입자 수 이력 CSV | [history.csv](history.csv) | 16.4 KiB |
-| 재시작 입자·동반 상태 (저장 RF 649; 보고서의 최신 RF와 다를 수 있음) | [261124_45mm_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/45mm/261124_45mm_restart.zip) | 3.71 MiB |
-| 재시작 파일 provenance | [restart_manifest.json](restart_manifest.json) | 189 B |
+| 저장된 실행 상태·실제 RF·종료 사유 | [status.json](status.json) | 3.6 KiB |
+| 표준 진단 원시 수치·이력: Measurement RF 1101–1120 (20 RF) | [261124_45mm_core.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/45mm/261124_45mm_core.zip) | 7.15 MiB |
+| 입자 수 이력 CSV | [history.csv](history.csv) | 17.5 KiB |
+| 재시작 입자·동반 상태 (저장 RF 1120; 보고서의 최신 RF와 다를 수 있음) | [261124_45mm_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/45mm/261124_45mm_restart.zip) | 4.84 MiB |
+| 재시작 파일 provenance | [restart_manifest.json](restart_manifest.json) | 190 B |
+| BRH 사건·원시 energy counts·probe·일 지도 (1/1; 분할 시 모두 받기) | [261124_45mm_BRH_data.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/45mm/261124_45mm_BRH_data.zip) | 11.56 MiB |
+| BRH 수치·표본 수·해석 범위 | [measurement_summary.json](measurement_summary.json) | 3.1 KiB |
+| 위치별 EEPF CSV (raw count 포함) | [position_eepf.csv](data/position_eepf.csv) | 276.4 KiB |
 
 [전체 파일 목록·SHA256](files.json)

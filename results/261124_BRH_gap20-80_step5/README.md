@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF)
 
-**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm** · 보고서 갱신 2026-11-25T00:33:40+09:00
+**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm** · 보고서 갱신 2026-11-25T00:51:17+09:00
 
 250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다. 2026-11-24 사용자 지시: 80·100·120 mm는 완결 블록에서 일시중단하고 재시작 자료를 보관합니다. 미완료 35→45→55→65→70→75 mm를 작은 gap부터 먼저 배정하며 최대4개를 병렬 계산합니다. 완료 조건은 기존 결과를 재사용합니다. 기존 실행 재사용: 25, 30, 40, 50, 60, 80 mm. 새 계산: 20, 35, 45, 55, 65, 70, 75 mm. 재사용 조건의 원 실행일·상한/소멸 상태를 유지합니다.
 
@@ -33,13 +33,13 @@
 | 20 | 전자 소멸 | 95 | 0 | — | [그림·다운로드](20mm/README.md) |
 | 25 | 전자 소멸 | 245 | 0 | — | [그림·다운로드](25mm/README.md) |
 | 30 | 측정 상한·기준 미충족 | 2851 | 1000 | 2.798e+14 | [그림·다운로드](30mm/README.md) |
-| 35 | 계산 중 | 2400 | 700 | 8.335e+14 | [그림·다운로드](35mm/README.md) |
+| 35 | 계산 중 | 2500 | 800 | 8.329e+14 | [그림·다운로드](35mm/README.md) |
 | 40 | 측정 상한·기준 미충족 | 1602 | 1000 | 1.286e+15 | [그림·다운로드](40mm/README.md) |
-| 45 | 계산 중 | 1049 | 0 | — | [그림·다운로드](45mm/README.md) |
+| 45 | 계산 중 | 1120 | 20 | — | [그림·다운로드](45mm/README.md) |
 | 50 | 측정 상한·기준 미충족 | 2351 | 1000 | 1.720e+15 | [그림·다운로드](50mm/README.md) |
-| 55 | 계산 중 | 1631 | 180 | 1.811e+15 | [그림·다운로드](55mm/README.md) |
+| 55 | 계산 중 | 1671 | 220 | 1.811e+15 | [그림·다운로드](55mm/README.md) |
 | 60 | 측정 상한·기준 미충족 | 2751 | 1000 | 1.892e+15 | [그림·다운로드](60mm/README.md) |
-| 65 | 계산 중 | 1700 | 0 | — | [그림·다운로드](65mm/README.md) |
+| 65 | 계산 중 | 1749 | 0 | — | [그림·다운로드](65mm/README.md) |
 | 70 | 실행 대기 | 0 | 0 | — | [그림·다운로드](70mm/README.md) |
 | 75 | 실행 대기 | 0 | 0 | — | [그림·다운로드](75mm/README.md) |
 | 80 | 체크포인트 중단 | 2420 | 220 | 2.121e+15 | [그림·다운로드](80mm/README.md) |
@@ -132,10 +132,11 @@ gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측�
 | Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |
 |---:|---|---|---:|---:|---:|---:|
 | 30 | measurement_limit_reached | 1852–2851 (1000RF) | 32281 / 395 | 352 | 1.224 | 5.052 |
-| 35 | running | 1701–2400 (700RF) | 67359 / 252 | 235 | 0.374 | 6.767 |
+| 35 | running | 1701–2500 (800RF) | 77450 / 285 | 268 | 0.368 | 6.809 |
 | 40 | measurement_limit_reached | 603–1602 (1000RF) | 212801 / 488 | 455 | 0.229 | 4.257 |
+| 45 | running | 1101–1120 (20RF) | 2754 / 11 | 11 | 0.399 | 5.457 |
 | 50 | measurement_limit_reached | 1352–2351 (1000RF) | 200379 / 323 | 305 | 0.161 | 2.075 |
-| 55 | running | 1452–1631 (180RF) | 30229 / 22 | 22 | 0.073 | 0.7986 |
+| 55 | running | 1452–1671 (220RF) | 37408 / 25 | 25 | 0.067 | 0.9147 |
 | 60 | measurement_limit_reached | 1752–2751 (1000RF) | 168729 / 33 | 33 | 0.020 | 4.494 |
 | 80 | paused_at_checkpoint | 2201–2420 (220RF) | 23810 / 0 | 0 | 0.000 | — |
 
@@ -151,13 +152,13 @@ gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측�
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| 조건별 진행 요약 CSV | [summary.csv](summary.csv) | 1.8 KiB |
+| 조건별 진행 요약 CSV | [summary.csv](summary.csv) | 1.9 KiB |
 | 공통 설정 | [config.json](config.json) | 4.2 KiB |
 | 수렴·중단 기준 | [criteria.json](criteria.json) | 2.3 KiB |
 | 수동 진단·재시작 검증 | [diagnostics_validated.json](diagnostics_validated.json) | 1.3 KiB |
 | 측정 제어·통합·압축·상한 중단 실행 검증 | [measurement_engine_validated.json](measurement_engine_validated.json) | 1.5 KiB |
 | 새 gap에서 진단 비간섭·수치 안정성 확인 | [new_gap_validation.json](new_gap_validation.json) | 1.5 KiB |
-| gap별 BRH 사건·에너지·불확실도 요약 CSV | [brh_gap_summary.csv](brh_gap_summary.csv) | 1.2 KiB |
+| gap별 BRH 사건·에너지·불확실도 요약 CSV | [brh_gap_summary.csv](brh_gap_summary.csv) | 1.3 KiB |
 | 실행 소스·진단·설정·원본40mm 기준 입자 | [261124_BRH_source.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/261124_BRH_source.zip) | 2.86 MiB |
 
 [전체 파일 목록·SHA256](files.json)
