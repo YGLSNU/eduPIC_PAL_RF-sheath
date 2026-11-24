@@ -17,40 +17,40 @@
   ],
   "initial_SHA256": "9a86d078744e705ee85127fa6d3ec6e57ef3da809712c82177b4ec497f5dac42",
   "initial_e": 40154,
-  "status": "running",
+  "status": "queued",
   "phase": "warmup",
-  "checkpoint_cycle": 1149,
+  "checkpoint_cycle": 1299,
   "measured_RF": 0,
-  "elapsed_solver_seconds": 3941.2491784197045,
+  "elapsed_solver_seconds": 4458.451844763826,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "execution_date": "2026-11-24",
-  "updated_at_Asia_Seoul": "2026-11-24T14:44:02.713395+09:00",
+  "updated_at_Asia_Seoul": "2026-11-24T14:54:40.173482+09:00",
   "started_at_Asia_Seoul": "2026-11-24T12:37:17.326004+09:00",
   "controller_pid": 647219,
   "active_RF": [
-    1150,
-    1198
+    1300,
+    1300
   ],
   "stationarity": {
     "e": {
-      "block_mean_span": 0.01997384712629616,
-      "fitted_drift": 0.03076333681081784,
+      "block_mean_span": 0.013696976180157557,
+      "fitted_drift": 0.02094771256021286,
       "passed": false
     },
     "i": {
-      "block_mean_span": 0.01885258761583723,
-      "fitted_drift": 0.028962607132735668,
+      "block_mean_span": 0.01281713097798247,
+      "fitted_drift": 0.019538832699548928,
       "passed": false
     },
     "passed": false
   },
-  "execution_state": "solver",
+  "execution_state": "waiting_for_capacity",
   "capacity_reserved_for_earlier_scan": 3,
-  "solver_pid": 674496,
-  "checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/warmup/RF001101-001149/picdata.bin",
-  "electrons": 26374,
-  "ions": 28616,
-  "last_block_seconds": 146.0697861330118,
-  "last_RF_seconds": 2.981016043530853,
-  "last_diagnostic_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/warmup/RF001100-001100"
+  "solver_pid": null,
+  "checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/warmup/RF001299-001299/picdata.bin",
+  "electrons": 26029,
+  "ions": 28307,
+  "last_block_seconds": 3.8295674539986067,
+  "last_RF_seconds": 3.8295674539986067,
+  "last_diagnostic_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/warmup/RF001200-001200"
 }

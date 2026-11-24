@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-24T14:46:33+09:00",
+  "report_updated": "2026-11-24T14:54:35+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -62,8 +62,8 @@
     {
       "gap_mm": 20,
       "voltage_V": 250,
-      "status": "queued",
-      "total_rf": 0,
+      "status": "extinguished",
+      "total_rf": 95,
       "measurement_rf": 0,
       "ne_mean_m3": null,
       "path": "20mm/README.md"
@@ -89,8 +89,8 @@
     {
       "gap_mm": 35,
       "voltage_V": 250,
-      "status": "running",
-      "total_rf": 1149,
+      "status": "queued",
+      "total_rf": 1299,
       "measurement_rf": 0,
       "ne_mean_m3": null,
       "path": "35mm/README.md"
@@ -143,7 +143,7 @@
     {
       "gap_mm": 65,
       "voltage_V": 250,
-      "status": "queued",
+      "status": "running",
       "total_rf": 0,
       "measurement_rf": 0,
       "ne_mean_m3": null,
@@ -171,7 +171,7 @@
       "gap_mm": 80,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 1400,
+      "total_rf": 1449,
       "measurement_rf": 0,
       "ne_mean_m3": null,
       "path": "80mm/README.md"
@@ -266,9 +266,9 @@
     {
       "label": "조건별 진행 요약 CSV",
       "path": "summary.csv",
-      "bytes": 1531,
-      "sha256": "7e291a8631dad1ba9aea656dfa8d5e3f22e21b1a03d64f14f425863f552316dd",
-      "git_blob": "67ab9b9af4fe398b60d99d20cd230a7c0f87e8b4"
+      "bytes": 1675,
+      "sha256": "69bf1d00ed587def60e4c28704f83ed606b8765ed1a740661a47c29cf73f36b3",
+      "git_blob": "ae22147f584e80da2874dfa590aa4a8f310aa922"
     },
     {
       "label": "공통 설정",

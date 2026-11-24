@@ -17,26 +17,34 @@
   ],
   "initial_SHA256": "b32d50aaaa585b5b26e8c4a49dfd5ae8d22b8c6b50937bc8e9d06d8fcf665da2",
   "initial_e": 22945,
-  "status": "queued",
+  "status": "extinguished",
   "phase": "warmup",
-  "checkpoint_cycle": 0,
+  "checkpoint_cycle": 95,
   "measured_RF": 0,
-  "elapsed_solver_seconds": 0.0,
+  "elapsed_solver_seconds": 95.02980902104173,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "execution_date": "2026-11-24",
-  "updated_at_Asia_Seoul": "2026-11-24T14:46:06.660418+09:00",
+  "updated_at_Asia_Seoul": "2026-11-24T14:54:15.045116+09:00",
   "started_at_Asia_Seoul": "2026-11-24T12:37:17.344792+09:00",
   "controller_pid": 647219,
   "active_RF": [
-    1,
-    49
+    50,
+    98
   ],
   "stationarity": {
     "passed": false,
-    "available_RF": 0,
+    "available_RF": 49,
     "required_RF": 600
   },
-  "execution_state": "waiting_for_capacity",
+  "execution_state": "solver",
   "capacity_reserved_for_earlier_scan": 3,
-  "solver_pid": null
+  "solver_pid": 677333,
+  "checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/20mm/warmup/RF000050-000098/picdata.bin",
+  "electrons": 0,
+  "ions": 1292,
+  "last_block_seconds": 17.86239772499539,
+  "last_RF_seconds": 0.3883129940216389,
+  "last_diagnostic_path": null,
+  "first_zero_electron_RF": 95,
+  "reason": "No electrons remain. Steady-discharge EEDF/BRH diagnostics are undefined."
 }
