@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-24T17:07:37+09:00",
+  "report_updated": "2026-11-24T17:24:58+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -53,7 +53,7 @@
       "images": [
         {
           "path": "figures/convergence.png",
-          "caption": "저장된 이력 RF1–1900. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+          "caption": "저장된 이력 RF1–1949. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
         }
       ]
     },
@@ -153,9 +153,9 @@
     {
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
-      "bytes": 1702,
-      "sha256": "1921a857d2ffc3c2cbbdf13b88632501ccf96d183372a798c146d6cf875cdc87",
-      "git_blob": "ac258d81eafed60ce0fe293208b70b7b4ab6006a"
+      "bytes": 1703,
+      "sha256": "cbfa96fc9ce58be273e49193ba264f32b9c181b0c4dc50e6557c2efee75663d4",
+      "git_blob": "ae5318f3c86e6acbf3089f7a4269b926429fa515"
     },
     {
       "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 1900–1900 (transient, not stationary)",
@@ -167,9 +167,9 @@
     {
       "label": "입자 수 이력 CSV",
       "path": "history.csv",
-      "bytes": 35030,
-      "sha256": "50fb0a137f87c118ffb2875b27c839475ee1c505961f18036930355c38ec78d9",
-      "git_blob": "4cf8383bc90148790b56485592bc8247869f7595"
+      "bytes": 35961,
+      "sha256": "f119ec4eb87146d67b3eb8b020fc7cb794462d8e53c383dcc1d9dc902b0cd062",
+      "git_blob": "a3275e46418f1dd45a388de884c535041c52b337"
     },
     {
       "label": "재시작 입자·동반 상태 (저장 RF 1900; 보고서의 최신 RF와 다를 수 있음)",
@@ -189,7 +189,7 @@
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 1900"
+      "RF 1949"
     ],
     [
       "정상 측정 누적",
@@ -201,11 +201,11 @@
     ],
     [
       "안정성 확인",
-      "{\"e\": {\"block_mean_span\": 0.013208722962217378, \"fitted_drift\": 0.019776715278205913, \"passed\": false}, \"i\": {\"block_mean_span\": 0.013062056600454884, \"fitted_drift\": 0.019550950131226354, \"passed\": false}, \"passed\": false}"
+      "{\"e\": {\"block_mean_span\": 0.01232397639157505, \"fitted_drift\": 0.018630551256132947, \"passed\": false}, \"i\": {\"block_mean_span\": 0.012190250825839848, \"fitted_drift\": 0.018437615506439627, \"passed\": false}, \"passed\": false}"
     ],
     [
       "진행 상태 갱신",
-      "2026-11-24T17:06:36.467877+09:00"
+      "2026-11-24T17:21:36.651623+09:00"
     ]
   ],
   "reused_from_run": "261123_BRH_gap25-120",

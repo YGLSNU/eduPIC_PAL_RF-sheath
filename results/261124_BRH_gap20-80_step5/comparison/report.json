@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-24T17:07:37+09:00",
+  "report_updated": "2026-11-24T17:24:58+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -186,15 +186,15 @@
       "label": "계획 gap 전체 상태 CSV",
       "path": "data/gap_status.csv",
       "bytes": 540,
-      "sha256": "847711ad7fb1c4ba8ebd861060630548cc3b09fa43f0f775dea78650def702a8",
-      "git_blob": "00fe9aca56d15bf8575bd15743264036569440c5"
+      "sha256": "38d10948e8b9bad92cb6e1e4819b00540b70a039111fb191e07bfa270da0aced",
+      "git_blob": "16460b251236325ed0f7227a8a45ee7e1c101443"
     },
     {
       "label": "전자별 횟수·episode 에너지·선택 궤적 CSV 모음",
       "path": "261124_BRH_comparison.zip",
-      "bytes": 1067232,
-      "sha256": "b941dc4b7123d75318edd486b8673dee267d9b90e7922c5a49c890799410e3ef",
-      "git_blob": "0669f242524c70b1c0fbaaf0943fb7ed2942d8e8"
+      "bytes": 1067233,
+      "sha256": "7c87527d17b0fc2c79d7b67d8ab6e770167cde0ab53a64d93f216a788ba19b1e",
+      "git_blob": "9bf3dbfd5511b8370f1621e0ff2aee76d9453be4"
     },
     {
       "label": "원자료 구간·SHA·에너지 장부 검증",
