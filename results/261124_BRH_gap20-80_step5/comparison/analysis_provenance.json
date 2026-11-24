@@ -73,12 +73,12 @@
     },
     {
       "gap_mm": 35,
-      "summary_sha256": "b7ddacda415a30ccf353cf1eefb02751680267550cac1f79dd0d550be340533d",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/brh_pooled_RF001900/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/pooled_epoch1_RF001900",
+      "summary_sha256": "ec94103c130d017fb139a612a042d79504304ee199f195e2d43de05aed3c145c",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/brh_pooled_RF002000/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/pooled_epoch1_RF002000",
       "RF_first": 1701,
-      "RF_last": 1900,
-      "measured_RF": 200,
+      "RF_last": 2000,
+      "measured_RF": 300,
       "measurement_blocks": [
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001701-001720",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001721-001740",
@@ -89,13 +89,18 @@
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001821-001840",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001841-001860",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001861-001880",
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001881-001900"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001881-001900",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001901-001920",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001921-001940",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001941-001960",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001961-001980",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001981-002000"
       ],
       "validation": {
-        "matched_start_energies": 17994,
+        "matched_start_energies": 27790,
         "reconstructed_start_energies": 9,
         "maximum_endpoint_discrepancy_eV": 1.000053373445553e-10,
-        "episode_nodes": 249,
+        "episode_nodes": 342,
         "ledger_and_candidate_counts_passed": true
       },
       "reused_from_run": null,
@@ -243,20 +248,22 @@
     },
     {
       "gap_mm": 55,
-      "summary_sha256": "b57119900445189239a1441f67899f528328fa54b0b84b7a21735878131bfdec",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/brh_pooled_RF001471/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/pooled_epoch1_RF001471",
+      "summary_sha256": "38b2753d72b161bdfe0d5d531bd9626c1941e1bd5ea9e0eb7aad395459ff3c1c",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/brh_pooled_RF001511/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/pooled_epoch1_RF001511",
       "RF_first": 1452,
-      "RF_last": 1471,
-      "measured_RF": 20,
+      "RF_last": 1511,
+      "measured_RF": 60,
       "measurement_blocks": [
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001452-001471"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001452-001471",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001472-001491",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001492-001511"
       ],
       "validation": {
-        "matched_start_energies": 2025,
-        "reconstructed_start_energies": 24,
+        "matched_start_energies": 8513,
+        "reconstructed_start_energies": 28,
         "maximum_endpoint_discrepancy_eV": 1.000035609877159e-10,
-        "episode_nodes": 6,
+        "episode_nodes": 15,
         "ledger_and_candidate_counts_passed": true
       },
       "reused_from_run": null,
