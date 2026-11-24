@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md)
 
-**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap20–80 mm 비교** · 보고서 갱신 2026-11-24T15:10:55+09:00
+**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap20–80 mm 비교** · 보고서 갱신 2026-11-24T15:27:25+09:00
 
 13개 계획 조건의 실제 상태와 확보된 측정만 비교합니다. 실행일은 원 계산 시작일이며 보고서 갱신일과 구분합니다. 기존 조건 재사용은 CSV의 reused_from_run·execution_date와 개별 보고서에 표시합니다. 모든 gap 완료·BRH 확정을 뜻하지 않습니다.
 
