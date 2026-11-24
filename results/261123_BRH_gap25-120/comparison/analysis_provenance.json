@@ -319,6 +319,27 @@
       },
       "reused_from_run": null,
       "execution_date": "2026-11-23"
+    },
+    {
+      "gap_mm": 120,
+      "summary_sha256": "68d7a630d2a3eaff8a57ba397471259cd71e4e2ef598d858497eeb7645126cb1",
+      "measurement_summary_path": "/workspace/edupic-brh/261123_BRH_gap25-120/120mm/brh_pooled_RF002620/summary.json",
+      "native_path": "/workspace/edupic-brh/261123_BRH_gap25-120/120mm/pooled_epoch1_RF002620",
+      "RF_first": 2601,
+      "RF_last": 2620,
+      "measured_RF": 20,
+      "measurement_blocks": [
+        "/workspace/edupic-brh/261123_BRH_gap25-120/120mm/measurement_epoch1/RF002601-002620"
+      ],
+      "validation": {
+        "matched_start_energies": 124,
+        "reconstructed_start_energies": 13,
+        "maximum_endpoint_discrepancy_eV": 8.000178297606908e-11,
+        "episode_nodes": 0,
+        "ledger_and_candidate_counts_passed": true
+      },
+      "reused_from_run": null,
+      "execution_date": "2026-11-23"
     }
   ],
   "conditions": {
