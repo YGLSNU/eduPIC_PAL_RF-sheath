@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-25T05:06:18+09:00",
+  "report_updated": "2026-11-25T06:10:51+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -108,9 +108,9 @@
       "gap_mm": 45,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 1780,
-      "measurement_rf": 680,
-      "ne_mean_m3": 1558404177072713.0,
+      "total_rf": 1940,
+      "measurement_rf": 840,
+      "ne_mean_m3": 1559477276759345.8,
       "path": "45mm/README.md"
     },
     {
@@ -126,9 +126,9 @@
       "gap_mm": 55,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 2111,
-      "measurement_rf": 660,
-      "ne_mean_m3": 1812773481554360.5,
+      "total_rf": 2231,
+      "measurement_rf": 780,
+      "ne_mean_m3": 1814272405590775.2,
       "path": "55mm/README.md"
     },
     {
@@ -144,16 +144,16 @@
       "gap_mm": 65,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 2160,
-      "measurement_rf": 360,
-      "ne_mean_m3": 1937104806852066.8,
+      "total_rf": 2260,
+      "measurement_rf": 460,
+      "ne_mean_m3": 1938374809567131.2,
       "path": "65mm/README.md"
     },
     {
       "gap_mm": 70,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 900,
+      "total_rf": 1149,
       "measurement_rf": 0,
       "ne_mean_m3": null,
       "path": "70mm/README.md"
@@ -259,16 +259,16 @@
           "caption": "각gap의 실제 측정 RF를 범례에 표시했습니다. 중앙10%, E<500eV로 정규화한 원시 counts 기반 비교입니다."
         }
       ],
-      "table": "| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |\n|---:|---|---|---:|---:|---:|---:|\n| 30 | measurement_limit_reached | 1852–2851 (1000RF) | 32281 / 395 | 352 | 1.224 | 5.052 |\n| 35 | measurement_limit_reached | 1701–2700 (1000RF) | 97148 / 353 | 332 | 0.363 | 6.901 |\n| 40 | measurement_limit_reached | 603–1602 (1000RF) | 212801 / 488 | 455 | 0.229 | 4.257 |\n| 45 | running | 1101–1780 (680RF) | 142650 / 279 | 261 | 0.196 | 2.079 |\n| 50 | measurement_limit_reached | 1352–2351 (1000RF) | 200379 / 323 | 305 | 0.161 | 2.075 |\n| 55 | running | 1452–2111 (660RF) | 117925 / 103 | 99 | 0.087 | 1.276 |\n| 60 | measurement_limit_reached | 1752–2751 (1000RF) | 168729 / 33 | 33 | 0.020 | 4.494 |\n| 65 | running | 1801–2160 (360RF) | 53449 / 4 | 4 | 0.007 | 4.024 |\n| 80 | paused_at_checkpoint | 2201–2420 (220RF) | 23810 / 0 | 0 | 0.000 | — |\n"
+      "table": "| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |\n|---:|---|---|---:|---:|---:|---:|\n| 30 | measurement_limit_reached | 1852–2851 (1000RF) | 32281 / 395 | 352 | 1.224 | 5.052 |\n| 35 | measurement_limit_reached | 1701–2700 (1000RF) | 97148 / 353 | 332 | 0.363 | 6.901 |\n| 40 | measurement_limit_reached | 603–1602 (1000RF) | 212801 / 488 | 455 | 0.229 | 4.257 |\n| 45 | running | 1101–1940 (840RF) | 176343 / 336 | 318 | 0.191 | 2.105 |\n| 50 | measurement_limit_reached | 1352–2351 (1000RF) | 200379 / 323 | 305 | 0.161 | 2.075 |\n| 55 | running | 1452–2231 (780RF) | 140318 / 121 | 116 | 0.086 | 1.218 |\n| 60 | measurement_limit_reached | 1752–2751 (1000RF) | 168729 / 33 | 33 | 0.020 | 4.494 |\n| 65 | running | 1801–2260 (460RF) | 69475 / 5 | 5 | 0.007 | 3.168 |\n| 80 | paused_at_checkpoint | 2201–2420 (220RF) | 23810 / 0 | 0 | 0.000 | — |\n"
     }
   ],
   "downloads": [
     {
       "label": "조건별 진행 요약 CSV",
       "path": "summary.csv",
-      "bytes": 2062,
-      "sha256": "28ba36f44570d7200d4eed82fbd73e4270e1f6dc519ffcdbb997fc53b1211c68",
-      "git_blob": "cf92200847b7552c58be04fac82aff804f6f416d"
+      "bytes": 2064,
+      "sha256": "70df53ccba131787d73c4a63d097dff9c3e6d303c2a7b299e54d8e39ab66c3f8",
+      "git_blob": "61322588fd4a50374656e80605641b50620c0b69"
     },
     {
       "label": "공통 설정",
@@ -308,9 +308,9 @@
     {
       "label": "gap별 BRH 사건·에너지·불확실도 요약 CSV",
       "path": "brh_gap_summary.csv",
-      "bytes": 1514,
-      "sha256": "b2e053edcaae6fa2c378a7c5c7dadb4366a6ab1f712c610c86efe0a5b9f193d3",
-      "git_blob": "8aa944eafd626d694b150527bf0a596372b681e8"
+      "bytes": 1516,
+      "sha256": "f5ade9139d588171da40e26cc1afc92e5c253fc9e58fb2615e28eb79b00f11d9",
+      "git_blob": "7145385dd7a870b922b67bafab82dffba48ec5d0"
     },
     {
       "label": "실행 소스·진단·설정·원본40mm 기준 입자",
