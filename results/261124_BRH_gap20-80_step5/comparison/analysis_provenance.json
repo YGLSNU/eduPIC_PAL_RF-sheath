@@ -280,6 +280,27 @@
       },
       "reused_from_run": "261123_BRH_gap25-120",
       "execution_date": "2026-11-23"
+    },
+    {
+      "gap_mm": 80,
+      "summary_sha256": "08f20979a6a2c0990f0b4c1483c3ede866725e4ebfb28a9930f3c4b82518f24b",
+      "measurement_summary_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/brh_pooled_RF002220/summary.json",
+      "native_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/pooled_epoch1_RF002220",
+      "RF_first": 2201,
+      "RF_last": 2220,
+      "measured_RF": 20,
+      "measurement_blocks": [
+        "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002201-002220"
+      ],
+      "validation": {
+        "matched_start_energies": 738,
+        "reconstructed_start_energies": 24,
+        "maximum_endpoint_discrepancy_eV": 1.000017846308765e-10,
+        "episode_nodes": 0,
+        "ledger_and_candidate_counts_passed": true
+      },
+      "reused_from_run": "261123_BRH_gap25-120",
+      "execution_date": "2026-11-23"
     }
   ],
   "conditions": {

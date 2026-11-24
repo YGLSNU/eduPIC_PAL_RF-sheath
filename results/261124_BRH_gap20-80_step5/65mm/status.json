@@ -17,40 +17,40 @@
   ],
   "initial_SHA256": "b33a9b225fd249301779b4aa102ae2e7500d83e4c8e5abda08707810ecdbf351",
   "initial_e": 74571,
-  "status": "running",
+  "status": "queued",
   "phase": "warmup",
-  "checkpoint_cycle": 1100,
+  "checkpoint_cycle": 1199,
   "measured_RF": 0,
-  "elapsed_solver_seconds": 14480.853588304773,
+  "elapsed_solver_seconds": 15900.925752608862,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "execution_date": "2026-11-24",
-  "updated_at_Asia_Seoul": "2026-11-24T18:55:37.658791+09:00",
+  "updated_at_Asia_Seoul": "2026-11-24T19:21:48.253890+09:00",
   "started_at_Asia_Seoul": "2026-11-24T14:54:15.070016+09:00",
   "controller_pid": 647219,
   "active_RF": [
-    1101,
-    1149
+    1200,
+    1200
   ],
   "stationarity": {
     "e": {
-      "block_mean_span": 0.03240305738328266,
-      "fitted_drift": 0.04932458873350902,
+      "block_mean_span": 0.024954932338401216,
+      "fitted_drift": 0.0367784968081031,
       "passed": false
     },
     "i": {
-      "block_mean_span": 0.03196603142849803,
-      "fitted_drift": 0.048651696785130684,
+      "block_mean_span": 0.024610266042047135,
+      "fitted_drift": 0.036268769465497,
       "passed": false
     },
     "passed": false
   },
-  "execution_state": "solver",
+  "execution_state": "waiting_for_capacity",
   "capacity_reserved_for_earlier_scan": 3,
-  "solver_pid": 724025,
-  "checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/warmup/RF001100-001100/picdata.bin",
-  "electrons": 110644,
-  "ions": 112894,
-  "last_block_seconds": 34.59685099392664,
-  "last_RF_seconds": 34.59685099392664,
+  "solver_pid": null,
+  "checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/warmup/RF001199-001199/picdata.bin",
+  "electrons": 110668,
+  "ions": 112965,
+  "last_block_seconds": 14.284694624016993,
+  "last_RF_seconds": 14.284694624016993,
   "last_diagnostic_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/warmup/RF001100-001100"
 }
