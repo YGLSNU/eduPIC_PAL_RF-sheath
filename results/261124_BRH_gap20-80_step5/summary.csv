@@ -2,7 +2,7 @@ gap_mm,V_peak,status,phase,completed_RF,measured_RF,electrons,ions,last_seconds_
 20,250,queued,warmup,0,0,,,,실행 대기 중
 25,250,extinguished,warmup,245,0,0,1169,0.11900520593238374,RF245에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니다. 정상 EEDF/BRH를 정의하지 않습니다.
 30,250,measurement_limit_reached,measurement,2851,1000,7433,9433,2.274558907948085,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
-35,250,running,warmup,449,0,27780,30054,3.1589152996739545,배경 입자 수 안정화 중
+35,250,running,warmup,749,0,26564,28793,3.0064681796523343,배경 입자 수 안정화 중
 40,250,measurement_limit_reached,measurement,1602,1000,45894,48277,14.821383060351945,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
 45,250,queued,warmup,0,0,,,,실행 대기 중
 50,250,measurement_limit_reached,measurement,2351,1000,76937,79340,24.022246855098636,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
@@ -11,4 +11,4 @@ gap_mm,V_peak,status,phase,completed_RF,measured_RF,electrons,ions,last_seconds_
 65,250,queued,warmup,0,0,,,,실행 대기 중
 70,250,queued,warmup,0,0,,,,실행 대기 중
 75,250,queued,warmup,0,0,,,,실행 대기 중
-80,250,running,warmup,1099,0,146268,148459,21.111291933979373,배경 입자 수 안정화 중
+80,250,running,warmup,1149,0,146649,148827,16.694777914897863,배경 입자 수 안정화 중

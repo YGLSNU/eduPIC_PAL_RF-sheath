@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-24T13:06:23+09:00",
+  "report_updated": "2026-11-24T13:23:38+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -90,7 +90,7 @@
       "gap_mm": 35,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 449,
+      "total_rf": 749,
       "measurement_rf": 0,
       "ne_mean_m3": null,
       "path": "35mm/README.md"
@@ -171,7 +171,7 @@
       "gap_mm": 80,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 1099,
+      "total_rf": 1149,
       "measurement_rf": 0,
       "ne_mean_m3": null,
       "path": "80mm/README.md"
@@ -267,8 +267,8 @@
       "label": "조건별 진행 요약 CSV",
       "path": "summary.csv",
       "bytes": 1504,
-      "sha256": "1bd940ec77fe258aa8f0b582245ee5275247f03b5891a4f3418ae8ee6a9885e5",
-      "git_blob": "b93e086035847b4119889250d40e7ac53ee46223"
+      "sha256": "254922ae431122b7f68fd08b224ac6586ddba89787d05863f1901b78ed1e526b",
+      "git_blob": "e8782fd826c3c40fa925a2756b57b1366c84056d"
     },
     {
       "label": "공통 설정",
