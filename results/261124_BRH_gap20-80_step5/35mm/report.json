@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-24T15:27:25+09:00",
+  "report_updated": "2026-11-24T15:43:48+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -146,8 +146,8 @@
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
       "bytes": 1749,
-      "sha256": "5f7abf9855790f0ef307d6b2f897edc73bc6500e03631d89882e27da08a049b0",
-      "git_blob": "4504785308633b07d0509ea1e9da27d745d229b4"
+      "sha256": "7d93244b357809bd43461891ba88977d0296dc475342c81467a41d57c928fb4c",
+      "git_blob": "879f075368377701c99855e494fbbaa292ae2d9e"
     },
     {
       "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 1200–1200 (transient, not stationary)",
@@ -164,18 +164,18 @@
       "git_blob": "91356f377b5d5ed5cdcac0c14bd37c454a5e323a"
     },
     {
-      "label": "재시작 입자·동반 상태 (저장 RF 849; 보고서의 최신 RF와 다를 수 있음)",
+      "label": "재시작 입자·동반 상태 (저장 RF 1299; 보고서의 최신 RF와 다를 수 있음)",
       "path": "261124_35mm_restart.zip",
-      "bytes": 1703534,
-      "sha256": "8936b66a92334f73f9b52bb85606e109e35df6f91ee3166f01a5532f62aa5aaa",
-      "git_blob": "4fe06803e7a7e08b22b18de7d05ca069249c5145"
+      "bytes": 1670648,
+      "sha256": "895770162d1f9686fbb0d1c7031a38a35bb0a9dca087c078f02bf70d6ba684c2",
+      "git_blob": "41fbd83deb0496f328d830b8cb03055109b84d43"
     },
     {
       "label": "재시작 파일 provenance",
       "path": "restart_manifest.json",
       "bytes": 189,
-      "sha256": "c019950b34064b2f45cc5113ce380ee5e906ad6740997f12917befc7c13f7f4e",
-      "git_blob": "8b3bc7a8293110514436cb8df64a4b4cd3a8cc54"
+      "sha256": "33be190a0ffcfcee48c63f1e76ab7e711fa5d787df2c59fdf1ce373469cc19ed",
+      "git_blob": "b30156dd3328be7ad9e728d4b645be3dd1694d4d"
     }
   ],
   "metrics": [
@@ -197,7 +197,7 @@
     ],
     [
       "진행 상태 갱신",
-      "2026-11-24T15:27:14.761536+09:00"
+      "2026-11-24T15:43:47.022584+09:00"
     ]
   ]
 }
