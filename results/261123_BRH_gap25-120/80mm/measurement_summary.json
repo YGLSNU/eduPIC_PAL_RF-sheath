@@ -1,0 +1,76 @@
+{
+  "measurement_blocks": [
+    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002201-002220"
+  ],
+  "pooled_data_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/brh_pooled_RF002220",
+  "first_RF": 2201,
+  "last_RF": 2220,
+  "measured_RF": 20,
+  "duration_s": 1.4749262531796314e-06,
+  "background_and_BRH_assessment": {
+    "passed": false,
+    "measurement_cycles": 20,
+    "completed_blocks": 1,
+    "particle_count_stationarity": {
+      "e": {
+        "block_mean_span": 0.009329380158850206,
+        "fitted_drift": 0.01386202094755993,
+        "passed": true
+      },
+      "i": {
+        "block_mean_span": 0.009245924430450973,
+        "fitted_drift": 0.013741423200476872,
+        "passed": true
+      },
+      "passed": true
+    },
+    "reason": "insufficient_blocks",
+    "background_passed": false,
+    "BRH": {
+      "powered_side_returns": 762,
+      "candidate_returns": 0,
+      "distinct_return_UIDs": 668,
+      "distinct_candidate_UIDs": 0,
+      "candidate_return_fraction": {
+        "estimate": null,
+        "half_width": null,
+        "first_last_change": null,
+        "passed_data": false
+      },
+      "candidate_signed_work_eV": {
+        "estimate": null,
+        "half_width": null,
+        "first_last_change": null,
+        "passed_data": false
+      },
+      "fraction_tolerance": 0.005,
+      "work_tolerance_eV": 0.1,
+      "fraction_passed": false,
+      "work_passed": false,
+      "passed": false,
+      "note": "Fractions are among detected complete powered-side round trips, not a density fraction. Block/40-RF estimates include dependence heuristically; rare-tail/model/grid error is separate."
+    }
+  },
+  "all_fieldwork_eV": 202011.02582965788,
+  "sample_fieldwork_eV": 12317.051047104176,
+  "all_kicks": 24262457111,
+  "sample_kicks": 1534382755,
+  "hist_total_samples": 606561449,
+  "hist_E_overflow_samples": 0,
+  "max_energy_ledger_error_eV": 6.954437026251981e-13,
+  "powered_side_returns": 762,
+  "distinct_return_UIDs": 668,
+  "candidate_returns": 0,
+  "distinct_candidate_UIDs": 0,
+  "candidate_return_fraction": 0.0,
+  "candidate_mean_signed_work_eV": null,
+  "candidate_mean_parent_collision_dK_eV": null,
+  "candidate_mean_net_dK_eV": null,
+  "all_return_mean_signed_work_eV": 2.4668046710483345,
+  "candidate_signed_fieldwork_sum_eV": 0.0,
+  "sample_inclusion_probability": 0.0625,
+  "selection": "Both sheaths; same-side outward reference crossings, upper side only for primary statistics. abs(tau_RF-1)<=0.10 for >=2 consecutive returns, regardless of energy sign.",
+  "scope": "Complete observed intervals only, censored at beginning/end of global measurement epoch; intervals crossing internal 20-RF boundaries retained. Collision-induced reversals alone do not qualify. This is a detected-return event fraction, not a whole-plasma BRH density fraction.",
+  "verdict": "탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.",
+  "candidate_fieldwork_power_per_area_Wm2_estimate": 0.0
+}
