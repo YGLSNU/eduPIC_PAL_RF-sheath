@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-24T13:23:38+09:00",
+  "report_updated": "2026-11-24T13:40:37+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -31,10 +31,10 @@
     }
   ],
   "title": "BRH · gap 35 mm · 250 V",
-  "status": "running",
+  "status": "queued",
   "changed_conditions": "BRH gap 35 mm",
   "report_directory": "results/261124_BRH_gap20-80_step5/35mm",
-  "summary": "배경 입자 수 안정화 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
+  "summary": "실행 대기 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
   "measurement_note": "Warmup snapshot RF 700–700 (transient, not stationary)",
   "sections": [
     {
@@ -45,7 +45,7 @@
       "images": [
         {
           "path": "figures/convergence.png",
-          "caption": "저장된 이력 RF1–749. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+          "caption": "저장된 이력 RF1–798. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
         }
       ]
     },
@@ -145,9 +145,9 @@
     {
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
-      "bytes": 1732,
-      "sha256": "2e3462c58fe6038d99f23f594194aab3bcdef11197785476d60f971446032033",
-      "git_blob": "998dd43fcd93fba1b67276799b630fa65efa0586"
+      "bytes": 1744,
+      "sha256": "2c9fa6dfdcd588ae8169291627274fba020c5414d848c3fafbb8d96da0e60005",
+      "git_blob": "ef4deb1d59cb0133d8e84f018de159e287468da3"
     },
     {
       "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 700–700 (transient, not stationary)",
@@ -159,9 +159,9 @@
     {
       "label": "입자 수 이력 CSV",
       "path": "history.csv",
-      "bytes": 11913,
-      "sha256": "67171c490503ff1460d2c352dab14f470d221914aead1e2ceeb61c0031c78baa",
-      "git_blob": "cae5301435d83c1652b781b6204c549dac2892f9"
+      "bytes": 12697,
+      "sha256": "876cf6eb55872c380a1b8e696707502b08b3d4f9e96565518a72c1b568149754",
+      "git_blob": "1548d35bc2579d151bf5b2b3ece38d05a15d1de6"
     },
     {
       "label": "재시작 입자·동반 상태 (저장 RF 749; 보고서의 최신 RF와 다를 수 있음)",
@@ -181,7 +181,7 @@
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 749"
+      "RF 798"
     ],
     [
       "정상 측정 누적",
@@ -193,11 +193,11 @@
     ],
     [
       "안정성 확인",
-      "{\"e\": {\"block_mean_span\": 0.11225775025676248, \"fitted_drift\": 0.17262326876375525, \"passed\": false}, \"i\": {\"block_mean_span\": 0.10559277406846385, \"fitted_drift\": 0.1624366227114821, \"passed\": false}, \"passed\": false}"
+      "{\"e\": {\"block_mean_span\": 0.09138812463420021, \"fitted_drift\": 0.13917087309941062, \"passed\": false}, \"i\": {\"block_mean_span\": 0.08585363766587875, \"fitted_drift\": 0.13080781305664932, \"passed\": false}, \"passed\": false}"
     ],
     [
       "진행 상태 갱신",
-      "2026-11-24T13:21:59.464608+09:00"
+      "2026-11-24T13:40:41.162314+09:00"
     ]
   ]
 }

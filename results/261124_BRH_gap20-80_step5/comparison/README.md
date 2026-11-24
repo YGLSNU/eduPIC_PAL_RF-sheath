@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md)
 
-**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap20–80 mm 비교** · 보고서 갱신 2026-11-24T13:23:38+09:00
+**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap20–80 mm 비교** · 보고서 갱신 2026-11-24T13:40:37+09:00
 
 13개 계획 조건의 실제 상태와 확보된 측정만 비교합니다. 실행일은 원 계산 시작일이며 보고서 갱신일과 구분합니다. 기존 조건 재사용은 CSV의 reused_from_run·execution_date와 개별 보고서에 표시합니다. 모든 gap 완료·BRH 확정을 뜻하지 않습니다.
 
@@ -46,11 +46,11 @@
 | [20](../20mm/README.md) | 대기 | 측정 전 / 정의 불가 | — | — |
 | [25](../25mm/README.md) | 전자 소멸 | 측정 전 / 정의 불가 | — | — |
 | [30](../30mm/README.md) | 1000 RF 상한·기준 미충족 | 1852–2851 (1000 RF) | 미충족 | 미충족 |
-| [35](../35mm/README.md) | 계산 중 | 측정 전 / 정의 불가 | — | — |
+| [35](../35mm/README.md) | 대기 | 측정 전 / 정의 불가 | — | — |
 | [40](../40mm/README.md) | 1000 RF 상한·기준 미충족 | 603–1602 (1000 RF) | 충족 | 미충족 |
 | [45](../45mm/README.md) | 대기 | 측정 전 / 정의 불가 | — | — |
 | [50](../50mm/README.md) | 1000 RF 상한·기준 미충족 | 1352–2351 (1000 RF) | 충족 | 미충족 |
-| [55](../55mm/README.md) | 대기 | 측정 전 / 정의 불가 | — | — |
+| [55](../55mm/README.md) | 계산 중 | 측정 전 / 정의 불가 | — | — |
 | [60](../60mm/README.md) | 1000 RF 상한·기준 미충족 | 1752–2751 (1000 RF) | 충족 | 미충족 |
 | [65](../65mm/README.md) | 대기 | 측정 전 / 정의 불가 | — | — |
 | [70](../70mm/README.md) | 대기 | 측정 전 / 정의 불가 | — | — |
@@ -154,7 +154,7 @@
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
 | gap별 파라미터 CSV | [gap_parameters.csv](data/gap_parameters.csv) | 4.2 KiB |
-| 계획 gap 전체 상태 CSV | [gap_status.csv](data/gap_status.csv) | 528 B |
+| 계획 gap 전체 상태 CSV | [gap_status.csv](data/gap_status.csv) | 530 B |
 | 전자별 횟수·episode 에너지·선택 궤적 CSV 모음 | [261124_BRH_comparison.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/comparison/261124_BRH_comparison.zip) | 1.02 MiB |
 | 원자료 구간·SHA·에너지 장부 검증 | [analysis_provenance.json](analysis_provenance.json) | 22.3 KiB |
 | 30 mm 전자 UID별 관측 횟수 | [30mm_uid_counts.csv.gz](data/30mm_uid_counts.csv.gz) | 26.8 KiB |
