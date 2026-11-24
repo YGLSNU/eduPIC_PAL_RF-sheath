@@ -18,36 +18,40 @@
   "initial_SHA256": "2cfb9db28096bc83d2d6e6f75277d729705fea5b05b20507b79b2d10b3102b30",
   "initial_e": 137670,
   "status": "running",
-  "phase": "warmup",
-  "checkpoint_cycle": 2549,
+  "phase": "measurement",
+  "checkpoint_cycle": 2600,
   "measured_RF": 0,
-  "elapsed_solver_seconds": 82171.80595729884,
+  "elapsed_solver_seconds": 83900.08873422083,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "started_at_Asia_Seoul": "2026-11-23T16:20:18.971096+09:00",
   "controller_pid": 504290,
-  "updated_at_Asia_Seoul": "2026-11-24T15:17:22.847895+09:00",
+  "updated_at_Asia_Seoul": "2026-11-24T15:46:13.546554+09:00",
   "active_RF": [
-    2550,
-    2598
+    2601,
+    2620
   ],
   "stationarity": {
     "e": {
-      "block_mean_span": 0.010261803677987005,
-      "fitted_drift": 0.0154745799033716,
-      "passed": false
+      "block_mean_span": 0.009896472913470341,
+      "fitted_drift": 0.014818325979723965,
+      "passed": true
     },
     "i": {
-      "block_mean_span": 0.010193445961880366,
-      "fitted_drift": 0.015375311149816924,
-      "passed": false
+      "block_mean_span": 0.009827571225709548,
+      "fitted_drift": 0.014714242917627718,
+      "passed": true
     },
-    "passed": false
+    "passed": true
   },
-  "solver_pid": 681609,
-  "checkpoint_path": "/workspace/edupic-brh/261123_BRH_gap25-120/120mm/warmup/RF002501-002549/picdata.bin",
-  "electrons": 277557,
-  "ions": 279669,
-  "last_block_seconds": 1613.9083740569768,
-  "last_RF_seconds": 32.93690559299952,
-  "last_diagnostic_path": "/workspace/edupic-brh/261123_BRH_gap25-120/120mm/warmup/RF002500-002500"
+  "solver_pid": 687738,
+  "checkpoint_path": "/workspace/edupic-brh/261123_BRH_gap25-120/120mm/history_fill/RF002599-002600/picdata.bin",
+  "electrons": 277810,
+  "ions": 279919,
+  "last_block_seconds": 90.75291091401596,
+  "last_RF_seconds": 45.37645545700798,
+  "last_diagnostic_path": "/workspace/edupic-brh/261123_BRH_gap25-120/120mm/warmup/RF002500-002500",
+  "measurement_start_RF": 2601,
+  "history_filled": true,
+  "measurement_start_time_s": 0.0001917404129244372,
+  "measurement_blocks": []
 }

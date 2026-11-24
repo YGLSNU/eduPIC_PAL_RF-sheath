@@ -3,7 +3,7 @@
   "id": "261123_BRH_gap25-120",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-23",
-  "report_updated": "2026-11-24T15:40:55+09:00",
+  "report_updated": "2026-11-24T15:57:59+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -208,18 +208,18 @@
       "git_blob": "32b7bebc9cb9074c3c37b0908963b7651255d08d"
     },
     {
-      "label": "재시작 입자·동반 상태 (저장 RF 2720; 보고서의 최신 RF와 다를 수 있음)",
+      "label": "재시작 입자·동반 상태 (저장 RF 2760; 보고서의 최신 RF와 다를 수 있음)",
       "path": "261123_100mm_restart.zip",
-      "bytes": 17939351,
-      "sha256": "3d21998f8a2f77b1887a1c58a9ab3ccb5fda87022bab85182dbebde29b053d14",
-      "git_blob": "22f3ec211e09224803afdcbf3b7d501dab21315a"
+      "bytes": 17993729,
+      "sha256": "ffd3bee9ff8bc362f1f73b3d8f438ddb9a7f9851e8a4c2311cf3f1715d9b98d0",
+      "git_blob": "8100f71c07a2490c313a13c315ae02c66a61723a"
     },
     {
       "label": "재시작 파일 provenance",
       "path": "restart_manifest.json",
       "bytes": 191,
-      "sha256": "7607e4a533354de01ebfc8c6ac669317d3a80df42e20c82c97aeef0978b7f250",
-      "git_blob": "c87886ca1670589f6dc7c2b252330180f105cce0"
+      "sha256": "5ba129f0a9934380bee37e3cb466018742eeade212f905b35de8228b48daa758",
+      "git_blob": "df840b0fb32e1b94688d9e4058d5ed8f058a6314"
     },
     {
       "label": "BRH 사건·원시 energy counts·probe·일 지도 (1/2; 분할 시 모두 받기)",
