@@ -18,38 +18,42 @@
   "initial_SHA256": "e071ac7671354a42079aac33e55e13ba8bb306cd38d3eec9b397940f26ec1b26",
   "initial_e": 91780,
   "status": "running",
-  "phase": "warmup",
-  "checkpoint_cycle": 2149,
+  "phase": "measurement",
+  "checkpoint_cycle": 2200,
   "measured_RF": 0,
-  "elapsed_solver_seconds": 36637.17507973703,
+  "elapsed_solver_seconds": 37620.310734378116,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "started_at_Asia_Seoul": "2026-11-23T16:20:18.955467+09:00",
   "controller_pid": 504290,
-  "updated_at_Asia_Seoul": "2026-11-24T18:33:28.646283+09:00",
+  "updated_at_Asia_Seoul": "2026-11-24T18:49:54.289771+09:00",
   "active_RF": [
-    2150,
-    2198
+    2201,
+    2220
   ],
   "stationarity": {
     "e": {
-      "block_mean_span": 0.010479744000964162,
-      "fitted_drift": 0.015446561101403146,
-      "passed": false
+      "block_mean_span": 0.00971753007788394,
+      "fitted_drift": 0.014408355313880445,
+      "passed": true
     },
     "i": {
-      "block_mean_span": 0.01037965490033636,
-      "fitted_drift": 0.015299566208455368,
-      "passed": false
+      "block_mean_span": 0.009625147717701704,
+      "fitted_drift": 0.014270687046546025,
+      "passed": true
     },
-    "passed": false
+    "passed": true
   },
-  "solver_pid": 719700,
-  "checkpoint_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/warmup/RF002101-002149/picdata.bin",
-  "electrons": 151543,
-  "ions": 153751,
-  "last_block_seconds": 969.6660591870314,
-  "last_RF_seconds": 19.789103248714927,
+  "solver_pid": 722897,
+  "checkpoint_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/history_fill/RF002199-002200/picdata.bin",
+  "electrons": 151634,
+  "ions": 153830,
+  "last_block_seconds": 52.419910612050444,
+  "last_RF_seconds": 26.209955306025222,
   "last_diagnostic_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/warmup/RF002100-002100",
+  "measurement_start_RF": 2201,
+  "history_filled": true,
+  "measurement_start_time_s": 0.00016224188786084456,
+  "measurement_blocks": [],
   "reused_from_run": "261123_BRH_gap25-120",
   "original_execution_date": "2026-11-23"
 }
