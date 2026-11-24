@@ -1,41 +1,42 @@
 {
   "measurement_blocks": [
-    "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002401-002420"
+    "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002401-002420",
+    "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002421-002440"
   ],
-  "pooled_data_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/brh_pooled_RF002420",
+  "pooled_data_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/brh_pooled_RF002440",
   "first_RF": 2401,
-  "last_RF": 2420,
-  "measured_RF": 20,
-  "duration_s": 1.4749262531796314e-06,
+  "last_RF": 2440,
+  "measured_RF": 40,
+  "duration_s": 2.949852506359263e-06,
   "background_and_BRH_assessment": {
     "passed": false,
-    "measurement_cycles": 20,
-    "completed_blocks": 1,
+    "measurement_cycles": 40,
+    "completed_blocks": 2,
     "particle_count_stationarity": {
       "e": {
-        "block_mean_span": 0.009309561339506478,
-        "fitted_drift": 0.013882925964833238,
+        "block_mean_span": 0.008924211675341095,
+        "fitted_drift": 0.013300028275426352,
         "passed": true
       },
       "i": {
-        "block_mean_span": 0.009274138066036731,
-        "fitted_drift": 0.01382535162639022,
+        "block_mean_span": 0.008892881685626517,
+        "fitted_drift": 0.013246007335617087,
         "passed": true
       },
       "passed": true
     },
-    "reason": "insufficient_blocks",
+    "ready": false,
     "background_passed": false,
     "BRH": {
-      "powered_side_returns": 377,
+      "powered_side_returns": 1436,
       "candidate_returns": 0,
-      "distinct_return_UIDs": 365,
+      "distinct_return_UIDs": 1210,
       "distinct_candidate_UIDs": 0,
       "candidate_return_fraction": {
-        "estimate": null,
-        "half_width": null,
-        "first_last_change": null,
-        "passed_data": false
+        "estimate": 0.0,
+        "half_width": 0.0024793388429752068,
+        "first_last_change": 0.0,
+        "passed_data": true
       },
       "candidate_signed_work_eV": {
         "estimate": null,
@@ -45,28 +46,88 @@
       },
       "fraction_tolerance": 0.005,
       "work_tolerance_eV": 0.1,
-      "fraction_passed": false,
+      "fraction_passed": true,
       "work_passed": false,
       "passed": false,
       "note": "Fractions are among detected complete powered-side round trips, not a density fraction. Block/40-RF estimates include dependence heuristically; rare-tail/model/grid error is separate."
-    }
+    },
+    "indicators": {
+      "mean_density_e": {
+        "relative_uncertainty_indicator": 0.0020842921763743402,
+        "first_last_half_relative_change": 0.0003280747036037188,
+        "tolerance": 0.03,
+        "passed": true,
+        "estimate": 2367330730633315.5,
+        "half_width": 4934208920749.57
+      },
+      "density_profile_e": {
+        "relative_uncertainty_indicator": 0.028404678503128097,
+        "first_last_half_relative_change": 0.004470993360001463,
+        "tolerance": 0.03,
+        "passed": true
+      },
+      "mean_power_e": {
+        "relative_uncertainty_indicator": 0.11347735350420832,
+        "first_last_half_relative_change": 0.0178617228134436,
+        "tolerance": 0.03,
+        "passed": false,
+        "estimate": 252.58917769720713,
+        "half_width": 28.663151408883266
+      },
+      "heating_map_e": {
+        "relative_uncertainty_indicator": 0.47539792578960394,
+        "first_last_half_relative_change": 0.0748292563610503,
+        "tolerance": 0.05,
+        "passed": false
+      },
+      "mean_density_i": {
+        "relative_uncertainty_indicator": 0.0020614382166222554,
+        "first_last_half_relative_change": 0.0003244774123233384,
+        "tolerance": 0.03,
+        "passed": true,
+        "estimate": 2391225683161960.5,
+        "half_width": 4929364007838.727
+      },
+      "density_profile_i": {
+        "relative_uncertainty_indicator": 0.10993231759400823,
+        "first_last_half_relative_change": 0.017303722059668975,
+        "tolerance": 0.03,
+        "passed": false
+      },
+      "mean_power_i": {
+        "relative_uncertainty_indicator": 0.03726002148310658,
+        "first_last_half_relative_change": 0.005864854574084882,
+        "tolerance": 0.03,
+        "passed": false,
+        "estimate": 495.8767218475017,
+        "half_width": 18.476377309010378
+      },
+      "heating_map_i": {
+        "relative_uncertainty_indicator": 0.11109386488750002,
+        "first_last_half_relative_change": 0.017486553568779612,
+        "tolerance": 0.05,
+        "passed": false
+      }
+    },
+    "reason": "continue_sampling",
+    "note": "Exploratory block uncertainty and first/last-half drift. No certified total-error or sequential confidence guarantee; EEDF tails and discretization need separate checks."
   },
-  "all_fieldwork_eV": 210263.5731714087,
-  "sample_fieldwork_eV": 13282.627146354474,
-  "all_kicks": 33813462856,
-  "sample_kicks": 2134505791,
-  "hist_total_samples": 845336587,
+  "all_fieldwork_eV": 416811.22591237735,
+  "sample_fieldwork_eV": 26790.255370159124,
+  "all_kicks": 67638020875,
+  "sample_kicks": 4269895064,
+  "hist_total_samples": 1690950519,
   "hist_E_overflow_samples": 0,
-  "max_energy_ledger_error_eV": 7.958078640513122e-13,
-  "powered_side_returns": 377,
-  "distinct_return_UIDs": 365,
+  "max_energy_ledger_error_eV": 1.312727704316785e-12,
+  "powered_side_returns": 1436,
+  "distinct_return_UIDs": 1210,
   "candidate_returns": 0,
   "distinct_candidate_UIDs": 0,
   "candidate_return_fraction": 0.0,
   "candidate_mean_signed_work_eV": null,
   "candidate_mean_parent_collision_dK_eV": null,
   "candidate_mean_net_dK_eV": null,
-  "all_return_mean_signed_work_eV": 2.613932949618936,
+  "all_return_mean_signed_work_eV": 3.1203381866766295,
   "candidate_signed_fieldwork_sum_eV": 0.0,
   "sample_inclusion_probability": 0.0625,
   "selection": "Both sheaths; same-side outward reference crossings, upper side only for primary statistics. abs(tau_RF-1)<=0.10 for >=2 consecutive returns, regardless of energy sign.",
