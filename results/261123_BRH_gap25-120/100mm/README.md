@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 100 mm** · 보고서 갱신 2026-11-24T10:25:30+09:00
+**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 100 mm** · 보고서 갱신 2026-11-24T10:36:58+09:00
 
 위상·입자 진단 측정 중; 최종 BRH 판정 전 검출된 상부 기준 왕복 5993개, 고유 UID 3989개. 위상 반복 후보 0개(고유 UID 0개). 검출 왕복 중 후보 비율 0.000%. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.
 
