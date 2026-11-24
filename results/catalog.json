@@ -294,7 +294,7 @@
         "gap_mm": 80,
         "voltage_V": 250,
         "status": "running",
-        "total_rf": 799,
+        "total_rf": 800,
         "measurement_rf": 0,
         "ne_mean_m3": null,
         "path": "80mm/README.md"
@@ -319,6 +319,7 @@
       }
     ],
     "scan_parameter": "gap_mm",
+    "comparison_path": "comparison/README.md",
     "summary": "250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다."
   }
 ]
