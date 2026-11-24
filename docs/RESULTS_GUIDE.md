@@ -70,6 +70,8 @@ GitHub Actions의 **Update simulation result catalogs**도 결과 push와 매시
 
 ## BRH·gap 스캔 템플릿
 
+[20–80 mm · 5 mm 간격 진행·결과](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md) · [13개 gap 비교 요약](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/comparison/README.md). 세부 간격 스캔에서 기존 동일 조건을 재사용하면 원 실행일·원자료 링크·측정 창·종료 이유를 보존하고 새 독립 반복 실행과 구분합니다.
+
 [BRH 진행·결과](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md) · [BRH 진단·실행 설명](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/simulation/20mTorr-topRF/scripts/brh_scan/README.md)
 
 [Gap별 파라미터·전자별 반복 가열 요약 예시](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/comparison/README.md)는 `comparison/report.json`을 사용하는 별도 비교 페이지입니다. 완료·상한 종료·진행·소멸을 구분하고, 실제 측정 구간이 없는 gap은 물리량을 0으로 채우지 않습니다. 전자별 반복 횟수는 관측 창의 UID 통계이며 수명 전체로 외삽하지 않습니다.
