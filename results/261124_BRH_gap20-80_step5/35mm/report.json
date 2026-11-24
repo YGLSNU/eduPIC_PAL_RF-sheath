@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-24T12:37:20+09:00",
+  "report_updated": "2026-11-24T13:06:23+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -35,55 +35,103 @@
   "changed_conditions": "BRH gap 35 mm",
   "report_directory": "results/261124_BRH_gap20-80_step5/35mm",
   "summary": "배경 입자 수 안정화 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
-  "measurement_note": "아직 phase 측정 없음",
+  "measurement_note": "Warmup snapshot RF 400–400 (transient, not stationary)",
   "sections": [
     {
       "id": "convergence",
-      "data_status": "unavailable",
-      "reason": "해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.",
-      "images": []
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/convergence.png",
+          "caption": "저장된 이력 RF1–449. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+        }
+      ]
     },
     {
       "id": "density",
-      "data_status": "unavailable",
-      "reason": "해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.",
-      "images": []
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/density.png",
+          "caption": "Warmup snapshot RF 400–400 (transient, not stationary)"
+        }
+      ]
     },
     {
       "id": "heating",
-      "data_status": "unavailable",
-      "reason": "해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.",
-      "images": []
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/heating.png",
+          "caption": "Warmup snapshot RF 400–400 (transient, not stationary)"
+        }
+      ]
     },
     {
       "id": "fields",
-      "data_status": "unavailable",
-      "reason": "해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.",
-      "images": []
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/fields.png",
+          "caption": "Warmup snapshot RF 400–400 (transient, not stationary)"
+        }
+      ]
     },
     {
       "id": "ionization",
-      "data_status": "unavailable",
-      "reason": "해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.",
-      "images": []
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/ionization.png",
+          "caption": "Warmup snapshot RF 400–400 (transient, not stationary)"
+        }
+      ]
     },
     {
       "id": "distributions",
-      "data_status": "unavailable",
-      "reason": "해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.",
-      "images": []
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/distributions.png",
+          "caption": "Warmup snapshot RF 400–400 (transient, not stationary); 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다."
+        }
+      ]
     },
     {
       "id": "walls",
-      "data_status": "unavailable",
-      "reason": "해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.",
-      "images": []
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/walls.png",
+          "caption": "Warmup snapshot RF 400–400 (transient, not stationary)"
+        }
+      ]
     },
     {
       "id": "power",
-      "data_status": "unavailable",
-      "reason": "해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.",
-      "images": []
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/power.png",
+          "caption": "Warmup snapshot RF 400–400 (transient, not stationary); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다."
+        }
+      ]
     },
     {
       "id": "bounce",
@@ -97,9 +145,23 @@
     {
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
-      "bytes": 1162,
-      "sha256": "465a858beb9172f7ff88517e311cabf2c6b766213bc7eacc5ce8274eb1f1ad3d",
-      "git_blob": "4a51aad4a4b45cc7f80f4110cd84ce2caac7aa9b"
+      "bytes": 1523,
+      "sha256": "2f0d72ac0f46b126a674f940b6439a238bff54a4449baca503ddd4a991b2e8be",
+      "git_blob": "fba48c6833cb3b9563da1236c9284b05899315e5"
+    },
+    {
+      "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 400–400 (transient, not stationary)",
+      "path": "261124_35mm_core.zip",
+      "bytes": 5433306,
+      "sha256": "db4ce9b0d9f116f4a62d821bef2a875b3492c441cbb5c85b4b86055995b9c3b1",
+      "git_blob": "648e47560ce1a263748be20e6f4fe052fa9aa85f"
+    },
+    {
+      "label": "입자 수 이력 CSV",
+      "path": "history.csv",
+      "bytes": 7113,
+      "sha256": "e235b738b2a33c9be636bfc8200e1e71b9e7ca5b790fb3aaa370704a61fd9748",
+      "git_blob": "db6d9d7ce2c64bf7ab5e304fec608cea030103de"
     },
     {
       "label": "재시작 입자·동반 상태 (저장 RF 0; 보고서의 최신 RF와 다를 수 있음)",
@@ -119,7 +181,7 @@
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 0"
+      "RF 449"
     ],
     [
       "정상 측정 누적",
@@ -131,11 +193,11 @@
     ],
     [
       "안정성 확인",
-      "{\"passed\": false, \"available_RF\": 0, \"required_RF\": 600}"
+      "{\"passed\": false, \"available_RF\": 449, \"required_RF\": 600}"
     ],
     [
       "진행 상태 갱신",
-      "2026-11-24T12:37:17.349319+09:00"
+      "2026-11-24T13:05:50.427735+09:00"
     ]
   ]
 }
