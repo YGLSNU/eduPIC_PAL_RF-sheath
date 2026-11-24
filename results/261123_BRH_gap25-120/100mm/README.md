@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 100 mm** · 보고서 갱신 2026-11-24T08:57:39+09:00
+**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 100 mm** · 보고서 갱신 2026-11-24T09:14:47+09:00
 
 위상·입자 진단 측정 중; 최종 BRH 판정 전 검출된 상부 기준 왕복 377개, 고유 UID 365개. 위상 반복 후보 0개(고유 UID 0개). 검출 왕복 중 후보 비율 0.000%. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.
 
@@ -163,7 +163,7 @@ RF 2401–2420 (20 RF); exploratory diagnostics; 순간 kick 에너지의 평균
 | 저장된 실행 상태·실제 RF·종료 사유 | [status.json](status.json) | 3.5 KiB |
 | 표준 진단 원시 수치·이력: Measurement RF 2401–2420 (20 RF) | [261123_100mm_core.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/100mm/261123_100mm_core.zip) | 16.08 MiB |
 | 입자 수 이력 CSV | [history.csv](history.csv) | 43.9 KiB |
-| 재시작 입자·동반 상태 (저장 RF 2300; 보고서의 최신 RF와 다를 수 있음) | [261123_100mm_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/100mm/261123_100mm_restart.zip) | 12.45 MiB |
+| 재시작 입자·동반 상태 (저장 RF 2420; 보고서의 최신 RF와 다를 수 있음) | [261123_100mm_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/100mm/261123_100mm_restart.zip) | 15.85 MiB |
 | 재시작 파일 provenance | [restart_manifest.json](restart_manifest.json) | 191 B |
 | BRH 사건·원시 energy counts·probe·일 지도 (1/1; 분할 시 모두 받기) | [261123_100mm_BRH_data.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/100mm/261123_100mm_BRH_data.zip) | 24.60 MiB |
 | BRH 수치·표본 수·해석 범위 | [measurement_summary.json](measurement_summary.json) | 3.0 KiB |
