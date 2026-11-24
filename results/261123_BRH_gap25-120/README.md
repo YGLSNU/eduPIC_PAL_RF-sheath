@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF)
 
-**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH · gap25/30/40/50/60/80/100/120 mm** · 보고서 갱신 2026-11-24T18:18:11+09:00
+**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH · gap25/30/40/50/60/80/100/120 mm** · 보고서 갱신 2026-11-24T18:35:55+09:00
 
 250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다.
 
@@ -35,7 +35,7 @@
 | 40 | 측정 상한·기준 미충족 | 1602 | 1000 | 1.286e+15 | [그림·다운로드](40mm/README.md) |
 | 50 | 측정 상한·기준 미충족 | 2351 | 1000 | 1.720e+15 | [그림·다운로드](50mm/README.md) |
 | 60 | 측정 상한·기준 미충족 | 2751 | 1000 | 1.892e+15 | [그림·다운로드](60mm/README.md) |
-| 80 | 계산 중 | 2100 | 0 | — | [그림·다운로드](80mm/README.md) |
+| 80 | 계산 중 | 2149 | 0 | — | [그림·다운로드](80mm/README.md) |
 | 100 | 계산 중 | 2860 | 460 | 2.378e+15 | [그림·다운로드](100mm/README.md) |
 | 120 | 계산 중 | 2680 | 80 | 2.595e+15 | [그림·다운로드](120mm/README.md) |
 
@@ -153,7 +153,7 @@ gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측�
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| 조건별 진행 요약 CSV | [summary.csv](summary.csv) | 1.3 KiB |
+| 조건별 진행 요약 CSV | [summary.csv](summary.csv) | 1.4 KiB |
 | 공통 설정 | [config.json](config.json) | 1.6 KiB |
 | 수렴·중단 기준 | [criteria.json](criteria.json) | 2.3 KiB |
 | 수동 진단·재시작 검증 | [diagnostics_validated.json](diagnostics_validated.json) | 1.3 KiB |
