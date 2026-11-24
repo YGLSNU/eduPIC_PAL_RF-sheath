@@ -73,12 +73,12 @@
     },
     {
       "gap_mm": 35,
-      "summary_sha256": "728257d6f5a3e14782901278f0621c4aa648bd2ef0799d30cfc07475a8554a85",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/brh_pooled_RF002600/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/pooled_epoch1_RF002600",
+      "summary_sha256": "5845eca421258c38227f5d8afee8374832141ced36c27207790ff7928abcdb2a",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/brh_pooled_RF002680/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/pooled_epoch1_RF002680",
       "RF_first": 1701,
-      "RF_last": 2600,
-      "measured_RF": 900,
+      "RF_last": 2680,
+      "measured_RF": 980,
       "measurement_blocks": [
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001701-001720",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001721-001740",
@@ -124,13 +124,17 @@
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002521-002540",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002541-002560",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002561-002580",
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002581-002600"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002581-002600",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002601-002620",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002621-002640",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002641-002660",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002661-002680"
       ],
       "validation": {
-        "matched_start_energies": 87334,
+        "matched_start_energies": 95270,
         "reconstructed_start_energies": 9,
         "maximum_endpoint_discrepancy_eV": 1.000053373445553e-10,
-        "episode_nodes": 924,
+        "episode_nodes": 1004,
         "ledger_and_candidate_counts_passed": true
       },
       "reused_from_run": null,
@@ -208,23 +212,25 @@
     },
     {
       "gap_mm": 45,
-      "summary_sha256": "b5897dc5c561c9818d7f73e0775376b272eb005ba5613482320857faf20ef999",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/45mm/brh_pooled_RF001180/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/45mm/pooled_epoch1_RF001180",
+      "summary_sha256": "e6e90f4c51e94140e88d6e5bc5b10254d0a32506a2dc70e23ba9438f0854da99",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/45mm/brh_pooled_RF001220/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/45mm/pooled_epoch1_RF001220",
       "RF_first": 1101,
-      "RF_last": 1180,
-      "measured_RF": 80,
+      "RF_last": 1220,
+      "measured_RF": 120,
       "measurement_blocks": [
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/45mm/measurement_epoch1/RF001101-001120",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/45mm/measurement_epoch1/RF001121-001140",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/45mm/measurement_epoch1/RF001141-001160",
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/45mm/measurement_epoch1/RF001161-001180"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/45mm/measurement_epoch1/RF001161-001180",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/45mm/measurement_epoch1/RF001181-001200",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/45mm/measurement_epoch1/RF001201-001220"
       ],
       "validation": {
-        "matched_start_energies": 14398,
+        "matched_start_energies": 22426,
         "reconstructed_start_energies": 18,
-        "maximum_endpoint_discrepancy_eV": 1.000035609877159e-10,
-        "episode_nodes": 92,
+        "maximum_endpoint_discrepancy_eV": 1.000088900582341e-10,
+        "episode_nodes": 128,
         "ledger_and_candidate_counts_passed": true
       },
       "reused_from_run": null,
@@ -302,12 +308,12 @@
     },
     {
       "gap_mm": 55,
-      "summary_sha256": "816e4238b89724f72f3cf2d9677ef93caa799411dada0c1b29e9a2dd22da61ab",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/brh_pooled_RF001711/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/pooled_epoch1_RF001711",
+      "summary_sha256": "3d95eab325b6b3072423c699abe2364d75afc4c77bee35952ecbc377c794ced2",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/brh_pooled_RF001731/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/pooled_epoch1_RF001731",
       "RF_first": 1452,
-      "RF_last": 1711,
-      "measured_RF": 260,
+      "RF_last": 1731,
+      "measured_RF": 280,
       "measurement_blocks": [
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001452-001471",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001472-001491",
@@ -321,13 +327,14 @@
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001632-001651",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001652-001671",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001672-001691",
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001692-001711"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001692-001711",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001712-001731"
       ],
       "validation": {
-        "matched_start_energies": 44598,
+        "matched_start_energies": 48333,
         "reconstructed_start_energies": 31,
         "maximum_endpoint_discrepancy_eV": 1.000035609877159e-10,
-        "episode_nodes": 93,
+        "episode_nodes": 99,
         "ledger_and_candidate_counts_passed": true
       },
       "reused_from_run": null,
@@ -405,18 +412,19 @@
     },
     {
       "gap_mm": 65,
-      "summary_sha256": "16acf4b0c3d7563386e976a2bbed4101428e8685b97842cf52bd3eaee3716c70",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/brh_pooled_RF001820/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/pooled_epoch1_RF001820",
+      "summary_sha256": "8301af6bc621359f9d236a44a6c883e10b2076d52e5cc452abd86b82761a2eb3",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/brh_pooled_RF001840/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/pooled_epoch1_RF001840",
       "RF_first": 1801,
-      "RF_last": 1820,
-      "measured_RF": 20,
+      "RF_last": 1840,
+      "measured_RF": 40,
       "measurement_blocks": [
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF001801-001820"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF001801-001820",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF001821-001840"
       ],
       "validation": {
-        "matched_start_energies": 1329,
-        "reconstructed_start_energies": 28,
+        "matched_start_energies": 3636,
+        "reconstructed_start_energies": 32,
         "maximum_endpoint_discrepancy_eV": 1.000035609877159e-10,
         "episode_nodes": 0,
         "ledger_and_candidate_counts_passed": true
