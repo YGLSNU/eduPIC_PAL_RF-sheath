@@ -8,6 +8,8 @@
 
 **BRH (bounce resonance heating):** [gap 스캔 진행·결과](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md) · [진단·실행 설명](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/simulation/20mTorr-topRF/scripts/brh_scan/README.md)
 
+[Gap별 플라즈마 파라미터·전자별 반복 가열 요약](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/comparison/README.md)
+
 ## 실행 기록
 
 | 실행일 KST | 실행 / 바꾼 조건 | 주요 조건 | 상태 | 결과 |
