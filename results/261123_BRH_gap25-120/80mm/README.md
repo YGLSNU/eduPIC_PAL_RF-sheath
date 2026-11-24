@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 80 mm** · 보고서 갱신 2026-11-24T11:53:21+09:00
+**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 80 mm** · 보고서 갱신 2026-11-24T11:59:46+09:00
 
 배경 입자 수 안정화 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.
 
@@ -30,11 +30,11 @@
 
 | 물리량 | 값 |
 |---|---|
-| 저장 체크포인트 | RF 800 |
+| 저장 체크포인트 | RF 849 |
 | 정상 측정 누적 | 0 RF |
 | 현재 단계 | warmup |
-| 안정성 확인 | {"e": {"block_mean_span": 0.07395000916372439, "fitted_drift": 0.11176859285796484, "passed": false}, "i": {"block_mean_span": 0.07334960447124896, "fitted_drift": 0.11086463961340058, "passed": false}, "passed": false} |
-| 진행 상태 갱신 | 2026-11-24T11:43:51.999028+09:00 |
+| 안정성 확인 | {"e": {"block_mean_span": 0.06673380672569083, "fitted_drift": 0.10072396295009266, "passed": false}, "i": {"block_mean_span": 0.06612519223542065, "fitted_drift": 0.09980868770045094, "passed": false}, "passed": false} |
+| 진행 상태 갱신 | 2026-11-24T11:57:16.235130+09:00 |
 
 ## 자료 범위
 
@@ -53,9 +53,9 @@
 
 
 
-![저장된 이력 RF1–800. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.](figures/convergence.png)
+![저장된 이력 RF1–849. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.](figures/convergence.png)
 
-저장된 이력 RF1–800. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.
+저장된 이력 RF1–849. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다.
 
 ## 밀도 공간분포
 
@@ -130,8 +130,8 @@ Warmup snapshot RF 800–800 (transient, not stationary); 이산 field work와 �
 |---|---|---:|
 | 저장된 실행 상태·실제 RF·종료 사유 | [status.json](status.json) | 1.6 KiB |
 | 표준 진단 원시 수치·이력: Warmup snapshot RF 800–800 (transient, not stationary) | [261123_80mm_core.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/80mm/261123_80mm_core.zip) | 12.24 MiB |
-| 입자 수 이력 CSV | [history.csv](history.csv) | 14.0 KiB |
-| 재시작 입자·동반 상태 (저장 RF 600; 보고서의 최신 RF와 다를 수 있음) | [261123_80mm_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/80mm/261123_80mm_restart.zip) | 8.22 MiB |
-| 재시작 파일 provenance | [restart_manifest.json](restart_manifest.json) | 188 B |
+| 입자 수 이력 CSV | [history.csv](history.csv) | 14.9 KiB |
+| 재시작 입자·동반 상태 (저장 RF 849; 보고서의 최신 RF와 다를 수 있음) | [261123_80mm_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/80mm/261123_80mm_restart.zip) | 8.49 MiB |
+| 재시작 파일 provenance | [restart_manifest.json](restart_manifest.json) | 189 B |
 
 [전체 파일 목록·SHA256](files.json)
