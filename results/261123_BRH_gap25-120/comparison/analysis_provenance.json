@@ -1,5 +1,5 @@
 {
-  "analysis_script_sha256": "42671aefa2c1e551b506693151240ed0a9ac4f7a1606387b6100fd253ebdfcd6",
+  "analysis_script_sha256": "a4b8cf4e932d370bf245a2e00a57babadf9223b5c037d81078b5f19329d9b2e7",
   "snapshots": [
     {
       "gap_mm": 30,
@@ -67,7 +67,9 @@
         "maximum_endpoint_discrepancy_eV": 1.000088900582341e-10,
         "episode_nodes": 1119,
         "ledger_and_candidate_counts_passed": true
-      }
+      },
+      "reused_from_run": null,
+      "execution_date": "2026-11-23"
     },
     {
       "gap_mm": 40,
@@ -135,7 +137,9 @@
         "maximum_endpoint_discrepancy_eV": 1.000053373445553e-10,
         "episode_nodes": 1422,
         "ledger_and_candidate_counts_passed": true
-      }
+      },
+      "reused_from_run": null,
+      "execution_date": "2026-11-23"
     },
     {
       "gap_mm": 50,
@@ -203,7 +207,9 @@
         "maximum_endpoint_discrepancy_eV": 1.000088900582341e-10,
         "episode_nodes": 945,
         "ledger_and_candidate_counts_passed": true
-      }
+      },
+      "reused_from_run": null,
+      "execution_date": "2026-11-23"
     },
     {
       "gap_mm": 60,
@@ -271,16 +277,18 @@
         "maximum_endpoint_discrepancy_eV": 1.000053373445553e-10,
         "episode_nodes": 99,
         "ledger_and_candidate_counts_passed": true
-      }
+      },
+      "reused_from_run": null,
+      "execution_date": "2026-11-23"
     },
     {
       "gap_mm": 100,
-      "summary_sha256": "d1669ff54dfd8a7b2d584a5ef8566a4fa6a89d60aa3fcfac3d8585e93497d3d3",
-      "measurement_summary_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/brh_pooled_RF002600/summary.json",
-      "native_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/pooled_epoch1_RF002600",
+      "summary_sha256": "93e2d7a8ba717318e34c7bd2854c5deb37a44a058f49a7600c3a8df3b260196c",
+      "measurement_summary_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/brh_pooled_RF002620/summary.json",
+      "native_path": "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/pooled_epoch1_RF002620",
       "RF_first": 2401,
-      "RF_last": 2600,
-      "measured_RF": 200,
+      "RF_last": 2620,
+      "measured_RF": 220,
       "measurement_blocks": [
         "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002401-002420",
         "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002421-002440",
@@ -291,15 +299,18 @@
         "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002521-002540",
         "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002541-002560",
         "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002561-002580",
-        "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002581-002600"
+        "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002581-002600",
+        "/workspace/edupic-brh/261123_BRH_gap25-120/100mm/measurement_epoch1/RF002601-002620"
       ],
       "validation": {
-        "matched_start_energies": 15847,
-        "reconstructed_start_energies": 74,
+        "matched_start_energies": 18077,
+        "reconstructed_start_energies": 76,
         "maximum_endpoint_discrepancy_eV": 1.000017846308765e-10,
         "episode_nodes": 0,
         "ledger_and_candidate_counts_passed": true
-      }
+      },
+      "reused_from_run": null,
+      "execution_date": "2026-11-23"
     }
   ],
   "conditions": {
