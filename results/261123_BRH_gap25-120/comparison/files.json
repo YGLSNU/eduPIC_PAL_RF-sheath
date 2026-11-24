@@ -1,18 +1,18 @@
 {
   "261123_BRH_comparison.zip": {
-    "bytes": 1093043,
-    "sha256": "ad41e4157616c1747fcfee2a7fd94eca0ccb46a7ff7af1178a6e5c794a953e17",
-    "git_blob": "f81563f493398d4ade3d89dbbbeec80b49e23964"
+    "bytes": 1095273,
+    "sha256": "214ae0cdfbf0b8a4d1021db08d33609e5ec0ea3048822262a6bd0ca51c97dee9",
+    "git_blob": "4dde381c42f0813147311642fc5c8ac5173b46f2"
   },
   "README.md": {
-    "bytes": 13100,
-    "sha256": "6fca0ef278f92f5edbd2c428f58563dab32addeb38bf25f1ea1d365ca189a4f2",
-    "git_blob": "006c0b6e01afea0d60c173ca7991a5c4639ed669"
+    "bytes": 13097,
+    "sha256": "97e48861d863af2803cf73ecdcb268abf66c5270fa2a4d54dc49932272e383e4",
+    "git_blob": "efb91c1d645b85496b39d4e735e7262e09818ef3"
   },
   "analysis_provenance.json": {
-    "bytes": 24005,
-    "sha256": "c9fe3f3f2542a6ea6bb4351eed74e91fe9f13c9afc1c2d1b382fa0c74f26e6b7",
-    "git_blob": "3c4d9e9f8e522d8fcbc6ee9765dd892a93f24a67"
+    "bytes": 24100,
+    "sha256": "c775a6dd6879225253fc68f2fa3bf0c5f0aa400c536f47dbb7fbb047849478ca",
+    "git_blob": "160b2688a8981c66d299bb454f6b884c30377185"
   },
   "data/100mm_episode_energy.csv.gz": {
     "bytes": 111,
@@ -30,9 +30,9 @@
     "git_blob": "3c787364db81be5f022cdb70738621ddd80fb6c0"
   },
   "data/100mm_uid_counts.csv.gz": {
-    "bytes": 24518,
-    "sha256": "6fa932fe094212c86a622bc046af9112c51b3ba9704aad83a292b8bb13d9ffdf",
-    "git_blob": "bd66ee65ccb113dfdcacbb0f6c618adca2357431"
+    "bytes": 26750,
+    "sha256": "64dd4dbc8dd4f467a185e1b256b9ad10715a542295a2c5bed93e5618cf906ddb",
+    "git_blob": "9343a897f98cee1d772591b9a905ca59958039d8"
   },
   "data/30mm_episode_energy.csv.gz": {
     "bytes": 31772,
@@ -155,14 +155,14 @@
     "git_blob": "d0e88b9a683b7939560dc78193728587d2fe8151"
   },
   "data/gap_parameters.csv": {
-    "bytes": 4781,
-    "sha256": "59f3ce72b06b9de94a4a092777daad7cfefa709320d05518b08d578a3e59c69e",
-    "git_blob": "43f0a53d47cc07db798e409fb3f6ccc8400208a4"
+    "bytes": 4775,
+    "sha256": "f0bb13c897c10f75a722d8991491d46f71dbb146ce8a8e322d63b466c8c3666f",
+    "git_blob": "15b894606b976007ab5d589e24678e56b7459736"
   },
   "data/gap_status.csv": {
-    "bytes": 468,
-    "sha256": "58ac2c632c5632e23f9904e14d1b334997a366a16722722aba74469e8eec96e5",
-    "git_blob": "995dfd2218fdf67218faef43718c8e8da3e0a0ab"
+    "bytes": 467,
+    "sha256": "9d781c0aff4d85521a540b47e0f149853c0bcb3b0dd0df239316417f4e66214e",
+    "git_blob": "34b7da317d4a6e700ff8783d3d5a5e002dbf336e"
   },
   "figures/energy_trace_30mm.png": {
     "bytes": 151169,
@@ -190,23 +190,23 @@
     "git_blob": "ee67d7e1ae95df885217aa2e1a43692016fa9c95"
   },
   "figures/gap_brh.png": {
-    "bytes": 119381,
-    "sha256": "299f16e1f950504a195994a97a34d74bcd6ecfe6c6a438873eb35347c188fde8",
-    "git_blob": "c40a6a67eb407619a128e37ccc99828527a79689"
+    "bytes": 119142,
+    "sha256": "ec707bfa959a3a60803abdb006df3d85becb7875b37f64c8645509527c7d0d99",
+    "git_blob": "ef49f0e38f5735fb667afc4f14ecad7d504a04a4"
   },
   "figures/gap_parameters.png": {
-    "bytes": 151464,
-    "sha256": "bf4bde2049031620819629e2a6dab36dd97aa377daa248d4d32bd8d6b5278ed4",
-    "git_blob": "974a086cc6361a926e21b847d3b398617fb9362d"
+    "bytes": 150415,
+    "sha256": "d039f030c32f75cc2a645d091705d3a126f082495c07fc991fbc0f76ac87c400",
+    "git_blob": "8265c1a22da12e3fe26a9d923253acf260fb7f61"
   },
   "figures/uid_counts.png": {
-    "bytes": 139327,
-    "sha256": "9ef8a4941489996bb3379fdb751664f67f9d41341a59ff5317a346de5f550c20",
-    "git_blob": "f7d10c6d61cb0dd4094a4a5f31f622517d885fae"
+    "bytes": 139581,
+    "sha256": "af7921f2b0d947c4d3394ded51bcd5213263fec2b91edf805bb3946f4c2abdce",
+    "git_blob": "b03e5bf44a02c62f258fa089108facdc72e9f5b1"
   },
   "report.json": {
-    "bytes": 13948,
-    "sha256": "32b45579a4b4b7ebd0843c3f7a1df29a9cbe73012f561712bfbd5ddc3cd17b3c",
-    "git_blob": "28eb09478b3f420de0f8270ce9beb058a22bf7b1"
+    "bytes": 13945,
+    "sha256": "052bfd23f9ceded9daf3ec781c641699cf6972fb3a3a889d8edb12c129126244",
+    "git_blob": "e0b19471403c69c411ac5b7dc15f2755f838be0c"
   }
 }
