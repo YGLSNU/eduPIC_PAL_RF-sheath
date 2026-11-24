@@ -7,7 +7,7 @@ import subprocess
 import tempfile
 import unittest
 from unittest.mock import patch
-from catalog import git,validate,render_report,sync
+from catalog import git,validate,render_report,sync,record,render_catalog
 from publish_run import publish
 import publish_run
 from catalog import commit_files
@@ -87,6 +87,13 @@ class CatalogTests(unittest.TestCase):
         page=render_report(m)
         self.assertIn('| Gap mm |',page);self.assertIn('[100 mm](100mm/README.md)',page)
         self.assertIn('[BRH 진단](METHOD.md)',page);self.assertNotIn('[100 V]',page)
+
+    def test_comparison_bookmark_is_preserved_in_catalog_records(self):
+        m=copy.deepcopy(self.meta);m.update(id='261123_BRH_gap25-120',date='2026-11-23',comparison_path='comparison/README.md')
+        page=render_catalog([record(validate(m))],'main')
+        self.assertIn('/261123_BRH_gap25-120/comparison/README.md',page)
+        m['comparison_path']='../outside.md'
+        with self.assertRaises(ValueError):validate(m)
 
     def test_upload_survives_a_concurrent_catalog_commit(self):
         export=Path(self.tmp.name)/'export';export.mkdir()
