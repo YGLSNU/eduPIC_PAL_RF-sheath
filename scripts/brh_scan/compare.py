@@ -13,7 +13,6 @@ FREQUENCY = 13.56e6
 CHARGE = 1.60217662e-19
 AREA = 1e-4
 WEIGHT = 112000.
-GAPS = [25, 30, 40, 50, 60, 80, 100, 120]
 
 
 def weighted_moments(ne, energy, x):
@@ -199,6 +198,7 @@ def analyze_case(state, summary, cache):
 def plot_summary(rows, snapshots, dest):
     import matplotlib.pyplot as plt
     from export import save
+    gaps=sorted(snapshots);bounds=(min(gaps)-5,max(gaps)+5)
     figs = dest/'figures';figs.mkdir(exist_ok=True)
     fig, axs = plt.subplots(2,3,figsize=(14,8));axs=axs.ravel()
     specs = [([('ne_volume_m3','Volume mean'),('ne_central10_m3','Central 10%')],'Electron density (m$^{-3}$)'),
@@ -213,7 +213,7 @@ def plot_summary(rows, snapshots, dest):
             for i,r in enumerate(rows):
                 ax.plot(r['gap_mm'],r[key],marker=['o','s','^'][j],linestyle='none',color=colors[j],
                         markerfacecolor=colors[j] if r['background_passed'] else 'none',label=lab if i==0 else None)
-        ax.set(xlabel='Gap (mm)',ylabel=label,xlim=(20,125),xticks=GAPS);ax.grid(alpha=.2);ax.legend(fontsize=8)
+        ax.set(xlabel='Gap (mm)',ylabel=label,xlim=bounds,xticks=gaps);ax.tick_params(axis='x',labelsize=8);ax.grid(alpha=.2);ax.legend(fontsize=8)
     fig.suptitle('Available post-background measurement epochs; RF windows in the table\nFilled: background criteria met | Open: background criteria not met; BRH precision separate')
     fig.tight_layout();save(fig,figs/'gap_parameters.png')
     fig,axs=plt.subplots(2,2,figsize=(12,8))
@@ -229,7 +229,7 @@ def plot_summary(rows, snapshots, dest):
         if r['candidate_UID_fraction'] is not None:axs[1,0].plot(x,100*r['candidate_UID_fraction'],'o',color='tab:purple')
         axs[1,1].plot(x,r['max_observed_near_run'],'o',color='tab:blue')
     labels=['1T candidate / detected returns (%)','Signed energy per return (eV)','UIDs with >=1 candidate / return UIDs (%)','Maximum observed consecutive near-1T returns']
-    for ax,lab in zip(axs.ravel(),labels):ax.set(xlabel='Gap (mm)',ylabel=lab,xlim=(20,125),xticks=GAPS);ax.grid(alpha=.2)
+    for ax,lab in zip(axs.ravel(),labels):ax.set(xlabel='Gap (mm)',ylabel=lab,xlim=bounds,xticks=gaps);ax.tick_params(axis='x',labelsize=8);ax.grid(alpha=.2)
     axs[0,1].axhline(0,color='k',lw=.6);axs[0,1].set_title('Orange: candidate field work; green: net dK\nBlack: all-return field work',fontsize=10)
     fig.suptitle('Observed-event / UID statistics, not a lifetime or whole-plasma BRH fraction\nBars: exploratory block uncertainty; 1T only; unequal RF windows')
     fig.tight_layout();save(fig,figs/'gap_brh.png')
@@ -277,15 +277,17 @@ def plot_summary(rows, snapshots, dest):
 def build_comparison(root,out,base,cases,series):
     """Return a normal child report so catalog/audit/publication keep working."""
     dest=out/'comparison';dest.mkdir(exist_ok=True);(dest/'data').mkdir(exist_ok=True)
-    states={g:json.loads((out/f'{g}mm/status.json').read_text()) for g in GAPS if (out/f'{g}mm/status.json').exists()}
+    gaps=base['conditions']['gap_mm']
+    states={g:json.loads((out/f'{g}mm/status.json').read_text()) for g in gaps if (out/f'{g}mm/status.json').exists()}
     rows=[];provenance=[]
     for gap,status,summary in sorted(series):
-        state=states[gap];cache,r=analyze_case(state,summary,root/'comparison_cache');r=copy.deepcopy(r);r['status']=status;rows.append(r)
+        state=states[gap];cache,r=analyze_case(state,summary,root/'comparison_cache');r=copy.deepcopy(r);r['status']=status
+        r['reused_from_run']=state.get('reused_from_run');r['execution_date']=state.get('original_execution_date',base['date']);rows.append(r)
         for f in cache.glob('*.csv*'):shutil.copy2(f,dest/'data'/f'{gap}mm_{f.name}')
         provenance.append({'gap_mm':gap,'summary_sha256':sha(Path(state['measurement_summary_path'])),
                            'measurement_summary_path':state['measurement_summary_path'],'native_path':state['pooled_native_path'],
                            'RF_first':summary['first_RF'],'RF_last':summary['last_RF'],'measured_RF':summary['measured_RF'],
-                           'measurement_blocks':summary['measurement_blocks'],'validation':r['validation']})
+                           'measurement_blocks':summary['measurement_blocks'],'validation':r['validation'],'reused_from_run':r['reused_from_run'],'execution_date':r['execution_date']})
     # Do not retain a prior epoch's derived exports if a case is re-equilibrating.
     active={str(r['gap_mm'])+'mm' for r in rows}
     for f in (dest/'data').glob('*mm_*'):
@@ -337,7 +339,7 @@ def build_comparison(root,out,base,cases,series):
     titles={'brh_compare':'Gap별 BRH 후보 비교','uid_statistics':'전자 UID별 반복 횟수','episode_energy':'반복 횟수에 따른 집단 에너지','electron_energy':'개별 전자의 반복 가열·충돌 이력'}
     for s in sections:
         if s['id'] in titles:s['title']=titles[s['id']]
-    archive=dest/'261123_BRH_comparison.zip'
+    archive=dest/(base['date'].replace('-','')[2:]+'_BRH_comparison.zip')
     with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED) as z:
         for f in sorted((dest/'data').iterdir()):
             info=zipfile.ZipInfo('data/'+f.name,date_time=(1980,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;z.writestr(info,f.read_bytes())
@@ -345,8 +347,8 @@ def build_comparison(root,out,base,cases,series):
         z.writestr(info,(dest/'analysis_provenance.json').read_bytes())
     active_run=any(s['status'] in ['running','queued','building'] for s in states.values())
     meta=copy.deepcopy(base);meta.update(title='Gap별 플라즈마 파라미터·전자별 BRH 후보 요약',status='running' if active_run else 'measurement_complete',
-        changed_conditions='BRH gap25–120 mm 비교',report_directory=f'results/{base["id"]}/comparison',
-        summary='8개 계획 조건의 실제 상태와 확보된 측정만 비교합니다. 실행일은 원 계산 시작일이며 보고서 갱신일과 구분합니다. 모든 gap 완료·BRH 확정을 뜻하지 않습니다.',
+        changed_conditions=f'BRH gap{min(gaps)}–{max(gaps)} mm 비교',report_directory=f'results/{base["id"]}/comparison',
+        summary=f'{len(gaps)}개 계획 조건의 실제 상태와 확보된 측정만 비교합니다. 실행일은 원 계산 시작일이며 보고서 갱신일과 구분합니다. 기존 조건 재사용은 CSV의 reused_from_run·execution_date와 개별 보고서에 표시합니다. 모든 gap 완료·BRH 확정을 뜻하지 않습니다.',
         measurement_note='아래 gap별 RF 구간 표. 원래 측정 epoch만 사용; warmup·pilot·폐기된 epoch 제외.',sections=sections,
         related_links=[{'label':'전체 gap 진행·개별 결과','url':'../README.md'},{'label':'진단 정의·수렴 기준','url':'../METHOD.md'}],
         downloads=[{'label':'gap별 파라미터 CSV','path':'data/gap_parameters.csv'},{'label':'계획 gap 전체 상태 CSV','path':'data/gap_status.csv'},

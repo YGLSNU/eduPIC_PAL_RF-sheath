@@ -4,7 +4,8 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 import csv,json,os,re,shutil,subprocess,time
 import numpy as np
-from common import checkpoint,put,sha,stationarity
+from common import checkpoint,put,sha,stationarity,load_array
+from capacity import solver_slot
 from brh_stats import assess
 
 def now():return datetime.now(ZoneInfo('Asia/Seoul')).isoformat()
@@ -13,7 +14,7 @@ def validate_block(path,ng,count,gap):
     info=(path/'info.txt').read_text();assert 'VIOLATED' not in info,'Native stability/accuracy condition failed; refine grid/step before interpretation'
     data={}
     for name in ['pot','efield','ne','ni','je','ji','powere','poweri','meanee','meanei','ioniz']:
-        a=np.loadtxt(path/(name+'_xt.dat'));assert a.shape==(ng,200) and np.isfinite(a).all(),name;data[name]=a
+        a=load_array(path/(name+'_xt.dat'));assert a.shape==(ng,200) and np.isfinite(a).all(),name;data[name]=a
     for s in ['e','i']:assert np.allclose(data['power'+s],data['j'+s]*data['efield'],rtol=3e-6,atol=.003)
     meta=json.loads((path/'brh_meta.json').read_text());assert meta['maximum_return_energy_ledger_residual_eV']<1e-8
     assert abs((meta['measurement_end_s']-meta['measurement_start_s'])*13.56e6-count)<1e-5
@@ -34,12 +35,12 @@ def validate_block(path,ng,count,gap):
 def pool_native(blocks,dest):
     dest.mkdir(exist_ok=True,parents=True);pool={}
     for key in ['pot','efield','ne','ni','je','ji','ioniz']:
-        pool[key]=sum(np.loadtxt(p/(key+'_xt.dat')) for p in blocks)/len(blocks)
+        pool[key]=sum(load_array(p/(key+'_xt.dat')) for p in blocks)/len(blocks)
     for s in ['e','i']:
-        pool['power'+s]=pool['j'+s]*pool['efield'];numerator=sum(np.loadtxt(p/('meane'+s+'_xt.dat'))*np.loadtxt(p/('n'+s+'_xt.dat')) for p in blocks)/len(blocks)
+        pool['power'+s]=pool['j'+s]*pool['efield'];numerator=sum(load_array(p/('meane'+s+'_xt.dat'))*load_array(p/('n'+s+'_xt.dat')) for p in blocks)/len(blocks)
         pool['meane'+s]=np.divide(numerator,pool['n'+s],out=np.zeros_like(numerator),where=pool['n'+s]>0)
     for k,a in pool.items():np.savetxt(dest/(k+'_xt.dat'),a,fmt='%.9e')
-    density=sum(np.loadtxt(p/'density.dat') for p in blocks)/len(blocks);np.savetxt(dest/'density.dat',density,fmt='%.9e')
+    density=sum(load_array(p/'density.dat') for p in blocks)/len(blocks);np.savetxt(dest/'density.dat',density,fmt='%.9e')
     for name in ['eepf.dat','ifed.dat','info.txt']:shutil.copy2(blocks[-1]/name,dest/name)
     put(dest/'block_windows.json',{'blocks':[json.loads((p/'block.json').read_text()) for p in blocks],'normalization':'phase densities/currents/fields averaged over equal RF blocks; energy moments density-weighted; heating is pooled <j>*<E>; native EEPF/IEDF and info.txt from last block only'})
     last=json.loads((blocks[-1]/'block.json').read_text());(dest/'distribution_note.txt').write_text(f'Last native block RF {last["RF_first"]}–{last["RF_last"]} only (20 RF); pooled EEDF uses raw new histogram counts')
@@ -66,8 +67,8 @@ def measure_case(root,d,state,previous,history):
         env={**os.environ,'EDUPIC_DIAGNOSTIC_SEED':str(261123000+gap*100000+start)}
         if measuring:env['EDUPIC_BRH_MEASUREMENT_START_S']=format(state['measurement_start_time_s'],'.17g')
         update(active_RF=[start,end],phase='measurement' if measuring else stage)
-        begin=time.monotonic()
-        with (work/'run.log').open('w') as out:
+        with solver_slot(root,update,d), (work/'run.log').open('w') as out:
+            begin=time.monotonic()
             proc=subprocess.Popen([str(binary if use_brh else d/'solver_warm'),str(count)]+(['m'] if measuring else []),cwd=work,stdout=out,stderr=subprocess.STDOUT,env=env,start_new_session=True)
             update(solver_pid=proc.pid);ret=proc.wait()
         elapsed=time.monotonic()-begin;assert ret==0,f'Solver returned {ret}'
@@ -108,7 +109,7 @@ def measure_case(root,d,state,previous,history):
             pooled=d/f'pooled_epoch{epoch}_RF{cp["cycle"]:06d}';pool_native(blocks,pooled)
             # Aggregate BRH/EEDF raw counts, not normalized block distributions.
             from postprocess import process_blocks,compress_block,prune_derived
-            brh_summary=process_blocks(d,blocks,assessment);compress_block(work)
+            brh_summary=process_blocks(d,blocks,assessment);compress_block(work,native=cfg.get('compress_native_text',False))
             passes=passes+1 if assessment['passed'] else 0
             update(status='running',phase='measurement',measured_RF=len(blocks)*criteria['block_cycles'],measurement_blocks=[str(p) for p in blocks],assessment=assessment,consecutive_passes=passes,pooled_native_path=str(pooled),measurement_summary_path=str(Path(brh_summary['pooled_data_path'])/'summary.json'),data_invalidation_reason=None,pooled_note=f'Measurement RF {state["measurement_start_RF"]}–{cp["cycle"]} ({len(blocks)*criteria["block_cycles"]} RF)',ne_mean_m3=assessment.get('indicators',{}).get('mean_density_e',{}).get('estimate'))
             prune_derived(d)

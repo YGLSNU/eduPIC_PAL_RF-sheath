@@ -5,6 +5,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 import argparse,fcntl,json,os,subprocess,sys,time,traceback
 from common import put
+from capacity import TERMINAL
 
 REPO=Path(__file__).resolve().parents[2]
 def main():
@@ -13,12 +14,17 @@ def main():
     out=root.parent/'export'/root.name;last=0;signature=None
     put(root/'publisher.json',{'pid':os.getpid(),'interval_seconds':a.interval_seconds,'export_path':str(out),'started_at_Asia_Seoul':datetime.now(ZoneInfo('Asia/Seoul')).isoformat()})
     def special():
-        states=[json.loads(p.read_text()) for p in root.glob('*mm/status.json')]
+        cfg=json.loads((root/'config.json').read_text())
+        paths=[Path(cfg.get('case_sources',{}).get(str(g),{}).get('path',str(root/f'{g}mm')))/'status.json' for g in cfg['gaps_mm']]
+        states=[json.loads(p.read_text()) for p in paths]
         final=tuple((m['gap_mm'],m['status']) for m in states if m['status'] in ['criteria_met','extinguished','measurement_limit_reached','total_cycle_limit_reached','paused_error','diagnostic'])
         return final
     while not (root/'STOP_PUBLISH').exists():
         try:
             sig=special();finished=(root/'controller_finished.json').exists()
+            cfg=json.loads((root/'config.json').read_text())
+            if finished and cfg.get('case_sources'):
+                finished=all(json.loads((Path(s['path'])/'status.json').read_text())['status'] in TERMINAL for s in cfg['case_sources'].values())
             if time.monotonic()-last>=a.interval_seconds or sig!=signature or finished:
                 # Export reads only completed immutable block paths. The separate
                 # uploader uses the existing atomic catalog/update implementation.

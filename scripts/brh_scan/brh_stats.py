@@ -3,7 +3,7 @@ from pathlib import Path
 import csv,json
 import numpy as np
 from scipy.stats import t as student_t
-from common import stationarity
+from common import stationarity,load_array
 
 FIELDS=['ne','ni','je','ji','efield']
 def read_table(path):
@@ -62,7 +62,7 @@ def return_stats(blocks,criteria):
 def assess(blocks,history,criteria,gap_mm):
     n=len(blocks);base={'passed':False,'measurement_cycles':n*criteria['block_cycles'],'completed_blocks':n,'particle_count_stationarity':stationarity(history,criteria)}
     if n<2:return {**base,'reason':'insufficient_blocks','background_passed':False,'BRH':return_stats(blocks,criteria)}
-    stacks={k:np.stack([np.loadtxt(p/(k+'_xt.dat')) for p in blocks]) for k in FIELDS}
+    stacks={k:np.stack([load_array(p/(k+'_xt.dat')) for p in blocks]) for k in FIELDS}
     ng=stacks['ne'].shape[1];L=gap_mm/1000;X=np.linspace(0,L,ng)
     def coarse(a):
         ny=min(40,a.shape[0]);return np.stack([q.mean(axis=0) for q in np.array_split(a,ny,axis=0)]).reshape(ny,40,5).mean(axis=2)

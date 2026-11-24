@@ -2,6 +2,12 @@ from pathlib import Path
 import hashlib,json,struct
 import numpy as np
 
+def load_array(path, **kwargs):
+    """Read unchanged numeric text from plain or losslessly compressed storage."""
+    path=Path(path)
+    if not path.exists() and Path(str(path)+'.gz').exists():path=Path(str(path)+'.gz')
+    return np.loadtxt(path,**kwargs)
+
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 def put(p,m):
     p=Path(p);tmp=p.with_suffix(p.suffix+'.tmp');tmp.write_text(json.dumps(m,ensure_ascii=False,indent=2,allow_nan=False)+'\n');tmp.replace(p)

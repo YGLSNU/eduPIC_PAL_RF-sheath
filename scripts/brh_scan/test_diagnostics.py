@@ -37,6 +37,12 @@ class DiagnosticsTests(unittest.TestCase):
             np.savetxt(d/'density.dat',np.c_[np.linspace(0,.04,17),np.full(17,n),np.full(17,n)])
             for f in ['eepf.dat','ifed.dat','info.txt']:(d/f).write_text('last-block fixture\n')
             (d/'block.json').write_text(json.dumps({'RF_first':j*20+1,'RF_last':(j+1)*20}));(d/'particle_balance.csv').write_text('RF_cycle,x\n'+str(j)+',1\n')
+        originals={str(p):p.read_bytes() for d in blocks for p in [d/'density.dat',*d.glob('*_xt.dat')]}
+        for d in blocks:compress_block(d,native=True)
+        import gzip
+        for p,b in originals.items():
+            self.assertEqual(gzip.decompress(Path(p+'.gz').read_bytes()),b)
+            self.assertFalse(Path(p).exists())
         dest=self.root/'pooled';pool_native(blocks,dest)
         self.assertTrue(np.allclose(np.loadtxt(dest/'meanee_xt.dat'),19))
         self.assertTrue(np.allclose(np.loadtxt(dest/'powere_xt.dat'),2.5*1.5))

@@ -1,6 +1,6 @@
 """Pool raw diagnostic counts and signed particle work with explicit censoring."""
 from pathlib import Path
-import csv,gzip,json,shutil,time
+import csv,gzip,json,shutil,time,hashlib
 import numpy as np
 from common import put
 from brh_stats import read_table,return_stats
@@ -12,7 +12,7 @@ def block_hist(path,energy):
     if f.exists():return np.fromfile(f,dtype='<u8').reshape(20,200,2,271)
     with np.load(path/'brh_hist_counts.npz') as z:return z[energy]
 
-def compress_block(path):
+def compress_block(path,native=False):
     """Lossless storage conversion after native/BRH validation, never physics."""
     if (path/'brh_hist_E_counts.bin').exists():
         np.savez_compressed(path/'brh_hist_counts.npz',E=block_hist(path,'E'),Ex=block_hist(path,'Ex'))
@@ -20,6 +20,16 @@ def compress_block(path):
     for f in path.glob('brh_*.csv'):
         with f.open('rb') as src,gzip.open(str(f)+'.gz','wb',compresslevel=3) as dst:shutil.copyfileobj(src,dst)
         f.unlink()
+    if native:
+        manifest={}
+        for f in list(path.glob('*_xt.dat'))+[path/'density.dat']:
+            if not f.exists():continue
+            data=f.read_bytes();dst=path/(f.name+'.gz');tmp=path/(f.name+'.gz.tmp')
+            tmp.write_bytes(gzip.compress(data,compresslevel=3,mtime=0))
+            assert gzip.decompress(tmp.read_bytes())==data
+            manifest[f.name]={'bytes':len(data),'sha256':hashlib.sha256(data).hexdigest(),'stored_as':dst.name}
+            tmp.replace(dst);f.unlink()
+        if manifest:put(path/'native_compression.json',manifest)
 
 def process_blocks(case,blocks,assessment):
     last_RF=json.loads((blocks[-1]/'block.json').read_text())['RF_last']
@@ -70,7 +80,7 @@ def prune_derived(case):
         for p in dirs[:-3]:
             if time.time()-p.stat().st_mtime>3600:shutil.rmtree(p)
 
-def export_diagnostics(case,target,summary_path=None):
+def export_diagnostics(case,target,summary_path=None,archive_prefix='261123'):
     # Imported lazily so background numeric analysis does not initialize plotting.
     import os
     os.environ.setdefault('MPLCONFIGDIR','/tmp/edupic-matplotlib')
@@ -146,7 +156,7 @@ def export_diagnostics(case,target,summary_path=None):
             for j in range(270):w.writerow([(ix+.5)/20,E[j],width[j],int(n[ix,j]),ee[ix,j],pdf[ix,j]])
     shutil.copy2(summary_path,target/'measurement_summary.json')
     from archive import package
-    archives=package([(p,p.name) for p in sorted(d.glob('*')) if p.is_file()]+[(summary_path,'measurement_summary.json')],target,f'261123_{target.name}_BRH_data')
+    archives=package([(p,p.name) for p in sorted(d.glob('*')) if p.is_file()]+[(summary_path,'measurement_summary.json')],target,f'{archive_prefix}_{target.name}_BRH_data')
     text=f'검출된 상부 기준 왕복 {s["powered_side_returns"]}개, 고유 UID {s["distinct_return_UIDs"]}개. 위상 반복 후보 {s["candidate_returns"]}개(고유 UID {s["distinct_candidate_UIDs"]}개). '
     if s['candidate_return_fraction'] is not None:text+=f'검출 왕복 중 후보 비율 {s["candidate_return_fraction"]*100:.3f}%. '
     if s['candidate_mean_signed_work_eV'] is not None:text+=f'후보의 평균 signed field work {s["candidate_mean_signed_work_eV"]:.4g} eV/왕복. '

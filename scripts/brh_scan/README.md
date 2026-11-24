@@ -32,6 +32,24 @@ python -u scripts/brh_scan/run_scan.py /workspace/edupic-brh/261123_BRH_gap25-12
 
 ## 보고서 갱신
 
+### 20–80 mm, 5 mm 간격 추가 스캔
+
+[13개 gap 진행·결과](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md) · [파라미터·전자별 반복 가열 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/comparison/README.md)
+
+`261124_BRH_gap20-80_step5`는 기존25·30·40·50·60·80 mm의 실행을 재사용하고20·35·45·55·65·70·75 mm를 추가합니다. 물리 소스·초기 기준 입자·가중치·시간격자·수렴 기준은 같습니다. 재사용은 독립 seed 반복 실행이 아니며 원 실행일과 상한/소멸 상태를 유지합니다. 100·120 mm를 포함한 이전 실행도 계속됩니다.
+
+```bash
+python scripts/brh_scan/refine_scan.py /workspace/edupic-brh/261123_BRH_gap25-120 /workspace/edupic-brh/261124_BRH_gap20-80_step5 --start 20 --stop 80 --step 5
+python scripts/brh_scan/validate_new_gap.py /workspace/edupic-brh/261124_BRH_gap20-80_step5 --gap 35
+python -u scripts/brh_scan/run_scan.py /workspace/edupic-brh/261124_BRH_gap20-80_step5
+```
+
+최초 준비는 새 폴더에서만 실행합니다. 재개는 마지막 명령을 사용합니다. `capacity.py`가 이전 미종료 계산의 CPU를 예약하고 전체4개 solver 한도 안에서 새 조건을 투입합니다. 자원을 기다리는 조건은 `execution_state: waiting_for_capacity`로 기록합니다. 이전 조건이 종료되면 새 계산의 동시 실행 수가 늘어납니다.
+
+새 실행의 측정 블록은 큰 수치 텍스트를 `.dat.gz`로 무손실 압축합니다. 압축 해제 byte가 원본과 같음을 검사하고 SHA256을 `native_compression.json`에 남깁니다. `load_array`가 plain/gzip을 모두 읽으며 입자·난수·UID 재시작 파일은 그대로 유지합니다. 기존 실행의 원시 블록에는 이 저장 변환을 적용하지 않습니다.
+
+아래 export·publish 명령의 실행 폴더를 새 폴더로 바꾸면13개 조건을 함께 갱신합니다. `config.json`의 `case_sources`는 이전 실행을 읽기 전용으로 참조하고, `run_gaps_mm`만 새 제어기가 계산합니다. 보고서는 실제 실행일과 재사용 출처, 각 측정 RF 구간을 구분합니다.
+
 [Gap별 파라미터·전자별 반복 가열 요약](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/comparison/README.md)은 `compare.py`가 실제 완결 측정 epoch로 생성합니다. 밀도, 입자 가중 에너지 환산 온도, 쉬스 반사 후 기준면 출구 에너지 분포, 흡수 전력, 이온화율과 UID별 후보 사건·episode를 비교합니다. 온도는 Maxwellian fit이나 drift 제거 온도가 아닙니다. 전자 수명 전체로 횟수를 외삽하지 않으며, 에너지 증가 부호와 무관하게 최대 위상 반복 길이로 예시를 선정합니다. 원자료 출구 에너지와 왕복 에너지 장부를 대조하고 검증 기록·CSV를 함께 제공합니다.
 
 ```bash

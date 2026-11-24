@@ -7,6 +7,7 @@ from zoneinfo import ZoneInfo
 import argparse,csv,fcntl,json,os,shutil,subprocess,time,traceback
 import numpy as np
 from common import checkpoint,put,sha,stationarity
+from capacity import solver_slot,StopAtCheckpoint
 
 def now():return datetime.now(ZoneInfo('Asia/Seoul')).isoformat()
 def run_case(root,gap):
@@ -34,8 +35,8 @@ def run_case(root,gap):
             work.mkdir(parents=True);shutil.copy2(previous,work/'picdata.bin')
             seed=261123000+gap*100000+start
             update(active_RF=[start,end],stationarity=stable)
-            begin=time.monotonic()
-            with (work/'run.log').open('w') as log:
+            with solver_slot(root,update,d), (work/'run.log').open('w') as log:
+                begin=time.monotonic()
                 proc=subprocess.Popen(['stdbuf','-oL',str(d/'solver_warm'),str(count)]+(['m'] if diagnostic else []),cwd=work,stdout=log,stderr=subprocess.STDOUT,env={**os.environ,'EDUPIC_DIAGNOSTIC_SEED':str(seed)},start_new_session=True)
                 update(solver_pid=proc.pid);ret=proc.wait()
             elapsed=time.monotonic()-begin
@@ -56,6 +57,8 @@ def run_case(root,gap):
         update(phase='measurement')
         from measurement import measure_case
         return measure_case(root,d,state,previous,history)
+    except StopAtCheckpoint:
+        update(status='paused_at_checkpoint',execution_state='paused');return state
     except Exception as exc:
         update(status='paused_error',error=str(exc));(d/'error.log').write_text(traceback.format_exc());print('ERROR',gap,exc,flush=True);return state
 
@@ -63,7 +66,7 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('root',type=Path);p.add_argument('--gaps',type=int,nargs='*');a=p.parse_args();root=a.root.resolve()
     lock=(root/'controller.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     (root/'controller_finished.json').unlink(missing_ok=True)
-    cfg=json.loads((root/'config.json').read_text());gaps=a.gaps or [40,60,100,120,30,50,80,25]
+    cfg=json.loads((root/'config.json').read_text());gaps=a.gaps or cfg.get('run_gaps_mm',[40,60,100,120,30,50,80,25])
     put(root/'controller.json',{'pid':os.getpid(),'started_at_Asia_Seoul':now(),'gaps_mm':gaps,'max_workers':cfg['max_workers']})
     for gap in gaps:
         p=root/f'{gap}mm/status.json';queued=json.loads(p.read_text())
