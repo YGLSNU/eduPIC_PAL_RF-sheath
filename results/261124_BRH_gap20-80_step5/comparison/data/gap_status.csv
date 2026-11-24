@@ -4,11 +4,11 @@ gap_mm,status,checkpoint_RF,measured_RF,RF_first,RF_last,background_passed,all_c
 30,measurement_limit_reached,2851,1000,1852.0,2851.0,False,False
 35,measurement_limit_reached,2700,1000,1701.0,2700.0,False,False
 40,measurement_limit_reached,1602,1000,603.0,1602.0,True,False
-45,running,1460,360,1101.0,1460.0,True,False
+45,running,1520,420,1101.0,1520.0,True,False
 50,measurement_limit_reached,2351,1000,1352.0,2351.0,True,False
-55,running,1911,460,1452.0,1911.0,True,False
+55,running,1931,480,1452.0,1931.0,True,False
 60,measurement_limit_reached,2751,1000,1752.0,2751.0,True,False
-65,running,1980,180,1801.0,1980.0,False,False
-70,running,400,0,,,,
+65,running,2020,220,1801.0,2020.0,True,False
+70,running,500,0,,,,
 75,queued,0,0,,,,
 80,paused_at_checkpoint,2420,220,2201.0,2420.0,True,False
