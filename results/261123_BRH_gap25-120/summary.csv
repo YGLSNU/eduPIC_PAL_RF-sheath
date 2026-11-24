@@ -4,6 +4,6 @@ gap_mm,V_peak,status,phase,completed_RF,measured_RF,electrons,ions,last_seconds_
 40,250,measurement_limit_reached,measurement,1602,1000,45894,48277,14.821383060351945,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
 50,250,measurement_limit_reached,measurement,2351,1000,76937,79340,24.022246855098636,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
 60,250,measurement_limit_reached,measurement,2751,1000,101639,103939,30.9846115839493,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
-80,250,running,warmup,500,0,137110,139229,32.94614183995873,배경 입자 수 안정화 중
-100,250,running,measurement,2500,100,211816,213968,66.86301570159848,위상·입자 진단 측정 중; 최종 BRH 판정 전
-120,250,running,warmup,2000,0,273686,275796,63.936090413015336,배경 입자 수 안정화 중
+80,250,running,warmup,600,0,139152,141299,32.82240834098775,배경 입자 수 안정화 중
+100,250,running,measurement,2520,120,211853,214013,69.92280006530055,위상·입자 진단 측정 중; 최종 BRH 판정 전
+120,250,running,warmup,2049,0,274120,276241,32.140723472285295,배경 입자 수 안정화 중
