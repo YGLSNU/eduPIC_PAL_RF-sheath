@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-24T19:21:09+09:00",
+  "report_updated": "2026-11-24T19:37:56+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -146,8 +146,8 @@
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
       "bytes": 1749,
-      "sha256": "81b59e8b8aad69271320dc7724662df59c9873b13fd25c4cbb8000970e53c42f",
-      "git_blob": "a626cfadcabcfa585305ab57782207a37f209f56"
+      "sha256": "e51fe9cccdca03cba24ca7a46c5ad8a80f83746e3b9d3420dbe6c8d2bddfcc6f",
+      "git_blob": "35e966f71080a0678ad98d4c42f5cef26c2bb1af"
     },
     {
       "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 1200–1200 (transient, not stationary)",
@@ -197,7 +197,7 @@
     ],
     [
       "진행 상태 갱신",
-      "2026-11-24T19:21:02.075230+09:00"
+      "2026-11-24T19:37:35.986185+09:00"
     ]
   ]
 }
