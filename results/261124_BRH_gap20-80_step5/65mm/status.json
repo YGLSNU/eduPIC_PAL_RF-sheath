@@ -18,39 +18,95 @@
   "initial_SHA256": "b33a9b225fd249301779b4aa102ae2e7500d83e4c8e5abda08707810ecdbf351",
   "initial_e": 74571,
   "status": "running",
-  "phase": "warmup",
-  "checkpoint_cycle": 1749,
-  "measured_RF": 0,
-  "elapsed_solver_seconds": 24065.788432667323,
+  "phase": "measurement",
+  "checkpoint_cycle": 1820,
+  "measured_RF": 20,
+  "elapsed_solver_seconds": 25697.733995542338,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "execution_date": "2026-11-24",
-  "updated_at_Asia_Seoul": "2026-11-25T00:41:47.040948+09:00",
+  "updated_at_Asia_Seoul": "2026-11-25T01:09:09.668036+09:00",
   "started_at_Asia_Seoul": "2026-11-24T14:54:15.070016+09:00",
   "controller_pid": 761029,
   "active_RF": [
-    1750,
-    1798
+    1821,
+    1840
   ],
   "stationarity": {
     "e": {
-      "block_mean_span": 0.011214371634712643,
-      "fitted_drift": 0.016799718832633495,
-      "passed": false
+      "block_mean_span": 0.00947481882370791,
+      "fitted_drift": 0.014290604735619404,
+      "passed": true
     },
     "i": {
-      "block_mean_span": 0.011037317552909732,
-      "fitted_drift": 0.016532371816474652,
-      "passed": false
+      "block_mean_span": 0.009328109423559973,
+      "fitted_drift": 0.014073656767776142,
+      "passed": true
     },
-    "passed": false
+    "passed": true
   },
   "execution_state": "solver",
   "capacity_reserved_for_earlier_scan": 0,
-  "solver_pid": 786314,
-  "checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/warmup/RF001701-001749/picdata.bin",
-  "electrons": 112169,
-  "ions": 114439,
-  "last_block_seconds": 691.372455261997,
-  "last_RF_seconds": 14.109641944122387,
-  "last_diagnostic_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/warmup/RF001700-001700"
+  "solver_pid": 789638,
+  "checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF001801-001820/picdata.bin",
+  "electrons": 112153,
+  "ions": 114413,
+  "last_block_seconds": 851.93688539695,
+  "last_RF_seconds": 42.596844269847495,
+  "last_diagnostic_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/warmup/RF001700-001700",
+  "measurement_start_RF": 1801,
+  "history_filled": true,
+  "measurement_start_time_s": 0.00013274336279725193,
+  "measurement_blocks": [
+    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF001801-001820"
+  ],
+  "assessment": {
+    "passed": false,
+    "measurement_cycles": 20,
+    "completed_blocks": 1,
+    "particle_count_stationarity": {
+      "e": {
+        "block_mean_span": 0.008986829006792364,
+        "fitted_drift": 0.013208720527787042,
+        "passed": true
+      },
+      "i": {
+        "block_mean_span": 0.008853389988105377,
+        "fitted_drift": 0.013011111482744761,
+        "passed": true
+      },
+      "passed": true
+    },
+    "reason": "insufficient_blocks",
+    "background_passed": false,
+    "BRH": {
+      "powered_side_returns": 1357,
+      "candidate_returns": 0,
+      "distinct_return_UIDs": 1011,
+      "distinct_candidate_UIDs": 0,
+      "candidate_return_fraction": {
+        "estimate": null,
+        "half_width": null,
+        "first_last_change": null,
+        "passed_data": false
+      },
+      "candidate_signed_work_eV": {
+        "estimate": null,
+        "half_width": null,
+        "first_last_change": null,
+        "passed_data": false
+      },
+      "fraction_tolerance": 0.005,
+      "work_tolerance_eV": 0.1,
+      "fraction_passed": false,
+      "work_passed": false,
+      "passed": false,
+      "note": "Fractions are among detected complete powered-side round trips, not a density fraction. Block/40-RF estimates include dependence heuristically; rare-tail/model/grid error is separate."
+    }
+  },
+  "consecutive_passes": 0,
+  "pooled_native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/pooled_epoch1_RF001820",
+  "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/brh_pooled_RF001820/summary.json",
+  "data_invalidation_reason": null,
+  "pooled_note": "Measurement RF 1801–1820 (20 RF)",
+  "ne_mean_m3": null
 }
