@@ -73,12 +73,12 @@
     },
     {
       "gap_mm": 35,
-      "summary_sha256": "ec94103c130d017fb139a612a042d79504304ee199f195e2d43de05aed3c145c",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/brh_pooled_RF002000/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/pooled_epoch1_RF002000",
+      "summary_sha256": "68fc2d45bf2e9a13f586d85a79e9f320b868f6397f533be3dd698977f721aaf9",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/brh_pooled_RF002100/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/pooled_epoch1_RF002100",
       "RF_first": 1701,
-      "RF_last": 2000,
-      "measured_RF": 300,
+      "RF_last": 2100,
+      "measured_RF": 400,
       "measurement_blocks": [
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001701-001720",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001721-001740",
@@ -94,13 +94,18 @@
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001921-001940",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001941-001960",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001961-001980",
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001981-002000"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF001981-002000",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002001-002020",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002021-002040",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002041-002060",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002061-002080",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/35mm/measurement_epoch1/RF002081-002100"
       ],
       "validation": {
-        "matched_start_energies": 27790,
+        "matched_start_energies": 37824,
         "reconstructed_start_energies": 9,
         "maximum_endpoint_discrepancy_eV": 1.000053373445553e-10,
-        "episode_nodes": 342,
+        "episode_nodes": 444,
         "ledger_and_candidate_counts_passed": true
       },
       "reused_from_run": null,
@@ -248,22 +253,24 @@
     },
     {
       "gap_mm": 55,
-      "summary_sha256": "38b2753d72b161bdfe0d5d531bd9626c1941e1bd5ea9e0eb7aad395459ff3c1c",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/brh_pooled_RF001511/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/pooled_epoch1_RF001511",
+      "summary_sha256": "a59d6296527b6157b35fd79337925b49673dc01864a10599d849d09f36541dfa",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/brh_pooled_RF001551/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/pooled_epoch1_RF001551",
       "RF_first": 1452,
-      "RF_last": 1511,
-      "measured_RF": 60,
+      "RF_last": 1551,
+      "measured_RF": 100,
       "measurement_blocks": [
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001452-001471",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001472-001491",
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001492-001511"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001492-001511",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001512-001531",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001532-001551"
       ],
       "validation": {
-        "matched_start_energies": 8513,
-        "reconstructed_start_energies": 28,
+        "matched_start_energies": 15515,
+        "reconstructed_start_energies": 29,
         "maximum_endpoint_discrepancy_eV": 1.000035609877159e-10,
-        "episode_nodes": 15,
+        "episode_nodes": 36,
         "ledger_and_candidate_counts_passed": true
       },
       "reused_from_run": null,
