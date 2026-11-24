@@ -41,6 +41,9 @@ def validate(meta):
         raise ValueError('Run id must be YYMMDD_changedconditions')
     if date.fromisoformat(meta['date']).strftime('%y%m%d')!=meta['id'][:6]:
         raise ValueError('Run id date differs from actual execution date')
+    if meta.get('reused_from_run'):
+        if not re.fullmatch(r'\d{6}_[A-Za-z0-9_.-]+',meta['reused_from_run']):raise ValueError('Invalid reused run id')
+        if date.fromisoformat(meta['original_execution_date']).strftime('%y%m%d')!=meta['reused_from_run'][:6]:raise ValueError('Reused run date differs from its original execution date')
     if meta['status'] not in STATUS: raise ValueError('Unknown status: '+meta['status'])
     if not meta['branch'].startswith('results/'): raise ValueError('A run belongs on a results/ branch')
     for c in meta.get('cases',[]): safe_path(c['path'])
@@ -77,10 +80,12 @@ def condition_rows(c):
 
 def render_report(m):
     validate(m);c=m['conditions'];s=m['source']
+    execution_date=(f'원 실행일 {m["original_execution_date"]} · 이번 스캔 등록일 {m["date"]}'
+                    if m.get('reused_from_run') else f'실행일 {m["date"]}')
     lines=[f'# {m["id"]} · {m["title"]}', '',
            f'[전체 실행 목록]({WEB}) · [이 조건군]({WEB}/tree/{m["branch"]})'+
            (f' · [실행 비교]({blob(m["branch"],"results/"+m["id"]+"/README.md")})' if m.get('report_directory') else ''), '',
-           f'**{label(m["status"])}** · 실행일 {m["date"]} (한국 시각) · 변경 조건: **{m["changed_conditions"]}**'+
+           f'**{label(m["status"])}** · {execution_date} (한국 시각) · 변경 조건: **{m["changed_conditions"]}**'+
            (f' · 보고서 갱신 {m["report_updated"]}' if m.get('report_updated') else ''), '',
            m.get('summary',''), '', '## 실행 조건', '', '| 항목 | 값 |', '|---|---|']
     lines += [f'| {a} | {escape(b)} |' for a,b in condition_rows(c)]

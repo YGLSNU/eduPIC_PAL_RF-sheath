@@ -95,6 +95,13 @@ class CatalogTests(unittest.TestCase):
         m['comparison_path']='../outside.md'
         with self.assertRaises(ValueError):validate(m)
 
+    def test_reused_case_keeps_parent_identity_and_shows_original_execution_date(self):
+        m=copy.deepcopy(self.meta);m.update(id='261124_BRH_gap20-80_step5',date='2026-11-24',
+            reused_from_run='261123_BRH_gap25-120',original_execution_date='2026-11-23')
+        page=render_report(validate(m));self.assertIn('원 실행일 2026-11-23',page);self.assertIn('이번 스캔 등록일 2026-11-24',page)
+        m['original_execution_date']='2026-11-24'
+        with self.assertRaises(ValueError):validate(m)
+
     def test_upload_survives_a_concurrent_catalog_commit(self):
         export=Path(self.tmp.name)/'export';export.mkdir()
         m=copy.deepcopy(self.meta);m.update(id='261123_gap40_V400',date='2026-11-23')

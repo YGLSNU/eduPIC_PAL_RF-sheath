@@ -181,7 +181,7 @@ def export(root,out):
             metrics=[['저장 체크포인트',f'RF {cpRF}'],['예비 진단 누적' if is_pilot else '정상 측정 누적',f'{meas} RF'],['현재 단계',phase],['안정성 확인',json.dumps(state.get('stationarity',{}),ensure_ascii=False)],['진행 상태 갱신',state.get('updated_at_Asia_Seoul','미시작')]])
         if is_pilot:m['source']['initialization']='Main40mm의 중간 체크포인트에서 별도2RF 이력 채움 +20RF 진단. 정한600RF 안정화·200RF 측정 기준 미충족. 초기 상태: '+json.dumps(state['pilot_initial_checkpoint'])
         if reused:
-            m.update(id=reused['run_id'],date=reused['date'])
+            m.update(reused_from_run=reused['run_id'],original_execution_date=reused['date'])
             m['summary']='기존 동일 조건 실행을 재사용합니다. 새 독립 seed 반복 계산이 아닙니다. '+m['summary']
             m['related_links'] += [{'label':'이번 세부 gap 스캔','url':'../README.md'},
                 {'label':'원래 실행·원자료','url':WEB+f'/blob/{BRANCH}/results/{reused["run_id"]}/{folder}/README.md'}]
