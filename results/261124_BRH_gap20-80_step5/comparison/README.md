@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md)
 
-**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap20–80 mm 비교** · 보고서 갱신 2026-11-24T22:28:55+09:00
+**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap20–80 mm 비교** · 보고서 갱신 2026-11-24T22:46:15+09:00
 
 13개 계획 조건의 실제 상태와 확보된 측정만 비교합니다. 실행일은 원 계산 시작일이며 보고서 갱신일과 구분합니다. 기존 조건 재사용은 CSV의 reused_from_run·execution_date와 개별 보고서에 표시합니다. 모든 gap 완료·BRH 확정을 뜻하지 않습니다.
 
@@ -46,7 +46,7 @@
 | [20](../20mm/README.md) | 전자 소멸 | 측정 전 / 정의 불가 | — | — |
 | [25](../25mm/README.md) | 전자 소멸 | 측정 전 / 정의 불가 | — | — |
 | [30](../30mm/README.md) | 1000 RF 상한·기준 미충족 | 1852–2851 (1000 RF) | 미충족 | 미충족 |
-| [35](../35mm/README.md) | 계산 중 | 측정 전 / 정의 불가 | — | — |
+| [35](../35mm/README.md) | 계산 중 | 1701–1780 (80 RF) | 미충족 | 미충족 |
 | [40](../40mm/README.md) | 1000 RF 상한·기준 미충족 | 603–1602 (1000 RF) | 충족 | 미충족 |
 | [45](../45mm/README.md) | 계산 중 | 측정 전 / 정의 불가 | — | — |
 | [50](../50mm/README.md) | 1000 RF 상한·기준 미충족 | 1352–2351 (1000 RF) | 충족 | 미충족 |
@@ -104,6 +104,7 @@
 | Gap mm | 검출 왕복 UID | 후보 보유 UID | 후보 왕복 사건 | 후보 episode | 후보 사건/보유 UID 평균 | UID당 최대 사건 | 최대 연속 1T 왕복 |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 30 | 7204 | 352 | 395 | 362 | 1.122 | 4 | 5 |
+| 35 | 1545 | 19 | 20 | 19 | 1.053 | 2 | 3 |
 | 40 | 15773 | 455 | 488 | 470 | 1.073 | 3 | 4 |
 | 50 | 17499 | 305 | 323 | 311 | 1.059 | 3 | 3 |
 | 60 | 17436 | 33 | 33 | 33 | 1.000 | 1 | 2 |
@@ -131,6 +132,10 @@
 
 30 mm, UID 120194: 최대 지속 길이→작은 UID 순으로 선택. 모든 전자의 대표값이 아닙니다.
 
+![35 mm, UID 2469: 최대 지속 길이→작은 UID 순으로 선택. 모든 전자의 대표값이 아닙니다.](figures/energy_trace_35mm.png)
+
+35 mm, UID 2469: 최대 지속 길이→작은 UID 순으로 선택. 모든 전자의 대표값이 아닙니다.
+
 ![40 mm, UID 49508: 최대 지속 길이→작은 UID 순으로 선택. 모든 전자의 대표값이 아닙니다.](figures/energy_trace_40mm.png)
 
 40 mm, UID 49508: 최대 지속 길이→작은 UID 순으로 선택. 모든 전자의 대표값이 아닙니다.
@@ -154,11 +159,12 @@
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| gap별 파라미터 CSV | [gap_parameters.csv](data/gap_parameters.csv) | 4.9 KiB |
-| 계획 gap 전체 상태 CSV | [gap_status.csv](data/gap_status.csv) | 583 B |
-| 전자별 횟수·episode 에너지·선택 궤적 CSV 모음 | [261124_BRH_comparison.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/comparison/261124_BRH_comparison.zip) | 1.05 MiB |
-| 원자료 구간·SHA·에너지 장부 검증 | [analysis_provenance.json](analysis_provenance.json) | 24.1 KiB |
+| gap별 파라미터 CSV | [gap_parameters.csv](data/gap_parameters.csv) | 5.6 KiB |
+| 계획 gap 전체 상태 CSV | [gap_status.csv](data/gap_status.csv) | 606 B |
+| 전자별 횟수·episode 에너지·선택 궤적 CSV 모음 | [261124_BRH_comparison.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/comparison/261124_BRH_comparison.zip) | 1.07 MiB |
+| 원자료 구간·SHA·에너지 장부 검증 | [analysis_provenance.json](analysis_provenance.json) | 25.2 KiB |
 | 30 mm 전자 UID별 관측 횟수 | [30mm_uid_counts.csv.gz](data/30mm_uid_counts.csv.gz) | 26.8 KiB |
+| 35 mm 전자 UID별 관측 횟수 | [35mm_uid_counts.csv.gz](data/35mm_uid_counts.csv.gz) | 5.9 KiB |
 | 40 mm 전자 UID별 관측 횟수 | [40mm_uid_counts.csv.gz](data/40mm_uid_counts.csv.gz) | 62.9 KiB |
 | 50 mm 전자 UID별 관측 횟수 | [50mm_uid_counts.csv.gz](data/50mm_uid_counts.csv.gz) | 68.4 KiB |
 | 60 mm 전자 UID별 관측 횟수 | [60mm_uid_counts.csv.gz](data/60mm_uid_counts.csv.gz) | 65.8 KiB |
