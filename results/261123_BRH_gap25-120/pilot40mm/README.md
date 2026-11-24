@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**과도구간 진단** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 40 mm short pilot** · 보고서 갱신 2026-11-24T20:58:08+09:00
+**과도구간 진단** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 40 mm short pilot** · 보고서 갱신 2026-11-24T21:15:37+09:00
 
 Short 20 RF validation pilot; main gap scan convergence criteria have NOT been met. 검출된 상부 기준 왕복 3008개, 고유 UID 1177개. 위상 반복 후보 12개(고유 UID 11개). 검출 왕복 중 후보 비율 0.399%. 후보의 평균 signed field work 4.78 eV/왕복. 충돌을 합친 후보의 순 운동에너지 변화 -1.092 eV/왕복. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.
 
