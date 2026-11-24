@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap25–120 mm 비교** · 보고서 갱신 2026-11-24T21:51:05+09:00
+**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap25–120 mm 비교** · 보고서 갱신 2026-11-24T22:10:03+09:00
 
 8개 계획 조건의 실제 상태와 확보된 측정만 비교합니다. 실행일은 원 계산 시작일이며 보고서 갱신일과 구분합니다. 기존 조건 재사용은 CSV의 reused_from_run·execution_date와 개별 보고서에 표시합니다. 모든 gap 완료·BRH 확정을 뜻하지 않습니다.
 
@@ -48,7 +48,7 @@
 | [40](../40mm/README.md) | 1000 RF 상한·기준 미충족 | 603–1602 (1000 RF) | 충족 | 미충족 |
 | [50](../50mm/README.md) | 1000 RF 상한·기준 미충족 | 1352–2351 (1000 RF) | 충족 | 미충족 |
 | [60](../60mm/README.md) | 1000 RF 상한·기준 미충족 | 1752–2751 (1000 RF) | 충족 | 미충족 |
-| [80](../80mm/README.md) | 계산 중 | 2201–2380 (180 RF) | 미충족 | 미충족 |
+| [80](../80mm/README.md) | 계산 중 | 2201–2400 (200 RF) | 충족 | 미충족 |
 | [100](../100mm/README.md) | 계산 중 | 2401–3000 (600 RF) | 충족 | 미충족 |
 | [120](../120mm/README.md) | 계산 중 | 2601–2800 (200 RF) | 충족 | 미충족 |
 
@@ -102,7 +102,7 @@
 | 40 | 15773 | 455 | 488 | 470 | 1.073 | 3 | 4 |
 | 50 | 17499 | 305 | 323 | 311 | 1.059 | 3 | 3 |
 | 60 | 17436 | 33 | 33 | 33 | 1.000 | 1 | 2 |
-| 80 | 7302 | 0 | 0 | 0 | — | 0 | 1 |
+| 80 | 7902 | 0 | 0 | 0 | — | 0 | 1 |
 | 100 | 15956 | 0 | 0 | 0 | — | 0 | 1 |
 | 120 | 7544 | 0 | 0 | 0 | — | 0 | 0 |
 
@@ -152,14 +152,14 @@
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
 | gap별 파라미터 CSV | [gap_parameters.csv](data/gap_parameters.csv) | 5.9 KiB |
-| 계획 gap 전체 상태 CSV | [gap_status.csv](data/gap_status.csv) | 515 B |
+| 계획 gap 전체 상태 CSV | [gap_status.csv](data/gap_status.csv) | 514 B |
 | 전자별 횟수·episode 에너지·선택 궤적 CSV 모음 | [261123_BRH_comparison.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261123_BRH_gap25-120/comparison/261123_BRH_comparison.zip) | 1.12 MiB |
-| 원자료 구간·SHA·에너지 장부 검증 | [analysis_provenance.json](analysis_provenance.json) | 29.0 KiB |
+| 원자료 구간·SHA·에너지 장부 검증 | [analysis_provenance.json](analysis_provenance.json) | 29.1 KiB |
 | 30 mm 전자 UID별 관측 횟수 | [30mm_uid_counts.csv.gz](data/30mm_uid_counts.csv.gz) | 26.8 KiB |
 | 40 mm 전자 UID별 관측 횟수 | [40mm_uid_counts.csv.gz](data/40mm_uid_counts.csv.gz) | 62.9 KiB |
 | 50 mm 전자 UID별 관측 횟수 | [50mm_uid_counts.csv.gz](data/50mm_uid_counts.csv.gz) | 68.4 KiB |
 | 60 mm 전자 UID별 관측 횟수 | [60mm_uid_counts.csv.gz](data/60mm_uid_counts.csv.gz) | 65.8 KiB |
-| 80 mm 전자 UID별 관측 횟수 | [80mm_uid_counts.csv.gz](data/80mm_uid_counts.csv.gz) | 24.1 KiB |
+| 80 mm 전자 UID별 관측 횟수 | [80mm_uid_counts.csv.gz](data/80mm_uid_counts.csv.gz) | 26.1 KiB |
 | 100 mm 전자 UID별 관측 횟수 | [100mm_uid_counts.csv.gz](data/100mm_uid_counts.csv.gz) | 53.3 KiB |
 | 120 mm 전자 UID별 관측 횟수 | [120mm_uid_counts.csv.gz](data/120mm_uid_counts.csv.gz) | 24.2 KiB |
 
