@@ -353,12 +353,12 @@
     },
     {
       "gap_mm": 55,
-      "summary_sha256": "f9562b3f327527bcc953483529c85492f314b0127e7ce83102bda928c95d5742",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/brh_pooled_RF002351/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/pooled_epoch1_RF002351",
+      "summary_sha256": "e7ec84c51be1fc2c902c59e6b9e936d4077d19db5f11f3be7bbe710b394ca1c5",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/brh_pooled_RF002451/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/pooled_epoch1_RF002451",
       "RF_first": 1452,
-      "RF_last": 2351,
-      "measured_RF": 900,
+      "RF_last": 2451,
+      "measured_RF": 1000,
       "measurement_blocks": [
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001452-001471",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF001472-001491",
@@ -404,13 +404,18 @@
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF002272-002291",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF002292-002311",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF002312-002331",
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF002332-002351"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF002332-002351",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF002352-002371",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF002372-002391",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF002392-002411",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF002412-002431",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/measurement_epoch1/RF002432-002451"
       ],
       "validation": {
-        "matched_start_energies": 162568,
+        "matched_start_energies": 181265,
         "reconstructed_start_energies": 32,
         "maximum_endpoint_discrepancy_eV": 1.000071137013947e-10,
-        "episode_nodes": 419,
+        "episode_nodes": 449,
         "ledger_and_candidate_counts_passed": true
       },
       "reused_from_run": null,
@@ -488,12 +493,12 @@
     },
     {
       "gap_mm": 65,
-      "summary_sha256": "e06bc245d2c63d914b32fb90c2ea7cb96b05d1bf03f680d861180e2391149eb5",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/brh_pooled_RF002340/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/pooled_epoch1_RF002340",
+      "summary_sha256": "a27e5558ca411fe62e15e58d8a7d0f6775ac3a32eab8e8bd91cce18195d66d1d",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/brh_pooled_RF002420/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/pooled_epoch1_RF002420",
       "RF_first": 1801,
-      "RF_last": 2340,
-      "measured_RF": 540,
+      "RF_last": 2420,
+      "measured_RF": 620,
       "measurement_blocks": [
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF001801-001820",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF001821-001840",
@@ -521,13 +526,17 @@
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002261-002280",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002281-002300",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002301-002320",
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002321-002340"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002321-002340",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002341-002360",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002361-002380",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002381-002400",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002401-002420"
       ],
       "validation": {
-        "matched_start_energies": 82185,
+        "matched_start_energies": 94894,
         "reconstructed_start_energies": 43,
         "maximum_endpoint_discrepancy_eV": 1.000053373445553e-10,
-        "episode_nodes": 15,
+        "episode_nodes": 18,
         "ledger_and_candidate_counts_passed": true
       },
       "reused_from_run": null,
