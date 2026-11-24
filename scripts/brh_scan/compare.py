@@ -298,7 +298,7 @@ def build_comparison(root,out,base,cases,series):
     put(dest/'analysis_provenance.json',{'analysis_script_sha256':sha(Path(__file__)),'snapshots':provenance,
         'conditions':base['conditions'],'control_source_SHA256':json.loads((root/'config.json').read_text())['control_source_SHA256']})
     status_rows=[]
-    labels={'extinguished':'전자 소멸','measurement_limit_reached':'1000 RF 상한·기준 미충족','criteria_met':'통계 기준 충족','running':'계산 중','queued':'대기'}
+    labels={'extinguished':'전자 소멸','measurement_limit_reached':'1000 RF 상한·기준 미충족','criteria_met':'통계 기준 충족','running':'계산 중','queued':'대기','paused_at_checkpoint':'체크포인트 일시중단'}
     for g,s in states.items():
         match=next((r for r in rows if r['gap_mm']==g),None)
         status_rows.append({'gap_mm':g,'status':s['status'],'checkpoint_RF':s.get('checkpoint_cycle',0),'measured_RF':s.get('measured_RF',0),
@@ -346,7 +346,8 @@ def build_comparison(root,out,base,cases,series):
         info=zipfile.ZipInfo('analysis_provenance.json',date_time=(1980,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED
         z.writestr(info,(dest/'analysis_provenance.json').read_bytes())
     active_run=any(s['status'] in ['running','queued','building'] for s in states.values())
-    meta=copy.deepcopy(base);meta.update(title='Gap별 플라즈마 파라미터·전자별 BRH 후보 요약',status='running' if active_run else 'measurement_complete',
+    comparison_status='running' if active_run else ('paused_at_checkpoint' if any(s['status']=='paused_at_checkpoint' for s in states.values()) else 'measurement_complete')
+    meta=copy.deepcopy(base);meta.update(title='Gap별 플라즈마 파라미터·전자별 BRH 후보 요약',status=comparison_status,
         changed_conditions=f'BRH gap{min(gaps)}–{max(gaps)} mm 비교',report_directory=f'results/{base["id"]}/comparison',
         summary=f'{len(gaps)}개 계획 조건의 실제 상태와 확보된 측정만 비교합니다. 실행일은 원 계산 시작일이며 보고서 갱신일과 구분합니다. 기존 조건 재사용은 CSV의 reused_from_run·execution_date와 개별 보고서에 표시합니다. 모든 gap 완료·BRH 확정을 뜻하지 않습니다.',
         measurement_note='아래 gap별 RF 구간 표. 원래 측정 epoch만 사용; warmup·pilot·폐기된 epoch 제외.',sections=sections,

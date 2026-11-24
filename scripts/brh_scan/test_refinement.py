@@ -5,6 +5,7 @@ from unittest.mock import patch
 import json,tempfile,threading,time,unittest
 import numpy as np
 from capacity import solver_slot,StopAtCheckpoint
+from run_scan import submit_in_order
 
 class RefinementTests(unittest.TestCase):
     def setUp(self):
@@ -49,5 +50,48 @@ class RefinementTests(unittest.TestCase):
         self.assertTrue((out/'35mm/261123_35mm_restart.zip').exists())
         comparison=(out/'comparison/README.md').read_text()
         self.assertIn('[20]',comparison);self.assertIn('[35]',comparison);self.assertIn('2개 계획',comparison)
+        cfg['execution_policy_note']='Fixture: user paused this scan.'
+        (root/'config.json').write_text(json.dumps(cfg))
+        for d in [root/'20mm',old]:
+            state=json.loads((d/'status.json').read_text());state['status']='paused_at_checkpoint'
+            (d/'status.json').write_text(json.dumps(state))
+        export(root,out)
+        parent=json.loads((out/'run.json').read_text())
+        self.assertEqual(parent['status'],'paused_at_checkpoint')
+        self.assertIn(cfg['execution_policy_note'],parent['summary'])
+        self.assertEqual(json.loads((out/'comparison/report.json').read_text())['status'],'paused_at_checkpoint')
+
+    def test_capacity_waiting_small_gap_is_admitted_before_larger_gaps(self):
+        capacity=threading.Semaphore(0);release_jobs=threading.Event()
+        launched=[];active=[0,0];guard=threading.Lock()
+        def work(gap):
+            capacity.acquire()
+            with guard:
+                launched.append(gap);active[0]+=1;active[1]=max(active)
+            release_jobs.wait(3)
+            with guard:active[0]-=1
+            capacity.release()
+        def started(gap):
+            with guard:return gap in launched
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            result=[]
+            dispatcher=threading.Thread(target=lambda:result.extend(submit_in_order(pool,[35,45,55],work,started,.001)))
+            dispatcher.start();time.sleep(.02)
+            self.assertEqual(launched,[])
+            capacity.release();capacity.release()
+            until=time.monotonic()+3
+            while len(launched)<2 and time.monotonic()<until:time.sleep(.001)
+            self.assertEqual(launched,[35,45]);self.assertEqual(active[1],2)
+            release_jobs.set();dispatcher.join(3)
+            self.assertFalse(dispatcher.is_alive())
+            for future in result:future.result(timeout=3)
+        self.assertEqual(launched,[35,45,55])
+
+    def test_ordered_admission_continues_after_a_case_finishes_without_a_solver(self):
+        calls=[]
+        with ThreadPoolExecutor(max_workers=2) as pool:
+            futures=submit_in_order(pool,[20,35],lambda g:calls.append(g),lambda g:False,.001)
+            for future in futures:future.result(timeout=3)
+        self.assertEqual(calls,[20,35])
 
 if __name__=='__main__':unittest.main()

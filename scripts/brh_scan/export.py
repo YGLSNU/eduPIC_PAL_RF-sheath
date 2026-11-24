@@ -216,6 +216,7 @@ def export(root,out):
     if (out/'diagnostics_validated.json').exists():parent['downloads'].append({'label':'수동 진단·재시작 검증','path':'diagnostics_validated.json'})
     if (out/'measurement_engine_validated.json').exists():parent['downloads'].append({'label':'측정 제어·통합·압축·상한 중단 실행 검증','path':'measurement_engine_validated.json'})
     if (out/'new_gap_validation.json').exists():parent['downloads'].append({'label':'새 gap에서 진단 비간섭·수치 안정성 확인','path':'new_gap_validation.json'})
+    if cfg.get('execution_policy_note'):parent['summary']+=' '+cfg['execution_policy_note']
     if cfg.get('case_sources'):
         parent['summary']+=' 기존 실행 재사용: '+', '.join(cfg['case_sources'])+' mm. 새 계산: '+', '.join(map(str,cfg['run_gaps_mm']))+' mm. 재사용 조건의 원 실행일·상한/소멸 상태를 유지합니다.'
     if brh_series:

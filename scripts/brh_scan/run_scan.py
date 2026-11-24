@@ -10,6 +10,26 @@ from common import checkpoint,put,sha,stationarity
 from capacity import solver_slot,StopAtCheckpoint
 
 def now():return datetime.now(ZoneInfo('Asia/Seoul')).isoformat()
+
+def submit_in_order(pool,gaps,run,has_started,poll_seconds=.1):
+    """Wait for actual solver admission before submitting the next gap.
+
+    Smaller cases waiting for capacity must receive the next available slot.
+    Already admitted cases continue concurrently up to the worker limit.
+    """
+    futures=[]
+    for gap in gaps:
+        future=pool.submit(run,gap);futures.append(future)
+        while not future.done() and not has_started(gap):time.sleep(poll_seconds)
+    return futures
+
+def solver_started(case,controller_pid):
+    state=json.loads((case/'status.json').read_text());pid=state.get('solver_pid')
+    if state.get('controller_pid')!=controller_pid or not pid:return False
+    proc=Path(f'/proc/{pid}/cmdline')
+    try:return str(case).encode() in proc.read_bytes()
+    except FileNotFoundError:return False
+
 def run_case(root,gap):
     d=root/f'{gap}mm';cfg=json.loads((root/'config.json').read_text());criteria=json.loads((root/'criteria.json').read_text())
     lock=(d/'controller.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -73,7 +93,10 @@ def main():
         if queued['status'] not in ['criteria_met','extinguished','measurement_limit_reached','total_cycle_limit_reached']:
             queued.update(status='queued',updated_at_Asia_Seoul=now());put(p,queued)
     with ThreadPoolExecutor(max_workers=cfg['max_workers']) as pool:
-        futures=[pool.submit(run_case,root,g) for g in gaps]
+        if cfg.get('admit_in_gap_order',False):
+            gaps=sorted(gaps)
+            futures=submit_in_order(pool,gaps,lambda g:run_case(root,g),lambda g:solver_started(root/f'{g}mm',os.getpid()))
+        else:futures=[pool.submit(run_case,root,g) for g in gaps]
         for future in as_completed(futures):future.result()
     put(root/'controller_finished.json',{'finished_at_Asia_Seoul':now()})
 

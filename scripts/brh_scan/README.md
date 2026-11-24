@@ -36,7 +36,7 @@ python -u scripts/brh_scan/run_scan.py /workspace/edupic-brh/261123_BRH_gap25-12
 
 [13개 gap 진행·결과](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md) · [파라미터·전자별 반복 가열 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/comparison/README.md)
 
-`261124_BRH_gap20-80_step5`는 기존25·30·40·50·60·80 mm의 실행을 재사용하고20·35·45·55·65·70·75 mm를 추가합니다. 물리 소스·초기 기준 입자·가중치·시간격자·수렴 기준은 같습니다. 재사용은 독립 seed 반복 실행이 아니며 원 실행일과 상한/소멸 상태를 유지합니다. 100·120 mm를 포함한 이전 실행도 계속됩니다.
+`261124_BRH_gap20-80_step5`는 기존25·30·40·50·60·80 mm의 실행을 재사용하고20·35·45·55·65·70·75 mm를 추가합니다. 물리 소스·초기 기준 입자·가중치·시간격자·수렴 기준은 같습니다. 재사용은 독립 seed 반복 실행이 아니며 원 실행일과 상한/소멸 상태를 유지합니다.
 
 ```bash
 python scripts/brh_scan/refine_scan.py /workspace/edupic-brh/261123_BRH_gap25-120 /workspace/edupic-brh/261124_BRH_gap20-80_step5 --start 20 --stop 80 --step 5
@@ -46,7 +46,11 @@ python -u scripts/brh_scan/run_scan.py /workspace/edupic-brh/261124_BRH_gap20-80
 
 최초 준비는 새 폴더에서만 실행합니다. 재개는 마지막 명령을 사용합니다. `capacity.py`가 이전 미종료 계산의 CPU를 예약하고 전체4개 solver 한도 안에서 새 조건을 투입합니다. 자원을 기다리는 조건은 `execution_state: waiting_for_capacity`로 기록합니다. 이전 조건이 종료되면 새 계산의 동시 실행 수가 늘어납니다.
 
-새 실행의 측정 블록은 큰 수치 텍스트를 `.dat.gz`로 무손실 압축합니다. 압축 해제 byte가 원본과 같음을 검사하고 SHA256을 `native_compression.json`에 남깁니다. `load_array`가 plain/gzip을 모두 읽으며 입자·난수·UID 재시작 파일은 그대로 유지합니다. 기존 실행의 원시 블록에는 이 저장 변환을 적용하지 않습니다.
+작은 gap부터 우선 배정하려면 `config.json`의 `admit_in_gap_order`를 `true`로 설정합니다. 미완료 gap을 오름차순으로 배정하며 앞선 gap의 solver가 실제로 시작하거나 해당 작업이 종료된 뒤 다음 gap을 투입합니다. 이미 시작한 조건은 최대4개까지 병렬 계산하므로 큰 gap이 먼저 빈 슬롯을 차지하는 일을 막습니다. 개별 조건의 `STOP_AFTER_BLOCK`은 그 조건만 완결 블록 뒤 일시중단합니다. 중단한 조건은 해당 파일을 지우기 전까지 재개되지 않습니다.
+
+2026-11-24 추가 지시부터는 **80·100·120 mm를 일시중단**하고 **35→45→55→65→70→75 mm** 순서로 미완료 조건을 우선 배정합니다. 현재 계산한 결과와 UID·난수 동반 체크포인트를 보관하며, 80 mm 이상은 별도 재개 지시 전까지 자동 재개하지 않습니다. 실행 폴더의 `config.json`과 결과 페이지가 현재 정책과 상태를 기록합니다.
+
+새 실행의 측정 블록은 큰 수치 텍스트를 `.dat.gz`로 무손실 압축합니다. 압축 해제 byte가 원본과 같음을 검사하고 SHA256을 `native_compression.json`에 남깁니다. `load_array`가 plain/gzip을 모두 읽으며 입자·난수·UID 재시작 파일은 그대로 유지합니다. 저장 공간 관리 때 기존 실행의 종료된 측정 블록에도 같은 검증을 거쳐 적용할 수 있습니다. 현재 그림의 집계 디렉터리와 마지막 과도 진단은 plain 형식을 유지하고 재시작 파일·원시 수치를 보존합니다.
 
 아래 export·publish 명령의 실행 폴더를 새 폴더로 바꾸면13개 조건을 함께 갱신합니다. `config.json`의 `case_sources`는 이전 실행을 읽기 전용으로 참조하고, `run_gaps_mm`만 새 제어기가 계산합니다. 보고서는 실제 실행일과 재사용 출처, 각 측정 RF 구간을 구분합니다.
 
