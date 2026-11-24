@@ -17,40 +17,40 @@
   ],
   "initial_SHA256": "f86e7cfd468fd1d154a29895e1afcfd0ae732d51231fe29b6a81b745fa96a32b",
   "initial_e": 63099,
-  "status": "running",
+  "status": "queued",
   "phase": "warmup",
-  "checkpoint_cycle": 1200,
+  "checkpoint_cycle": 1298,
   "measured_RF": 0,
-  "elapsed_solver_seconds": 12630.418977589055,
+  "elapsed_solver_seconds": 13769.97054021206,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "execution_date": "2026-11-24",
-  "updated_at_Asia_Seoul": "2026-11-24T21:48:46.780368+09:00",
+  "updated_at_Asia_Seoul": "2026-11-24T22:08:55.244203+09:00",
   "started_at_Asia_Seoul": "2026-11-24T12:37:17.337609+09:00",
   "controller_pid": 647219,
   "active_RF": [
-    1201,
-    1249
+    1250,
+    1298
   ],
   "stationarity": {
     "e": {
-      "block_mean_span": 0.0205140210212357,
-      "fitted_drift": 0.030818784452182033,
+      "block_mean_span": 0.018079992348827418,
+      "fitted_drift": 0.027166490018489916,
       "passed": false
     },
     "i": {
-      "block_mean_span": 0.020142928995585115,
-      "fitted_drift": 0.03025443424810663,
+      "block_mean_span": 0.017736271817019818,
+      "fitted_drift": 0.02665343434218534,
       "passed": false
     },
     "passed": false
   },
   "execution_state": "solver",
   "capacity_reserved_for_earlier_scan": 3,
-  "solver_pid": 756837,
-  "checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/warmup/RF001200-001200/picdata.bin",
-  "electrons": 88811,
-  "ions": 91172,
-  "last_block_seconds": 23.3166079899529,
-  "last_RF_seconds": 23.3166079899529,
+  "solver_pid": 759787,
+  "checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/warmup/RF001250-001298/picdata.bin",
+  "electrons": 88749,
+  "ions": 91095,
+  "last_block_seconds": 520.7517480209935,
+  "last_RF_seconds": 10.627586694305991,
   "last_diagnostic_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/55mm/warmup/RF001200-001200"
 }

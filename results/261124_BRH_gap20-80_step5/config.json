@@ -37,7 +37,7 @@
   "surface": "absorbing material walls; no SEE or material reflection",
   "electron_MCC": "same residual optical-depth Ar ground-state MCC at all gaps; at most one event per step",
   "Coulomb_binary_collisions": false,
-  "parallelism_note": "Four solver slots total, reserving slots for unfinished cases of the earlier scan; expand new concurrency as earlier cases terminate.",
+  "parallelism_note": "Smallest unfinished gaps admitted first, up to four solvers; 80/100/120 mm paused at user request. Legacy reservations remain until each old solver reaches its checkpoint.",
   "run_gaps_mm": [
     20,
     35,
@@ -111,5 +111,20 @@
     "run_id": "261123_BRH_gap25-120",
     "note": "Same exact native source/header and compiler flags; original passivity/restart gate retained; new-gap smoke recorded separately."
   },
-  "initial_seed_base": 261123000
+  "initial_seed_base": 261123000,
+  "user_paused_gaps_mm": [
+    80,
+    100,
+    120
+  ],
+  "execution_policy_note": "2026-11-24 사용자 지시: 80·100·120 mm는 완결 블록에서 일시중단하고 재시작 자료를 보관합니다. 미완료 35→45→55→65→70→75 mm를 작은 gap부터 먼저 배정하며 최대4개를 병렬 계산합니다. 완료 조건은 기존 결과를 재사용합니다.",
+  "admit_in_gap_order": true,
+  "priority_gaps_mm": [
+    35,
+    45,
+    55,
+    65,
+    70,
+    75
+  ]
 }

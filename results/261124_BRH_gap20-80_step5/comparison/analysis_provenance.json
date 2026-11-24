@@ -1,5 +1,5 @@
 {
-  "analysis_script_sha256": "a4b8cf4e932d370bf245a2e00a57babadf9223b5c037d81078b5f19329d9b2e7",
+  "analysis_script_sha256": "5ec7429611a4bd6ce01a77b739204b8fea2ccca7b35300d9de7ca5e2522e6973",
   "snapshots": [
     {
       "gap_mm": 30,
@@ -283,12 +283,12 @@
     },
     {
       "gap_mm": 80,
-      "summary_sha256": "6b6a418de873d6f98af00a58d28f84a97ae40a5baf2434df34c46bd33f5e3324",
-      "measurement_summary_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/brh_pooled_RF002380/summary.json",
-      "native_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/pooled_epoch1_RF002380",
+      "summary_sha256": "ab7b0cea8a58593318a9e09beaa6a316b1e92474ff1d28a5f2d95d18c7bd1036",
+      "measurement_summary_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/brh_pooled_RF002400/summary.json",
+      "native_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/pooled_epoch1_RF002400",
       "RF_first": 2201,
-      "RF_last": 2380,
-      "measured_RF": 180,
+      "RF_last": 2400,
+      "measured_RF": 200,
       "measurement_blocks": [
         "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002201-002220",
         "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002221-002240",
@@ -298,11 +298,12 @@
         "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002301-002320",
         "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002321-002340",
         "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002341-002360",
-        "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002361-002380"
+        "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002361-002380",
+        "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002381-002400"
       ],
       "validation": {
-        "matched_start_energies": 18344,
-        "reconstructed_start_energies": 42,
+        "matched_start_energies": 21055,
+        "reconstructed_start_energies": 43,
         "maximum_endpoint_discrepancy_eV": 1.000017846308765e-10,
         "episode_nodes": 0,
         "ledger_and_candidate_counts_passed": true
