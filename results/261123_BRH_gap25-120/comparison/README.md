@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
 
-**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap25–120 mm 비교** · 보고서 갱신 2026-11-24T13:41:39+09:00
+**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap25–120 mm 비교** · 보고서 갱신 2026-11-24T13:59:03+09:00
 
 8개 계획 조건의 실제 상태와 확보된 측정만 비교합니다. 실행일은 원 계산 시작일이며 보고서 갱신일과 구분합니다. 기존 조건 재사용은 CSV의 reused_from_run·execution_date와 개별 보고서에 표시합니다. 모든 gap 완료·BRH 확정을 뜻하지 않습니다.
 
@@ -49,7 +49,7 @@
 | [50](../50mm/README.md) | 1000 RF 상한·기준 미충족 | 1352–2351 (1000 RF) | 충족 | 미충족 |
 | [60](../60mm/README.md) | 1000 RF 상한·기준 미충족 | 1752–2751 (1000 RF) | 충족 | 미충족 |
 | [80](../80mm/README.md) | 계산 중 | 측정 전 / 정의 불가 | — | — |
-| [100](../100mm/README.md) | 계산 중 | 2401–2660 (260 RF) | 충족 | 미충족 |
+| [100](../100mm/README.md) | 계산 중 | 2401–2680 (280 RF) | 충족 | 미충족 |
 | [120](../120mm/README.md) | 계산 중 | 측정 전 / 정의 불가 | — | — |
 
 배경 기준 충족과 BRH 통계 기준 충족은 별도입니다. 상한 종료를 수렴 완료로 표시하지 않습니다. 소멸·미측정 gap은 비교 그래프에서 0으로 채우지 않습니다.
@@ -102,7 +102,7 @@
 | 40 | 15773 | 455 | 488 | 470 | 1.073 | 3 | 4 |
 | 50 | 17499 | 305 | 323 | 311 | 1.059 | 3 | 3 |
 | 60 | 17436 | 33 | 33 | 33 | 1.000 | 1 | 2 |
-| 100 | 10092 | 0 | 0 | 0 | — | 0 | 1 |
+| 100 | 10614 | 0 | 0 | 0 | — | 0 | 1 |
 
 후보 사건은 연속 두 번째 왕복부터 집계합니다. 예: 연속5회 왕복은 후보4사건·episode1개입니다. 떨어진 후보 episode가 같은 UID에서 반복될 수 있습니다. 분모는 약1/16 해시 표본 중 완전한 상부 기준 왕복이 검출된 UID입니다. 전체 전자나 벽에 도달한 모든 전자가 아닙니다. 관측 시작/끝·검출 경계로 잘린 사건이 있고, 장수명 전자는 관측 기회가 더 많습니다. 이 수치만으로 “전자당 평생 BRH 횟수”를 정할 수 없습니다.
 
@@ -157,6 +157,6 @@
 | 40 mm 전자 UID별 관측 횟수 | [40mm_uid_counts.csv.gz](data/40mm_uid_counts.csv.gz) | 62.9 KiB |
 | 50 mm 전자 UID별 관측 횟수 | [50mm_uid_counts.csv.gz](data/50mm_uid_counts.csv.gz) | 68.4 KiB |
 | 60 mm 전자 UID별 관측 횟수 | [60mm_uid_counts.csv.gz](data/60mm_uid_counts.csv.gz) | 65.8 KiB |
-| 100 mm 전자 UID별 관측 횟수 | [100mm_uid_counts.csv.gz](data/100mm_uid_counts.csv.gz) | 32.7 KiB |
+| 100 mm 전자 UID별 관측 횟수 | [100mm_uid_counts.csv.gz](data/100mm_uid_counts.csv.gz) | 34.4 KiB |
 
 [전체 파일 목록·SHA256](files.json)
