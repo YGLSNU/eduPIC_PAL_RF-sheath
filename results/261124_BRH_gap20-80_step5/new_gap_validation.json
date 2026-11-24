@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "run_id": "261124_BRH_gap20-80_step5",
+  "gap_mm": 35,
+  "RF_cycles": 1,
+  "source_SHA256": "cfb0169f87714aff0a93cd968a2358bfe8af4b6635fe15bdc5488187d6b78a8a",
+  "header_SHA256": "01386a6acae318458b431f66c38e8d0eb004cc06aece551daedf70d768362d6d",
+  "native_byte_identity": {
+    "picdata.bin": true,
+    "conv.dat": true,
+    "particle_balance.csv": true,
+    "ne_xt.dat": true,
+    "ni_xt.dat": true,
+    "ioniz_xt.dat": true,
+    "powere_xt.dat": true
+  },
+  "numeric_validation_before_and_after_lossless_storage": {
+    "passed": true,
+    "finite_shapes": true,
+    "histogram_count_conservation": true,
+    "fieldwork_native_consistent": true,
+    "roundtrip_energy_ledger_max_eV": 3.730349362740526e-14,
+    "native_stability": {
+      "omega_pe_dt": {
+        "value": 0.027,
+        "limit": 0.2
+      },
+      "dx_lambdaD": {
+        "value": 0.333,
+        "limit": 1.0
+      },
+      "nu_e_dt": {
+        "value": 0.002,
+        "limit": 0.05
+      },
+      "nu_i_dt": {
+        "value": 0.005,
+        "limit": 0.05
+      }
+    }
+  },
+  "compiler_flags": [
+    "g++",
+    "-std=c++11",
+    "-O3",
+    "-march=native",
+    "-ffp-contract=off",
+    "-DEDUPIC_GAP_M=0.035000000",
+    "-DEDUPIC_GRID_POINTS=561",
+    "-DEDUPIC_WEIGHT=112000.0"
+  ],
+  "checked_at_Asia_Seoul": "2026-11-24T12:36:18.435353+09:00",
+  "scope": "Separate one-RF validation only; excluded from physical gap statistics. Original 40mm exact split-restart tests remain applicable to unchanged source."
+}

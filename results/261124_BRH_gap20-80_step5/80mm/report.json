@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "id": "261123_BRH_gap25-120",
+  "branch": "results/20mTorr-topRF",
+  "date": "2026-11-23",
+  "report_updated": "2026-11-24T12:37:20+09:00",
+  "conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "voltage_peak_V": [
+      250
+    ],
+    "gap_mm": 80,
+    "steps_per_RF": 8000,
+    "grid_points": 1281,
+    "weight": 112000,
+    "electrodes": "상부 x=L RF / 하부 x=0 접지",
+    "surface_model": "흡수 벽, SEE·물질 반사 없음; ground-state Ar optical-depth MCC (탄성·여기·이온화); binary Coulomb 충돌 없음"
+  },
+  "source": {
+    "description": "40mm 기준 C/eduPIC.cc 계열을 C++11로 컴파일; 8k step/RF, 동일 optical-depth MCC, 수동 BRH 입자 진단",
+    "revision": "control SHA256 734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1; 진단 소스·헤더 SHA는 검증 기록/ZIP 참조",
+    "initialization": "40mm·250V RF2001 저장 입자에서 분포 재표본·x 변환·시간 stagger 변환. gap별 초기 물리 밀도와 가중치 고정. 과도구간은 정상 측정에서 제외."
+  },
+  "related_links": [
+    {
+      "label": "BRH 진단·판정 기준",
+      "url": "../METHOD.md"
+    },
+    {
+      "label": "이번 세부 gap 스캔",
+      "url": "../README.md"
+    },
+    {
+      "label": "원래 실행·원자료",
+      "url": "https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/80mm/README.md"
+    }
+  ],
+  "title": "BRH · gap 80 mm · 250 V",
+  "status": "running",
+  "changed_conditions": "BRH gap 80 mm",
+  "report_directory": "results/261124_BRH_gap20-80_step5/80mm",
+  "summary": "기존 동일 조건 실행을 재사용합니다. 새 독립 seed 반복 계산이 아닙니다. 배경 입자 수 안정화 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
+  "measurement_note": "Warmup snapshot RF 900–900 (transient, not stationary)",
+  "sections": [
+    {
+      "id": "convergence",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/convergence.png",
+          "caption": "저장된 이력 RF1–999. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+        }
+      ]
+    },
+    {
+      "id": "density",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/density.png",
+          "caption": "Warmup snapshot RF 900–900 (transient, not stationary)"
+        }
+      ]
+    },
+    {
+      "id": "heating",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/heating.png",
+          "caption": "Warmup snapshot RF 900–900 (transient, not stationary)"
+        }
+      ]
+    },
+    {
+      "id": "fields",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/fields.png",
+          "caption": "Warmup snapshot RF 900–900 (transient, not stationary)"
+        }
+      ]
+    },
+    {
+      "id": "ionization",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/ionization.png",
+          "caption": "Warmup snapshot RF 900–900 (transient, not stationary)"
+        }
+      ]
+    },
+    {
+      "id": "distributions",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/distributions.png",
+          "caption": "Warmup snapshot RF 900–900 (transient, not stationary); 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다."
+        }
+      ]
+    },
+    {
+      "id": "walls",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/walls.png",
+          "caption": "Warmup snapshot RF 900–900 (transient, not stationary)"
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/power.png",
+          "caption": "Warmup snapshot RF 900–900 (transient, not stationary); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다."
+        }
+      ]
+    },
+    {
+      "id": "bounce",
+      "data_status": "unavailable",
+      "reason": "아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
+      "images": [],
+      "title": "BRH 왕복·위상·에너지 진단"
+    }
+  ],
+  "downloads": [
+    {
+      "label": "저장된 실행 상태·실제 RF·종료 사유",
+      "path": "status.json",
+      "bytes": 1697,
+      "sha256": "e3b0dd5e6da5d4ff7029eb1b2124017eb42dd3c061a32e220cb216dff2cb5933",
+      "git_blob": "62f2972bf2ae597eddfd8f592887d5f1ad686252"
+    },
+    {
+      "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 900–900 (transient, not stationary)",
+      "path": "261123_80mm_core.zip",
+      "bytes": 12833786,
+      "sha256": "a91ae970ff5e33037dff9354a6bbaa533c7abc04deb401864c4c481076509180",
+      "git_blob": "f9234543488b0bee343bc7f4e4f009be723ca342"
+    },
+    {
+      "label": "입자 수 이력 CSV",
+      "path": "history.csv",
+      "bytes": 17911,
+      "sha256": "48bded348219601e7bb6512b117aede02fefe5ba5d7a520143e5821582f0fbef",
+      "git_blob": "339c8e08b6f3caa0bd5f6219c8cd0d8c9fa2dc4b"
+    },
+    {
+      "label": "재시작 입자·동반 상태 (저장 RF 999; 보고서의 최신 RF와 다를 수 있음)",
+      "path": "261123_80mm_restart.zip",
+      "bytes": 9004483,
+      "sha256": "c888590e49dca94f35de300704ea049bce0ee378674bcbcf359e73ef2057e5ef",
+      "git_blob": "527e79a92f660e76cc577ea41df21013ce4ee6a4"
+    },
+    {
+      "label": "재시작 파일 provenance",
+      "path": "restart_manifest.json",
+      "bytes": 189,
+      "sha256": "2d23613243a53606c5e9e59726ba3a8c9a38f6135e8dff7d506168eb51bb9606",
+      "git_blob": "89a527933167507bdc082cb9e540fe6af0be992a"
+    }
+  ],
+  "metrics": [
+    [
+      "저장 체크포인트",
+      "RF 999"
+    ],
+    [
+      "정상 측정 누적",
+      "0 RF"
+    ],
+    [
+      "현재 단계",
+      "warmup"
+    ],
+    [
+      "안정성 확인",
+      "{\"e\": {\"block_mean_span\": 0.05147758023958364, \"fitted_drift\": 0.07698967163440132, \"passed\": false}, \"i\": {\"block_mean_span\": 0.05092206810946274, \"fitted_drift\": 0.0761622483591578, \"passed\": false}, \"passed\": false}"
+    ],
+    [
+      "진행 상태 갱신",
+      "2026-11-24T12:37:23.660318+09:00"
+    ]
+  ]
+}

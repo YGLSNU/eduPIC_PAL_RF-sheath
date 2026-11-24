@@ -1,0 +1,43 @@
+{
+  "passed": true,
+  "passive_one_RF_byte_identity": {
+    "picdata.bin": true,
+    "conv.dat": true,
+    "particle_balance.csv": true,
+    "ne_xt.dat": true,
+    "ni_xt.dat": true,
+    "ioniz_xt.dat": true,
+    "powere_xt.dat": true
+  },
+  "four_RF_split_restart_byte_identity": {
+    "picdata.bin": true,
+    "brh_rng.txt": true
+  },
+  "internal_boundary_events_and_raw_histograms": {
+    "brh_roundtrips.csv": true,
+    "brh_encounters.csv": true,
+    "brh_hist_E_counts.bin": true,
+    "brh_hist_Ex_counts.bin": true
+  },
+  "fifth_RF_continuation_byte_identity": {
+    "picdata.bin": true,
+    "brh_roundtrips.csv": true,
+    "brh_encounters.csv": true,
+    "brh_hist_E_counts.bin": true,
+    "brh_work_sum_eV.bin": true
+  },
+  "maximum_return_energy_ledger_residual_eV": 2.2382096176443156e-13,
+  "source_SHA256": "cfb0169f87714aff0a93cd968a2358bfe8af4b6635fe15bdc5488187d6b78a8a",
+  "header_SHA256": "01386a6acae318458b431f66c38e8d0eb004cc06aece551daedf70d768362d6d",
+  "compiler_flags": [
+    "g++",
+    "-std=c++11",
+    "-O3",
+    "-march=native",
+    "-ffp-contract=off",
+    "-DEDUPIC_GAP_M=0.04",
+    "-DEDUPIC_GRID_POINTS=641",
+    "-DEDUPIC_WEIGHT=112000.0"
+  ],
+  "note": "Passivity and restart tests at 40 mm. This does not establish physical BRH, gap/seed convergence, or grid independence."
+}

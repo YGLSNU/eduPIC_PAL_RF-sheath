@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "id": "261124_BRH_gap20-80_step5",
+  "branch": "results/20mTorr-topRF",
+  "date": "2026-11-24",
+  "report_updated": "2026-11-24T12:37:20+09:00",
+  "conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 13.56,
+    "voltage_peak_V": [
+      250
+    ],
+    "gap_mm": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "steps_per_RF": 8000,
+    "grid_points": "321–1281 (dx ≤62.5 µm)",
+    "weight": 112000,
+    "electrodes": "상부 x=L RF / 하부 x=0 접지",
+    "surface_model": "흡수 벽, SEE·물질 반사 없음; ground-state Ar optical-depth MCC (탄성·여기·이온화); binary Coulomb 충돌 없음"
+  },
+  "source": {
+    "description": "40mm 기준 C/eduPIC.cc 계열을 C++11로 컴파일; 8k step/RF, 동일 optical-depth MCC, 수동 BRH 입자 진단",
+    "revision": "control SHA256 734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1; 진단 소스·헤더 SHA는 검증 기록/ZIP 참조",
+    "initialization": "40mm·250V RF2001 저장 입자에서 분포 재표본·x 변환·시간 stagger 변환. gap별 초기 물리 밀도와 가중치 고정. 과도구간은 정상 측정에서 제외."
+  },
+  "related_links": [
+    {
+      "label": "Gap별 파라미터·전자별 반복 가열 요약",
+      "url": "comparison/README.md"
+    },
+    {
+      "label": "BRH 진단·판정·재시작",
+      "url": "METHOD.md"
+    },
+    {
+      "label": "실행 코드와 명령",
+      "url": "https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/simulation/20mTorr-topRF/scripts/brh_scan/README.md"
+    }
+  ],
+  "title": "Bounce resonance heating · gap 스캔",
+  "status": "running",
+  "scan_parameter": "gap_mm",
+  "changed_conditions": "BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm",
+  "summary": "250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다. 기존 실행 재사용: 25, 30, 40, 50, 60, 80 mm. 새 계산: 20, 35, 45, 55, 65, 70, 75 mm. 재사용 조건의 원 실행일·상한/소멸 상태를 유지합니다.",
+  "measurement_note": "안정화: 마지막600RF의 3×200RF 평균 변화<1%, fitted drift<2%. 정상 진단: 최소200RF, 20RF블록. 평균량/밀도3%, heating5% 및 BRH 통계 별도. 상한1000RF에서 미충족은 미수렴으로 표시.",
+  "cases": [
+    {
+      "gap_mm": 20,
+      "voltage_V": 250,
+      "status": "queued",
+      "total_rf": 0,
+      "measurement_rf": 0,
+      "ne_mean_m3": null,
+      "path": "20mm/README.md"
+    },
+    {
+      "gap_mm": 25,
+      "voltage_V": 250,
+      "status": "extinguished",
+      "total_rf": 245,
+      "measurement_rf": 0,
+      "ne_mean_m3": null,
+      "path": "25mm/README.md"
+    },
+    {
+      "gap_mm": 30,
+      "voltage_V": 250,
+      "status": "measurement_limit_reached",
+      "total_rf": 2851,
+      "measurement_rf": 1000,
+      "ne_mean_m3": 279789017652346.2,
+      "path": "30mm/README.md"
+    },
+    {
+      "gap_mm": 35,
+      "voltage_V": 250,
+      "status": "running",
+      "total_rf": 0,
+      "measurement_rf": 0,
+      "ne_mean_m3": null,
+      "path": "35mm/README.md"
+    },
+    {
+      "gap_mm": 40,
+      "voltage_V": 250,
+      "status": "measurement_limit_reached",
+      "total_rf": 1602,
+      "measurement_rf": 1000,
+      "ne_mean_m3": 1286271038129666.5,
+      "path": "40mm/README.md"
+    },
+    {
+      "gap_mm": 45,
+      "voltage_V": 250,
+      "status": "queued",
+      "total_rf": 0,
+      "measurement_rf": 0,
+      "ne_mean_m3": null,
+      "path": "45mm/README.md"
+    },
+    {
+      "gap_mm": 50,
+      "voltage_V": 250,
+      "status": "measurement_limit_reached",
+      "total_rf": 2351,
+      "measurement_rf": 1000,
+      "ne_mean_m3": 1720476975358565.8,
+      "path": "50mm/README.md"
+    },
+    {
+      "gap_mm": 55,
+      "voltage_V": 250,
+      "status": "queued",
+      "total_rf": 0,
+      "measurement_rf": 0,
+      "ne_mean_m3": null,
+      "path": "55mm/README.md"
+    },
+    {
+      "gap_mm": 60,
+      "voltage_V": 250,
+      "status": "measurement_limit_reached",
+      "total_rf": 2751,
+      "measurement_rf": 1000,
+      "ne_mean_m3": 1892265980622770.5,
+      "path": "60mm/README.md"
+    },
+    {
+      "gap_mm": 65,
+      "voltage_V": 250,
+      "status": "queued",
+      "total_rf": 0,
+      "measurement_rf": 0,
+      "ne_mean_m3": null,
+      "path": "65mm/README.md"
+    },
+    {
+      "gap_mm": 70,
+      "voltage_V": 250,
+      "status": "queued",
+      "total_rf": 0,
+      "measurement_rf": 0,
+      "ne_mean_m3": null,
+      "path": "70mm/README.md"
+    },
+    {
+      "gap_mm": 75,
+      "voltage_V": 250,
+      "status": "queued",
+      "total_rf": 0,
+      "measurement_rf": 0,
+      "ne_mean_m3": null,
+      "path": "75mm/README.md"
+    },
+    {
+      "gap_mm": 80,
+      "voltage_V": 250,
+      "status": "running",
+      "total_rf": 999,
+      "measurement_rf": 0,
+      "ne_mean_m3": null,
+      "path": "80mm/README.md"
+    }
+  ],
+  "sections": [
+    {
+      "id": "comparison_link",
+      "title": "Gap별 결과 요약",
+      "text": "[전자 밀도·에너지 환산 온도·쉬스 출구 에너지·흡수 전력·이온화율 및 전자 UID별 반복 횟수·에너지 변화](comparison/README.md). 측정이 추가되면 함께 갱신됩니다.",
+      "images": []
+    },
+    {
+      "id": "convergence",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/progress.png",
+          "caption": "체적 평균 밀도·입자 수의 진행 이력. 안정화 과도구간 포함."
+        }
+      ]
+    },
+    {
+      "id": "density",
+      "data_status": "partial",
+      "availability": "gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측정인 조건은 사유를 표시합니다.",
+      "images": []
+    },
+    {
+      "id": "heating",
+      "data_status": "partial",
+      "availability": "gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측정인 조건은 사유를 표시합니다.",
+      "images": []
+    },
+    {
+      "id": "fields",
+      "data_status": "partial",
+      "availability": "gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측정인 조건은 사유를 표시합니다.",
+      "images": []
+    },
+    {
+      "id": "ionization",
+      "data_status": "partial",
+      "availability": "gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측정인 조건은 사유를 표시합니다.",
+      "images": []
+    },
+    {
+      "id": "distributions",
+      "data_status": "partial",
+      "availability": "gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측정인 조건은 사유를 표시합니다.",
+      "images": []
+    },
+    {
+      "id": "walls",
+      "data_status": "partial",
+      "availability": "gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측정인 조건은 사유를 표시합니다.",
+      "images": []
+    },
+    {
+      "id": "power",
+      "data_status": "partial",
+      "availability": "gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측정인 조건은 사유를 표시합니다.",
+      "images": []
+    },
+    {
+      "id": "bounce",
+      "title": "BRH 왕복·위상·에너지 진단",
+      "text": "왕복 진단의 자료·그림·사건 통계는 조건별 상세 보고서에서 제공합니다.\n\n[20 mm](20mm/README.md#brh-왕복위상에너지-진단) · [25 mm](25mm/README.md#brh-왕복위상에너지-진단) · [30 mm](30mm/README.md#brh-왕복위상에너지-진단) · [35 mm](35mm/README.md#brh-왕복위상에너지-진단) · [40 mm](40mm/README.md#brh-왕복위상에너지-진단) · [45 mm](45mm/README.md#brh-왕복위상에너지-진단) · [50 mm](50mm/README.md#brh-왕복위상에너지-진단) · [55 mm](55mm/README.md#brh-왕복위상에너지-진단) · [60 mm](60mm/README.md#brh-왕복위상에너지-진단) · [65 mm](65mm/README.md#brh-왕복위상에너지-진단) · [70 mm](70mm/README.md#brh-왕복위상에너지-진단) · [75 mm](75mm/README.md#brh-왕복위상에너지-진단) · [80 mm](80mm/README.md#brh-왕복위상에너지-진단)",
+      "images": []
+    },
+    {
+      "id": "BRH_gap_compare",
+      "title": "기본1T 반복 후보·EEDF의 gap 비교",
+      "data_status": "partial",
+      "text": "600RF 배경 안정화 뒤 수집한 측정 구간만 비교하며, 별도20RF pilot은 제외합니다. 단일gap이나 통계 중단 기준 전 자료만으로 BRH를 확정하지 않습니다. error bar는20/40RF 블록 불확실도 지표이며, 막대가 없는 점은 아직 블록 추정이 없습니다.",
+      "images": [
+        {
+          "path": "figures/brh_gap_compare.png",
+          "caption": "검출 왕복 사건 중 기본1T 후보의 비율과 signed field work. 전체 전자의 BRH 밀도 분율이 아닙니다. 검은×는 전체 검출 왕복의 평균입니다."
+        },
+        {
+          "path": "figures/eepf_gap_compare.png",
+          "caption": "각gap의 실제 측정 RF를 범례에 표시했습니다. 중앙10%, E<500eV로 정규화한 원시 counts 기반 비교입니다."
+        }
+      ],
+      "table": "| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |\n|---:|---|---|---:|---:|---:|---:|\n| 30 | measurement_limit_reached | 1852–2851 (1000RF) | 32281 / 395 | 352 | 1.224 | 5.052 |\n| 40 | measurement_limit_reached | 603–1602 (1000RF) | 212801 / 488 | 455 | 0.229 | 4.257 |\n| 50 | measurement_limit_reached | 1352–2351 (1000RF) | 200379 / 323 | 305 | 0.161 | 2.075 |\n| 60 | measurement_limit_reached | 1752–2751 (1000RF) | 168729 / 33 | 33 | 0.020 | 4.494 |\n"
+    }
+  ],
+  "downloads": [
+    {
+      "label": "조건별 진행 요약 CSV",
+      "path": "summary.csv",
+      "bytes": 1472,
+      "sha256": "aa25497cb99afa5055f5037d94713caae4e490ae80da330cc0092b4d325a6f91",
+      "git_blob": "b45ac3fb123bf6d20739bf6d763f51f8296a8423"
+    },
+    {
+      "label": "공통 설정",
+      "path": "config.json",
+      "bytes": 3736,
+      "sha256": "899b09bbd91c9b461e1146ab8b654dd32252fcbab5af4698389ebf92060d5caf",
+      "git_blob": "f13d749e2707214fd6047e7146b5b77728b00233"
+    },
+    {
+      "label": "수렴·중단 기준",
+      "path": "criteria.json",
+      "bytes": 2335,
+      "sha256": "63ae8453cb9925f946f5e1e8e675b4907c91077dda77683b09faa777095f782e",
+      "git_blob": "c3c8209efb08c8d682d2fe734d7003541bf24107"
+    },
+    {
+      "label": "수동 진단·재시작 검증",
+      "path": "diagnostics_validated.json",
+      "bytes": 1312,
+      "sha256": "e08ed54f27cea11b1321ee9a4c560eea29f8147faab25c7b4315c66873af65fe",
+      "git_blob": "44393da71f7575b9bfe5d93cbc1dd5fc8b6b32bd"
+    },
+    {
+      "label": "측정 제어·통합·압축·상한 중단 실행 검증",
+      "path": "measurement_engine_validated.json",
+      "bytes": 1494,
+      "sha256": "76a57d1c7cdd6e42b0594e4435a015c56943c4f8a95e6181f46fa0b3e10f2c24",
+      "git_blob": "ac3b04e249e62f5f27960b3110ba08c00ba7c2b1"
+    },
+    {
+      "label": "새 gap에서 진단 비간섭·수치 안정성 확인",
+      "path": "new_gap_validation.json",
+      "bytes": 1508,
+      "sha256": "9857972ab30671e381b5d37802fb23b38d9259b1e7b0020a4d0fcee83532102b",
+      "git_blob": "eaec45da5208dcde3b1119107503af6fe81f7736"
+    },
+    {
+      "label": "gap별 BRH 사건·에너지·불확실도 요약 CSV",
+      "path": "brh_gap_summary.csv",
+      "bytes": 856,
+      "sha256": "99282ae15354aa3778c97cff7084a1112cb1d4f9852dfce81541b108ae410762",
+      "git_blob": "71e5bc4ddc91adcdd2217d370f3aea432cc72ff8"
+    },
+    {
+      "label": "실행 소스·진단·설정·원본40mm 기준 입자",
+      "path": "261124_BRH_source.zip",
+      "bytes": 2999197,
+      "sha256": "a8e231b01d0253640c28f5c26a1b289ff36f2ba231d4503447291797db797c4f",
+      "git_blob": "ab270b2b0a8d3ae5c54e4890e0c143de0666baa9"
+    }
+  ],
+  "comparison_path": "comparison/README.md"
+}

@@ -1,0 +1,115 @@
+{
+  "id": "261124_BRH_gap20-80_step5",
+  "date": "2026-11-24",
+  "started_at_Asia_Seoul": "2026-11-24T12:34:57.417773+09:00",
+  "gas": "Ar",
+  "pressure_mTorr": 20,
+  "temperature_K": 350,
+  "frequency_Hz": 13560000.0,
+  "voltage_peak_V": 250,
+  "gaps_mm": [
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70,
+    75,
+    80
+  ],
+  "weight": 112000.0,
+  "fictive_area_m2": 0.0001,
+  "dx_target_m": 6.25e-05,
+  "electron_steps_per_RF": 8000,
+  "phase_bins": 200,
+  "ion_subcycling": 40,
+  "max_workers": 4,
+  "source_reference_SHA256": "bd1d85cdbfd875c5bfd5df29ccefcd24da03b8776bdccde1148588453cc1586c",
+  "reference_checkpoint_SHA256": "7a8c9bd9014e0f9b81e2964fa903a9c30ae2d48308ba925b14e6ac1b05051b39",
+  "reference_checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/reference40.bin",
+  "control_source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
+  "initialization": "40 mm 250 V converged particle distribution resampled to keep common initial physical density and constant macroparticle weight; x stretched, clone jitter; leapfrog velocities synchronized and restaggered. All changed-condition transients excluded.",
+  "surface": "absorbing material walls; no SEE or material reflection",
+  "electron_MCC": "same residual optical-depth Ar ground-state MCC at all gaps; at most one event per step",
+  "Coulomb_binary_collisions": false,
+  "parallelism_note": "Four solver slots total, reserving slots for unfinished cases of the earlier scan; expand new concurrency as earlier cases terminate.",
+  "run_gaps_mm": [
+    20,
+    35,
+    45,
+    55,
+    65,
+    70,
+    75
+  ],
+  "case_sources": {
+    "25": {
+      "path": "/workspace/edupic-brh/261123_BRH_gap25-120/25mm",
+      "run_id": "261123_BRH_gap25-120",
+      "date": "2026-11-23",
+      "source_root": "/workspace/edupic-brh/261123_BRH_gap25-120"
+    },
+    "30": {
+      "path": "/workspace/edupic-brh/261123_BRH_gap25-120/30mm",
+      "run_id": "261123_BRH_gap25-120",
+      "date": "2026-11-23",
+      "source_root": "/workspace/edupic-brh/261123_BRH_gap25-120"
+    },
+    "40": {
+      "path": "/workspace/edupic-brh/261123_BRH_gap25-120/40mm",
+      "run_id": "261123_BRH_gap25-120",
+      "date": "2026-11-23",
+      "source_root": "/workspace/edupic-brh/261123_BRH_gap25-120"
+    },
+    "50": {
+      "path": "/workspace/edupic-brh/261123_BRH_gap25-120/50mm",
+      "run_id": "261123_BRH_gap25-120",
+      "date": "2026-11-23",
+      "source_root": "/workspace/edupic-brh/261123_BRH_gap25-120"
+    },
+    "60": {
+      "path": "/workspace/edupic-brh/261123_BRH_gap25-120/60mm",
+      "run_id": "261123_BRH_gap25-120",
+      "date": "2026-11-23",
+      "source_root": "/workspace/edupic-brh/261123_BRH_gap25-120"
+    },
+    "80": {
+      "path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm",
+      "run_id": "261123_BRH_gap25-120",
+      "date": "2026-11-23",
+      "source_root": "/workspace/edupic-brh/261123_BRH_gap25-120"
+    }
+  },
+  "total_solver_slots": 4,
+  "compress_native_text": true,
+  "capacity_reservations": [
+    {
+      "root": "/workspace/edupic-brh/261123_BRH_gap25-120",
+      "gaps_mm": [
+        25,
+        30,
+        40,
+        50,
+        60,
+        80,
+        100,
+        120
+      ]
+    }
+  ],
+  "parent_scan": {
+    "id": "261123_BRH_gap25-120",
+    "root": "/workspace/edupic-brh/261123_BRH_gap25-120",
+    "criteria_SHA256": "63ae8453cb9925f946f5e1e8e675b4907c91077dda77683b09faa777095f782e"
+  },
+  "validation_origin": {
+    "run_id": "261123_BRH_gap25-120",
+    "note": "Same exact native source/header and compiler flags; original passivity/restart gate retained; new-gap smoke recorded separately."
+  },
+  "initial_seed_base": 261123000
+}

@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "purpose": "End-to-end controller/measurement/validation/pooling/lossless-compression/cap-stop integration check. Separate from scientific scan. 20-RF cap deliberately below 200-RF minimum; no convergence claimed.",
+  "initial_checkpoint": {
+    "cycle": 271,
+    "time_seconds": 1.9985250737798e-05,
+    "electrons": 46005,
+    "ions": 48384,
+    "sha256": "7f189d8ad50b61723a127504e3e694e63d104df2ecfbd598bf9d12660e35204a"
+  },
+  "final_checkpoint": {
+    "cycle": 293,
+    "time_seconds": 2.1607669616891905e-05,
+    "electrons": 46043,
+    "ions": 48435,
+    "sha256": "1cb7e9eb55b274987e9c9f2f5d28b4240003c5aaa5dcb8496aff17ec32931953"
+  },
+  "outcome": "measurement_limit_reached",
+  "measured_RF": 20,
+  "wall_seconds": 283.9254391359864,
+  "source_SHA256": "cfb0169f87714aff0a93cd968a2358bfe8af4b6635fe15bdc5488187d6b78a8a",
+  "header_SHA256": "01386a6acae318458b431f66c38e8d0eb004cc06aece551daedf70d768362d6d",
+  "block_validation": {
+    "passed": true,
+    "finite_shapes": true,
+    "histogram_count_conservation": true,
+    "fieldwork_native_consistent": true,
+    "roundtrip_energy_ledger_max_eV": 2.561506562415161e-12,
+    "native_stability": {
+      "omega_pe_dt": {
+        "value": 0.027,
+        "limit": 0.2
+      },
+      "dx_lambdaD": {
+        "value": 0.334,
+        "limit": 1.0
+      },
+      "nu_e_dt": {
+        "value": 0.002,
+        "limit": 0.05
+      },
+      "nu_i_dt": {
+        "value": 0.005,
+        "limit": 0.05
+      }
+    }
+  }
+}
