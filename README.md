@@ -10,14 +10,15 @@
 
 [컴파일·전압별 실행 설명](scripts/voltage_scan/README.md) · [결과 등록 방법](docs/RESULTS_GUIDE.md)
 
-**BRH (bounce resonance heating):** [gap 스캔 진행·결과](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md) · [진단·실행 설명](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/simulation/20mTorr-topRF/scripts/brh_scan/README.md)
+**BRH (bounce resonance heating):** [gap 스캔 진행·결과](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md) · [진단·실행 설명](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/simulation/20mTorr-topRF/scripts/brh_scan/README.md)
 
-[Gap별 플라즈마 파라미터·전자별 반복 가열 요약](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/comparison/README.md)
+[Gap별 플라즈마 파라미터·전자별 반복 가열 요약](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/comparison/README.md)
 
 ## 실행 기록
 
 | 실행일 KST | 실행 / 바꾼 조건 | 주요 조건 | 상태 | 결과 |
 |---|---|---|---|---|
+| 2026-11-24 | **261124_BRH_gap20-80_step5**<br>BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm | 20 mTorr · [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80] mm · 250 V peak | 계산 중 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md) |
 | 2026-11-23 | **261123_BRH_gap25-120**<br>BRH · gap25/30/40/50/60/80/100/120 mm | 20 mTorr · [25, 30, 40, 50, 60, 80, 100, 120] mm · 250 V peak | 계산 중 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md) |
 | 2026-11-20 | **261120_loss-check**<br>벽 손실 진단 · 20↔75.006 mTorr 대조 | 20 mTorr · 25 mm · 100/250/300 V peak | 과도구간 진단 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261120_loss-check/README.md) |
 | 2026-11-20 | **261120_gap40_V100-500**<br>gap40 mm · 100/250/300/400/500 V | 20 mTorr · 40 mm · 100/250/300/400/500 V peak | 통계 기준 충족 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261120_gap40_V100-500/README.md) |
