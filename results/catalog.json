@@ -389,10 +389,10 @@
       {
         "gap_mm": 35,
         "voltage_V": 250,
-        "status": "running",
+        "status": "measurement_limit_reached",
         "total_rf": 2700,
-        "measurement_rf": 980,
-        "ne_mean_m3": 833764678753500.6,
+        "measurement_rf": 1000,
+        "ne_mean_m3": 833885499822372.9,
         "path": "35mm/README.md"
       },
       {
@@ -408,9 +408,9 @@
         "gap_mm": 45,
         "voltage_V": 250,
         "status": "running",
-        "total_rf": 1220,
-        "measurement_rf": 120,
-        "ne_mean_m3": 1556011517213094.8,
+        "total_rf": 1240,
+        "measurement_rf": 140,
+        "ne_mean_m3": 1555816957502117.5,
         "path": "45mm/README.md"
       },
       {
@@ -426,9 +426,9 @@
         "gap_mm": 55,
         "voltage_V": 250,
         "status": "running",
-        "total_rf": 1731,
-        "measurement_rf": 280,
-        "ne_mean_m3": 1810029649635395.5,
+        "total_rf": 1751,
+        "measurement_rf": 300,
+        "ne_mean_m3": 1809927207575328.0,
         "path": "55mm/README.md"
       },
       {
@@ -444,9 +444,9 @@
         "gap_mm": 65,
         "voltage_V": 250,
         "status": "running",
-        "total_rf": 1840,
-        "measurement_rf": 40,
-        "ne_mean_m3": 1932485803831153.0,
+        "total_rf": 1860,
+        "measurement_rf": 60,
+        "ne_mean_m3": 1932866808528293.2,
         "path": "65mm/README.md"
       },
       {
