@@ -119,7 +119,7 @@ def export(root,out):
         state=json.loads((d/'status.json').read_text());cpRF=state.get('checkpoint_cycle',0);meas=state.get('measured_RF',0);phase=state['phase']
         status=state['status']
         missing_reason=state.get('data_invalidation_reason') or '해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.'
-        shutil.copy2(d/'status.json',target/'status.json');sections={k:unavailable(k,missing_reason) for k in KEYS}
+        put(target/'status.json',state);sections={k:unavailable(k,missing_reason) for k in KEYS}
         history=np.loadtxt(d/'history.dat',ndmin=2) if (d/'history.dat').exists() else np.empty((0,3))
         if not is_pilot:histories[gap]=history
         if len(history):
@@ -206,6 +206,13 @@ def export(root,out):
     if (out/'measurement_engine_validated.json').exists():parent['downloads'].append({'label':'측정 제어·통합·압축·상한 중단 실행 검증','path':'measurement_engine_validated.json'})
     if brh_series:
         parent['sections'].append(compare_brh(brh_series,out));parent['downloads'].append({'label':'gap별 BRH 사건·에너지·불확실도 요약 CSV','path':'brh_gap_summary.csv'})
+    from compare import build_comparison
+    comparison=build_comparison(root,out,base,cases,brh_series)
+    child_meta.append(('comparison',comparison))
+    parent['comparison_path']='comparison/README.md'
+    parent['related_links'].insert(0,{'label':'Gap별 파라미터·전자별 반복 가열 요약','url':'comparison/README.md'})
+    parent['sections'].insert(0,{'id':'comparison_link','title':'Gap별 결과 요약',
+        'text':'[전자 밀도·에너지 환산 온도·쉬스 출구 에너지·흡수 전력·이온화율 및 전자 UID별 반복 횟수·에너지 변화](comparison/README.md). 측정이 추가되면 함께 갱신됩니다.','images':[]})
     if any(pilot for _,_,pilot in entries):
         parent['sections'].append({'id':'pilot','title':'40mm 짧은 예비 진단 · 본 스캔과 구분','text':'[20RF 예비 진단의 조건·수치·그림·다운로드](pilot40mm/README.md). 본 gap 스캔의 수렴 결과가 아니며 BRH 확정 자료로 사용하지 않습니다.','images':[im('pilot40mm/figures/brh_returns.png','실제20RF의 왕복·위상·signed energy 진단. 상세 페이지에 위치별 EEPF와 순간 일 지도도 있습니다.')]})
     source_files=[root/f for f in ['source_control.cc','source_brh.cc','brh_diagnostics.hpp','reference40.bin','config.json','criteria.json','diagnostics_validated.json','measurement_engine_validated.json','LICENSE'] if (root/f).exists()]

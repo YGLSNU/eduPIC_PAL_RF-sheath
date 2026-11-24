@@ -48,6 +48,7 @@ def validate(meta):
         for im in section.get('images',[]):safe_path(im['path'])
     for d in meta.get('downloads',[]):safe_path(d['path'])
     if meta.get('details'):safe_path(meta['details'])
+    if meta.get('comparison_path'):safe_path(meta['comparison_path'])
     return meta
 
 def escape(value):return str(value).replace('|','\\|').replace('\n',' ')
@@ -139,7 +140,7 @@ def render_report(m):
     return '\n'.join(lines).rstrip()+'\n'
 
 def record(m):
-    return {k:m[k] for k in ['id','branch','date','title','status','changed_conditions','conditions','cases','scan_parameter','summary'] if k in m}
+    return {k:m[k] for k in ['id','branch','date','title','status','changed_conditions','conditions','cases','scan_parameter','comparison_path','summary'] if k in m}
 
 def render_catalog(records,branch):
     all_records=sorted(records,key=lambda m:(m['date'],m['id']),reverse=True)
@@ -161,6 +162,8 @@ def render_catalog(records,branch):
     if brh:
         latest=brh[0]
         lines += [f'**BRH (bounce resonance heating):** [gap 스캔 진행·결과]({blob(latest["branch"],"results/"+latest["id"]+"/README.md")}) · [진단·실행 설명]({blob(CODE_BRANCH,"scripts/brh_scan/README.md")})','']
+        if latest.get('comparison_path'):
+            lines += [f'[Gap별 플라즈마 파라미터·전자별 반복 가열 요약]({blob(latest["branch"],"results/"+latest["id"]+"/"+latest["comparison_path"])})','']
     lines += ['## 실행 기록','','| 실행일 KST | 실행 / 바꾼 조건 | 주요 조건 | 상태 | 결과 |','|---|---|---|---|---|']
     for m in visible:
         c=m['conditions'];p=c.get('pressure_mTorr');p=f'{p:g}' if isinstance(p,(float,int)) else str(p)

@@ -14,7 +14,7 @@ Ar **20 mTorr**, 350 K, **13.56 MHz, 250 V peak** 정현파. **상부 x=L RF, �
 
 ## 실행·이어 계산
 
-현재 실행 폴더는 `/workspace/edupic-brh/261123_BRH_gap25-120`입니다. Python3, NumPy, SciPy, Matplotlib, g++가 필요합니다. 제어기는 gap4개를 동시에 계산합니다. 초기 검증 중에는 진단용 CPU를 남기기 위해3개로 시작했고, 검증 후 완결 체크포인트에서4개로 늘렸습니다.
+현재 실행 폴더는 `/workspace/edupic-brh/261123_BRH_gap25-120`입니다. Python3, NumPy, SciPy, Matplotlib, pandas, g++가 필요합니다. 제어기는 gap4개를 동시에 계산합니다. 초기 검증 중에는 진단용 CPU를 남기기 위해3개로 시작했고, 검증 후 완결 체크포인트에서4개로 늘렸습니다.
 
 ```bash
 # 최초 준비: 기존 reference 경로는 prepare.py 참조
@@ -31,6 +31,8 @@ python -u scripts/brh_scan/run_scan.py /workspace/edupic-brh/261123_BRH_gap25-12
 입자만 담은 `picdata.bin`은 통계적인 재시작이 가능합니다. 새 BRH 측정은 **`picdata.bin`, `brh_state.bin`, `brh_rng.txt` 세 파일을 함께** 보관해야 UID·왕복 이력·MCC 잔여 optical depth·난수 상태를 연속 복원합니다. 컴파일 조건과 소스도 같아야 합니다. 블록별 히스토그램은 재시작 상태와 별도입니다.
 
 ## 보고서 갱신
+
+[Gap별 파라미터·전자별 반복 가열 요약](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/comparison/README.md)은 `compare.py`가 실제 완결 측정 epoch로 생성합니다. 밀도, 입자 가중 에너지 환산 온도, 쉬스 반사 후 기준면 출구 에너지 분포, 흡수 전력, 이온화율과 UID별 후보 사건·episode를 비교합니다. 온도는 Maxwellian fit이나 drift 제거 온도가 아닙니다. 전자 수명 전체로 횟수를 외삽하지 않으며, 에너지 증가 부호와 무관하게 최대 위상 반복 길이로 예시를 선정합니다. 원자료 출구 에너지와 왕복 에너지 장부를 대조하고 검증 기록·CSV를 함께 제공합니다.
 
 ```bash
 python scripts/brh_scan/export.py /workspace/edupic-brh/261123_BRH_gap25-120 /workspace/edupic-brh/export/261123_BRH_gap25-120
