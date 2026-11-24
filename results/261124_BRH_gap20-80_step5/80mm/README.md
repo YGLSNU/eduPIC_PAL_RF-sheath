@@ -1,8 +1,8 @@
-# 261123_BRH_gap25-120 · BRH · gap 80 mm · 250 V
+# 261124_BRH_gap20-80_step5 · BRH · gap 80 mm · 250 V
 
-[전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md)
+[전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md)
 
-**계산 중** · 실행일 2026-11-23 (한국 시각) · 변경 조건: **BRH gap 80 mm** · 보고서 갱신 2026-11-24T12:37:20+09:00
+**계산 중** · 원 실행일 2026-11-23 · 이번 스캔 등록일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap 80 mm** · 보고서 갱신 2026-11-24T12:37:20+09:00
 
 기존 동일 조건 실행을 재사용합니다. 새 독립 seed 반복 계산이 아닙니다. 배경 입자 수 안정화 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.
 
