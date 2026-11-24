@@ -3,7 +3,7 @@
   "id": "261123_BRH_gap25-120",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-23",
-  "report_updated": "2026-11-24T10:08:13+09:00",
+  "report_updated": "2026-11-24T10:25:30+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -35,7 +35,7 @@
   "changed_conditions": "BRH gap 80 mm",
   "report_directory": "results/261123_BRH_gap25-120/80mm",
   "summary": "배경 입자 수 안정화 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
-  "measurement_note": "Warmup snapshot RF 400–400 (transient, not stationary)",
+  "measurement_note": "Warmup snapshot RF 500–500 (transient, not stationary)",
   "sections": [
     {
       "id": "convergence",
@@ -45,7 +45,7 @@
       "images": [
         {
           "path": "figures/convergence.png",
-          "caption": "저장된 이력 RF1–400. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+          "caption": "저장된 이력 RF1–500. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
         }
       ]
     },
@@ -57,7 +57,7 @@
       "images": [
         {
           "path": "figures/density.png",
-          "caption": "Warmup snapshot RF 400–400 (transient, not stationary)"
+          "caption": "Warmup snapshot RF 500–500 (transient, not stationary)"
         }
       ]
     },
@@ -69,7 +69,7 @@
       "images": [
         {
           "path": "figures/heating.png",
-          "caption": "Warmup snapshot RF 400–400 (transient, not stationary)"
+          "caption": "Warmup snapshot RF 500–500 (transient, not stationary)"
         }
       ]
     },
@@ -81,7 +81,7 @@
       "images": [
         {
           "path": "figures/fields.png",
-          "caption": "Warmup snapshot RF 400–400 (transient, not stationary)"
+          "caption": "Warmup snapshot RF 500–500 (transient, not stationary)"
         }
       ]
     },
@@ -93,7 +93,7 @@
       "images": [
         {
           "path": "figures/ionization.png",
-          "caption": "Warmup snapshot RF 400–400 (transient, not stationary)"
+          "caption": "Warmup snapshot RF 500–500 (transient, not stationary)"
         }
       ]
     },
@@ -105,7 +105,7 @@
       "images": [
         {
           "path": "figures/distributions.png",
-          "caption": "Warmup snapshot RF 400–400 (transient, not stationary); 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다."
+          "caption": "Warmup snapshot RF 500–500 (transient, not stationary); 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다."
         }
       ]
     },
@@ -117,7 +117,7 @@
       "images": [
         {
           "path": "figures/walls.png",
-          "caption": "Warmup snapshot RF 400–400 (transient, not stationary)"
+          "caption": "Warmup snapshot RF 500–500 (transient, not stationary)"
         }
       ]
     },
@@ -129,7 +129,7 @@
       "images": [
         {
           "path": "figures/power.png",
-          "caption": "Warmup snapshot RF 400–400 (transient, not stationary); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다."
+          "caption": "Warmup snapshot RF 500–500 (transient, not stationary); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다."
         }
       ]
     },
@@ -146,22 +146,22 @@
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
       "bytes": 1399,
-      "sha256": "c3c090a46a1fc731279c9bb7cdb926b540cd4c5b17985c65621a6aa6052981d8",
-      "git_blob": "15cfc5651700363497c4447d5b94ad1ec20ac3da"
+      "sha256": "1d7d380adefbe8f96fadbce80dc90ea03fcc78c8ac977e11ff154e42cc1221b5",
+      "git_blob": "27836014b691afbf12e164e935bd31b282b01003"
     },
     {
-      "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 400–400 (transient, not stationary)",
+      "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 500–500 (transient, not stationary)",
       "path": "261123_80mm_core.zip",
-      "bytes": 12850601,
-      "sha256": "63a9bdb8b1f8fc5b0703efefe885529995a9193a48f0295efdd95e1751395f74",
-      "git_blob": "e089990d37029f231159fbfd18b7cedf1e281693"
+      "bytes": 12835494,
+      "sha256": "bf53312eda2eb4bb4e556a421e9b74fcc8b6deddc97b812bae68a517a9c66d17",
+      "git_blob": "71caf69a938e166cfffc3052fe3aba067f847d02"
     },
     {
       "label": "입자 수 이력 CSV",
       "path": "history.csv",
-      "bytes": 7129,
-      "sha256": "47f0706d49fd11f7f7ec1ea0e1ae44e461703099d96204dd885510399b65783b",
-      "git_blob": "88f1008619ed781a5903e9231b467db12b742926"
+      "bytes": 8929,
+      "sha256": "edaea6ad974751a7369abb0da6149629c568f414a16823df97fd2891398eeaf3",
+      "git_blob": "7328224121773770c0dfef5cc56a32d96520da95"
     },
     {
       "label": "재시작 입자·동반 상태 (저장 RF 349; 보고서의 최신 RF와 다를 수 있음)",
@@ -181,7 +181,7 @@
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 400"
+      "RF 500"
     ],
     [
       "정상 측정 누적",
@@ -193,11 +193,11 @@
     ],
     [
       "안정성 확인",
-      "{\"passed\": false, \"available_RF\": 400, \"required_RF\": 600}"
+      "{\"passed\": false, \"available_RF\": 500, \"required_RF\": 600}"
     ],
     [
       "진행 상태 갱신",
-      "2026-11-24T09:58:45.603782+09:00"
+      "2026-11-24T10:24:16.661038+09:00"
     ]
   ]
 }
