@@ -493,12 +493,12 @@
     },
     {
       "gap_mm": 65,
-      "summary_sha256": "a27e5558ca411fe62e15e58d8a7d0f6775ac3a32eab8e8bd91cce18195d66d1d",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/brh_pooled_RF002420/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/pooled_epoch1_RF002420",
+      "summary_sha256": "bb2506a9ff40529e233c75544efa5d52c52a53e05fdbb8c2aba17dd25a17f439",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/brh_pooled_RF002520/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/pooled_epoch1_RF002520",
       "RF_first": 1801,
-      "RF_last": 2420,
-      "measured_RF": 620,
+      "RF_last": 2520,
+      "measured_RF": 720,
       "measurement_blocks": [
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF001801-001820",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF001821-001840",
@@ -530,13 +530,18 @@
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002341-002360",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002361-002380",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002381-002400",
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002401-002420"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002401-002420",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002421-002440",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002441-002460",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002461-002480",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002481-002500",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/65mm/measurement_epoch1/RF002501-002520"
       ],
       "validation": {
-        "matched_start_energies": 94894,
+        "matched_start_energies": 111106,
         "reconstructed_start_energies": 43,
         "maximum_endpoint_discrepancy_eV": 1.000053373445553e-10,
-        "episode_nodes": 18,
+        "episode_nodes": 21,
         "ledger_and_candidate_counts_passed": true
       },
       "reused_from_run": null,
