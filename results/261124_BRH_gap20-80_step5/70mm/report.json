@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-25T09:12:30+09:00",
+  "report_updated": "2026-11-25T10:15:07+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -34,8 +34,8 @@
   "status": "running",
   "changed_conditions": "BRH gap 70 mm",
   "report_directory": "results/261124_BRH_gap20-80_step5/70mm",
-  "summary": "배경 입자 수 안정화 중 아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
-  "measurement_note": "Warmup snapshot RF 1900–1900 (transient, not stationary)",
+  "summary": "위상·입자 진단 측정 중; 최종 BRH 판정 전 검출된 상부 기준 왕복 5671개, 고유 UID 3007개. 위상 반복 후보 0개(고유 UID 0개). 검출 왕복 중 후보 비율 0.000%. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.",
+  "measurement_note": "Measurement RF 2052–2111 (60 RF)",
   "sections": [
     {
       "id": "convergence",
@@ -45,7 +45,7 @@
       "images": [
         {
           "path": "figures/convergence.png",
-          "caption": "저장된 이력 RF1–1900. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+          "caption": "저장된 이력 RF1–2111. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
         }
       ]
     },
@@ -57,7 +57,7 @@
       "images": [
         {
           "path": "figures/density.png",
-          "caption": "Warmup snapshot RF 1900–1900 (transient, not stationary)"
+          "caption": "Measurement RF 2052–2111 (60 RF)"
         }
       ]
     },
@@ -69,7 +69,7 @@
       "images": [
         {
           "path": "figures/heating.png",
-          "caption": "Warmup snapshot RF 1900–1900 (transient, not stationary)"
+          "caption": "Measurement RF 2052–2111 (60 RF)"
         }
       ]
     },
@@ -81,7 +81,7 @@
       "images": [
         {
           "path": "figures/fields.png",
-          "caption": "Warmup snapshot RF 1900–1900 (transient, not stationary)"
+          "caption": "Measurement RF 2052–2111 (60 RF)"
         }
       ]
     },
@@ -93,7 +93,7 @@
       "images": [
         {
           "path": "figures/ionization.png",
-          "caption": "Warmup snapshot RF 1900–1900 (transient, not stationary)"
+          "caption": "Measurement RF 2052–2111 (60 RF)"
         }
       ]
     },
@@ -105,7 +105,7 @@
       "images": [
         {
           "path": "figures/distributions.png",
-          "caption": "Warmup snapshot RF 1900–1900 (transient, not stationary); 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다."
+          "caption": "Last native block RF 2092–2111 only (20 RF); pooled EEDF uses raw new histogram counts; 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다."
         }
       ]
     },
@@ -117,7 +117,7 @@
       "images": [
         {
           "path": "figures/walls.png",
-          "caption": "Warmup snapshot RF 1900–1900 (transient, not stationary)"
+          "caption": "Measurement RF 2052–2111 (60 RF)"
         }
       ]
     },
@@ -129,75 +129,140 @@
       "images": [
         {
           "path": "figures/power.png",
-          "caption": "Warmup snapshot RF 1900–1900 (transient, not stationary); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다."
+          "caption": "Measurement RF 2052–2111 (60 RF); 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다."
         }
       ]
     },
     {
       "id": "bounce",
-      "data_status": "unavailable",
-      "reason": "아직 BRH 왕복 진단 측정 전입니다. 입자 수 안정화나 EEDF만으로 BRH 발생을 판정하지 않습니다.",
-      "images": [],
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "검출된 상부 기준 왕복 5671개, 고유 UID 3007개. 위상 반복 후보 0개(고유 UID 0개). 검출 왕복 중 후보 비율 0.000%. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.",
+      "images": [
+        {
+          "path": "figures/brh_returns.png",
+          "caption": "RF 2052–2111 (60 RF); exploratory diagnostics; 에너지 부호와 독립적으로 정한 반복 위상 후보. 충돌/경계 검출 조건은 METHOD 참조."
+        },
+        {
+          "path": "figures/phase_persistence.png",
+          "caption": "RF 2052–2111 (60 RF); exploratory diagnostics; 실제 전기장 회전 시각의 위상 재현성과 연속 왕복 횟수. 기준면 재도착 위상과 구분합니다."
+        },
+        {
+          "path": "figures/trajectories.png",
+          "caption": "첫 측정 블록의 처음5RF, 해시 추출 UID 중 기록이 긴 최대12개 궤적 예시. 집단 전체의 BRH 증거로 단독 사용하지 않습니다."
+        }
+      ],
       "title": "BRH 왕복·위상·에너지 진단"
+    },
+    {
+      "id": "spatial_eepf",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/eepf_positions.png",
+          "caption": "RF 2052–2111 (60 RF); exploratory diagnostics; 전체 E와 Ex를 구분합니다. 각 위치에서 E<500eV 사건으로 정규화."
+        },
+        {
+          "path": "figures/phase_eedf.png",
+          "caption": "RF 2052–2111 (60 RF); exploratory diagnostics; 중앙10%의 위상별 EEDF."
+        }
+      ],
+      "title": "위치별 EEPF·Ex 및 위상별 EEDF"
+    },
+    {
+      "id": "instantaneous_work",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "",
+      "images": [
+        {
+          "path": "figures/instantaneous_work.png",
+          "caption": "RF 2052–2111 (60 RF); exploratory diagnostics; 순간 kick 에너지의 평균. 표준 heating의 <j>×<E>와 다릅니다."
+        }
+      ],
+      "title": "순간 전기장 일 지도"
     }
   ],
   "downloads": [
     {
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
-      "bytes": 1743,
-      "sha256": "28d732bfadeb35b8c4e378e6eeca3fba33465226d398f2d00bff8cbc4a5a34e4",
-      "git_blob": "d165dcba9d487c55afd88d550f256013a140d3d6"
+      "bytes": 6189,
+      "sha256": "1350e70f42a934fe2c4ecd3520e7fc9786221ab5a2528e1257082ea3a9350198",
+      "git_blob": "cd4bb41f858d50befc395a9dbf628f654cc01f42"
     },
     {
-      "label": "표준 진단 원시 수치·이력: Warmup snapshot RF 1900–1900 (transient, not stationary)",
+      "label": "표준 진단 원시 수치·이력: Measurement RF 2052–2111 (60 RF)",
       "path": "261124_70mm_core.zip",
-      "bytes": 11183200,
-      "sha256": "3864d99c59034412b6f1af0eb4dd5a0c0e494f7ac54f8e614191ce647248a655",
-      "git_blob": "1da84480e3a04eedef98ed6db5338eeb26ae83c0"
+      "bytes": 12821321,
+      "sha256": "e0527b583983699167dddd9a2c8a2e6263ef36236e288cbadfe162d584899d78",
+      "git_blob": "a463ffe564121161837375a18920173febe86f64"
     },
     {
       "label": "입자 수 이력 CSV",
       "path": "history.csv",
-      "bytes": 34866,
-      "sha256": "8e631f6799b95c15889479db8fcae6867c46293991926e4e39aef278ed0333db",
-      "git_blob": "41be71069316937847963cd4481cbfd3747df04f"
+      "bytes": 38875,
+      "sha256": "1f77ce929b7760bffc77518c10c1fc46afcd6368ea0f2ae36490f95f5e1fe369",
+      "git_blob": "06b99e0941407df1af5cdcd2766d263908f308c4"
     },
     {
-      "label": "재시작 입자·동반 상태 (저장 RF 1900; 보고서의 최신 RF와 다를 수 있음)",
+      "label": "재시작 입자·동반 상태 (저장 RF 2111; 보고서의 최신 RF와 다를 수 있음)",
       "path": "261124_70mm_restart.zip",
-      "bytes": 7780067,
-      "sha256": "a2f43c70aee0f681d57bf7e58bc425535e9cb2d7fa6dc1c4da33a7dab071438b",
-      "git_blob": "afef9a7512eaff2d2a89b0feb1366f28a687143c"
+      "bytes": 10235710,
+      "sha256": "a89ea53e5917d5a808a234b11e2a21da53e316001f405a9777bee43410e685f7",
+      "git_blob": "53d61ce4cf67f6e06450bf4082401178f5b79ba8"
     },
     {
       "label": "재시작 파일 provenance",
       "path": "restart_manifest.json",
-      "bytes": 189,
-      "sha256": "e095c2826bbd939d0761db85b135b3a1ac151fa4d0ac588510cce2d7095257dc",
-      "git_blob": "e6174c26ae6c41399aa8ce4f33f7ef196f99dc39"
+      "bytes": 190,
+      "sha256": "9f2b785a3ec8a87eb7075196d3b35a8573084cee044a6beca183c4ae3e07abbe",
+      "git_blob": "dde8daf51ff66ab422914fa6d852d86e9420294c"
+    },
+    {
+      "label": "BRH 사건·원시 energy counts·probe·일 지도 (1/1; 분할 시 모두 받기)",
+      "path": "261124_70mm_BRH_data.zip",
+      "bytes": 24465287,
+      "sha256": "96f750803412455f21211565cdf010e6ac522137c3f3a58d91ef79471fff7426",
+      "git_blob": "26cf5b2a5d5a82662cbbe15478760dae6c314eae"
+    },
+    {
+      "label": "BRH 수치·표본 수·해석 범위",
+      "path": "measurement_summary.json",
+      "bytes": 5571,
+      "sha256": "9f17ffe4f5863b622a1f15d42d6c5f712fd9751f316b6a52a3cd5e1b84a324b9",
+      "git_blob": "8b5a8f63edce17673825819a5b36eef4619cdddd"
+    },
+    {
+      "label": "위치별 EEPF CSV (raw count 포함)",
+      "path": "data/position_eepf.csv",
+      "bytes": 289063,
+      "sha256": "f5e8dbf9970b89660075ad6afd6593d4c250a7a31e7b6202e9219186c9372d4a",
+      "git_blob": "4c1ffe9536e94da4fb87422204322908c60a3bd2"
     }
   ],
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 1900"
+      "RF 2111"
     ],
     [
       "정상 측정 누적",
-      "0 RF"
+      "60 RF"
     ],
     [
       "현재 단계",
-      "warmup"
+      "measurement"
     ],
     [
       "안정성 확인",
-      "{\"e\": {\"block_mean_span\": 0.012130319365675171, \"fitted_drift\": 0.01804138862646925, \"passed\": false}, \"i\": {\"block_mean_span\": 0.011938521405702278, \"fitted_drift\": 0.01776876630641831, \"passed\": false}, \"passed\": false}"
+      "{\"e\": {\"block_mean_span\": 0.008306565376141993, \"fitted_drift\": 0.011959509575479402, \"passed\": true}, \"i\": {\"block_mean_span\": 0.008220165277276556, \"fitted_drift\": 0.011839785194213512, \"passed\": true}, \"passed\": true}"
     ],
     [
       "진행 상태 갱신",
-      "2026-11-25T09:02:52.506903+09:00"
+      "2026-11-25T10:13:32.539058+09:00"
     ]
   ]
 }
