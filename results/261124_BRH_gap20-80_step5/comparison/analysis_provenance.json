@@ -563,12 +563,12 @@
     },
     {
       "gap_mm": 70,
-      "summary_sha256": "f1d77084f355b18bb4779344d6e2f499ef2f0fc4d03042aeaeeee76ae1d37063",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/brh_pooled_RF002991/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/pooled_epoch1_RF002991",
+      "summary_sha256": "3153de134be12eac916d32c9a06913fc6f8325ebfa08592e08d2f70cad719402",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/brh_pooled_RF003051/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/pooled_epoch1_RF003051",
       "RF_first": 2052,
-      "RF_last": 2991,
-      "measured_RF": 940,
+      "RF_last": 3051,
+      "measured_RF": 1000,
       "measurement_blocks": [
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/measurement_epoch1/RF002052-002071",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/measurement_epoch1/RF002072-002091",
@@ -616,10 +616,13 @@
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/measurement_epoch1/RF002912-002931",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/measurement_epoch1/RF002932-002951",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/measurement_epoch1/RF002952-002971",
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/measurement_epoch1/RF002972-002991"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/measurement_epoch1/RF002972-002991",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/measurement_epoch1/RF002992-003011",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/measurement_epoch1/RF003012-003031",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/70mm/measurement_epoch1/RF003032-003051"
       ],
       "validation": {
-        "matched_start_energies": 136367,
+        "matched_start_energies": 145186,
         "reconstructed_start_energies": 35,
         "maximum_endpoint_discrepancy_eV": 1.000035609877159e-10,
         "episode_nodes": 3,
@@ -630,12 +633,12 @@
     },
     {
       "gap_mm": 75,
-      "summary_sha256": "688b7f08cea49f5d789cb0fc6bf429d252b5b56acf20784defa2133517edd7df",
-      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/brh_pooled_RF002280/summary.json",
-      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/pooled_epoch1_RF002280",
+      "summary_sha256": "fe66b4e9bdb8657ed288928dc0fb6f1673b39bd3fdc9cfe4016470ad60cb3466",
+      "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/brh_pooled_RF002340/summary.json",
+      "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/pooled_epoch1_RF002340",
       "RF_first": 1801,
-      "RF_last": 2280,
-      "measured_RF": 480,
+      "RF_last": 2340,
+      "measured_RF": 540,
       "measurement_blocks": [
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001801-001820",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001821-001840",
@@ -660,10 +663,13 @@
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002201-002220",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002221-002240",
         "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002241-002260",
-        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002261-002280"
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002261-002280",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002281-002300",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002301-002320",
+        "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002321-002340"
       ],
       "validation": {
-        "matched_start_energies": 62752,
+        "matched_start_energies": 71345,
         "reconstructed_start_energies": 57,
         "maximum_endpoint_discrepancy_eV": 1.000053373445553e-10,
         "episode_nodes": 3,
