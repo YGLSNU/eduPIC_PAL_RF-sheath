@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-25T11:59:40+09:00",
+  "report_updated": "2026-11-25T13:02:48+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -153,16 +153,16 @@
       "gap_mm": 70,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 2271,
-      "measurement_rf": 220,
-      "ne_mean_m3": 2001972262730726.5,
+      "total_rf": 2371,
+      "measurement_rf": 320,
+      "ne_mean_m3": 2002032429639446.8,
       "path": "70mm/README.md"
     },
     {
       "gap_mm": 75,
       "voltage_V": 250,
       "status": "running",
-      "total_rf": 1200,
+      "total_rf": 1449,
       "measurement_rf": 0,
       "ne_mean_m3": null,
       "path": "75mm/README.md"
@@ -259,7 +259,7 @@
           "caption": "각gap의 실제 측정 RF를 범례에 표시했습니다. 중앙10%, E<500eV로 정규화한 원시 counts 기반 비교입니다."
         }
       ],
-      "table": "| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |\n|---:|---|---|---:|---:|---:|---:|\n| 30 | measurement_limit_reached | 1852–2851 (1000RF) | 32281 / 395 | 352 | 1.224 | 5.052 |\n| 35 | measurement_limit_reached | 1701–2700 (1000RF) | 97148 / 353 | 332 | 0.363 | 6.901 |\n| 40 | measurement_limit_reached | 603–1602 (1000RF) | 212801 / 488 | 455 | 0.229 | 4.257 |\n| 45 | measurement_limit_reached | 1101–2100 (1000RF) | 209753 / 397 | 377 | 0.189 | 2.119 |\n| 50 | measurement_limit_reached | 1352–2351 (1000RF) | 200379 / 323 | 305 | 0.161 | 2.075 |\n| 55 | measurement_limit_reached | 1452–2451 (1000RF) | 181297 / 155 | 146 | 0.085 | 1.273 |\n| 60 | measurement_limit_reached | 1752–2751 (1000RF) | 168729 / 33 | 33 | 0.020 | 4.494 |\n| 65 | measurement_limit_reached | 1801–2800 (1000RF) | 155793 / 9 | 9 | 0.006 | 2.015 |\n| 70 | running | 2052–2271 (220RF) | 27795 / 1 | 1 | 0.004 | 6.405 |\n| 80 | paused_at_checkpoint | 2201–2420 (220RF) | 23810 / 0 | 0 | 0.000 | — |\n"
+      "table": "| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |\n|---:|---|---|---:|---:|---:|---:|\n| 30 | measurement_limit_reached | 1852–2851 (1000RF) | 32281 / 395 | 352 | 1.224 | 5.052 |\n| 35 | measurement_limit_reached | 1701–2700 (1000RF) | 97148 / 353 | 332 | 0.363 | 6.901 |\n| 40 | measurement_limit_reached | 603–1602 (1000RF) | 212801 / 488 | 455 | 0.229 | 4.257 |\n| 45 | measurement_limit_reached | 1101–2100 (1000RF) | 209753 / 397 | 377 | 0.189 | 2.119 |\n| 50 | measurement_limit_reached | 1352–2351 (1000RF) | 200379 / 323 | 305 | 0.161 | 2.075 |\n| 55 | measurement_limit_reached | 1452–2451 (1000RF) | 181297 / 155 | 146 | 0.085 | 1.273 |\n| 60 | measurement_limit_reached | 1752–2751 (1000RF) | 168729 / 33 | 33 | 0.020 | 4.494 |\n| 65 | measurement_limit_reached | 1801–2800 (1000RF) | 155793 / 9 | 9 | 0.006 | 2.015 |\n| 70 | running | 2052–2371 (320RF) | 43078 / 1 | 1 | 0.002 | 6.405 |\n| 80 | paused_at_checkpoint | 2201–2420 (220RF) | 23810 / 0 | 0 | 0.000 | — |\n"
     }
   ],
   "downloads": [
@@ -267,8 +267,8 @@
       "label": "조건별 진행 요약 CSV",
       "path": "summary.csv",
       "bytes": 2335,
-      "sha256": "acf413b1b3e1e2bed12c4bca4aa38c90451906d9b76ad884f226afde8ec6d7d3",
-      "git_blob": "ef6ea9fdfa74276cf20cbb15bddacad1f42d85e4"
+      "sha256": "81fba515a8fc71014f11f5cd4d7eb6583b4bc7ee975b3d79bee2fb4f845e3644",
+      "git_blob": "81368d16e8c1384616d9e9487a96b0054913613d"
     },
     {
       "label": "공통 설정",
@@ -309,8 +309,8 @@
       "label": "gap별 BRH 사건·에너지·불확실도 요약 CSV",
       "path": "brh_gap_summary.csv",
       "bytes": 1683,
-      "sha256": "70df253c5fa428c2f19951cc5a67cfa6f0bbf7a1ac77c10c9751cd5904c5596a",
-      "git_blob": "660a043a4eb7c86a1bac06c275ec7c3d2cfbeb0e"
+      "sha256": "d3246628437faf0db26c91b73ba5e0319e9a4d3d8bd59d8d78f8326928dcb2b9",
+      "git_blob": "2a6a5b7c237bf8d7496cb64b540ac99af682ccfe"
     },
     {
       "label": "실행 소스·진단·설정·원본40mm 기준 입자",
