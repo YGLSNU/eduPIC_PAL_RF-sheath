@@ -124,6 +124,16 @@ def export(root,out):
         state=json.loads((d/'status.json').read_text());cpRF=state.get('checkpoint_cycle',0);meas=state.get('measured_RF',0);phase=state['phase']
         if reused:state.update(reused_from_run=reused['run_id'],original_execution_date=reused['date'])
         status=state['status']
+        if cfg.get('recovery') and gap not in cfg['run_gaps_mm'] and status in ['criteria_met','extinguished','measurement_limit_reached','total_cycle_limit_reached'] and (target/'report.json').exists():
+            # Completed scientific records and their original archives remain
+            # unchanged. Repacking them only to change local recovery paths
+            # would duplicate gigabytes and can exceed GitHub's push limit.
+            history=np.loadtxt(d/'history.dat',ndmin=2) if (d/'history.dat').exists() else np.empty((0,3))
+            histories[gap]=history
+            cases.append({'gap_mm':gap,'voltage_V':250,'status':status,'total_rf':cpRF,'measurement_rf':meas,'ne_mean_m3':state.get('ne_mean_m3'),'path':f'{gap}mm/README.md'})
+            summaryrows.append([gap,250,status,phase,cpRF,meas,state.get('electrons',''),state.get('ions',''),state.get('last_RF_seconds',''),state.get('reason','Preserved completed result')])
+            if state.get('measurement_summary_path'):brh_series.append((gap,status,json.loads(Path(state['measurement_summary_path']).read_text())))
+            continue
         missing_reason=state.get('data_invalidation_reason') or '해당 RF 진단을 아직 측정하지 않았습니다. 안정화 중 자료는 정상 측정과 구분합니다.'
         put(target/'status.json',state);sections={k:unavailable(k,missing_reason) for k in KEYS}
         history=np.loadtxt(d/'history.dat',ndmin=2) if (d/'history.dat').exists() else np.empty((0,3))
