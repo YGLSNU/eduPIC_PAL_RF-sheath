@@ -2,7 +2,7 @@
 from pathlib import Path
 import csv,gzip,json,shutil,time,hashlib
 import numpy as np
-from common import put
+from common import put,block_cycles,diagnostic_metadata
 from brh_stats import read_table,return_stats
 
 def edges():return np.r_[np.arange(101)/10,np.arange(11,101),np.arange(105,501,5)]
@@ -10,6 +10,8 @@ def edges():return np.r_[np.arange(101)/10,np.arange(11,101),np.arange(105,501,5
 def block_hist(path,energy):
     f=path/f'brh_hist_{energy}_counts.bin'
     if f.exists():return np.fromfile(f,dtype='<u8').reshape(20,200,2,271)
+    if (path/'recovery_aggregate.json').exists():
+        with np.load(path/'histogram_counts.npz') as z:return z[energy+'_counts']
     with np.load(path/'brh_hist_counts.npz') as z:return z[energy]
 
 def compress_block(path,native=False):
@@ -35,9 +37,10 @@ def process_blocks(case,blocks,assessment):
     last_RF=json.loads((blocks[-1]/'block.json').read_text())['RF_last']
     dest=case/f'brh_pooled_RF{last_RF:06d}';dest.mkdir(exist_ok=True);histE=np.zeros((20,200,2,271),dtype=np.uint64);histEx=histE.copy();work=None;metadata=[]
     for p in blocks:
-        m=json.loads((p/'brh_meta.json').read_text());metadata.append(m)
+        m=diagnostic_metadata(p);metadata.append(m)
         histE+=block_hist(p,'E');histEx+=block_hist(p,'Ex')
-        a=np.fromfile(p/'brh_work_sum_eV.bin',dtype='<f8').reshape(m['grid_points'],200);work=a.copy() if work is None else work+a
+        a=np.load(p/'work_sum_eV.npy') if (p/'recovery_aggregate.json').exists() else np.fromfile(p/'brh_work_sum_eV.bin',dtype='<f8').reshape(m['grid_points'],200)
+        work=a.copy() if work is None else work+a
     np.savez_compressed(dest/'histogram_counts.npz',E_counts=histE,Ex_counts=histEx,energy_edges_eV=edges(),overflow_lower_eV=500.,x_fraction_edges=np.linspace(0,1,21),phase_edges=np.linspace(0,1,201))
     np.save(dest/'work_sum_eV.npy',work)
     for name in ['brh_roundtrips','brh_encounters','brh_trajectories','brh_probes','brh_wall_e']:
@@ -59,7 +62,7 @@ def process_blocks(case,blocks,assessment):
     candidate=(upper['near_fundamental']>0)&(upper['consecutive_returns']>=2) if len(upper) else np.empty(0,dtype=bool)
     duration=sum(m['measurement_end_s']-m['measurement_start_s'] for m in metadata)
     sums={k:sum(m[k] for m in metadata) for k in ['all_fieldwork_eV','sample_fieldwork_eV','all_kicks','sample_kicks','hist_total_samples','hist_E_overflow_samples']}
-    summary={'measurement_blocks':[str(p) for p in blocks],'pooled_data_path':str(dest),'first_RF':json.loads((blocks[0]/'block.json').read_text())['RF_first'],'last_RF':last_RF,'measured_RF':len(blocks)*20,'duration_s':duration,
+    summary={'measurement_blocks':[str(p) for p in blocks],'pooled_data_path':str(dest),'first_RF':json.loads((blocks[0]/'block.json').read_text())['RF_first'],'last_RF':last_RF,'measured_RF':sum(block_cycles(p) for p in blocks),'duration_s':duration,
         'background_and_BRH_assessment':assessment,**sums,'max_energy_ledger_error_eV':max(m['maximum_return_energy_ledger_residual_eV'] for m in metadata),
         'powered_side_returns':len(upper),'distinct_return_UIDs':len(np.unique(upper['uid'])) if len(upper) else 0,'candidate_returns':int(candidate.sum()),'distinct_candidate_UIDs':len(np.unique(upper['uid'][candidate])) if candidate.any() else 0,
         'candidate_return_fraction':float(candidate.mean()) if len(upper) else None,'candidate_mean_signed_work_eV':float(upper['W_field_eV'][candidate].mean()) if candidate.any() else None,
@@ -122,7 +125,7 @@ def export_diagnostics(case,target,summary_path=None,archive_prefix='261123'):
     if len(paths):
         from matplotlib.collections import LineCollection
         ids,numbers=np.unique(paths['uid'],return_counts=True);chosen=ids[np.argsort(numbers)[-12:]]
-        t0=json.loads((first/'brh_meta.json').read_text())['measurement_start_s'];fig,axs=plt.subplots(2,1,figsize=(10,7),sharex=True);collection=None
+        t0=diagnostic_metadata(first)['measurement_start_s'];fig,axs=plt.subplots(2,1,figsize=(10,7),sharex=True);collection=None
         for uid in chosen:
             q=paths[paths['uid']==uid];q=q[np.argsort(q['t_s'])]
             if len(q)<2:continue
@@ -156,7 +159,8 @@ def export_diagnostics(case,target,summary_path=None,archive_prefix='261123'):
             for j in range(270):w.writerow([(ix+.5)/20,E[j],width[j],int(n[ix,j]),ee[ix,j],pdf[ix,j]])
     shutil.copy2(summary_path,target/'measurement_summary.json')
     from archive import package
-    archives=package([(p,p.name) for p in sorted(d.glob('*')) if p.is_file()]+[(summary_path,'measurement_summary.json')],target,f'{archive_prefix}_{target.name}_BRH_data')
+    payload_names={'histogram_counts.npz','summary.json','upper_returns.npy','work_sum_eV.npy','recovery_aggregate.json','block.json'}
+    archives=package([(p,p.name) for p in sorted(d.glob('*')) if p.is_file() and (p.name in payload_names or p.name.startswith('brh_'))]+[(summary_path,'measurement_summary.json')],target,f'{archive_prefix}_{target.name}_BRH_data')
     text=f'검출된 상부 기준 왕복 {s["powered_side_returns"]}개, 고유 UID {s["distinct_return_UIDs"]}개. 위상 반복 후보 {s["candidate_returns"]}개(고유 UID {s["distinct_candidate_UIDs"]}개). '
     if s['candidate_return_fraction'] is not None:text+=f'검출 왕복 중 후보 비율 {s["candidate_return_fraction"]*100:.3f}%. '
     if s['candidate_mean_signed_work_eV'] is not None:text+=f'후보의 평균 signed field work {s["candidate_mean_signed_work_eV"]:.4g} eV/왕복. '

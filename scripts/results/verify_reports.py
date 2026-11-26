@@ -68,7 +68,31 @@ def verify(trees,checksums=True):
     for path in sorted(report_paths-reachable):failures.append('Report is not reachable from any bookmark page: '+path)
     return {'reports':reports,'reachable_reports':len(report_paths&reachable),'diagnostic_coverage':coverage,'links':links,'hashes':hashes,'failures':failures}
 
+def verify_export(root):
+    """Validate a standalone run before publishing; external branches stay remote."""
+    failures=[];reports=0;hashes=0;links=0
+    for metadata in [root/'run.json',*root.glob('*/report.json')]:
+        m=validate(json.loads(metadata.read_text()));reports+=1
+        text=(metadata.parent/'README.md').read_text()
+        failures.extend(str(metadata)+': '+s for s in audit(m,text)['failures'])
+        for target in re.findall(r'!?\[[^\]]*\]\(([^\s)]+)\)',text):
+            path=unquote(target.split('#')[0])
+            if not path or urlsplit(path).scheme:continue
+            links+=1
+            if not (metadata.parent/path).exists():failures.append(str(metadata)+': missing '+path)
+        for d in m.get('downloads',[]):
+            if not (metadata.parent/d['path']).is_file():failures.append(str(metadata)+': missing download '+d['path'])
+    for manifest in root.rglob('files.json'):
+        for name,entry in json.loads(manifest.read_text()).items():
+            p=manifest.parent/name;hashes+=1
+            if not p.is_file() or p.stat().st_size!=entry['bytes'] or hashlib.sha256(p.read_bytes()).hexdigest()!=entry['sha256']:
+                failures.append(str(manifest)+': stale checksum '+name)
+    return {'reports':reports,'links':links,'hashes':hashes,'scope':'Standalone export; local report links, diagnostic coverage, downloads and SHA256. Cross-branch URLs remain external.','failures':failures}
+
 if __name__=='__main__':
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--tree',action='append',required=True);p.add_argument('--skip-checksums',action='store_true')
-    a=p.parse_args();trees={b:Path(d) for b,d in (x.split('=',1) for x in a.tree)}
-    r=verify(trees,not a.skip_checksums);print(json.dumps(r,ensure_ascii=False,indent=2));raise SystemExit(bool(r['failures']))
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--tree',action='append');p.add_argument('--export',type=Path);p.add_argument('--skip-checksums',action='store_true')
+    a=p.parse_args()
+    if a.export:r=verify_export(a.export.resolve())
+    elif a.tree:r=verify({b:Path(d) for b,d in (x.split('=',1) for x in a.tree)},not a.skip_checksums)
+    else:p.error('Provide --tree or --export')
+    print(json.dumps(r,ensure_ascii=False,indent=2));raise SystemExit(bool(r['failures']))

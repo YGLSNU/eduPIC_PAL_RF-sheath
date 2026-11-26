@@ -11,6 +11,10 @@ from capacity import solver_slot,StopAtCheckpoint
 
 def now():return datetime.now(ZoneInfo('Asia/Seoul')).isoformat()
 
+def case_directory(root,gap):
+    cfg=json.loads((root/'config.json').read_text())
+    return Path(cfg.get('case_sources',{}).get(str(gap),{}).get('path',str(root/f'{gap}mm')))
+
 def submit_in_order(pool,gaps,run,has_started,poll_seconds=.1):
     """Wait for actual solver admission before submitting the next gap.
 
@@ -31,7 +35,7 @@ def solver_started(case,controller_pid):
     except FileNotFoundError:return False
 
 def run_case(root,gap):
-    d=root/f'{gap}mm';cfg=json.loads((root/'config.json').read_text());criteria=json.loads((root/'criteria.json').read_text())
+    d=case_directory(root,gap);cfg=json.loads((root/'config.json').read_text());criteria=json.loads((root/'criteria.json').read_text())
     lock=(d/'controller.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
     state=json.loads((d/'status.json').read_text())
     if state['status'] in ['criteria_met','extinguished','measurement_limit_reached','total_cycle_limit_reached']:return state
@@ -89,13 +93,13 @@ def main():
     cfg=json.loads((root/'config.json').read_text());gaps=a.gaps or cfg.get('run_gaps_mm',[40,60,100,120,30,50,80,25])
     put(root/'controller.json',{'pid':os.getpid(),'started_at_Asia_Seoul':now(),'gaps_mm':gaps,'max_workers':cfg['max_workers']})
     for gap in gaps:
-        p=root/f'{gap}mm/status.json';queued=json.loads(p.read_text())
+        p=case_directory(root,gap)/'status.json';queued=json.loads(p.read_text())
         if queued['status'] not in ['criteria_met','extinguished','measurement_limit_reached','total_cycle_limit_reached']:
             queued.update(status='queued',updated_at_Asia_Seoul=now());put(p,queued)
     with ThreadPoolExecutor(max_workers=cfg['max_workers']) as pool:
         if cfg.get('admit_in_gap_order',False):
             gaps=sorted(gaps)
-            futures=submit_in_order(pool,gaps,lambda g:run_case(root,g),lambda g:solver_started(root/f'{g}mm',os.getpid()))
+            futures=submit_in_order(pool,gaps,lambda g:run_case(root,g),lambda g:solver_started(case_directory(root,g),os.getpid()))
         else:futures=[pool.submit(run_case,root,g) for g in gaps]
         for future in as_completed(futures):future.result()
     put(root/'controller_finished.json',{'finished_at_Asia_Seoul':now()})

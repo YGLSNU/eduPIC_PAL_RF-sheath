@@ -1,5 +1,13 @@
 # BRH gap 스캔 실행·결과
 
+## 다른 클라우드에서의 체크포인트 복원
+
+2026-11-26 재개는 75 mm RF2500, 80 mm RF2420의 입자·UID·MCC 잔여 optical depth·RNG 동반 상태를 복원합니다. 80 mm의 일시중단만 해제하며 100/120 mm는 재개 대상에서 제외합니다. 기존 실행일과 원자료를 보존하고 `recovery_manifest.json`에 재개 이력을 별도로 남깁니다. `run_scan.py ROOT --gaps 75 80`은 `case_sources`의 원래 실행 폴더도 명시적으로 이어 계산할 수 있습니다.
+
+GitHub의 누적 native 평균과 BRH 원시 사건·counts는 보존됐지만, 이전 개별20RF native 행렬은 백업에 없습니다. 복원 누적 자료를 `recovery_aggregate.json`으로 표시하며 개별20RF 블록처럼 취급하지 않습니다. 전체 평균은 실제RF 길이로 가중하고, 에너지 평균은 밀도로 가중하며, heating은 합산한 `<j> × <E>`로 다시 계산합니다. 에너지 counts와 signed work는 원시 합계를 더합니다. 누적 불확실도·공동 중단 기준을 재구성할 수 없어 `passed`로 표시하지 않으며, 재개 후의20RF/40RF 블록 평가를 `post_resume_segment_assessment`에 별도로 보관합니다. 기존 누적 측정 상한1000RF는 유지합니다.
+
+본 계산 전 현재 체크포인트에서2RF 연속 실행과1RF씩 두 번 재시작한 입자·UID 상태·RNG의 바이트 일치를 확인하고, 누적 native/counts 합산도 복사본으로 검증합니다. 이 검증 구간은 물리 측정에 포함하지 않습니다. 결과 게시기는 `verify_reports.py --export EXPORT`로8개 진단·상대 링크·다운로드·SHA256을 확인한 뒤 기존 등록 도구로 게시하고, 원격 보고서와 대표 재시작ZIP을 다시 내려받아 검사합니다. 계산과 자동 게시 모두 클라우드 환경이 살아 있는 동안 작동합니다.
+
 **BRH = bounce resonance heating: 전자 왕복과 RF의 공명 가열.** 계산은 클라우드 CPU에서 실행하고 GitHub는 코드·저장 기록·결과를 보관합니다. GitHub 페이지를 여는 것만으로 PIC 계산이 시작되지는 않습니다.
 
 [진행·결과 보고서](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md) · [진단·판정 정의](METHOD.md) · [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath)

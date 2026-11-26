@@ -4,7 +4,7 @@ from datetime import datetime
 from zoneinfo import ZoneInfo
 import csv,json,os,re,shutil,subprocess,time
 import numpy as np
-from common import checkpoint,put,sha,stationarity,load_array
+from common import checkpoint,put,sha,stationarity,load_array,block_cycles
 from capacity import solver_slot
 from brh_stats import assess
 
@@ -34,15 +34,16 @@ def validate_block(path,ng,count,gap):
 
 def pool_native(blocks,dest):
     dest.mkdir(exist_ok=True,parents=True);pool={}
+    weights=np.array([block_cycles(p) for p in blocks],dtype=float);weights/=weights.sum()
     for key in ['pot','efield','ne','ni','je','ji','ioniz']:
-        pool[key]=sum(load_array(p/(key+'_xt.dat')) for p in blocks)/len(blocks)
+        pool[key]=sum(w*load_array(p/(key+'_xt.dat')) for w,p in zip(weights,blocks))
     for s in ['e','i']:
-        pool['power'+s]=pool['j'+s]*pool['efield'];numerator=sum(load_array(p/('meane'+s+'_xt.dat'))*load_array(p/('n'+s+'_xt.dat')) for p in blocks)/len(blocks)
+        pool['power'+s]=pool['j'+s]*pool['efield'];numerator=sum(w*load_array(p/('meane'+s+'_xt.dat'))*load_array(p/('n'+s+'_xt.dat')) for w,p in zip(weights,blocks))
         pool['meane'+s]=np.divide(numerator,pool['n'+s],out=np.zeros_like(numerator),where=pool['n'+s]>0)
     for k,a in pool.items():np.savetxt(dest/(k+'_xt.dat'),a,fmt='%.9e')
-    density=sum(load_array(p/'density.dat') for p in blocks)/len(blocks);np.savetxt(dest/'density.dat',density,fmt='%.9e')
+    density=sum(w*load_array(p/'density.dat') for w,p in zip(weights,blocks));np.savetxt(dest/'density.dat',density,fmt='%.9e')
     for name in ['eepf.dat','ifed.dat','info.txt']:shutil.copy2(blocks[-1]/name,dest/name)
-    put(dest/'block_windows.json',{'blocks':[json.loads((p/'block.json').read_text()) for p in blocks],'normalization':'phase densities/currents/fields averaged over equal RF blocks; energy moments density-weighted; heating is pooled <j>*<E>; native EEPF/IEDF and info.txt from last block only'})
+    put(dest/'block_windows.json',{'blocks':[json.loads((p/'block.json').read_text()) for p in blocks],'normalization':'phase densities/currents/fields weighted by actual RF durations; energy moments density-weighted; heating is pooled <j>*<E>; native EEPF/IEDF and info.txt from last block only'})
     last=json.loads((blocks[-1]/'block.json').read_text());(dest/'distribution_note.txt').write_text(f'Last native block RF {last["RF_first"]}–{last["RF_last"]} only (20 RF); pooled EEDF uses raw new histogram counts')
     with (dest/'particle_balance.csv').open('w') as out:
         for j,p in enumerate(blocks):
@@ -101,17 +102,20 @@ def measure_case(root,d,state,previous,history):
             cp=checkpoint(previous)
             if stopped():update(status='paused_at_checkpoint');return state
             if cp['cycle']+criteria['block_cycles']>criteria['maximum_total_cycles']:update(status='total_cycle_limit_reached',reason='Next complete diagnostic block would exceed total RF cap');return state
-            if len(blocks)*criteria['block_cycles']>=criteria['maximum_measurement_cycles']:update(status='measurement_limit_reached',reason='Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.');return state
+            if sum(block_cycles(p) for p in blocks)>=criteria['maximum_measurement_cycles']:update(status='measurement_limit_reached',reason='Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.');return state
             work,cp=execute(criteria['block_cycles'],stage,True)
             if cp['electrons']==0:update(status='extinguished',reason='Electrons extinct during diagnostic measurement');return state
             validate_block(work,ng,criteria['block_cycles'],gap);blocks.append(work)
-            assessment=assess(blocks,history,criteria,gap);put(d/'assessment.json',assessment);put(work/'assessment.json',assessment)
+            from recovery import assess_available
+            assessment=assess_available(blocks,history,criteria,gap);put(d/'assessment.json',assessment);put(work/'assessment.json',assessment)
             pooled=d/f'pooled_epoch{epoch}_RF{cp["cycle"]:06d}';pool_native(blocks,pooled)
             # Aggregate BRH/EEDF raw counts, not normalized block distributions.
             from postprocess import process_blocks,compress_block,prune_derived
             brh_summary=process_blocks(d,blocks,assessment);compress_block(work,native=cfg.get('compress_native_text',False))
             passes=passes+1 if assessment['passed'] else 0
-            update(status='running',phase='measurement',measured_RF=len(blocks)*criteria['block_cycles'],measurement_blocks=[str(p) for p in blocks],assessment=assessment,consecutive_passes=passes,pooled_native_path=str(pooled),measurement_summary_path=str(Path(brh_summary['pooled_data_path'])/'summary.json'),data_invalidation_reason=None,pooled_note=f'Measurement RF {state["measurement_start_RF"]}–{cp["cycle"]} ({len(blocks)*criteria["block_cycles"]} RF)',ne_mean_m3=assessment.get('indicators',{}).get('mean_density_e',{}).get('estimate'))
+            total_RF=sum(block_cycles(p) for p in blocks)
+            cumulative_ne=float(np.trapezoid(load_array(pooled/'ne_xt.dat').mean(axis=1),dx=gap/1000/(ng-1))/(gap/1000))
+            update(status='running',phase='measurement',measured_RF=total_RF,measurement_blocks=[str(p) for p in blocks],assessment=assessment,consecutive_passes=passes,pooled_native_path=str(pooled),measurement_summary_path=str(Path(brh_summary['pooled_data_path'])/'summary.json'),data_invalidation_reason=None,pooled_note=f'Measurement RF {state["measurement_start_RF"]}–{cp["cycle"]} ({total_RF} RF)'+('; pre-resume aggregate restored; uncertainty assessed separately after resume' if any((p/'recovery_aggregate.json').exists() for p in blocks) else ''),ne_mean_m3=cumulative_ne)
             prune_derived(d)
             if passes>=criteria['required_consecutive_passes']:update(status='criteria_met',reason='Background and exploratory BRH fraction/signed-work stopping criteria passed twice. Grid/seed/diagnostic sensitivity checks remain separate.');return state
             # Strong secular profile drift invalidates this measurement epoch.

@@ -2,6 +2,16 @@ from pathlib import Path
 import hashlib,json,struct
 import numpy as np
 
+def block_cycles(path):
+    m=json.loads((Path(path)/'block.json').read_text())
+    return m['RF_last']-m['RF_first']+1
+
+def diagnostic_metadata(path):
+    path=Path(path)
+    f=path/'brh_meta.json'
+    if not f.exists():f=path/'recovery_aggregate.json'
+    return json.loads(f.read_text())
+
 def load_array(path, **kwargs):
     """Read unchanged numeric text from plain or losslessly compressed storage."""
     path=Path(path)

@@ -222,7 +222,7 @@ def show_json(root,ref,path):
     return json.loads(p.stdout) if p.returncode==0 else None
 
 def refs_and_records(root,remote):
-    git('fetch','--filter=blob:none','--no-tags',remote,
+    git('fetch','--depth=1','--filter=blob:none','--no-tags',remote,
         f'+refs/heads/main:refs/remotes/{remote}/main',
         f'+refs/heads/results/*:refs/remotes/{remote}/results/*',
         f'+refs/heads/simulation/*:refs/remotes/{remote}/simulation/*',cwd=root)

@@ -103,7 +103,7 @@ def compare_brh(series,out,gaps=None):
 def export(root,out):
     out.mkdir(parents=True,exist_ok=True);cfg=json.loads((root/'config.json').read_text());criteria=json.loads((root/'criteria.json').read_text());date=datetime.now(ZoneInfo('Asia/Seoul')).isoformat(timespec='seconds')
     RUN=cfg['id'];run_tag=cfg['date'].replace('-','')[2:]
-    for f in ['config.json','criteria.json','diagnostics_validated.json','measurement_engine_validated.json','new_gap_validation.json']:
+    for f in ['config.json','criteria.json','diagnostics_validated.json','measurement_engine_validated.json','new_gap_validation.json','recovery_manifest.json','recovery_validated.json','recovery_pool_validated.json']:
         if (root/f).exists():shutil.copy2(root/f,out/f)
     conditions={'gas':'Ar','pressure_mTorr':20,'temperature_K':350,'frequency_MHz':13.56,'voltage_peak_V':[250],'gap_mm':cfg['gaps_mm'],
         'steps_per_RF':8000,'grid_points':f'{min(cfg["gaps_mm"])*16+1}–{max(cfg["gaps_mm"])*16+1} (dx ≤62.5 µm)','weight':112000,'electrodes':'상부 x=L RF / 하부 x=0 접지',
@@ -175,6 +175,7 @@ def export(root,out):
             if not is_pilot:brh_series.append((gap,status,json.loads(Path(state['measurement_summary_path']).read_text())))
         sections['bounce']=sections.get('bounce',unavailable('bounce',brhtext));sections['bounce']['title']='BRH 왕복·위상·에너지 진단'
         state_reason=state.get('reason') or state.get('error') or ('실행 대기 중' if state['status']=='queued' else ('배경 입자 수 안정화 중' if phase=='warmup' else '위상·입자 진단 측정 중; 최종 BRH 판정 전'))
+        if state.get('recovery_note'):state_reason+=' '+state['recovery_note']
         if status=='extinguished':state_reason=f'RF{cpRF}에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니다. 정상 EEDF/BRH를 정의하지 않습니다.'
         m=copy.deepcopy(base);m.update(title=f'BRH · gap {gap} mm · 250 V'+(' · 짧은20RF 예비 진단' if is_pilot else ''),status=status,changed_conditions=f'BRH gap {gap} mm'+(' short pilot' if is_pilot else ''),report_directory=f'results/{RUN}/{folder}',
             summary=state_reason+' '+brhtext,measurement_note=native_note,sections=list(sections.values()),downloads=downloads,
@@ -216,6 +217,8 @@ def export(root,out):
     if (out/'diagnostics_validated.json').exists():parent['downloads'].append({'label':'수동 진단·재시작 검증','path':'diagnostics_validated.json'})
     if (out/'measurement_engine_validated.json').exists():parent['downloads'].append({'label':'측정 제어·통합·압축·상한 중단 실행 검증','path':'measurement_engine_validated.json'})
     if (out/'new_gap_validation.json').exists():parent['downloads'].append({'label':'새 gap에서 진단 비간섭·수치 안정성 확인','path':'new_gap_validation.json'})
+    for filename,label in [('recovery_manifest.json','클라우드 복원·재개 이력'),('recovery_validated.json','현재 체크포인트 재시작 연속성 검증'),('recovery_pool_validated.json','복원 누적 자료·새 측정 합산 검증')]:
+        if (out/filename).exists():parent['downloads'].append({'label':label,'path':filename})
     if cfg.get('execution_policy_note'):parent['summary']+=' '+cfg['execution_policy_note']
     if cfg.get('case_sources'):
         parent['summary']+=' 기존 실행 재사용: '+', '.join(cfg['case_sources'])+' mm. 새 계산: '+', '.join(map(str,cfg['run_gaps_mm']))+' mm. 재사용 조건의 원 실행일·상한/소멸 상태를 유지합니다.'

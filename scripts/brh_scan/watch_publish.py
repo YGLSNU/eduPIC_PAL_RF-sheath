@@ -3,11 +3,25 @@
 from pathlib import Path
 from datetime import datetime
 from zoneinfo import ZoneInfo
-import argparse,fcntl,json,os,subprocess,sys,time,traceback
+import argparse,fcntl,hashlib,json,os,subprocess,sys,time,traceback,urllib.request
 from common import put
 from capacity import TERMINAL
 
 REPO=Path(__file__).resolve().parents[2]
+def verify_remote(out):
+    """Read back the published report and a representative restart download."""
+    base='https://raw.githubusercontent.com/YGLSNU/eduPIC_PAL_RF-sheath/refs/heads/results/20mTorr-topRF/results/'+out.name+'/'
+    with urllib.request.urlopen(base+'README.md',timeout=60) as response:report=response.read().decode()
+    meta=json.loads((out/'run.json').read_text())
+    if meta['report_updated'] not in report:raise RuntimeError('Remote report is not the just-published snapshot')
+    child=json.loads((out/'75mm/report.json').read_text())
+    archive=next(d['path'] for d in child['downloads'] if d['path'].endswith('_restart.zip'))
+    expected=hashlib.sha256((out/'75mm'/archive).read_bytes()).hexdigest();digest=hashlib.sha256();size=0
+    with urllib.request.urlopen(base+'75mm/'+archive,timeout=60) as response:
+        for chunk in iter(lambda:response.read(1024*1024),b''):digest.update(chunk);size+=len(chunk)
+    if digest.hexdigest()!=expected:raise RuntimeError('Remote restart download SHA256 mismatch')
+    return {'report_readback':True,'restart_download':archive,'bytes':size,'SHA256':expected,'passed':True}
+
 def main():
     p=argparse.ArgumentParser();p.add_argument('root',type=Path);p.add_argument('--interval-seconds',type=int,default=900);a=p.parse_args();root=a.root.resolve()
     lock=(root/'publisher.lock').open('a');fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
@@ -29,9 +43,11 @@ def main():
                 # Export reads only completed immutable block paths. The separate
                 # uploader uses the existing atomic catalog/update implementation.
                 subprocess.run([sys.executable,str(REPO/'scripts/brh_scan/export.py'),str(root),str(out)],cwd=REPO,check=True)
+                subprocess.run([sys.executable,str(REPO/'scripts/results/verify_reports.py'),'--export',str(out)],cwd=REPO,check=True)
                 subprocess.run([sys.executable,str(REPO/'scripts/results/publish_run.py'),str(out),'--branch','results/20mTorr-topRF','--push'],cwd=REPO,check=True)
+                verification=verify_remote(out)
                 last=time.monotonic();signature=sig
-                put(root/'last_publication.json',{'published_at_Asia_Seoul':datetime.now(ZoneInfo('Asia/Seoul')).isoformat(),'export_path':str(out),'terminal_transitions':[list(x) for x in sig]})
+                put(root/'last_publication.json',{'published_at_Asia_Seoul':datetime.now(ZoneInfo('Asia/Seoul')).isoformat(),'export_path':str(out),'terminal_transitions':[list(x) for x in sig],'remote_verification':verification})
                 print('Published complete snapshot',datetime.now().isoformat(),flush=True)
                 if finished:return
             time.sleep(30)
