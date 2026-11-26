@@ -37,9 +37,9 @@ def analyze(block,out,hmax=64):
         factor=1 if n==0 else .5;p=factor*np.real(v*np.conj(j));z=v/j if valid else complex(np.nan,np.nan)
         rows.append([n,n*f,abs(v),abs(v)/(1 if n==0 else np.sqrt(2)),v.real,v.imag,np.degrees(np.angle(v)) if vvalid else np.nan,
           abs(j),abs(j)/(1 if n==0 else np.sqrt(2)),j.real,j.imag,np.degrees(np.angle(j)) if jvalid else np.nan,
-          np.degrees(np.angle(v*np.conj(j))) if valid else np.nan,abs(j)/j1 if j1 else np.nan,abs(v)/v1 if v1 else np.nan,
-          20*np.log10(max(abs(j)/max(j1,1e-300),1e-300)),np.degrees(np.angle(np.exp(1j*(np.angle(v)-n*reference)))) if vvalid else np.nan,
-          np.degrees(np.angle(np.exp(1j*(np.angle(j)-n*reference)))) if jvalid else np.nan,p,z.real,z.imag,valid,floor])
+          np.degrees(np.angle(v*np.conj(j))) if valid else np.nan,abs(j)/j1 if j1>floor else np.nan,abs(v)/v1 if v1>1e-9 else np.nan,
+          20*np.log10(max(abs(j)/j1,1e-300)) if j1>floor else np.nan,np.degrees(np.angle(np.exp(1j*(np.angle(v)-n*reference)))) if vvalid and v1>1e-9 else np.nan,
+          np.degrees(np.angle(np.exp(1j*(np.angle(j)-n*reference)))) if jvalid and v1>1e-9 else np.nan,p,z.real,z.imag,valid,floor])
     columns=['harmonic','frequency_Hz','V_peak_V','V_RMS_V','V_real_V','V_imag_V','V_phase_deg','J_peak_Am2','J_RMS_Am2','J_real_Am2','J_imag_Am2','J_phase_deg','Delta_phi_VI_deg','J_n_over_J_1','V_n_over_V_1','J_dBc','V_phase_aligned_deg','J_phase_aligned_deg','terminal_P_Wm2','Z_app_real_ohmm2','Z_app_imag_ohmm2','VI_phase_valid','J_noise_floor_Am2']
     spec=pd.DataFrame(rows,columns=columns)
     spec['V_DC_mean_V']=np.where(spec.harmonic==0,vh[0].real,np.nan)
@@ -88,7 +88,8 @@ def analyze(block,out,hmax=64):
             if error>.15:cap[:]=np.nan
             cap[(cap<=0)|(~use)]=np.nan
         cs.append(cap)
-    ceq=1/(1/cs[0]+1/cs[1]);la=s.L_bulk_times_area_Hm2.to_numpy();fest=1/(2*np.pi*np.sqrt(la*ceq))
+    ceq=np.divide(cs[0]*cs[1],cs[0]+cs[1],out=np.full(len(s),np.nan),where=np.isfinite(cs[0])&np.isfinite(cs[1])&((cs[0]+cs[1])>0));la=s.L_bulk_times_area_Hm2.to_numpy();fest=np.full(len(s),np.nan)
+    valid_lc=np.isfinite(ceq)&(ceq>0)&np.isfinite(la)&(la>0);fest[valid_lc]=1/(2*np.pi*np.sqrt(la[valid_lc]*ceq[valid_lc]))
     fest[(~ok)|(~np.isfinite(fest))|(s.s_g_m.to_numpy()<2*L/(ng-1))|(s.s_p_m.to_numpy()<2*L/(ng-1))]=np.nan
     s['C_sp_Fm2_approx']=cs[0];s['C_sg_Fm2_approx']=cs[1];s['f_PSR_est_Hz_approx']=fest;s.to_csv(out/'sheath_estimates.csv.gz',index=False,compression={'method':'gzip','mtime':0})
     put(out/'sheath_QV_fits.json',{'fits':fit_records,'note':'Scaled static polynomials are approximate; hysteresis is visible in RF-colored trajectories. Fits/capacitances are not a circuit identification or PSR proof.'})
@@ -135,7 +136,7 @@ def analyze(block,out,hmax=64):
     if 'J_e_midgap_energy_Am2' in a:
         twin=axs[1].twinx();twin.plot(tf,a.J_e_midgap_energy_Am2.to_numpy()[keep],color='tab:orange',alpha=.7);twin.set(ylabel='Midgap electron energy-current (A/m2)')
     axs[2].semilogy(hz/f,np.maximum(abs(full),1e-12));axs[2].set(xlim=(0,hmax),xlabel='Frequency / f0',ylabel='J peak (A/m2)');save(fig,figs/'PSR_synchronized.png')
-    result={'analysis_SHA256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'spectral_SHA256':hashlib.sha256(Path(__file__).with_name('spectral.py').read_bytes()).hexdigest(),'block':str(block),'measured_RF':meta['cycles'],'harmonic_max':hmax,'local_phasor_phase_first_from_actual_timestamps':float(a.t_field_s.iloc[0]*f)%1,'THD_J_orders_2_to_max':float(np.linalg.norm(jh[2:])/max(abs(jh[1]),1e-300)),
+    result={'analysis_SHA256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'spectral_SHA256':hashlib.sha256(Path(__file__).with_name('spectral.py').read_bytes()).hexdigest(),'block':str(block),'measured_RF':meta['cycles'],'harmonic_max':hmax,'local_phasor_phase_first_from_actual_timestamps':float(a.t_field_s.iloc[0]*f)%1,'V1_phase_reference_valid':bool(v1>1e-9),'THD_J_orders_2_to_max':float(np.linalg.norm(jh[2:])/j1) if j1>floor else None,
       'J_noise_floor_Am2':floor,'electron_direct_Wm2':direct_e,'electron_positive_Wm2':positive,'electron_negative_Wm2':negative,'electron_DC_Wm2':float(pe_int[0]),'electron_resolved_harmonics_Wm2':float(pe_int[1:].sum()),'electron_noncoherent_unresolved_residual_Wm2':float(direct_e-pe_int.sum()),
       'terminal_time_mean_VJ_Wm2':float(np.mean(a.V_gap_V*a.J_RF_Am2)),'terminal_harmonic_sum_Wm2':float(power.terminal_P_Wm2.sum()),'sheath_valid_fraction':float(ok.mean()),'PSR_status':'not_established','PSR_note':'Harmonics alone are not proof. Inspect synchronized bulk current/voltage, sheath motion, signed power, numerical convergence; no PSR-attributed heating increment without a control.',
       'mean_f_PSR_est_Hz_approx':float(np.nanmedian(fest)) if np.isfinite(fest).any() else None,'drive_mode':mode,'A_eff_m2':None,'experiment_status':'not_provided','field_power_note':'Per-block coherent complex product. DC and unresolved/noncoherent remainder are separate. Terminal high-order voltage is fixed zero for ideal sine drive.'}

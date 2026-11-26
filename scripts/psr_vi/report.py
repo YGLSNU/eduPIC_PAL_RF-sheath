@@ -16,6 +16,7 @@ from common import put,sha
 from catalog import render_report,refresh_files,validate
 from audit_coverage import audit
 from packaging_psr import package
+from block_statistics import summarize,moments
 from export import core_plots
 
 def now():return datetime.now(ZoneInfo('Asia/Seoul')).isoformat(timespec='seconds')
@@ -27,6 +28,8 @@ def report(root,out):
  downloads.append({'label':'진단·위상·소스·조건 메타데이터','path':'run_metadata.json'})
  for name in ['config.json','status.json','criteria.json','implementation_validated.json']:
   shutil.copy2(root/name,out/name);downloads.append({'label':name,'path':name})
+ if (root/'block_statistics_native_verified.json').exists():
+  shutil.copy2(root/'block_statistics_native_verified.json',out/'block_statistics_native_verified.json');downloads.append({'label':'연속·분할 PIC 자료의 고조파 통합 검증','path':'block_statistics_native_verified.json'})
  for name in ['experiment_template.csv','experiment_metadata.template.json','METHOD.md']:
   if (REPO/'scripts/psr_vi'/name).exists():shutil.copy2(REPO/'scripts/psr_vi'/name,out/name);downloads.append({'label':name,'path':name})
  resolution=root/'resolution_checks'
@@ -78,20 +81,34 @@ def report(root,out):
   for name in ['harmonic_spectra.csv','harmonic_power.csv','harmonic_power_spatial.csv.gz','harmonic_fields_spatial.csv.gz','sheath_estimates.csv.gz','sheath_harmonics.csv','sheath_QV_fits.json','current_spectrum_Hz.csv.gz','analysis.json','bulk_harmonics.csv','power_regions.json']:
    if not (last/'analysis'/name).exists():continue
    shutil.copy2(last/'analysis'/name,out/'data'/name);downloads.append({'label':'마지막 검증 블록 '+name,'path':'data/'+name})
-  spectra=[];powers=[];summaries=[]
+  spectra=[];powers=[];summaries=[];RF_durations=[]
   for b in measured:
-   rec=json.loads((b/'block.json').read_text());a=pd.read_csv(b/'analysis/harmonic_spectra.csv');a.insert(0,'RF_last',rec['RF_last']);spectra.append(a)
+   rec=json.loads((b/'block.json').read_text());a=pd.read_csv(b/'analysis/harmonic_spectra.csv');a.insert(0,'RF_last',rec['RF_last']);spectra.append(a);RF_durations.append(rec['RF_last']-rec['RF_first']+1)
    p=pd.read_csv(b/'analysis/harmonic_power.csv');p.insert(0,'RF_last',rec['RF_last']);powers.append(p);summaries.append(json.loads((b/'analysis/analysis.json').read_text()))
   all_spectra=pd.concat(spectra);all_spectra.to_csv(out/'data/block_harmonic_spectra.csv',index=False)
   all_power=pd.concat(powers);all_power.to_csv(out/'data/block_harmonic_power.csv',index=False)
+  statistics=summarize(spectra,RF_durations);statistics.to_csv(out/'data/harmonic_block_statistics.csv',index=False)
+  put(out/'data/harmonic_statistics_method.json',{'weight':'RF duration per completed block','phase':'Argument of weighted mean complex phasor, not arithmetic mean of angles; common absolute timestamps and V1-aligned phase both retained.','amplitude':'Coherent mean peak and mean of block peaks are separate. DC is signed in explicit columns.','variation':'Unbiased weighted complex block scatter; indicator=2.3*scatter/sqrt(effective_blocks); effective_blocks=(sum weights)^2/sum(weights^2). Unknown for one block.','scope':'Exploratory variation; not a certified confidence region, independence guarantee, discretization/seed error, or PSR proof.','power':'Per-block signed products averaged with RF-duration weights; not product of mean phasors.','RF_durations':RF_durations,'source_SHA256':sha(REPO/'scripts/psr_vi/block_statistics.py')})
   # Average products calculated within each block; never multiply averaged phasors.
   aggregations={c:['mean','std','count'] for c in all_power if c.endswith('_Wm2')};aggregations['frequency_Hz']='first'
-  aggregation=all_power.groupby('harmonic').agg(aggregations);aggregation.columns=['_'.join(c) for c in aggregation.columns];aggregation.to_csv(out/'data/harmonic_power_block_statistics.csv')
-  for name in ['block_harmonic_spectra.csv','block_harmonic_power.csv','harmonic_power_block_statistics.csv']:downloads.append({'label':'블록별 평균·변동 '+name,'path':'data/'+name})
-  analysis=[image('VI_harmonics',['figures/VI_waveforms.png','figures/harmonics.png'],'단자 양의 방향은 상부RF→플라즈마. 전류밀도 A/m², peak/RMS와 위상·차수별 전력은 CSV 참조. 이상적인 정현파에서 V(n>1)=0은 경계조건입니다.'),
+  aggregation=all_power.groupby('harmonic').agg(aggregations);aggregation.columns=['_'.join(c) for c in aggregation.columns]
+  for column in [c for c in all_power if c.endswith('_Wm2')]:
+   mean,scatter,width,effective=moments(np.array([p[column].to_numpy() if column in p else np.full(len(p),np.nan) for p in powers]),RF_durations)
+   aggregation[column+'_RF_weighted_mean']=mean;aggregation[column+'_variation_indicator']=width
+  aggregation.to_csv(out/'data/harmonic_power_block_statistics.csv')
+  for name in ['block_harmonic_spectra.csv','block_harmonic_power.csv','harmonic_power_block_statistics.csv','harmonic_block_statistics.csv','harmonic_statistics_method.json']:downloads.append({'label':'블록별 평균·변동 '+name,'path':'data/'+name})
+  fig,axs=plt.subplots(1,2,figsize=(11,4));use=statistics.harmonic>0;stats=statistics.loc[use]
+  error=stats.J_variation_indicator_Am2.to_numpy();amplitude=stats.J_coherent_mean_peak_Am2.to_numpy()
+  axs[0].plot(stats.harmonic,np.maximum(amplitude,1e-12),'o-',ms=3,label='RF-weighted complex mean')
+  finite=np.isfinite(error)&(error<amplitude)
+  if finite.any():axs[0].errorbar(stats.harmonic.to_numpy()[finite],amplitude[finite],yerr=error[finite],fmt='none',capsize=2)
+  axs[0].set(yscale='log',xlabel='Harmonic n',ylabel='J coherent mean peak (A/m2)');axs[0].legend(fontsize=7)
+  axs[1].plot(stats.harmonic,stats.J_aligned_phase_deg,'o',ms=3)
+  axs[1].set(xlabel='Harmonic n',ylabel='arg(Jn) - n arg(V1) (deg)',ylim=(-185,185));fig.suptitle(f'Complete blocks: {len(spectra)}, {sum(RF_durations)} RF; variation indicators, not total error');fig.tight_layout();fig.savefig(out/'figures/harmonic_block_statistics.png',dpi=140,bbox_inches='tight');plt.close(fig)
+  analysis=[image('VI_harmonics',['figures/VI_waveforms.png','figures/harmonics.png','figures/harmonic_block_statistics.png'],'단자 양의 방향은 상부RF→플라즈마. 마지막 블록과 전체 RF가중 복소 평균을 구분합니다. 진폭·위상·차수별 전력·블록 변동은 CSV 참조. 오차 막대는 2.3SE 변동 지표이며 총 오차나 수렴 보장이 아닙니다. 한 블록에서는 변동 지표가 없습니다. 이상적 정현파에서 V(n>1)=0은 경계조건입니다.'),
     image('sheath_nonlinearity',['figures/sheath_QV.png'],'공간 쉬스 전하/면적과 전압강하의 RF위상 궤적. 전극 표면전하와 구분합니다. 적분 경계가 유효하지 않은 시점은 NaN; 정적 다항식은 근사이며 hysteresis를 포함할 수 있습니다.'),
     image('PSR_diagnostics',['figures/PSR_synchronized.png','figures/PSR_power.png'],'원전류와 고주파 재구성, bulk전압, 순간 전자 가열. 고조파 peak·필터 ringing·근사 LC주파수만으로 PSR을 확정하거나 PSR 가열 증가분으로 명명하지 않습니다. 기본 전력그림의 legacy <j><E>와 새 순간 jeE는 구분합니다.')]
-  put(out/'data/PSR_summary.json',{'PSR_status':'not_established','data_scope':'transient_only_excluded_from_stationary_statistics' if transient else 'stationary_measurement_blocks','blocks':len(measured),'measured_RF':s['measured_RF'],'mean_electron_net_Wm2':float(np.mean([a['electron_direct_Wm2'] for a in summaries])),'mean_electron_positive_Wm2':float(np.mean([a['electron_positive_Wm2'] for a in summaries])),'mean_electron_negative_Wm2':float(np.mean([a['electron_negative_Wm2'] for a in summaries])),'note':'Blocks preserve signed power and unresolved spectral remainder. Heating gain needs a control/model; stationary grid/seed convergence is not implied by an RF sampling cap.'})
+  put(out/'data/PSR_summary.json',{'PSR_status':'not_established','data_scope':'transient_only_excluded_from_stationary_statistics' if transient else 'stationary_measurement_blocks','blocks':len(measured),'measured_RF':s['measured_RF'],'mean_electron_net_Wm2':float(np.average([a['electron_direct_Wm2'] for a in summaries],weights=RF_durations)),'mean_electron_positive_Wm2':float(np.average([a['electron_positive_Wm2'] for a in summaries],weights=RF_durations)),'mean_electron_negative_Wm2':float(np.average([a['electron_negative_Wm2'] for a in summaries],weights=RF_durations)),'note':'RF-duration-weighted mean of per-block signed power; unresolved spectral remainder separate. Heating gain needs a control/model; stationary grid/seed convergence is not implied by an RF sampling cap.'})
   downloads.append({'label':'PSR·순가열 판단 범위','path':'data/PSR_summary.json'})
   # Native arrays, high-resolution signals and per-block products remain downloadable.
   for b in measured:

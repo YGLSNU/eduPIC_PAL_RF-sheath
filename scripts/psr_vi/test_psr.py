@@ -54,6 +54,21 @@ class SpectralTests(unittest.TestCase):
    a=compare(sim,experiment,m,td/'comparison.csv');self.assertFalse(a.absolute_current_comparison_valid.iloc[0]);self.assertTrue(a.absolute_area_scaling_available.iloc[0]);self.assertAlmostEqual(a.phase_circular_error_deg.iloc[0],-2)
    m.update(probe_reference_plane='electrode',calibrated=True)
    a=compare(sim,experiment,m,td/'comparison.csv',drive_mode='measured_voltage');self.assertTrue(a.absolute_current_comparison_valid.iloc[0]);self.assertAlmostEqual(a.I_absolute_error_A.iloc[0],0);self.assertTrue(np.isnan(a.V_absolute_error_V.iloc[0]))
+ def test_block_complex_phase_weighting_and_power_covariance(self):
+  import pandas as pd
+  from block_statistics import summarize
+  tables=[]
+  for phase,dc,v3,j3,pdc in [(179,-1,1,3,-7),(-179,-3,3,1,-27)]:
+   j=np.array([dc,2*np.exp(1j*np.deg2rad(phase)),0,j3]);v=np.array([7 if dc==-1 else 9,150,0,v3])
+   tables.append(pd.DataFrame({'harmonic':range(4),'frequency_Hz':np.arange(4)*60e6,'J_real_Am2':j.real,'J_imag_Am2':j.imag,'V_real_V':v.real,'V_imag_V':v.imag,'J_noise_floor_Am2':1e-9,'terminal_P_Wm2':[pdc,.5*np.real(v[1]*j[1].conj()),0,.5*v3*j3]}))
+  a=summarize(tables,[1,1]);self.assertAlmostEqual(abs(circular_error(a.J_mean_phase_deg.iloc[1],180)),0);self.assertAlmostEqual(a.J_coherent_mean_peak_Am2.iloc[1],2*np.cos(np.deg2rad(1)))
+  self.assertAlmostEqual(a.terminal_P_mean_Wm2.iloc[3],1.5);self.assertNotAlmostEqual(a.terminal_P_mean_Wm2.iloc[3],.5*a.V_complex_mean_real_V.iloc[3]*a.J_complex_mean_real_Am2.iloc[3])
+  a=summarize(tables,[1,3]);self.assertAlmostEqual(a.J_DC_mean_Am2.iloc[0],-2.5);self.assertAlmostEqual(a.terminal_P_mean_Wm2.iloc[0],-22);self.assertAlmostEqual(a.effective_blocks.iloc[0],1.6)
+  one=summarize(tables[:1],[2]);self.assertTrue(one.J_variation_indicator_Am2.isna().all());self.assertFalse(one.J_statistically_resolved.any())
+  no_reference=[a.copy() for a in tables]
+  for a in no_reference:a.loc[a.harmonic==1,['V_real_V','V_imag_V']]=0
+  self.assertTrue(summarize(no_reference,[1,1]).J_aligned_phase_deg.isna().all())
+  with self.assertRaises(ValueError):summarize(tables,[1,0])
  def test_lossless_split_payload_reassembles(self):
   from packaging_psr import package
   with tempfile.TemporaryDirectory() as td:
