@@ -14,14 +14,7 @@
 
 | 실행일 KST | 실행 / 바꾼 조건 | 주요 조건 | 상태 | 결과 |
 |---|---|---|---|---|
-| 2026-11-24 | **261124_BRH_gap20-80_step5**<br>BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm | 20 mTorr · [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80] mm · 250 V peak | 계산 중 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md) |
-| 2026-11-23 | **261123_BRH_gap25-120**<br>BRH · gap25/30/40/50/60/80/100/120 mm | 20 mTorr · [25, 30, 40, 50, 60, 80, 100, 120] mm · 250 V peak | 체크포인트 중단 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md) |
-| 2026-11-20 | **261120_loss-check**<br>벽 손실 진단 · 20↔75.006 mTorr 대조 | 20 mTorr · 25 mm · 100/250/300 V peak | 과도구간 진단 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261120_loss-check/README.md) |
-| 2026-11-20 | **261120_gap40_V100-500**<br>gap40 mm · 100/250/300/400/500 V | 20 mTorr · 40 mm · 100/250/300/400/500 V peak | 통계 기준 충족 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261120_gap40_V100-500/README.md) |
-| 2026-11-19 | **261119_gap25_V100-300**<br>gap25 mm · 100/250/300 V | 20 mTorr · 25 mm · 100/250/300 V peak | 전자 소멸 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261119_gap25_V100-300/README.md) |
-| 2026-11-18 | **261118_measure5**<br>측정 구간 5 RF | 75.0062 mTorr · 25 mm · 250 V peak | 측정 완료·통계 기준 별도 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261118_measure5/README.md) |
-| 2026-11-18 | **261118_measure120**<br>추가 측정 120 RF | 75.0062 mTorr · 25 mm · 250 V peak | 통계 기준 충족 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261118_measure120/README.md) |
-| 2026-11-17 | **261117_initial**<br>초기 실행·RF1700 저장 | 75.0062 mTorr · 25 mm · 250 V peak | 미완료 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261117_initial/README.md) |
+| 2026-11-26 | **261126_PSR_gap15_f60_V150**<br>PSR/VI · 15 mm · 60 MHz · 150 V peak | 20 mTorr · 15 mm · 150 V peak | 계산 중 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/README.md) |
 
 각 보고서 첫 화면에서 조건표·평균 구간·종료 이유를 확인할 수 있습니다. 소멸·미완료는 정상 방전의 통계 수렴과 다르게 표시합니다.
 
