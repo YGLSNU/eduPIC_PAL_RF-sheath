@@ -160,7 +160,7 @@ def export_diagnostics(case,target,summary_path=None,archive_prefix='261123'):
     shutil.copy2(summary_path,target/'measurement_summary.json')
     from archive import package
     payload_names={'histogram_counts.npz','summary.json','upper_returns.npy','work_sum_eV.npy','recovery_aggregate.json','block.json'}
-    archives=package([(p,p.name) for p in sorted(d.glob('*')) if p.is_file() and (p.name in payload_names or p.name.startswith('brh_'))]+[(summary_path,'measurement_summary.json')],target,f'{archive_prefix}_{target.name}_BRH_data')
+    archives=package([(p,p.name) for p in sorted(d.glob('*')) if p.is_file() and '.part' not in p.name and (p.name in payload_names or p.name.startswith('brh_'))]+[(summary_path,'measurement_summary.json')],target,f'{archive_prefix}_{target.name}_BRH_data')
     text=f'검출된 상부 기준 왕복 {s["powered_side_returns"]}개, 고유 UID {s["distinct_return_UIDs"]}개. 위상 반복 후보 {s["candidate_returns"]}개(고유 UID {s["distinct_candidate_UIDs"]}개). '
     if s['candidate_return_fraction'] is not None:text+=f'검출 왕복 중 후보 비율 {s["candidate_return_fraction"]*100:.3f}%. '
     if s['candidate_mean_signed_work_eV'] is not None:text+=f'후보의 평균 signed field work {s["candidate_mean_signed_work_eV"]:.4g} eV/왕복. '
