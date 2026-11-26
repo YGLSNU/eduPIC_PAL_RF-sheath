@@ -2,9 +2,9 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF)
 
-**측정 상한·기준 미충족** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm** · 보고서 갱신 2026-11-26T23:05:08+09:00
+**측정 상한·기준 미충족** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm** · 보고서 갱신 2026-11-26T23:08:51.298049+09:00
 
-250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다. 2026-11-26 사용자 지시로 75 mm RF2500, 80 mm RF2420에서 재개합니다. 20–70 mm의 종료 결과를 유지하고 80 mm 일시중단을 해제했습니다. 100·120 mm는 중단 상태를 유지합니다. 기존 측정 상한1000RF 및 물리 조건은 유지합니다. 복원 전 개별 native 블록이 없어 누적 평균·원시 counts와 재개 후 구간의 불확실도를 구분합니다. 인계 연구 목적은 BRH의 gap 의존성과 순가열 최대점 평가입니다. 50 mm에서 무충돌 약1 RF 연속 왕복이 가장 많았다는 인계 관찰은 가열 peak 확정과 구분하며, 원 분석 파일은 현재 환경에서 재확인되지 않았습니다. 이 보고서의 기본1T 후보 표는 충돌을 포함하므로 무충돌 연속 왕복 통계와 대상을 구분합니다. 순가열량의 통계 오차로 BRH 가열 peak는 아직 미확정입니다. 47.5·52.5 mm 추가 계산은 제안 단계이며 승인 범위에 포함하지 않습니다. 기존 실행 재사용: 25, 30, 40, 50, 60, 80 mm. 새 계산: 75, 80 mm. 재사용 조건의 원 실행일·상한/소멸 상태를 유지합니다.
+승인된 20–80 mm(5 mm 간격) 스캔의 모든 조건이 종료되었습니다. 20·25 mm는 전자 소멸, 30–80 mm는 각각 측정 1,000 RF 상한·전체 수렴 기준 미충족입니다. 80 mm의 최종 저장점은 누적 3,200 RF, 측정 RF 2201–3200입니다. 종료된 조건을 재계산하지 않고 미완료 체크포인트에서 이어갔으며 기존 물리 소스·수렴 기준·측정 상한을 유지했습니다. 100·120 mm는 중단 상태를 유지하고, 승인되지 않은 47.5·52.5 mm는 실행하지 않았습니다. 복구 이전 개별 native 블록이 없어 복원한 누적 평균·원시 counts와 재개 후 블록의 변동 지표를 구분합니다. 기본 1T 후보 표는 충돌을 포함하므로 별도 무충돌 연속 왕복 분석과 대상을 구분합니다. 최종 무충돌 보조 분석:전체 승인 gap 종료 후 원자료 재검토. 무충돌 약1RF 왕복이 관측상 연속2회 이상인 구간 수 최대는 50 mm입니다. 이 관측 수와 전체 전자 순전력·선택된 왕복의 signed 일을 구분하며 BRH 가열 peak는 미확정입니다.
 
 ## 실행 조건
 
@@ -144,6 +144,14 @@ gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측�
 | 80 | measurement_limit_reached | 2201–3200 (1000RF) | 130133 / 0 | 0 | 0.000 | — |
 
 
+## 무충돌 연속 왕복과 순가열
+
+전체 승인 gap 종료 후 원자료 재검토. 무충돌 약1RF 왕복이 관측상 연속2회 이상인 구간 수 최대는 50 mm입니다. 이 관측 수와 전체 전자 순전력·선택된 왕복의 signed 일을 구분하며 BRH 가열 peak는 미확정입니다. [정의·표·원자료·한계](collisionfree_review/README.md).
+
+![전체 승인 gap 종료 후 원자료 재검토. 무충돌 약1RF 왕복이 관측상 연속2회 이상인 구간 수 최대는 50 mm입니다. 이 관측 수와 전체 전자 순전력·선택된 왕복의 signed 일을 구분하며 BRH 가열 peak는 미확정입니다. [정의·표·원자료·한계](collisionfree_review/README.md).](collisionfree_review/collisionfree_gap_review.png)
+
+전체 승인 gap 종료 후 원자료 재검토. 무충돌 약1RF 왕복이 관측상 연속2회 이상인 구간 수 최대는 50 mm입니다. 이 관측 수와 전체 전자 순전력·선택된 왕복의 signed 일을 구분하며 BRH 가열 peak는 미확정입니다. [정의·표·원자료·한계](collisionfree_review/README.md).
+
 ## 읽는 기준
 
 - 위상 그림의 가로축은 RF 위상 t/T, 세로축은 위치 x입니다. 전극 방향은 위 조건표를 따릅니다. 위상 0은 cos 인가 전압의 양의 최댓값입니다.
@@ -166,5 +174,21 @@ gap별 상세 보고서의 실제 측정 구간을 따릅니다. 아직 미측�
 | 복원 누적 자료·새 측정 합산 검증 | [recovery_pool_validated.json](recovery_pool_validated.json) | 529 B |
 | gap별 BRH 사건·에너지·불확실도 요약 CSV | [brh_gap_summary.csv](brh_gap_summary.csv) | 1.8 KiB |
 | 실행 소스·진단·설정·원본40mm 기준 입자 | [261124_BRH_source.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/261124_BRH_source.zip) | 2.87 MiB |
+| 무충돌 보조 분석 README.md | [README.md](collisionfree_review/README.md) | 3.3 KiB |
+| 무충돌 보조 분석 collisionfree_gap_summary.csv | [collisionfree_gap_summary.csv](collisionfree_review/collisionfree_gap_summary.csv) | 3.5 KiB |
+| 무충돌 보조 분석 analysis_provenance.json | [analysis_provenance.json](collisionfree_review/analysis_provenance.json) | 10.2 KiB |
+| 무충돌 보조 분석 collisionfree_gap_review.png | [collisionfree_gap_review.png](collisionfree_review/collisionfree_gap_review.png) | 115.7 KiB |
+| 무충돌 보조 분석 review_collisionfree.py | [review_collisionfree.py](collisionfree_review/review_collisionfree.py) | 15.7 KiB |
+| 무충돌 보조 분석 30mm_collisionfree_returns.csv.gz | [30mm_collisionfree_returns.csv.gz](collisionfree_review/30mm_collisionfree_returns.csv.gz) | 8.2 KiB |
+| 무충돌 보조 분석 35mm_collisionfree_returns.csv.gz | [35mm_collisionfree_returns.csv.gz](collisionfree_review/35mm_collisionfree_returns.csv.gz) | 2.0 KiB |
+| 무충돌 보조 분석 40mm_collisionfree_returns.csv.gz | [40mm_collisionfree_returns.csv.gz](collisionfree_review/40mm_collisionfree_returns.csv.gz) | 40.7 KiB |
+| 무충돌 보조 분석 45mm_collisionfree_returns.csv.gz | [45mm_collisionfree_returns.csv.gz](collisionfree_review/45mm_collisionfree_returns.csv.gz) | 103.3 KiB |
+| 무충돌 보조 분석 50mm_collisionfree_returns.csv.gz | [50mm_collisionfree_returns.csv.gz](collisionfree_review/50mm_collisionfree_returns.csv.gz) | 152.5 KiB |
+| 무충돌 보조 분석 55mm_collisionfree_returns.csv.gz | [55mm_collisionfree_returns.csv.gz](collisionfree_review/55mm_collisionfree_returns.csv.gz) | 105.8 KiB |
+| 무충돌 보조 분석 60mm_collisionfree_returns.csv.gz | [60mm_collisionfree_returns.csv.gz](collisionfree_review/60mm_collisionfree_returns.csv.gz) | 44.0 KiB |
+| 무충돌 보조 분석 65mm_collisionfree_returns.csv.gz | [65mm_collisionfree_returns.csv.gz](collisionfree_review/65mm_collisionfree_returns.csv.gz) | 11.1 KiB |
+| 무충돌 보조 분석 70mm_collisionfree_returns.csv.gz | [70mm_collisionfree_returns.csv.gz](collisionfree_review/70mm_collisionfree_returns.csv.gz) | 2.6 KiB |
+| 무충돌 보조 분석 75mm_collisionfree_returns.csv.gz | [75mm_collisionfree_returns.csv.gz](collisionfree_review/75mm_collisionfree_returns.csv.gz) | 525 B |
+| 무충돌 보조 분석 80mm_collisionfree_returns.csv.gz | [80mm_collisionfree_returns.csv.gz](collisionfree_review/80mm_collisionfree_returns.csv.gz) | 221 B |
 
 [전체 파일 목록·SHA256](files.json)

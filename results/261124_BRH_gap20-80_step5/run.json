@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-26T23:05:08+09:00",
+  "report_updated": "2026-11-26T23:08:51.298049+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -56,7 +56,7 @@
   "status": "measurement_limit_reached",
   "scan_parameter": "gap_mm",
   "changed_conditions": "BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm",
-  "summary": "250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다. 2026-11-26 사용자 지시로 75 mm RF2500, 80 mm RF2420에서 재개합니다. 20–70 mm의 종료 결과를 유지하고 80 mm 일시중단을 해제했습니다. 100·120 mm는 중단 상태를 유지합니다. 기존 측정 상한1000RF 및 물리 조건은 유지합니다. 복원 전 개별 native 블록이 없어 누적 평균·원시 counts와 재개 후 구간의 불확실도를 구분합니다. 인계 연구 목적은 BRH의 gap 의존성과 순가열 최대점 평가입니다. 50 mm에서 무충돌 약1 RF 연속 왕복이 가장 많았다는 인계 관찰은 가열 peak 확정과 구분하며, 원 분석 파일은 현재 환경에서 재확인되지 않았습니다. 이 보고서의 기본1T 후보 표는 충돌을 포함하므로 무충돌 연속 왕복 통계와 대상을 구분합니다. 순가열량의 통계 오차로 BRH 가열 peak는 아직 미확정입니다. 47.5·52.5 mm 추가 계산은 제안 단계이며 승인 범위에 포함하지 않습니다. 기존 실행 재사용: 25, 30, 40, 50, 60, 80 mm. 새 계산: 75, 80 mm. 재사용 조건의 원 실행일·상한/소멸 상태를 유지합니다.",
+  "summary": "승인된 20–80 mm(5 mm 간격) 스캔의 모든 조건이 종료되었습니다. 20·25 mm는 전자 소멸, 30–80 mm는 각각 측정 1,000 RF 상한·전체 수렴 기준 미충족입니다. 80 mm의 최종 저장점은 누적 3,200 RF, 측정 RF 2201–3200입니다. 종료된 조건을 재계산하지 않고 미완료 체크포인트에서 이어갔으며 기존 물리 소스·수렴 기준·측정 상한을 유지했습니다. 100·120 mm는 중단 상태를 유지하고, 승인되지 않은 47.5·52.5 mm는 실행하지 않았습니다. 복구 이전 개별 native 블록이 없어 복원한 누적 평균·원시 counts와 재개 후 블록의 변동 지표를 구분합니다. 기본 1T 후보 표는 충돌을 포함하므로 별도 무충돌 연속 왕복 분석과 대상을 구분합니다. 최종 무충돌 보조 분석:전체 승인 gap 종료 후 원자료 재검토. 무충돌 약1RF 왕복이 관측상 연속2회 이상인 구간 수 최대는 50 mm입니다. 이 관측 수와 전체 전자 순전력·선택된 왕복의 signed 일을 구분하며 BRH 가열 peak는 미확정입니다.",
   "measurement_note": "안정화: 마지막600RF의 3×200RF 평균 변화<1%, fitted drift<2%. 정상 진단: 최소200RF, 20RF블록. 평균량/밀도3%, heating5% 및 BRH 통계 별도. 상한1000RF에서 미충족은 미수렴으로 표시.",
   "cases": [
     {
@@ -260,6 +260,18 @@
         }
       ],
       "table": "| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |\n|---:|---|---|---:|---:|---:|---:|\n| 30 | measurement_limit_reached | 1852–2851 (1000RF) | 32281 / 395 | 352 | 1.224 | 5.052 |\n| 35 | measurement_limit_reached | 1701–2700 (1000RF) | 97148 / 353 | 332 | 0.363 | 6.901 |\n| 40 | measurement_limit_reached | 603–1602 (1000RF) | 212801 / 488 | 455 | 0.229 | 4.257 |\n| 45 | measurement_limit_reached | 1101–2100 (1000RF) | 209753 / 397 | 377 | 0.189 | 2.119 |\n| 50 | measurement_limit_reached | 1352–2351 (1000RF) | 200379 / 323 | 305 | 0.161 | 2.075 |\n| 55 | measurement_limit_reached | 1452–2451 (1000RF) | 181297 / 155 | 146 | 0.085 | 1.273 |\n| 60 | measurement_limit_reached | 1752–2751 (1000RF) | 168729 / 33 | 33 | 0.020 | 4.494 |\n| 65 | measurement_limit_reached | 1801–2800 (1000RF) | 155793 / 9 | 9 | 0.006 | 2.015 |\n| 70 | measurement_limit_reached | 2052–3051 (1000RF) | 145221 / 1 | 1 | 0.001 | 6.405 |\n| 75 | measurement_limit_reached | 1801–2800 (1000RF) | 135918 / 1 | 1 | 0.001 | -4.764 |\n| 80 | measurement_limit_reached | 2201–3200 (1000RF) | 130133 / 0 | 0 | 0.000 | — |\n"
+    },
+    {
+      "id": "collisionfree_1T_review",
+      "title": "무충돌 연속 왕복과 순가열",
+      "data_status": "available",
+      "text": "전체 승인 gap 종료 후 원자료 재검토. 무충돌 약1RF 왕복이 관측상 연속2회 이상인 구간 수 최대는 50 mm입니다. 이 관측 수와 전체 전자 순전력·선택된 왕복의 signed 일을 구분하며 BRH 가열 peak는 미확정입니다. [정의·표·원자료·한계](collisionfree_review/README.md).",
+      "images": [
+        {
+          "path": "collisionfree_review/collisionfree_gap_review.png",
+          "caption": "전체 승인 gap 종료 후 원자료 재검토. 무충돌 약1RF 왕복이 관측상 연속2회 이상인 구간 수 최대는 50 mm입니다. 이 관측 수와 전체 전자 순전력·선택된 왕복의 signed 일을 구분하며 BRH 가열 peak는 미확정입니다. [정의·표·원자료·한계](collisionfree_review/README.md)."
+        }
+      ]
     }
   ],
   "downloads": [
@@ -339,7 +351,127 @@
       "bytes": 3007513,
       "sha256": "fbb6e8912a489ceb1ee3869dd36f35fb5a12e7bf5f2f4a7e85a3b742c18dc12a",
       "git_blob": "f037751ce038c958c0b479d750e63de4e7482261"
+    },
+    {
+      "label": "무충돌 보조 분석 README.md",
+      "path": "collisionfree_review/README.md",
+      "bytes": 3342,
+      "sha256": "30177e9dc662627c6ab429565fec4ff9320d593d681772896834c979381ce6ae",
+      "git_blob": "cca8abb322969eccf733f10abad0e3733df5f5dc"
+    },
+    {
+      "label": "무충돌 보조 분석 collisionfree_gap_summary.csv",
+      "path": "collisionfree_review/collisionfree_gap_summary.csv",
+      "bytes": 3570,
+      "sha256": "db0d42b6166b30fe38f97eb9e5d7d1aaab4a39335da8eaa542ebdb9eb84c6075",
+      "git_blob": "2e9d7e40b751e675b0379da4cd587b8ca1ce882f"
+    },
+    {
+      "label": "무충돌 보조 분석 analysis_provenance.json",
+      "path": "collisionfree_review/analysis_provenance.json",
+      "bytes": 10397,
+      "sha256": "3c7dc8894fa7afffac48f673a98b2247d1b787f14f1f3f3c138db1b9fd12f964",
+      "git_blob": "96cc003778658a07bcec5df2445e96e07781fbe1"
+    },
+    {
+      "label": "무충돌 보조 분석 collisionfree_gap_review.png",
+      "path": "collisionfree_review/collisionfree_gap_review.png",
+      "bytes": 118479,
+      "sha256": "54c59e0525a4054c03219c1243771f371defb061a60af22472a7a29f44121ddc",
+      "git_blob": "98f787b3421c5638e19aefbb2a8cc11c42ac8aba"
+    },
+    {
+      "label": "무충돌 보조 분석 review_collisionfree.py",
+      "path": "collisionfree_review/review_collisionfree.py",
+      "bytes": 16036,
+      "sha256": "2f928a465bd7294c5a35c9f9e3985c1306a29a3be97de96af8ee036aa92d7009",
+      "git_blob": "ad16cdf96a3e923920e144c524e9f94a07f68f4f"
+    },
+    {
+      "label": "무충돌 보조 분석 30mm_collisionfree_returns.csv.gz",
+      "path": "collisionfree_review/30mm_collisionfree_returns.csv.gz",
+      "bytes": 8384,
+      "sha256": "b4ecd025547ac52ecb1f5496a6dccb20caf9285efbe35c1cd15f30250ce2b645",
+      "git_blob": "e158f781721a683791fb6fef0d78015ae07d6921"
+    },
+    {
+      "label": "무충돌 보조 분석 35mm_collisionfree_returns.csv.gz",
+      "path": "collisionfree_review/35mm_collisionfree_returns.csv.gz",
+      "bytes": 2025,
+      "sha256": "c1049d534f7234a89cf4dd325c08d64dcba09e2794cd602357b0474b5ca8daa5",
+      "git_blob": "ad4408d5fd05d099c3cb43795617c92b55d79261"
+    },
+    {
+      "label": "무충돌 보조 분석 40mm_collisionfree_returns.csv.gz",
+      "path": "collisionfree_review/40mm_collisionfree_returns.csv.gz",
+      "bytes": 41702,
+      "sha256": "60d6f7a686fa9075a37945f5364dd8c3da8e1a2450c98ef78f96f8b6daaa70a3",
+      "git_blob": "ee67f24dda25090a5cffb456ccdd7bd1f7fce8b5"
+    },
+    {
+      "label": "무충돌 보조 분석 45mm_collisionfree_returns.csv.gz",
+      "path": "collisionfree_review/45mm_collisionfree_returns.csv.gz",
+      "bytes": 105775,
+      "sha256": "61fd8b37a96f658dffc9cb6da074d3079207fa22c0acdf931e2daca7b9358e82",
+      "git_blob": "77a0415107c1bf5cae17d1b43972797f0dafc33c"
+    },
+    {
+      "label": "무충돌 보조 분석 50mm_collisionfree_returns.csv.gz",
+      "path": "collisionfree_review/50mm_collisionfree_returns.csv.gz",
+      "bytes": 156203,
+      "sha256": "dec6e65eafaf4584f8fd132b1baed2c72ed8524e3329d9b64aa346b194e80755",
+      "git_blob": "7d53ef0f6e9b82038187c7708d77d3d7240f3c6a"
+    },
+    {
+      "label": "무충돌 보조 분석 55mm_collisionfree_returns.csv.gz",
+      "path": "collisionfree_review/55mm_collisionfree_returns.csv.gz",
+      "bytes": 108289,
+      "sha256": "9ce819327852dcef95771633f6e2f920ce8c3cc75d74b858022cf2f4acf053d7",
+      "git_blob": "26764e3a1cdcedc58703d915fdf023be326608b9"
+    },
+    {
+      "label": "무충돌 보조 분석 60mm_collisionfree_returns.csv.gz",
+      "path": "collisionfree_review/60mm_collisionfree_returns.csv.gz",
+      "bytes": 45090,
+      "sha256": "37fa8d246225553bb375143cbddb76a546ef996c1c90dabad5b600d794916015",
+      "git_blob": "9af133b915cdadf2d5914836656de045f8308298"
+    },
+    {
+      "label": "무충돌 보조 분석 65mm_collisionfree_returns.csv.gz",
+      "path": "collisionfree_review/65mm_collisionfree_returns.csv.gz",
+      "bytes": 11365,
+      "sha256": "7caa03990173b5952a03c50a7ee0033bc0f1cbbd454074b39a0c7c3663d654d3",
+      "git_blob": "60da3110381013e18aedd5513a1c34f0ea92f509"
+    },
+    {
+      "label": "무충돌 보조 분석 70mm_collisionfree_returns.csv.gz",
+      "path": "collisionfree_review/70mm_collisionfree_returns.csv.gz",
+      "bytes": 2661,
+      "sha256": "d864d5f67a532c7d41c2f57c36908cbdd1ae29d82e2321226c445b19cfe6009e",
+      "git_blob": "fa483d4c50867214918645782f22c9bcf9df0c3f"
+    },
+    {
+      "label": "무충돌 보조 분석 75mm_collisionfree_returns.csv.gz",
+      "path": "collisionfree_review/75mm_collisionfree_returns.csv.gz",
+      "bytes": 525,
+      "sha256": "727aee81ddad31f708d6278e4153803cae3bcc95500828a56ff12a15bb5b0c3f",
+      "git_blob": "a0afa829f106384f8d0106417f18854d1adf26f4"
+    },
+    {
+      "label": "무충돌 보조 분석 80mm_collisionfree_returns.csv.gz",
+      "path": "collisionfree_review/80mm_collisionfree_returns.csv.gz",
+      "bytes": 221,
+      "sha256": "0e5392b1ccf276f43dc585a8424e0e16f2bec94fa000c7a00ad8485718764c1b",
+      "git_blob": "0372bedcd5cb85add19e53f17e1a4a0cb601acf0"
     }
   ],
-  "comparison_path": "comparison/README.md"
+  "comparison_path": "comparison/README.md",
+  "supplemental_analysis": {
+    "collisionfree": {
+      "provenance": "collisionfree_review/analysis_provenance.json",
+      "analysis_SHA256": "2f928a465bd7294c5a35c9f9e3985c1306a29a3be97de96af8ee036aa92d7009",
+      "heating_peak_established": false,
+      "prior_recovery_summary": "250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다. 2026-11-26 사용자 지시로 75 mm RF2500, 80 mm RF2420에서 재개합니다. 20–70 mm의 종료 결과를 유지하고 80 mm 일시중단을 해제했습니다. 100·120 mm는 중단 상태를 유지합니다. 기존 측정 상한1000RF 및 물리 조건은 유지합니다. 복원 전 개별 native 블록이 없어 누적 평균·원시 counts와 재개 후 구간의 불확실도를 구분합니다. 인계 연구 목적은 BRH의 gap 의존성과 순가열 최대점 평가입니다. 50 mm에서 무충돌 약1 RF 연속 왕복이 가장 많았다는 인계 관찰은 가열 peak 확정과 구분하며, 원 분석 파일은 현재 환경에서 재확인되지 않았습니다. 이 보고서의 기본1T 후보 표는 충돌을 포함하므로 무충돌 연속 왕복 통계와 대상을 구분합니다. 순가열량의 통계 오차로 BRH 가열 peak는 아직 미확정입니다. 47.5·52.5 mm 추가 계산은 제안 단계이며 승인 범위에 포함하지 않습니다. 기존 실행 재사용: 25, 30, 40, 50, 60, 80 mm. 새 계산: 75, 80 mm. 재사용 조건의 원 실행일·상한/소멸 상태를 유지합니다."
+    }
+  }
 }
