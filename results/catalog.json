@@ -327,7 +327,7 @@
     "branch": "results/20mTorr-topRF",
     "date": "2026-11-24",
     "title": "Bounce resonance heating · gap 스캔",
-    "status": "running",
+    "status": "measurement_limit_reached",
     "changed_conditions": "BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm",
     "conditions": {
       "gas": "Ar",
@@ -470,10 +470,10 @@
       {
         "gap_mm": 80,
         "voltage_V": 250,
-        "status": "running",
-        "total_rf": 3180,
-        "measurement_rf": 980,
-        "ne_mean_m3": 2126589457637247.5,
+        "status": "measurement_limit_reached",
+        "total_rf": 3200,
+        "measurement_rf": 1000,
+        "ne_mean_m3": 2126592024392810.0,
         "path": "80mm/README.md"
       }
     ],

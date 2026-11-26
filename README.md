@@ -14,7 +14,7 @@
 
 | 실행일 KST | 실행 / 바꾼 조건 | 주요 조건 | 상태 | 결과 |
 |---|---|---|---|---|
-| 2026-11-24 | **261124_BRH_gap20-80_step5**<br>BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm | 20 mTorr · [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80] mm · 250 V peak | 계산 중 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md) |
+| 2026-11-24 | **261124_BRH_gap20-80_step5**<br>BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm | 20 mTorr · [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80] mm · 250 V peak | 측정 상한·기준 미충족 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md) |
 | 2026-11-23 | **261123_BRH_gap25-120**<br>BRH · gap25/30/40/50/60/80/100/120 mm | 20 mTorr · [25, 30, 40, 50, 60, 80, 100, 120] mm · 250 V peak | 체크포인트 중단 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md) |
 | 2026-11-20 | **261120_loss-check**<br>벽 손실 진단 · 20↔75.006 mTorr 대조 | 20 mTorr · 25 mm · 100/250/300 V peak | 과도구간 진단 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261120_loss-check/README.md) |
 | 2026-11-20 | **261120_gap40_V100-500**<br>gap40 mm · 100/250/300/400/500 V | 20 mTorr · 40 mm · 100/250/300/400/500 V peak | 통계 기준 충족 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261120_gap40_V100-500/README.md) |
