@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "branch": "results/20mTorr-60MHz-topRF",
+  "common_conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 60,
+    "electrodes": "upper RF / lower ground"
+  },
+  "description": "Independent PSR/VI high-frequency study; separate from13.56MHz BRH scans."
+}
