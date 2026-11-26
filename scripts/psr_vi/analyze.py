@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Per-block coherent VI/local-power/sheath spectra; no PSR declaration by peak alone."""
 from pathlib import Path
-import argparse,gzip,json,os
+import argparse,gzip,json,os,hashlib
 os.environ.setdefault('MPLCONFIGDIR','/tmp/edupic-psr-mpl')
 import numpy as np
 import pandas as pd
@@ -129,7 +129,7 @@ def analyze(block,out,hmax=64):
     if 'J_e_midgap_energy_Am2' in a:
         twin=axs[1].twinx();twin.plot(tf,a.J_e_midgap_energy_Am2.to_numpy()[keep],color='tab:orange',alpha=.7);twin.set(ylabel='Midgap electron energy-current (A/m2)')
     axs[2].semilogy(hz/f,np.maximum(abs(full),1e-12));axs[2].set(xlim=(0,hmax),xlabel='Frequency / f0',ylabel='J peak (A/m2)');save(fig,figs/'PSR_synchronized.png')
-    result={'block':str(block),'measured_RF':meta['cycles'],'harmonic_max':hmax,'local_phasor_phase_first_from_actual_timestamps':float(a.t_field_s.iloc[0]*f)%1,'THD_J_orders_2_to_max':float(np.linalg.norm(jh[2:])/max(abs(jh[1]),1e-300)),
+    result={'analysis_SHA256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'spectral_SHA256':hashlib.sha256(Path(__file__).with_name('spectral.py').read_bytes()).hexdigest(),'block':str(block),'measured_RF':meta['cycles'],'harmonic_max':hmax,'local_phasor_phase_first_from_actual_timestamps':float(a.t_field_s.iloc[0]*f)%1,'THD_J_orders_2_to_max':float(np.linalg.norm(jh[2:])/max(abs(jh[1]),1e-300)),
       'J_noise_floor_Am2':floor,'electron_direct_Wm2':direct_e,'electron_positive_Wm2':positive,'electron_negative_Wm2':negative,'electron_DC_Wm2':float(pe_int[0]),'electron_resolved_harmonics_Wm2':float(pe_int[1:].sum()),'electron_noncoherent_unresolved_residual_Wm2':float(direct_e-pe_int.sum()),
       'terminal_time_mean_VJ_Wm2':float(np.mean(a.V_gap_V*a.J_RF_Am2)),'terminal_harmonic_sum_Wm2':float(power.terminal_P_Wm2.sum()),'sheath_valid_fraction':float(ok.mean()),'PSR_status':'not_established','PSR_note':'Harmonics alone are not proof. Inspect synchronized bulk current/voltage, sheath motion, signed power, numerical convergence; no PSR-attributed heating increment without a control.',
       'mean_f_PSR_est_Hz_approx':float(np.nanmedian(fest)) if np.isfinite(fest).any() else None,'drive_mode':mode,'A_eff_m2':None,'experiment_status':'not_provided','field_power_note':'Per-block coherent complex product. DC and unresolved/noncoherent remainder are separate. Terminal high-order voltage is fixed zero for ideal sine drive.'}

@@ -1,4 +1,4 @@
-import tempfile,json,unittest
+import tempfile,json,unittest,subprocess,sys,zipfile
 from pathlib import Path
 import numpy as np
 from spectral import phasors,phase_fields,contributions,circular_error
@@ -29,4 +29,19 @@ class SpectralTests(unittest.TestCase):
    a,_=load(p,m);self.assertAlmostEqual(a.P_W.iloc[0],100)
    self.assertFalse(a.waveform_reconstructible.iloc[0])
    with self.assertRaises(ValueError):voltage_input(p,m,Path(td)/'voltage.dat')
+ def test_common_voltage_input_and_unknown_dc(self):
+  with tempfile.TemporaryDirectory() as td:
+   p=Path(td)/'VI.csv';p.write_text('harmonic,frequency_Hz,V_amp,I_amp,V_phase_deg,I_phase_deg\n1,60000000,150,2,30,-20\n')
+   m={'amplitude_convention':'peak','phase_kind':'common_time_origin','time_reference':'synthetic test t=0','current_polarity':1,'probe_reference_plane':'electrode','calibrated':True,'frequency_Hz':60e6,'DC_bias_V':None}
+   with self.assertRaises(ValueError):voltage_input(p,m,Path(td)/'voltage.dat')
+   m['DC_bias_V']=0;env=voltage_input(p,m,Path(td)/'voltage.dat');values=np.loadtxt(env['EDUPIC_PSR_VOLTAGE_FILE']);self.assertTrue(np.allclose(values,[1,150,np.pi/6]))
+ def test_lossless_split_payload_reassembles(self):
+  from packaging_psr import package
+  with tempfile.TemporaryDirectory() as td:
+   root=Path(td);raw=root/'raw.bin';raw.write_bytes(bytes(range(256))*45);out=root/'zip';out.mkdir()
+   zips=package([(raw,'raw.bin')],out,'test',limit=1024);ex=root/'extracted';ex.mkdir()
+   for p in zips:
+    with zipfile.ZipFile(p) as z:z.extractall(ex)
+   subprocess.run([sys.executable,str(ex/'reassemble_psr.py')],cwd=ex,check=True,capture_output=True)
+   self.assertEqual((ex/'raw.bin').read_bytes(),raw.read_bytes())
 if __name__=='__main__':unittest.main()

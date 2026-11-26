@@ -15,7 +15,7 @@ sys.path.insert(0,str(REPO/'scripts/brh_scan'));sys.path.insert(0,str(REPO/'scri
 from common import put,sha
 from catalog import render_report,refresh_files,validate
 from audit_coverage import audit
-from archive import package
+from packaging_psr import package
 from export import core_plots
 
 def now():return datetime.now(ZoneInfo('Asia/Seoul')).isoformat(timespec='seconds')
@@ -23,6 +23,8 @@ def image(section,paths,text):return {'id':section,'data_status':'available','te
 def report(root,out):
  root=Path(root);out=Path(out);out.mkdir(parents=True,exist_ok=True);(out/'figures').mkdir(exist_ok=True);(out/'data').mkdir(exist_ok=True)
  cfg=json.loads((root/'config.json').read_text());s=json.loads((root/'status.json').read_text());downloads=[]
+ put(out/'run_metadata.json',{**cfg,'diagnostic_schema':1,'data_scope':'stationary_measurement' if s['measured_RF'] else 'warmup_and_optional_labelled_transient_only','analysis_SHA256':sha(REPO/'scripts/psr_vi/analyze.py'),'phasor_convention':'peak 2/N; DC mean; exp(-i n omega t); actual timestamps','terminal_current_positive':'RF(L) into plasma (-x)'})
+ downloads.append({'label':'진단·위상·소스·조건 메타데이터','path':'run_metadata.json'})
  for name in ['config.json','status.json','criteria.json','implementation_validated.json']:
   shutil.copy2(root/name,out/name);downloads.append({'label':name,'path':name})
  for name in ['experiment_template.csv','experiment_metadata.template.json','METHOD.md']:
@@ -89,7 +91,7 @@ def report(root,out):
   # Native arrays, high-resolution signals and per-block products remain downloadable.
   for b in measured:
    dest=out/'blocks'/b.name;dest.mkdir(parents=True,exist_ok=True)
-   signature=sha(b/'block.json');marker=dest/'archive_signature.txt'
+   signature=sha(b/'block.json')+sha(REPO/'scripts/psr_vi/packaging_psr.py');marker=dest/'archive_signature.txt'
    if not marker.exists() or marker.read_text()!=signature:
     payload=[(p,p.name) for p in b.iterdir() if p.is_file() and p.name not in ['picdata.bin','psr_rng.txt','psr_state.bin','run.log']]
     package(payload,dest,f'{cfg["id"]}_{b.name}');marker.write_text(signature)
