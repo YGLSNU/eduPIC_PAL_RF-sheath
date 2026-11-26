@@ -2,26 +2,27 @@
   "measurement_blocks": [
     "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/restored_brh",
     "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002501-002520",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002521-002540"
+    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002521-002540",
+    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002541-002560"
   ],
-  "pooled_data_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/brh_pooled_RF002540",
+  "pooled_data_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/brh_pooled_RF002560",
   "first_RF": 1801,
-  "last_RF": 2540,
-  "measured_RF": 740,
-  "duration_s": 5.457227136764636e-05,
+  "last_RF": 2560,
+  "measured_RF": 760,
+  "duration_s": 5.6047197620825995e-05,
   "background_and_BRH_assessment": {
     "passed": false,
-    "measurement_cycles": 740,
+    "measurement_cycles": 760,
     "completed_blocks": null,
     "particle_count_stationarity": {
       "e": {
-        "block_mean_span": 0.004803131457052351,
-        "fitted_drift": 0.007598898715774732,
+        "block_mean_span": 0.0046999430666151264,
+        "fitted_drift": 0.007318827620332793,
         "passed": true
       },
       "i": {
-        "block_mean_span": 0.004763061818524449,
-        "fitted_drift": 0.007527288778311037,
+        "block_mean_span": 0.0046728831237979485,
+        "fitted_drift": 0.007266535026092735,
         "passed": true
       },
       "passed": true
@@ -29,12 +30,12 @@
     "ready": false,
     "background_passed": false,
     "BRH": {
-      "powered_side_returns": 99361,
+      "powered_side_returns": 102265,
       "candidate_returns": 1,
-      "distinct_return_UIDs": 14842,
+      "distinct_return_UIDs": 15056,
       "distinct_candidate_UIDs": 1,
       "candidate_return_fraction": {
-        "estimate": 1.0064310946951017e-05,
+        "estimate": 9.778516599031927e-06,
         "half_width": null,
         "first_last_change": null,
         "passed_data": false
@@ -54,60 +55,60 @@
     },
     "indicators": {
       "mean_density_e": {
-        "relative_uncertainty_indicator": 0.00214390437610285,
-        "first_last_half_relative_change": 0.0003374578673361264,
+        "relative_uncertainty_indicator": 0.0008313735817212308,
+        "first_last_half_relative_change": 0.00066933837184777,
         "tolerance": 0.03,
         "passed": true,
-        "estimate": 2064622182818384.2,
-        "half_width": 4426352532743.353
+        "estimate": 2064966782820050.0,
+        "half_width": 1716758830368.472
       },
       "density_profile_e": {
-        "relative_uncertainty_indicator": 0.027989336910222696,
-        "first_last_half_relative_change": 0.004405617175447641,
+        "relative_uncertainty_indicator": 0.007721489256991922,
+        "first_last_half_relative_change": 0.0040673732170787135,
         "tolerance": 0.03,
         "passed": true
       },
       "mean_power_e": {
-        "relative_uncertainty_indicator": 0.0977389058358315,
-        "first_last_half_relative_change": 0.015384437424901214,
+        "relative_uncertainty_indicator": 0.022864689868103236,
+        "first_last_half_relative_change": 0.016986016381661553,
         "tolerance": 0.03,
-        "passed": false,
-        "estimate": 324.8409493420803,
-        "half_width": 31.7495989593677
+        "passed": true,
+        "estimate": 325.8770738986004,
+        "half_width": 7.451078229816457
       },
       "heating_map_e": {
-        "relative_uncertainty_indicator": 0.40644243185215023,
-        "first_last_half_relative_change": 0.06397542622542586,
+        "relative_uncertainty_indicator": 0.1165564688660312,
+        "first_last_half_relative_change": 0.07100460683543786,
         "tolerance": 0.05,
         "passed": false
       },
       "mean_density_i": {
-        "relative_uncertainty_indicator": 0.002405419831188858,
-        "first_last_half_relative_change": 0.0003786212926886978,
+        "relative_uncertainty_indicator": 0.0009564835717299883,
+        "first_last_half_relative_change": 0.0007700366603742463,
         "tolerance": 0.03,
         "passed": true,
-        "estimate": 2097471223065094.2,
-        "half_width": 5045298875308.727
+        "estimate": 2097877346009250.0,
+        "half_width": 2006585216962.356
       },
       "density_profile_i": {
-        "relative_uncertainty_indicator": 0.11163353657887208,
-        "first_last_half_relative_change": 0.017571499735251437,
+        "relative_uncertainty_indicator": 0.030546885649888802,
+        "first_last_half_relative_change": 0.017625205432646937,
         "tolerance": 0.03,
         "passed": false
       },
       "mean_power_i": {
-        "relative_uncertainty_indicator": 0.0307731829618774,
-        "first_last_half_relative_change": 0.004843804047052042,
+        "relative_uncertainty_indicator": 0.012336248992435829,
+        "first_last_half_relative_change": 0.0051040993749233675,
         "tolerance": 0.03,
-        "passed": false,
-        "estimate": 706.2623044494029,
-        "half_width": 21.733939113898636
+        "passed": true,
+        "estimate": 708.0352834422854,
+        "half_width": 8.73449955197391
       },
       "heating_map_i": {
-        "relative_uncertainty_indicator": 0.0852973192365145,
-        "first_last_half_relative_change": 0.013426089222956123,
+        "relative_uncertainty_indicator": 0.028690235119082745,
+        "first_last_half_relative_change": 0.015190991746722397,
         "tolerance": 0.05,
-        "passed": false
+        "passed": true
       }
     },
     "reason": "restored_aggregate_cumulative_uncertainty_unavailable",
@@ -115,17 +116,17 @@
     "uncertainty_scope": "Post-resume 20RF blocks only; cumulative native means are RF-duration weighted.",
     "post_resume_segment_assessment": {
       "passed": false,
-      "measurement_cycles": 40,
-      "completed_blocks": 2,
+      "measurement_cycles": 60,
+      "completed_blocks": 3,
       "particle_count_stationarity": {
         "e": {
-          "block_mean_span": 0.004803131457052351,
-          "fitted_drift": 0.007598898715774732,
+          "block_mean_span": 0.0046999430666151264,
+          "fitted_drift": 0.007318827620332793,
           "passed": true
         },
         "i": {
-          "block_mean_span": 0.004763061818524449,
-          "fitted_drift": 0.007527288778311037,
+          "block_mean_span": 0.0046728831237979485,
+          "fitted_drift": 0.007266535026092735,
           "passed": true
         },
         "passed": true
@@ -133,13 +134,13 @@
       "ready": false,
       "background_passed": false,
       "BRH": {
-        "powered_side_returns": 5517,
+        "powered_side_returns": 8421,
         "candidate_returns": 0,
-        "distinct_return_UIDs": 3523,
+        "distinct_return_UIDs": 4597,
         "distinct_candidate_UIDs": 0,
         "candidate_return_fraction": {
           "estimate": 0.0,
-          "half_width": 0.0008515469770082316,
+          "half_width": 0.0006525995214270176,
           "first_last_change": 0.0,
           "passed_data": true
         },
@@ -158,60 +159,60 @@
       },
       "indicators": {
         "mean_density_e": {
-          "relative_uncertainty_indicator": 0.00214390437610285,
-          "first_last_half_relative_change": 0.0003374578673361264,
+          "relative_uncertainty_indicator": 0.0008313735817212308,
+          "first_last_half_relative_change": 0.00066933837184777,
           "tolerance": 0.03,
           "passed": true,
-          "estimate": 2064622182818384.2,
-          "half_width": 4426352532743.353
+          "estimate": 2064966782820050.0,
+          "half_width": 1716758830368.472
         },
         "density_profile_e": {
-          "relative_uncertainty_indicator": 0.027989336910222696,
-          "first_last_half_relative_change": 0.004405617175447641,
+          "relative_uncertainty_indicator": 0.007721489256991922,
+          "first_last_half_relative_change": 0.0040673732170787135,
           "tolerance": 0.03,
           "passed": true
         },
         "mean_power_e": {
-          "relative_uncertainty_indicator": 0.0977389058358315,
-          "first_last_half_relative_change": 0.015384437424901214,
+          "relative_uncertainty_indicator": 0.022864689868103236,
+          "first_last_half_relative_change": 0.016986016381661553,
           "tolerance": 0.03,
-          "passed": false,
-          "estimate": 324.8409493420803,
-          "half_width": 31.7495989593677
+          "passed": true,
+          "estimate": 325.8770738986004,
+          "half_width": 7.451078229816457
         },
         "heating_map_e": {
-          "relative_uncertainty_indicator": 0.40644243185215023,
-          "first_last_half_relative_change": 0.06397542622542586,
+          "relative_uncertainty_indicator": 0.1165564688660312,
+          "first_last_half_relative_change": 0.07100460683543786,
           "tolerance": 0.05,
           "passed": false
         },
         "mean_density_i": {
-          "relative_uncertainty_indicator": 0.002405419831188858,
-          "first_last_half_relative_change": 0.0003786212926886978,
+          "relative_uncertainty_indicator": 0.0009564835717299883,
+          "first_last_half_relative_change": 0.0007700366603742463,
           "tolerance": 0.03,
           "passed": true,
-          "estimate": 2097471223065094.2,
-          "half_width": 5045298875308.727
+          "estimate": 2097877346009250.0,
+          "half_width": 2006585216962.356
         },
         "density_profile_i": {
-          "relative_uncertainty_indicator": 0.11163353657887208,
-          "first_last_half_relative_change": 0.017571499735251437,
+          "relative_uncertainty_indicator": 0.030546885649888802,
+          "first_last_half_relative_change": 0.017625205432646937,
           "tolerance": 0.03,
           "passed": false
         },
         "mean_power_i": {
-          "relative_uncertainty_indicator": 0.0307731829618774,
-          "first_last_half_relative_change": 0.004843804047052042,
+          "relative_uncertainty_indicator": 0.012336248992435829,
+          "first_last_half_relative_change": 0.0051040993749233675,
           "tolerance": 0.03,
-          "passed": false,
-          "estimate": 706.2623044494029,
-          "half_width": 21.733939113898636
+          "passed": true,
+          "estimate": 708.0352834422854,
+          "half_width": 8.73449955197391
         },
         "heating_map_i": {
-          "relative_uncertainty_indicator": 0.0852973192365145,
-          "first_last_half_relative_change": 0.013426089222956123,
+          "relative_uncertainty_indicator": 0.028690235119082745,
+          "first_last_half_relative_change": 0.015190991746722397,
           "tolerance": 0.05,
-          "passed": false
+          "passed": true
         }
       },
       "reason": "continue_sampling",
@@ -219,26 +220,26 @@
     },
     "recovered_RF": 700
   },
-  "all_fieldwork_eV": 7489159.372983573,
-  "sample_fieldwork_eV": 469941.25873056904,
-  "all_kicks": 814621488723,
-  "sample_kicks": 51102724900,
-  "hist_total_samples": 20365537158,
+  "all_fieldwork_eV": 7692017.99797594,
+  "sample_fieldwork_eV": 482729.35899087455,
+  "all_kicks": 836753517103,
+  "sample_kicks": 52477159513,
+  "hist_total_samples": 20918837850,
   "hist_E_overflow_samples": 0,
   "max_energy_ledger_error_eV": 2.0603962980203505e-11,
-  "powered_side_returns": 99361,
-  "distinct_return_UIDs": 14842,
+  "powered_side_returns": 102265,
+  "distinct_return_UIDs": 15056,
   "candidate_returns": 1,
   "distinct_candidate_UIDs": 1,
-  "candidate_return_fraction": 1.0064310946951017e-05,
+  "candidate_return_fraction": 9.778516599031927e-06,
   "candidate_mean_signed_work_eV": -4.76379575232,
   "candidate_mean_parent_collision_dK_eV": -0.00383869387655,
   "candidate_mean_net_dK_eV": -4.7676344462,
-  "all_return_mean_signed_work_eV": 3.1817144651041307,
+  "all_return_mean_signed_work_eV": 3.1828416415109846,
   "candidate_signed_fieldwork_sum_eV": -4.76379575232,
   "sample_inclusion_probability": 0.0625,
   "selection": "Both sheaths; same-side outward reference crossings, upper side only for primary statistics. abs(tau_RF-1)<=0.10 for >=2 consecutive returns, regardless of energy sign.",
   "scope": "Complete observed intervals only, censored at beginning/end of global measurement epoch; intervals crossing internal 20-RF boundaries retained. Collision-induced reversals alone do not qualify. This is a detected-return event fraction, not a whole-plasma BRH density fraction.",
   "verdict": "탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.",
-  "candidate_fieldwork_power_per_area_Wm2_estimate": -0.00025062794782213324
+  "candidate_fieldwork_power_per_area_Wm2_estimate": -0.00024403247551102447
 }

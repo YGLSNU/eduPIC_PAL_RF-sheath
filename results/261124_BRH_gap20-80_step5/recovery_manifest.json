@@ -13,5 +13,161 @@
   "original_measurement_cap_RF": 1000,
   "cumulative_block_uncertainty_available": false,
   "publication_tools_commit": "c60b2be12f6e12a80d7e41b729cc44c2acc295d9",
-  "completed_results_policy": "Preserve original 20–70 mm reports and archives; update only active cases and cumulative comparison."
+  "completed_results_policy": "Preserve original 20–70 mm reports and archives; update only active cases and cumulative comparison.",
+  "handover_context": {
+    "received_at_Asia_Seoul": "2026-11-26T12:38:07.592566+09:00",
+    "source": "User-provided handover from the previous chat; reconciled against current state files and solver processes.",
+    "research_goal": "BRH gap dependence and the maximum of net heating.",
+    "approved_gaps_mm": [
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "paused_gaps_mm": [
+      100,
+      120
+    ],
+    "unapproved_proposed_gaps_mm": [
+      47.5,
+      52.5
+    ],
+    "execution_policy": "Preserve completed/extinguished/measurement-limit results; continue only unfinished cases from particle/UID/RNG checkpoint within the existing measurement epoch, in increasing gap order, at most four concurrent solvers.",
+    "physics": "Ar, 20 mTorr, 350 K, 250 V peak, 13.56 MHz; upper RF, lower ground. Native physical source and criteria unchanged.",
+    "earlier_chat_process_snapshot_Asia_Seoul": "2026-11-25T20:02:00+09:00",
+    "snapshot_reconciliation": "70 mm subsequently reached measurement_limit_reached at RF3051, measured1000RF. This chat already authorized/resumed 80 mm; the handover sentence saying that command was not yet delivered is historical.",
+    "provisional_observation": {
+      "description": "The handover reports the largest number of collision-free consecutive near-1RF round trips at 50 mm.",
+      "provenance": "Previous-chat handover; original peak-review analysis files have not been recovered or independently verified here.",
+      "interpretation": "Does not establish the BRH net-heating peak. Net-heating statistical uncertainty remains material.",
+      "cohort_note": "Current standard 1T candidate tables include collisions; do not equate those event counts with the collision-free handover observation."
+    },
+    "analysis_paths": [
+      {
+        "path": "/workspace/edupic-brh/analysis/261125_brh_peak_review",
+        "present": false
+      },
+      {
+        "path": "/workspace/edupic-brh/analysis/261125_gap30-65",
+        "present": false
+      },
+      {
+        "path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/hourly_monitoring/restore_frozen_export_20261125.py",
+        "present": false
+      }
+    ],
+    "storage_policy": "Preserve O raw results and all particle/UID/RNG checkpoints. No further export-cache cleanup is part of this handover reconciliation.",
+    "automation": {
+      "previous_chat_reconnect_and_chat_reports": "User stopped in previous chat; no new reconnect/chat-report automation is created here.",
+      "current_calculation_and_github_publication": "Continue as authorized earlier in this chat. GitHub publisher remains enabled; 900-second interval and terminal publication; this is separate from chat reporting."
+    },
+    "local_recovery_limitation": "Before-resume per-20RF native matrices are absent; cumulative means/counts are preserved, while post-resume uncertainty is scoped separately. Keep the existing 1000RF measurement cap and do not label capped results as converged.",
+    "reconciled_progress": [
+      {
+        "gap_mm": 20,
+        "status": "extinguished",
+        "completed_RF": 95,
+        "measured_RF": 0,
+        "updated_at_Asia_Seoul": "2026-11-24T14:54:15.045116+09:00"
+      },
+      {
+        "gap_mm": 25,
+        "status": "extinguished",
+        "completed_RF": 245,
+        "measured_RF": 0,
+        "updated_at_Asia_Seoul": "2026-11-23T15:49:35.214656+09:00"
+      },
+      {
+        "gap_mm": 30,
+        "status": "measurement_limit_reached",
+        "completed_RF": 2851,
+        "measured_RF": 1000,
+        "updated_at_Asia_Seoul": "2026-11-23T23:16:44.611800+09:00"
+      },
+      {
+        "gap_mm": 35,
+        "status": "measurement_limit_reached",
+        "completed_RF": 2700,
+        "measured_RF": 1000,
+        "updated_at_Asia_Seoul": "2026-11-25T01:34:19.027890+09:00"
+      },
+      {
+        "gap_mm": 40,
+        "status": "measurement_limit_reached",
+        "completed_RF": 1602,
+        "measured_RF": 1000,
+        "updated_at_Asia_Seoul": "2026-11-23T21:33:45.220257+09:00"
+      },
+      {
+        "gap_mm": 45,
+        "status": "measurement_limit_reached",
+        "completed_RF": 2100,
+        "measured_RF": 1000,
+        "updated_at_Asia_Seoul": "2026-11-25T07:14:43.162809+09:00"
+      },
+      {
+        "gap_mm": 50,
+        "status": "measurement_limit_reached",
+        "completed_RF": 2351,
+        "measured_RF": 1000,
+        "updated_at_Asia_Seoul": "2026-11-24T10:36:52.484316+09:00"
+      },
+      {
+        "gap_mm": 55,
+        "status": "measurement_limit_reached",
+        "completed_RF": 2451,
+        "measured_RF": 1000,
+        "updated_at_Asia_Seoul": "2026-11-25T08:08:38.398855+09:00"
+      },
+      {
+        "gap_mm": 60,
+        "status": "measurement_limit_reached",
+        "completed_RF": 2751,
+        "measured_RF": 1000,
+        "updated_at_Asia_Seoul": "2026-11-24T08:22:47.492805+09:00"
+      },
+      {
+        "gap_mm": 65,
+        "status": "measurement_limit_reached",
+        "completed_RF": 2800,
+        "measured_RF": 1000,
+        "updated_at_Asia_Seoul": "2026-11-25T11:59:37.054873+09:00"
+      },
+      {
+        "gap_mm": 70,
+        "status": "measurement_limit_reached",
+        "completed_RF": 3051,
+        "measured_RF": 1000,
+        "updated_at_Asia_Seoul": "2026-11-25T21:11:09.553292+09:00"
+      },
+      {
+        "gap_mm": 75,
+        "status": "running",
+        "completed_RF": 2540,
+        "measured_RF": 740,
+        "updated_at_Asia_Seoul": "2026-11-26T12:27:45.724757+09:00"
+      },
+      {
+        "gap_mm": 80,
+        "status": "running",
+        "completed_RF": 2460,
+        "measured_RF": 260,
+        "updated_at_Asia_Seoul": "2026-11-26T12:27:45.022682+09:00"
+      }
+    ],
+    "invariants": {
+      "native_source_SHA256": "cfb0169f87714aff0a93cd968a2358bfe8af4b6635fe15bdc5488187d6b78a8a",
+      "diagnostic_header_SHA256": "01386a6acae318458b431f66c38e8d0eb004cc06aece551daedf70d768362d6d",
+      "criteria_SHA256": "63ae8453cb9925f946f5e1e8e675b4907c91077dda77683b09faa777095f782e"
+    }
+  }
 }
