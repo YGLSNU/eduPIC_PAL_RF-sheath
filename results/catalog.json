@@ -480,5 +480,30 @@
     "scan_parameter": "gap_mm",
     "comparison_path": "comparison/README.md",
     "summary": "250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다. 2026-11-26 사용자 지시로 75 mm RF2500, 80 mm RF2420에서 재개합니다. 20–70 mm의 종료 결과를 유지하고 80 mm 일시중단을 해제했습니다. 100·120 mm는 중단 상태를 유지합니다. 기존 측정 상한1000RF 및 물리 조건은 유지합니다. 복원 전 개별 native 블록이 없어 누적 평균·원시 counts와 재개 후 구간의 불확실도를 구분합니다. 인계 연구 목적은 BRH의 gap 의존성과 순가열 최대점 평가입니다. 50 mm에서 무충돌 약1 RF 연속 왕복이 가장 많았다는 인계 관찰은 가열 peak 확정과 구분하며, 원 분석 파일은 현재 환경에서 재확인되지 않았습니다. 이 보고서의 기본1T 후보 표는 충돌을 포함하므로 무충돌 연속 왕복 통계와 대상을 구분합니다. 순가열량의 통계 오차로 BRH 가열 peak는 아직 미확정입니다. 47.5·52.5 mm 추가 계산은 제안 단계이며 승인 범위에 포함하지 않습니다. 기존 실행 재사용: 25, 30, 40, 50, 60, 80 mm. 새 계산: 75, 80 mm. 재사용 조건의 원 실행일·상한/소멸 상태를 유지합니다."
+  },
+  {
+    "id": "261126_PSR_gap15_f60_V150",
+    "branch": "results/20mTorr-60MHz-topRF",
+    "date": "2026-11-26",
+    "title": "PSR·VI harmonics · gap15 mm · 60MHz · 150V",
+    "status": "running",
+    "changed_conditions": "PSR/VI · 15 mm · 60 MHz · 150 V peak",
+    "conditions": {
+      "gas": "Ar",
+      "pressure_mTorr": 20,
+      "temperature_K": 350,
+      "frequency_MHz": 60,
+      "voltage_peak_V": [
+        150
+      ],
+      "gap_mm": 15,
+      "grid_points": 481,
+      "steps_per_RF": 4000,
+      "weight": 56000,
+      "electrodes": "상부 x=L RF / 하부 x=0 접지",
+      "surface_model": "흡수벽, SEE/재료반사 없음; Ar optical-depth electron MCC, Ar+ elastic MCC; binary Coulomb 없음",
+      "geometry": "1D3V 동일면적 정전 PIC/MCC; A_sim=1cm², A_eff 미제공; 회로/self-bias/측벽 없음"
+    },
+    "summary": "실제 상태: running; 배경 안정화/측정 진행 중. PSR 발생 또는 가열 peak를 미리 확정하지 않습니다. 13.56MHz BRH 계산과 별도 코드·폴더·결과 브랜치입니다. 과도구간 2RF 진단(정상 통계 제외): 아래 스펙트럼·쉬스·전력은 초기화 후 별도 복사본에서 얻은 예비 진단입니다. 정상상태나 PSR 발생의 증거로 사용하지 않습니다."
   }
 ]
