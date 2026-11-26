@@ -29,6 +29,10 @@ def report(root,out):
   shutil.copy2(root/name,out/name);downloads.append({'label':name,'path':name})
  for name in ['experiment_template.csv','experiment_metadata.template.json','METHOD.md']:
   if (REPO/'scripts/psr_vi'/name).exists():shutil.copy2(REPO/'scripts/psr_vi'/name,out/name);downloads.append({'label':name,'path':name})
+ resolution=root/'resolution_checks'
+ if (resolution/'resolution_validation.json').exists():
+  for name in ['resolution_validation.json','vacuum_dt_convergence.csv','plasma_sensitivity.csv','validation_reproduction.zip']:
+   shutil.copy2(resolution/name,out/'data'/name);downloads.append({'label':'별도 수치 검증(과도구간, 정상 통계 제외) '+name,'path':'data/'+name})
  keys=['convergence','density','heating','fields','ionization','distributions','walls','power']
  reason='아직 배경 안정화/정상 측정 전입니다. 과도구간을 정상 방전·PSR 결과로 해석하지 않습니다.'
  sections={k:{'id':k,'data_status':'unavailable','reason':reason,'images':[]} for k in keys}
@@ -101,6 +105,18 @@ def report(root,out):
  (out/'data/comparison.csv').write_text('harmonic,frequency_Hz,simulation_J_peak_Am2,experiment_I_peak_A,absolute_error,relative_error,circular_phase_error_deg,status\n')
  put(out/'data/experiment_status.json',{'status':'not_provided','missing':['VI data','peak/RMS convention','phase reference','DC information','effective area','calibrated probe reference plane'],'note':'A_eff absent: no absolute experimental ampere fit. Templates only. No matching network/stray model invented.'})
  analysis.append({'id':'experiment','title':'실험 비교','data_status':'unavailable','reason':'실험 VI 파일·기준면·면적·위상/DC 정보가 제공되지 않았습니다. 빈 비교 CSV와 입력 템플릿을 제공합니다.','images':[]})
+ if (resolution/'resolution_validation.json').exists():
+  vacuum=pd.read_csv(resolution/'vacuum_dt_convergence.csv');sensitivity=pd.read_csv(resolution/'plasma_sensitivity.csv')
+  fig,axs=plt.subplots(1,2,figsize=(12,4))
+  for order,a in vacuum.groupby('harmonic'):axs[0].loglog(1/a.nt,a.continuous_relative_error,'o-',label=f'n={order}')
+  axs[0].set(xlabel='dt / RF period',ylabel='Vacuum current relative complex error',title='Analytic vacuum: finite-difference transfer');axs[0].legend()
+  for name,a in sensitivity.groupby('case'):
+   if name!='baseline':axs[1].semilogy(a.harmonic,np.maximum(a.complex_difference_over_baseline_J1,1e-12),label=name)
+  axs[1].set(xlabel='Harmonic n',ylabel='Complex difference / baseline J1',title='Common RF22 transient; not steady convergence');axs[1].legend(fontsize=7)
+  fig.tight_layout();fig.savefig(out/'figures/resolution_checks.png',dpi=140,bbox_inches='tight');plt.close(fig)
+  checks=json.loads((resolution/'resolution_validation.json').read_text());powers=[c['electron_power_net_Wm2'] for c in checks['plasma_cases']]
+  text=f'다중 고조파 진공 해석해와 동일한 과도 체크포인트의 dt·격자·입자 수·stride 검증. 오른쪽 차이는 기본파 전류로 정규화한 값이며 약한 고차 자체의 상대오차율이 아닙니다. 짧은 과도 시험의 전자 순전력은 {min(powers):.2f}–{max(powers):.2f} W/m²로 달랐고 확률 충돌 변동을 포함합니다. 정상 수렴이나 PSR 발생을 증명하는 결과가 아닙니다.'
+  analysis.append({**image('numerical_sensitivity',['figures/resolution_checks.png'],text),'title':'수치 검증·민감도'})
  downloads.extend([{'label':'실험 비교 CSV(현재 빈 상태)','path':'data/comparison.csv'},{'label':'실험 비교 미확인 입력','path':'data/experiment_status.json'}])
  cp=Path(s['checkpoint_path']);restart=out/f'{cfg["id"]}_restart.zip'
  with zipfile.ZipFile(restart,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=3) as z:
@@ -117,7 +133,7 @@ def report(root,out):
     if p.is_file():z.write(p,'source_versions/'+str(p.relative_to(root/'source_versions')))
   for p in (REPO/'scripts/psr_vi').iterdir():
    if p.is_file():z.write(p,'scripts/psr_vi/'+p.name)
-  for folder,names in [('brh_scan',['common.py','archive.py','export.py']),('results',['catalog.py','audit_coverage.py','verify_reports.py','publish_run.py'])]:
+  for folder,names in [('brh_scan',['common.py','archive.py','export.py','prepare.py']),('results',['catalog.py','audit_coverage.py','verify_reports.py','publish_run.py'])]:
    for name in names:z.write(REPO/'scripts'/folder/name,'scripts/'+folder+'/'+name)
   for p in [root/'config.json',root/'criteria.json',root/'implementation_validated.json',root/'LICENSE']:z.write(p,p.name)
  downloads.append({'label':'사용 소스·분석·설정·검증·라이선스','path':source.name})
@@ -133,7 +149,7 @@ def report(root,out):
   warning='과도구간 2RF 진단(정상 통계 제외): '
   meta['summary']+=' '+warning+'아래 스펙트럼·쉬스·전력은 초기화 후 별도 복사본에서 얻은 예비 진단입니다. 정상상태나 PSR 발생의 증거로 사용하지 않습니다.'
   for section in meta['sections']:
-   if section['id']=='convergence':continue
+   if section['id'] in ['convergence','numerical_sensitivity']:continue
    if section.get('images'):
     section['text']=warning+section.get('text','')
     for im in section['images']:im['caption']=warning+im.get('caption','')

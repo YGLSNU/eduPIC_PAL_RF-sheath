@@ -33,13 +33,13 @@ def analyze(block,out,hmax=64):
     floor=max(1e-8,3*float(np.median(np.abs(spectrum[used]))))
     rows=[];v1=abs(vh[1]);j1=abs(jh[1]);reference=np.angle(vh[1])
     for n in range(hmax+1):
-        v,j=vh[n],jh[n];valid=n>0 and abs(j)>floor and abs(v)>max(1e-9,1e-8*v1)
-        factor=1 if n==0 else .5;p=factor*np.real(v*np.conj(j));z=v/j if abs(j)>floor else complex(np.nan,np.nan)
-        rows.append([n,n*f,abs(v),abs(v)/(1 if n==0 else np.sqrt(2)),v.real,v.imag,np.degrees(np.angle(v)) if valid else np.nan,
-          abs(j),abs(j)/(1 if n==0 else np.sqrt(2)),j.real,j.imag,np.degrees(np.angle(j)) if abs(j)>floor else np.nan,
+        v,j=vh[n],jh[n];vvalid=n>0 and abs(v)>max(1e-9,1e-8*v1);jvalid=n>0 and abs(j)>floor;valid=vvalid and jvalid
+        factor=1 if n==0 else .5;p=factor*np.real(v*np.conj(j));z=v/j if valid else complex(np.nan,np.nan)
+        rows.append([n,n*f,abs(v),abs(v)/(1 if n==0 else np.sqrt(2)),v.real,v.imag,np.degrees(np.angle(v)) if vvalid else np.nan,
+          abs(j),abs(j)/(1 if n==0 else np.sqrt(2)),j.real,j.imag,np.degrees(np.angle(j)) if jvalid else np.nan,
           np.degrees(np.angle(v*np.conj(j))) if valid else np.nan,abs(j)/j1 if j1 else np.nan,abs(v)/v1 if v1 else np.nan,
-          20*np.log10(max(abs(j)/max(j1,1e-300),1e-300)),np.degrees(np.angle(np.exp(1j*(np.angle(v)-n*reference)))) if valid else np.nan,
-          np.degrees(np.angle(np.exp(1j*(np.angle(j)-n*reference)))) if abs(j)>floor else np.nan,p,z.real,z.imag,valid,floor])
+          20*np.log10(max(abs(j)/max(j1,1e-300),1e-300)),np.degrees(np.angle(np.exp(1j*(np.angle(v)-n*reference)))) if vvalid else np.nan,
+          np.degrees(np.angle(np.exp(1j*(np.angle(j)-n*reference)))) if jvalid else np.nan,p,z.real,z.imag,valid,floor])
     columns=['harmonic','frequency_Hz','V_peak_V','V_RMS_V','V_real_V','V_imag_V','V_phase_deg','J_peak_Am2','J_RMS_Am2','J_real_Am2','J_imag_Am2','J_phase_deg','Delta_phi_VI_deg','J_n_over_J_1','V_n_over_V_1','J_dBc','V_phase_aligned_deg','J_phase_aligned_deg','terminal_P_Wm2','Z_app_real_ohmm2','Z_app_imag_ohmm2','VI_phase_valid','J_noise_floor_Am2']
     spec=pd.DataFrame(rows,columns=columns)
     spec['V_DC_mean_V']=np.where(spec.harmonic==0,vh[0].real,np.nan)

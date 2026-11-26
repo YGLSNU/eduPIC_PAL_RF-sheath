@@ -11,8 +11,16 @@ def load(path,metadata):
     missing=[k for k in required if k not in m]
     if missing:raise ValueError('Missing experiment metadata: '+', '.join(missing))
     if not isinstance(m['frequency_Hz'],(int,float)) or not np.isfinite(m['frequency_Hz']) or m['frequency_Hz']<=0:raise ValueError('Explicit positive frequency_Hz required')
+    if not isinstance(m['calibrated'],bool):raise ValueError('calibrated must be a JSON boolean')
+    if not isinstance(m['probe_reference_plane'],str) or not m['probe_reference_plane'].strip():raise ValueError('Explicit probe_reference_plane required')
+    for key in ['I_noise_floor_A','V_noise_floor_V']:
+        value=m.get(key,0)
+        if not isinstance(value,(int,float)) or not np.isfinite(value) or value<0:raise ValueError('Invalid '+key)
+    area=m.get('A_eff_m2')
+    if area is not None and (not isinstance(area,(int,float)) or not np.isfinite(area) or area<=0):raise ValueError('A_eff_m2 must be positive finite or null')
     if m['phase_kind'] not in ['common_time_origin','VI_difference']:raise ValueError('Unknown phase_kind')
     factors={'peak':1.,'RMS':np.sqrt(2),'peak-to-peak':.5}
+    if m['amplitude_convention'] not in factors:raise ValueError('Unknown amplitude_convention')
     factor=factors[m['amplitude_convention']]
     a=pd.read_csv(path,sep='\t' if str(path).endswith('.tsv') else ',').rename(columns=m.get('column_mapping',{}))
     for c in ['harmonic','frequency_Hz','V_amp','I_amp']:
@@ -28,14 +36,20 @@ def load(path,metadata):
     if m['phase_kind']=='common_time_origin':
         if not m.get('time_reference'):raise ValueError('Common phasors require a time_reference')
         for c in ['V_phase_deg','I_phase_deg']:
-            if c not in a or a[c].isna().any():raise ValueError('Missing common phase '+c)
+            if c not in a:raise ValueError('Missing common phase '+c)
+            a[c]=pd.to_numeric(a[c],errors='raise')
+            if not np.isfinite(a[c]).all():raise ValueError('Nonfinite common phase '+c)
         delta=a.V_phase_deg-a.I_phase_deg-(180 if polarity==-1 else 0)
     else:
-        if 'Delta_phi_VI_deg' not in a or a.Delta_phi_VI_deg.isna().any():raise ValueError('VI difference phases required')
+        if 'Delta_phi_VI_deg' not in a:raise ValueError('VI difference phases required')
+        a['Delta_phi_VI_deg']=pd.to_numeric(a.Delta_phi_VI_deg,errors='raise')
+        if not np.isfinite(a.Delta_phi_VI_deg).all():raise ValueError('Finite VI difference phases required')
         delta=a.Delta_phi_VI_deg-(180 if polarity==-1 else 0)
-    a['Delta_phi_VI_deg']=(delta+180)%360-180
+    valid=(a.V_peak_V>m.get('V_noise_floor_V',0))&(a.I_peak_A>m.get('I_noise_floor_A',0))
+    a['experimental_VI_phase_valid']=valid
+    a['Delta_phi_VI_deg']=np.where(valid,(delta+180)%360-180,np.nan)
     a['P_W']=.5*a.V_peak_V*a.I_peak_A*np.cos(np.deg2rad(delta))
-    z=np.divide(a.V_peak_V,a.I_peak_A,out=np.full(len(a),np.nan),where=a.I_peak_A>m.get('I_noise_floor_A',0))*np.exp(1j*np.deg2rad(delta))
+    z=np.divide(a.V_peak_V,a.I_peak_A,out=np.full(len(a),np.nan),where=valid)*np.exp(1j*np.deg2rad(delta))
     z=np.asarray(z);a['Z_app_real_ohm']=z.real;a['Z_app_imag_ohm']=z.imag
     a['waveform_reconstructible']=m['phase_kind']=='common_time_origin'
     return a,m

@@ -35,6 +35,25 @@ class SpectralTests(unittest.TestCase):
    m={'amplitude_convention':'peak','phase_kind':'common_time_origin','time_reference':'synthetic test t=0','current_polarity':1,'probe_reference_plane':'electrode','calibrated':True,'frequency_Hz':60e6,'DC_bias_V':None}
    with self.assertRaises(ValueError):voltage_input(p,m,Path(td)/'voltage.dat')
    m['DC_bias_V']=0;env=voltage_input(p,m,Path(td)/'voltage.dat');values=np.loadtxt(env['EDUPIC_PSR_VOLTAGE_FILE']);self.assertTrue(np.allclose(values,[1,150,np.pi/6]))
+ def test_experiment_nonfinite_phase_noise_floor_and_area(self):
+  with tempfile.TemporaryDirectory() as td:
+   p=Path(td)/'VI.csv';text='harmonic,frequency_Hz,V_amp,I_amp,Delta_phi_VI_deg\n1,60000000,150,1,10\n3,180000000,1e-10,1e-12,20\n';p.write_text(text)
+   m={'amplitude_convention':'peak','phase_kind':'VI_difference','current_polarity':1,'probe_reference_plane':'electrode','calibrated':True,'frequency_Hz':60e6,'I_noise_floor_A':1e-6,'V_noise_floor_V':1e-6}
+   a,_=load(p,m);self.assertTrue(a.experimental_VI_phase_valid.iloc[0]);self.assertFalse(a.experimental_VI_phase_valid.iloc[1]);self.assertTrue(np.isnan(a.Delta_phi_VI_deg.iloc[1]));self.assertTrue(np.isnan(a.Z_app_real_ohm.iloc[1]))
+   p.write_text(text.replace(',1,10',',1,inf'))
+   with self.assertRaises(ValueError):load(p,m)
+   p.write_text(text);m['A_eff_m2']=0
+   with self.assertRaises(ValueError):load(p,m)
+ def test_comparison_area_reference_plane_and_measured_input(self):
+  from compare import compare
+  with tempfile.TemporaryDirectory() as td:
+   td=Path(td);sim=td/'sim.csv';experiment=td/'experiment.csv'
+   sim.write_text('harmonic,frequency_Hz,J_peak_Am2,V_peak_V,Delta_phi_VI_deg,VI_phase_valid\n1,60000000,2,150,179,True\n')
+   experiment.write_text('harmonic,frequency_Hz,V_amp,I_amp,Delta_phi_VI_deg\n1,60000000,150,0.0002,-179\n')
+   m={'amplitude_convention':'peak','phase_kind':'VI_difference','current_polarity':1,'probe_reference_plane':'uncorrected probe','calibrated':False,'frequency_Hz':60e6,'A_eff_m2':1e-4}
+   a=compare(sim,experiment,m,td/'comparison.csv');self.assertFalse(a.absolute_current_comparison_valid.iloc[0]);self.assertTrue(a.absolute_area_scaling_available.iloc[0]);self.assertAlmostEqual(a.phase_circular_error_deg.iloc[0],-2)
+   m.update(probe_reference_plane='electrode',calibrated=True)
+   a=compare(sim,experiment,m,td/'comparison.csv',drive_mode='measured_voltage');self.assertTrue(a.absolute_current_comparison_valid.iloc[0]);self.assertAlmostEqual(a.I_absolute_error_A.iloc[0],0);self.assertTrue(np.isnan(a.V_absolute_error_V.iloc[0]))
  def test_lossless_split_payload_reassembles(self):
   from packaging_psr import package
   with tempfile.TemporaryDirectory() as td:
