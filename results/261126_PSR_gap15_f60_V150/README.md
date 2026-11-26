@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-60MHz-topRF)
 
-**계산 중** · 실행일 2026-11-26 (한국 시각) · 변경 조건: **PSR/VI · 15 mm · 60 MHz · 150 V peak** · 보고서 갱신 2026-11-26T19:34:16+09:00
+**계산 중** · 실행일 2026-11-26 (한국 시각) · 변경 조건: **PSR/VI · 15 mm · 60 MHz · 150 V peak** · 보고서 갱신 2026-11-26T19:37:32+09:00
 
 실제 상태: running; 배경 안정화/측정 진행 중. PSR 발생 또는 가열 peak를 미리 확정하지 않습니다. 13.56MHz BRH 계산과 별도 코드·폴더·결과 브랜치입니다. 과도구간 2RF 진단(정상 통계 제외): 아래 스펙트럼·쉬스·전력은 초기화 후 별도 복사본에서 얻은 예비 진단입니다. 정상상태나 PSR 발생의 증거로 사용하지 않습니다.
 
@@ -184,7 +184,7 @@
 | 연속·분할 PIC 자료의 고조파 통합 검증 | [block_statistics_native_verified.json](block_statistics_native_verified.json) | 552 B |
 | experiment_template.csv | [experiment_template.csv](experiment_template.csv) | 82 B |
 | experiment_metadata.template.json | [experiment_metadata.template.json](experiment_metadata.template.json) | 608 B |
-| METHOD.md | [METHOD.md](METHOD.md) | 10.8 KiB |
+| METHOD.md | [METHOD.md](METHOD.md) | 11.0 KiB |
 | 별도 수치 검증(과도구간, 정상 통계 제외) resolution_validation.json | [resolution_validation.json](data/resolution_validation.json) | 12.3 KiB |
 | 별도 수치 검증(과도구간, 정상 통계 제외) vacuum_dt_convergence.csv | [vacuum_dt_convergence.csv](data/vacuum_dt_convergence.csv) | 1.2 KiB |
 | 별도 수치 검증(과도구간, 정상 통계 제외) plasma_sensitivity.csv | [plasma_sensitivity.csv](data/plasma_sensitivity.csv) | 25.5 KiB |
@@ -215,6 +215,6 @@
 | 실험 비교 CSV(현재 빈 상태) | [comparison.csv](data/comparison.csv) | 126 B |
 | 실험 비교 미확인 입력 | [experiment_status.json](data/experiment_status.json) | 321 B |
 | 재시작 입자·난수·전류 상태 RF162 | [261126_PSR_gap15_f60_V150_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/261126_PSR_gap15_f60_V150_restart.zip) | 6.42 MiB |
-| 사용 소스·분석·설정·검증·라이선스 | [261126_PSR_gap15_f60_V150_source.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/261126_PSR_gap15_f60_V150_source.zip) | 125.9 KiB |
+| 사용 소스·분석·설정·검증·라이선스 | [261126_PSR_gap15_f60_V150_source.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/261126_PSR_gap15_f60_V150_source.zip) | 126.1 KiB |
 
 [전체 파일 목록·SHA256](files.json)
