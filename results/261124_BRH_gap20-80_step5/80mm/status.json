@@ -17,19 +17,14 @@
   ],
   "initial_SHA256": "e071ac7671354a42079aac33e55e13ba8bb306cd38d3eec9b397940f26ec1b26",
   "initial_e": 91780,
-  "status": "paused_at_checkpoint",
+  "status": "running",
   "phase": "measurement",
   "checkpoint_cycle": 2420,
   "measured_RF": 220,
   "elapsed_solver_seconds": 49874.33707366412,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "started_at_Asia_Seoul": "2026-11-23T16:20:18.955467+09:00",
-  "controller_pid": 504290,
-  "updated_at_Asia_Seoul": "2026-11-24T22:17:15.901582+09:00",
-  "active_RF": [
-    2401,
-    2420
-  ],
+  "updated_at_Asia_Seoul": "2026-11-26T11:51:45.904225+09:00",
   "stationarity": {
     "e": {
       "block_mean_span": 0.00971753007788394,
@@ -43,28 +38,17 @@
     },
     "passed": true
   },
-  "solver_pid": 759713,
-  "checkpoint_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002401-002420/picdata.bin",
+  "checkpoint_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/restored_checkpoint/picdata.bin",
   "electrons": 151606,
   "ions": 153802,
   "last_block_seconds": 1166.8779945430579,
   "last_RF_seconds": 58.343899727152895,
-  "last_diagnostic_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/warmup/RF002100-002100",
+  "last_diagnostic_path": null,
   "measurement_start_RF": 2201,
   "history_filled": true,
   "measurement_start_time_s": 0.00016224188786084456,
   "measurement_blocks": [
-    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002201-002220",
-    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002221-002240",
-    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002241-002260",
-    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002261-002280",
-    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002281-002300",
-    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002301-002320",
-    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002321-002340",
-    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002341-002360",
-    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002361-002380",
-    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002381-002400",
-    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/measurement_epoch1/RF002401-002420"
+    "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/restored_brh"
   ],
   "assessment": {
     "passed": false,
@@ -171,11 +155,28 @@
     "note": "Exploratory block uncertainty and first/last-half drift. No certified total-error or sequential confidence guarantee; EEDF tails and discretization need separate checks."
   },
   "consecutive_passes": 0,
-  "pooled_native_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/pooled_epoch1_RF002420",
-  "measurement_summary_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/brh_pooled_RF002420/summary.json",
+  "pooled_native_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/restored_native",
+  "measurement_summary_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/restored_brh/summary.json",
   "data_invalidation_reason": null,
   "pooled_note": "Measurement RF 2201–2420 (220 RF)",
   "ne_mean_m3": 2121439705501618.0,
   "reused_from_run": "261123_BRH_gap25-120",
-  "original_execution_date": "2026-11-23"
+  "original_execution_date": "2026-11-23",
+  "execution_state": "restored",
+  "recovery_baseline": {
+    "measured_RF": 220,
+    "native_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/restored_native",
+    "summary_path": "/workspace/edupic-brh/261123_BRH_gap25-120/80mm/restored_brh/summary.json",
+    "checkpoint_RF": 2420,
+    "source_git_commit": "e9145a29730e8acf8795b3808c11d5e217df8b46",
+    "original_block_matrices_available": false
+  },
+  "recovery_note": "GitHub의 입자·UID·MCC optical depth·RNG 상태와 누적 원시 counts를 복원했습니다. 이전 개별 20RF native 행렬은 백업되지 않아 누적 평균/사건 통계는 합치되 블록 불확실도는 재개 후 구간에서 별도 평가합니다.",
+  "resumed_at_Asia_Seoul": "2026-11-26T11:51:41.691351+09:00",
+  "controller_pid": 2807,
+  "active_RF": [
+    2421,
+    2440
+  ],
+  "solver_pid": 2834
 }

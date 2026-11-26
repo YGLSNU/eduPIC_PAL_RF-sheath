@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-25T23:17:36+09:00",
+  "report_updated": "2026-11-26T12:06:54+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -39,10 +39,10 @@
     }
   ],
   "title": "BRH · gap 80 mm · 250 V",
-  "status": "paused_at_checkpoint",
+  "status": "running",
   "changed_conditions": "BRH gap 80 mm",
   "report_directory": "results/261124_BRH_gap20-80_step5/80mm",
-  "summary": "기존 동일 조건 실행을 재사용합니다. 새 독립 seed 반복 계산이 아닙니다. 위상·입자 진단 측정 중; 최종 BRH 판정 전 검출된 상부 기준 왕복 23810개, 고유 UID 8383개. 위상 반복 후보 0개(고유 UID 0개). 검출 왕복 중 후보 비율 0.000%. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.",
+  "summary": "기존 동일 조건 실행을 재사용합니다. 새 독립 seed 반복 계산이 아닙니다. 위상·입자 진단 측정 중; 최종 BRH 판정 전 GitHub의 입자·UID·MCC optical depth·RNG 상태와 누적 원시 counts를 복원했습니다. 이전 개별 20RF native 행렬은 백업되지 않아 누적 평균/사건 통계는 합치되 블록 불확실도는 재개 후 구간에서 별도 평가합니다. 검출된 상부 기준 왕복 23810개, 고유 UID 8383개. 위상 반복 후보 0개(고유 UID 0개). 검출 왕복 중 후보 비율 0.000%. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.",
   "measurement_note": "Measurement RF 2201–2420 (220 RF)",
   "sections": [
     {
@@ -197,16 +197,16 @@
     {
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
-      "bytes": 6868,
-      "sha256": "087e8348e775d752116f80aa53c8cde1d4318133af1054ca900ebf0f5db561fb",
-      "git_blob": "34695928282cb94ab388e383ea897e806e500154"
+      "bytes": 6598,
+      "sha256": "af75e6376481e562115aaec219b8967d48ff0559a5af56ea0e0e652507cd192f",
+      "git_blob": "f5d4156a5091e139fa099fe58d551874ff4edd9a"
     },
     {
       "label": "표준 진단 원시 수치·이력: Measurement RF 2201–2420 (220 RF)",
       "path": "261123_80mm_core.zip",
       "bytes": 15248019,
-      "sha256": "5a3562bb45f3b6c0db128153b30ecf0c712932e9a62d830a1b056c8d90978740",
-      "git_blob": "eb07d9e88e3d304ead002516e64b3c52770115f0"
+      "sha256": "ccc8f3919fe4c2842c14ea0772b673af65ecd4a06bd8c6b047377ea4e90e3e3b",
+      "git_blob": "04d3c81e35afacc76cb9e99104d039d2f550259e"
     },
     {
       "label": "입자 수 이력 CSV",
@@ -232,23 +232,23 @@
     {
       "label": "BRH 사건·원시 energy counts·probe·일 지도 (1/2; 분할 시 모두 받기)",
       "path": "261123_80mm_BRH_data_p01.zip",
-      "bytes": 47767441,
-      "sha256": "d290e8a43ce8217e9044cac21454c8dd4498491067de8420134496a1879ab4d4",
-      "git_blob": "5b2249bd8f7da0146ff6446fb67c3806c6d19b91"
+      "bytes": 47768368,
+      "sha256": "dedb7538333dbff7145dce1f59fb9c8d310258e25a90f45553d09330e416dc27",
+      "git_blob": "71e85609ecb4231e730d6061ebc9e74fb5596b7d"
     },
     {
       "label": "BRH 사건·원시 energy counts·probe·일 지도 (2/2; 분할 시 모두 받기)",
       "path": "261123_80mm_BRH_data_p02.zip",
-      "bytes": 4020844,
-      "sha256": "db7cfc5baf8f33d857f7dbf59fb918b93079ce504c44fb1b0bf1a7a12f92ed51",
-      "git_blob": "6edb157f93b9e1e0783664de8efde5caa92e68e8"
+      "bytes": 4021046,
+      "sha256": "4ea58bb3eaebad90752f119d4444327a2f5f2c727098ba4dfdbf25ddf26de8e1",
+      "git_blob": "1331dbba250dc92520d910b3e4064245102f1bdc"
     },
     {
       "label": "BRH 수치·표본 수·해석 범위",
       "path": "measurement_summary.json",
-      "bytes": 6285,
-      "sha256": "bf147fb092eae472f511ffd7cb33a243dad7236d46a7c15c0b3422c17b261e4b",
-      "git_blob": "7e2d410901c97326f195b087c022b54c830ae8d0"
+      "bytes": 6468,
+      "sha256": "e9a60109aa268ff6b5f980e224efa751a18fddfebf91cecc9dcf02d3f4b9537a",
+      "git_blob": "44afdf6bd3b15fed3d708848aeb8d7051a27afb1"
     },
     {
       "label": "위치별 EEPF CSV (raw count 포함)",
@@ -277,7 +277,7 @@
     ],
     [
       "진행 상태 갱신",
-      "2026-11-24T22:17:15.901582+09:00"
+      "2026-11-26T11:51:45.904225+09:00"
     ]
   ],
   "reused_from_run": "261123_BRH_gap25-120",

@@ -1,6 +1,6 @@
 gap_mm,V_peak,status,phase,completed_RF,measured_RF,electrons,ions,last_seconds_per_RF,reason
-20,250,extinguished,warmup,95,0,0,1292,0.3883129940216389,RF95에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니다. 정상 EEDF/BRH를 정의하지 않습니다.
-25,250,extinguished,warmup,245,0,0,1169,0.11900520593238374,RF245에서 전자 수 0으로 종료. 잔류 이온은 존재할 수 있습니다. 정상 EEDF/BRH를 정의하지 않습니다.
+20,250,extinguished,warmup,95,0,0,1292,0.3883129940216389,No electrons remain. Steady-discharge EEDF/BRH diagnostics are undefined.
+25,250,extinguished,warmup,245,0,0,1169,0.11900520593238374,No electrons remain. Steady-discharge EEDF/BRH diagnostics are undefined.
 30,250,measurement_limit_reached,measurement,2851,1000,7433,9433,2.274558907948085,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
 35,250,measurement_limit_reached,measurement,2700,1000,26228,28470,8.853833175147884,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
 40,250,measurement_limit_reached,measurement,1602,1000,45894,48277,14.821383060351945,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
@@ -10,5 +10,5 @@ gap_mm,V_peak,status,phase,completed_RF,measured_RF,electrons,ions,last_seconds_
 60,250,measurement_limit_reached,measurement,2751,1000,101639,103939,30.9846115839493,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
 65,250,measurement_limit_reached,measurement,2800,1000,113051,115320,33.052365507598736,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
 70,250,measurement_limit_reached,measurement,3051,1000,125010,127235,41.04757366635022,Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension.
-75,250,running,measurement,2500,700,138186,140396,43.56437106640078,위상·입자 진단 측정 중; 최종 BRH 판정 전
-80,250,paused_at_checkpoint,measurement,2420,220,151606,153802,58.343899727152895,위상·입자 진단 측정 중; 최종 BRH 판정 전
+75,250,running,measurement,2500,700,138186,140396,43.56437106640078,위상·입자 진단 측정 중; 최종 BRH 판정 전 GitHub의 입자·UID·MCC optical depth·RNG 상태와 누적 원시 counts를 복원했습니다. 이전 개별 20RF native 행렬은 백업되지 않아 누적 평균/사건 통계는 합치되 블록 불확실도는 재개 후 구간에서 별도 평가합니다.
+80,250,running,measurement,2420,220,151606,153802,58.343899727152895,위상·입자 진단 측정 중; 최종 BRH 판정 전 GitHub의 입자·UID·MCC optical depth·RNG 상태와 누적 원시 counts를 복원했습니다. 이전 개별 20RF native 행렬은 백업되지 않아 누적 평균/사건 통계는 합치되 블록 불확실도는 재개 후 구간에서 별도 평가합니다.

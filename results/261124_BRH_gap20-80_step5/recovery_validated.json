@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "gap_mm": 75,
+      "passed": true,
+      "input_checkpoint": {
+        "cycle": 2500,
+        "time_seconds": 0.00018436578165853903,
+        "electrons": 138186,
+        "ions": 140396,
+        "sha256": "a9526ff09c27abbb3f85950832c6253bc8c3a43f09535deb27f599254edcda19"
+      },
+      "output_checkpoint": {
+        "cycle": 2502,
+        "time_seconds": 0.000184513274283857,
+        "electrons": 138219,
+        "ions": 140405,
+        "sha256": "c4095bca700081ad6f0f0a2374472b25aa06df3a876af3f6cca0e1005e6b5d9c"
+      },
+      "two_RF_vs_one_plus_one_byte_identity": {
+        "picdata.bin": true,
+        "brh_state.bin": true,
+        "brh_rng.txt": true
+      },
+      "new_native_blocks_validated": true,
+      "source_SHA256": "cfb0169f87714aff0a93cd968a2358bfe8af4b6635fe15bdc5488187d6b78a8a",
+      "header_SHA256": "01386a6acae318458b431f66c38e8d0eb004cc06aece551daedf70d768362d6d",
+      "scope": "Isolated copies; excluded from research statistics and production checkpoints."
+    },
+    {
+      "gap_mm": 80,
+      "passed": true,
+      "input_checkpoint": {
+        "cycle": 2420,
+        "time_seconds": 0.0001784660766458205,
+        "electrons": 151606,
+        "ions": 153802,
+        "sha256": "848a59606d8a4d29ac6ae842be100bb001d9dde18efba455d0eccf66b51f60de"
+      },
+      "output_checkpoint": {
+        "cycle": 2422,
+        "time_seconds": 0.00017861356927113847,
+        "electrons": 151647,
+        "ions": 153819,
+        "sha256": "15773eb8c43242fcf74f12dc8f9daf6e6e6c2e1d9557e42aac08bf07502cb161"
+      },
+      "two_RF_vs_one_plus_one_byte_identity": {
+        "picdata.bin": true,
+        "brh_state.bin": true,
+        "brh_rng.txt": true
+      },
+      "new_native_blocks_validated": true,
+      "source_SHA256": "cfb0169f87714aff0a93cd968a2358bfe8af4b6635fe15bdc5488187d6b78a8a",
+      "header_SHA256": "01386a6acae318458b431f66c38e8d0eb004cc06aece551daedf70d768362d6d",
+      "scope": "Isolated copies; excluded from research statistics and production checkpoints."
+    }
+  ]
+}

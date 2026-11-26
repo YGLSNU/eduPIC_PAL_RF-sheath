@@ -24,13 +24,8 @@
   "elapsed_solver_seconds": 56124.6047775785,
   "source_SHA256": "734ca36277917791d6e48860de1d6b084194a8649fec382170da8f2fd26412a1",
   "execution_date": "2026-11-24",
-  "updated_at_Asia_Seoul": "2026-11-25T23:12:07.755602+09:00",
+  "updated_at_Asia_Seoul": "2026-11-26T11:51:44.307111+09:00",
   "started_at_Asia_Seoul": "2026-11-24T22:03:55.750512+09:00",
-  "controller_pid": 761029,
-  "active_RF": [
-    2501,
-    2520
-  ],
   "stationarity": {
     "e": {
       "block_mean_span": 0.009661834739328506,
@@ -44,54 +39,19 @@
     },
     "passed": true
   },
-  "execution_state": "solver",
+  "execution_state": "restored",
   "capacity_reserved_for_earlier_scan": 0,
-  "solver_pid": 929453,
-  "checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002481-002500/picdata.bin",
+  "checkpoint_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/restored_checkpoint/picdata.bin",
   "electrons": 138186,
   "ions": 140396,
   "last_block_seconds": 871.2874213280156,
   "last_RF_seconds": 43.56437106640078,
-  "last_diagnostic_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/warmup/RF001700-001700",
+  "last_diagnostic_path": null,
   "measurement_start_RF": 1801,
   "history_filled": true,
   "measurement_start_time_s": 0.00013274336279725193,
   "measurement_blocks": [
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001801-001820",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001821-001840",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001841-001860",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001861-001880",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001881-001900",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001901-001920",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001921-001940",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001941-001960",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001961-001980",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF001981-002000",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002001-002020",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002021-002040",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002041-002060",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002061-002080",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002081-002100",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002101-002120",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002121-002140",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002141-002160",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002161-002180",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002181-002200",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002201-002220",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002221-002240",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002241-002260",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002261-002280",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002281-002300",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002301-002320",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002321-002340",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002341-002360",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002361-002380",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002381-002400",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002401-002420",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002421-002440",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002441-002460",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002461-002480",
-    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/measurement_epoch1/RF002481-002500"
+    "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/restored_brh"
   ],
   "assessment": {
     "passed": false,
@@ -198,9 +158,25 @@
     "note": "Exploratory block uncertainty and first/last-half drift. No certified total-error or sequential confidence guarantee; EEDF tails and discretization need separate checks."
   },
   "consecutive_passes": 0,
-  "pooled_native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/pooled_epoch1_RF002500",
-  "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/brh_pooled_RF002500/summary.json",
+  "pooled_native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/restored_native",
+  "measurement_summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/restored_brh/summary.json",
   "data_invalidation_reason": null,
   "pooled_note": "Measurement RF 1801–2500 (700 RF)",
-  "ne_mean_m3": 2054345559503069.2
+  "ne_mean_m3": 2054345559503069.2,
+  "recovery_baseline": {
+    "measured_RF": 700,
+    "native_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/restored_native",
+    "summary_path": "/workspace/edupic-brh/261124_BRH_gap20-80_step5/75mm/restored_brh/summary.json",
+    "checkpoint_RF": 2500,
+    "source_git_commit": "e9145a29730e8acf8795b3808c11d5e217df8b46",
+    "original_block_matrices_available": false
+  },
+  "recovery_note": "GitHub의 입자·UID·MCC optical depth·RNG 상태와 누적 원시 counts를 복원했습니다. 이전 개별 20RF native 행렬은 백업되지 않아 누적 평균/사건 통계는 합치되 블록 불확실도는 재개 후 구간에서 별도 평가합니다.",
+  "resumed_at_Asia_Seoul": "2026-11-26T11:51:41.690498+09:00",
+  "controller_pid": 2807,
+  "active_RF": [
+    2501,
+    2520
+  ],
+  "solver_pid": 2825
 }

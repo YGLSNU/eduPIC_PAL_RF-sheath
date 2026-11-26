@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "gap_mm": 75,
+      "passed": true,
+      "RF": 702,
+      "duration_weighted_native_arrays": true,
+      "raw_histogram_byte_exact_sum": true,
+      "fieldwork_exact_sum": true
+    },
+    {
+      "gap_mm": 80,
+      "passed": true,
+      "RF": 222,
+      "duration_weighted_native_arrays": true,
+      "raw_histogram_byte_exact_sum": true,
+      "fieldwork_exact_sum": true
+    }
+  ],
+  "scope": "Restored baseline + isolated 2RF test copies, excluded from production statistics."
+}

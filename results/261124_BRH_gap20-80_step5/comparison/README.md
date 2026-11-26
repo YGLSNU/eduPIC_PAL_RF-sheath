@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md)
 
-**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap20–80 mm 비교** · 보고서 갱신 2026-11-25T23:17:36+09:00
+**계산 중** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap20–80 mm 비교** · 보고서 갱신 2026-11-26T12:06:54+09:00
 
 13개 계획 조건의 실제 상태와 확보된 측정만 비교합니다. 실행일은 원 계산 시작일이며 보고서 갱신일과 구분합니다. 기존 조건 재사용은 CSV의 reused_from_run·execution_date와 개별 보고서에 표시합니다. 모든 gap 완료·BRH 확정을 뜻하지 않습니다.
 
@@ -55,7 +55,7 @@
 | [65](../65mm/README.md) | 1000 RF 상한·기준 미충족 | 1801–2800 (1000 RF) | 충족 | 미충족 |
 | [70](../70mm/README.md) | 1000 RF 상한·기준 미충족 | 2052–3051 (1000 RF) | 충족 | 미충족 |
 | [75](../75mm/README.md) | 계산 중 | 1801–2500 (700 RF) | 충족 | 미충족 |
-| [80](../80mm/README.md) | 체크포인트 일시중단 | 2201–2420 (220 RF) | 충족 | 미충족 |
+| [80](../80mm/README.md) | 계산 중 | 2201–2420 (220 RF) | 충족 | 미충족 |
 
 배경 기준 충족과 BRH 통계 기준 충족은 별도입니다. 상한 종료를 수렴 완료로 표시하지 않습니다. 소멸·미측정 gap은 비교 그래프에서 0으로 채우지 않습니다.
 
@@ -184,10 +184,10 @@
 
 | 자료 | 다운로드 | 크기 |
 |---|---|---:|
-| gap별 파라미터 CSV | [gap_parameters.csv](data/gap_parameters.csv) | 9.4 KiB |
-| 계획 gap 전체 상태 CSV | [gap_status.csv](data/gap_status.csv) | 826 B |
+| gap별 파라미터 CSV | [gap_parameters.csv](data/gap_parameters.csv) | 9.3 KiB |
+| 계획 gap 전체 상태 CSV | [gap_status.csv](data/gap_status.csv) | 813 B |
 | 전자별 횟수·episode 에너지·선택 궤적 CSV 모음 | [261124_BRH_comparison.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/comparison/261124_BRH_comparison.zip) | 2.08 MiB |
-| 원자료 구간·SHA·에너지 장부 검증 | [analysis_provenance.json](analysis_provenance.json) | 56.3 KiB |
+| 원자료 구간·SHA·에너지 장부 검증 | [analysis_provenance.json](analysis_provenance.json) | 10.1 KiB |
 | 30 mm 전자 UID별 관측 횟수 | [30mm_uid_counts.csv.gz](data/30mm_uid_counts.csv.gz) | 26.8 KiB |
 | 35 mm 전자 UID별 관측 횟수 | [35mm_uid_counts.csv.gz](data/35mm_uid_counts.csv.gz) | 46.1 KiB |
 | 40 mm 전자 UID별 관측 횟수 | [40mm_uid_counts.csv.gz](data/40mm_uid_counts.csv.gz) | 62.9 KiB |

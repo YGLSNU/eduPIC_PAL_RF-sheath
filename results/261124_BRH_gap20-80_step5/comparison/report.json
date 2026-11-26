@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-25T23:17:36+09:00",
+  "report_updated": "2026-11-26T12:06:54+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -58,7 +58,7 @@
     {
       "id": "convergence",
       "data_status": "partial",
-      "text": "| Gap mm | 상태 | 측정 RF 구간 | 배경 기준 | BRH 포함 전체 기준 |\n|---:|---|---|---|---|\n| [20](../20mm/README.md) | 전자 소멸 | 측정 전 / 정의 불가 | — | — |\n| [25](../25mm/README.md) | 전자 소멸 | 측정 전 / 정의 불가 | — | — |\n| [30](../30mm/README.md) | 1000 RF 상한·기준 미충족 | 1852–2851 (1000 RF) | 미충족 | 미충족 |\n| [35](../35mm/README.md) | 1000 RF 상한·기준 미충족 | 1701–2700 (1000 RF) | 미충족 | 미충족 |\n| [40](../40mm/README.md) | 1000 RF 상한·기준 미충족 | 603–1602 (1000 RF) | 충족 | 미충족 |\n| [45](../45mm/README.md) | 1000 RF 상한·기준 미충족 | 1101–2100 (1000 RF) | 충족 | 미충족 |\n| [50](../50mm/README.md) | 1000 RF 상한·기준 미충족 | 1352–2351 (1000 RF) | 충족 | 미충족 |\n| [55](../55mm/README.md) | 1000 RF 상한·기준 미충족 | 1452–2451 (1000 RF) | 충족 | 미충족 |\n| [60](../60mm/README.md) | 1000 RF 상한·기준 미충족 | 1752–2751 (1000 RF) | 충족 | 미충족 |\n| [65](../65mm/README.md) | 1000 RF 상한·기준 미충족 | 1801–2800 (1000 RF) | 충족 | 미충족 |\n| [70](../70mm/README.md) | 1000 RF 상한·기준 미충족 | 2052–3051 (1000 RF) | 충족 | 미충족 |\n| [75](../75mm/README.md) | 계산 중 | 1801–2500 (700 RF) | 충족 | 미충족 |\n| [80](../80mm/README.md) | 체크포인트 일시중단 | 2201–2420 (220 RF) | 충족 | 미충족 |\n\n배경 기준 충족과 BRH 통계 기준 충족은 별도입니다. 상한 종료를 수렴 완료로 표시하지 않습니다. 소멸·미측정 gap은 비교 그래프에서 0으로 채우지 않습니다.",
+      "text": "| Gap mm | 상태 | 측정 RF 구간 | 배경 기준 | BRH 포함 전체 기준 |\n|---:|---|---|---|---|\n| [20](../20mm/README.md) | 전자 소멸 | 측정 전 / 정의 불가 | — | — |\n| [25](../25mm/README.md) | 전자 소멸 | 측정 전 / 정의 불가 | — | — |\n| [30](../30mm/README.md) | 1000 RF 상한·기준 미충족 | 1852–2851 (1000 RF) | 미충족 | 미충족 |\n| [35](../35mm/README.md) | 1000 RF 상한·기준 미충족 | 1701–2700 (1000 RF) | 미충족 | 미충족 |\n| [40](../40mm/README.md) | 1000 RF 상한·기준 미충족 | 603–1602 (1000 RF) | 충족 | 미충족 |\n| [45](../45mm/README.md) | 1000 RF 상한·기준 미충족 | 1101–2100 (1000 RF) | 충족 | 미충족 |\n| [50](../50mm/README.md) | 1000 RF 상한·기준 미충족 | 1352–2351 (1000 RF) | 충족 | 미충족 |\n| [55](../55mm/README.md) | 1000 RF 상한·기준 미충족 | 1452–2451 (1000 RF) | 충족 | 미충족 |\n| [60](../60mm/README.md) | 1000 RF 상한·기준 미충족 | 1752–2751 (1000 RF) | 충족 | 미충족 |\n| [65](../65mm/README.md) | 1000 RF 상한·기준 미충족 | 1801–2800 (1000 RF) | 충족 | 미충족 |\n| [70](../70mm/README.md) | 1000 RF 상한·기준 미충족 | 2052–3051 (1000 RF) | 충족 | 미충족 |\n| [75](../75mm/README.md) | 계산 중 | 1801–2500 (700 RF) | 충족 | 미충족 |\n| [80](../80mm/README.md) | 계산 중 | 2201–2420 (220 RF) | 충족 | 미충족 |\n\n배경 기준 충족과 BRH 통계 기준 충족은 별도입니다. 상한 종료를 수렴 완료로 표시하지 않습니다. 소멸·미측정 gap은 비교 그래프에서 0으로 채우지 않습니다.",
       "images": []
     },
     {
@@ -202,30 +202,30 @@
     {
       "label": "gap별 파라미터 CSV",
       "path": "data/gap_parameters.csv",
-      "bytes": 9578,
-      "sha256": "d3c9f0b2130e557f50a29c1f24d0b3cb1e6973eed56530f8c7162d4a51c92315",
-      "git_blob": "0d88cf728674131ffae00a08c7745a5328a25d29"
+      "bytes": 9565,
+      "sha256": "f3f3c5aa54af793f3672196286569eb0d0c209cc201349d7e76bde76e5d14b4f",
+      "git_blob": "b5c5abfb123162d2eaadc557464a16fd79b87b9a"
     },
     {
       "label": "계획 gap 전체 상태 CSV",
       "path": "data/gap_status.csv",
-      "bytes": 826,
-      "sha256": "8c853d05b9793d208c2e7fffb7f0ebb195b4b034deb6076e881032c4191fbfd5",
-      "git_blob": "dae57952bcdaad8e5b8542fdfca6b0d14ed00a90"
+      "bytes": 813,
+      "sha256": "cad22cc799b6370116663837c00adb8cc0add1a5a29ab3fb7b734da6e59e62b4",
+      "git_blob": "edc1f876c3226a8fb1feee2a11f06d3e18a82569"
     },
     {
       "label": "전자별 횟수·episode 에너지·선택 궤적 CSV 모음",
       "path": "261124_BRH_comparison.zip",
-      "bytes": 2182216,
-      "sha256": "9ed2456b092dbbbd2f79ed2b7d68b4ff4e6dd5901164f52fd788733d1901122c",
-      "git_blob": "9ee1599df6c242e1be626359e1d72407bafdca7b"
+      "bytes": 2179299,
+      "sha256": "1eb048e173ceedf9d995ee0368f9ec375d8ed66203ffbcc589419c91844fc909",
+      "git_blob": "032120f1d296cdf9190a3bfad8059408e2164611"
     },
     {
       "label": "원자료 구간·SHA·에너지 장부 검증",
       "path": "analysis_provenance.json",
-      "bytes": 57624,
-      "sha256": "1aa278c8510757f6cdd6165112cade62da13c042f607cf7be51df3ac2f22a2f9",
-      "git_blob": "a0c38acbef5056315cfe74a180844835a0eb2ee8"
+      "bytes": 10369,
+      "sha256": "59002d098668128a08f321cf552b752c277805671fa0096b789e8ec551188a74",
+      "git_blob": "5a86965fbd80f8fbb61516db678313ab8054c516"
     },
     {
       "label": "30 mm 전자 UID별 관측 횟수",
