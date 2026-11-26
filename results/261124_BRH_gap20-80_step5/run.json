@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-26T22:53:08+09:00",
+  "report_updated": "2026-11-26T23:05:08+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -53,7 +53,7 @@
     }
   ],
   "title": "Bounce resonance heating · gap 스캔",
-  "status": "running",
+  "status": "measurement_limit_reached",
   "scan_parameter": "gap_mm",
   "changed_conditions": "BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm",
   "summary": "250 V에서 gap만 바꾸며 넓은 에너지 분포와 충돌을 포함한 전자 왕복·위상 재현성·signed field work를 비교합니다. 아래는 마지막 완결 블록의 저장 기록입니다. 진행 중인 gap의 결과 및 BRH 여부를 최종값으로 해석하지 않습니다. 2026-11-26 사용자 지시로 75 mm RF2500, 80 mm RF2420에서 재개합니다. 20–70 mm의 종료 결과를 유지하고 80 mm 일시중단을 해제했습니다. 100·120 mm는 중단 상태를 유지합니다. 기존 측정 상한1000RF 및 물리 조건은 유지합니다. 복원 전 개별 native 블록이 없어 누적 평균·원시 counts와 재개 후 구간의 불확실도를 구분합니다. 인계 연구 목적은 BRH의 gap 의존성과 순가열 최대점 평가입니다. 50 mm에서 무충돌 약1 RF 연속 왕복이 가장 많았다는 인계 관찰은 가열 peak 확정과 구분하며, 원 분석 파일은 현재 환경에서 재확인되지 않았습니다. 이 보고서의 기본1T 후보 표는 충돌을 포함하므로 무충돌 연속 왕복 통계와 대상을 구분합니다. 순가열량의 통계 오차로 BRH 가열 peak는 아직 미확정입니다. 47.5·52.5 mm 추가 계산은 제안 단계이며 승인 범위에 포함하지 않습니다. 기존 실행 재사용: 25, 30, 40, 50, 60, 80 mm. 새 계산: 75, 80 mm. 재사용 조건의 원 실행일·상한/소멸 상태를 유지합니다.",
@@ -170,10 +170,10 @@
     {
       "gap_mm": 80,
       "voltage_V": 250,
-      "status": "running",
-      "total_rf": 3180,
-      "measurement_rf": 980,
-      "ne_mean_m3": 2126589457637247.5,
+      "status": "measurement_limit_reached",
+      "total_rf": 3200,
+      "measurement_rf": 1000,
+      "ne_mean_m3": 2126592024392810.0,
       "path": "80mm/README.md"
     }
   ],
@@ -259,16 +259,16 @@
           "caption": "각gap의 실제 측정 RF를 범례에 표시했습니다. 중앙10%, E<500eV로 정규화한 원시 counts 기반 비교입니다."
         }
       ],
-      "table": "| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |\n|---:|---|---|---:|---:|---:|---:|\n| 30 | measurement_limit_reached | 1852–2851 (1000RF) | 32281 / 395 | 352 | 1.224 | 5.052 |\n| 35 | measurement_limit_reached | 1701–2700 (1000RF) | 97148 / 353 | 332 | 0.363 | 6.901 |\n| 40 | measurement_limit_reached | 603–1602 (1000RF) | 212801 / 488 | 455 | 0.229 | 4.257 |\n| 45 | measurement_limit_reached | 1101–2100 (1000RF) | 209753 / 397 | 377 | 0.189 | 2.119 |\n| 50 | measurement_limit_reached | 1352–2351 (1000RF) | 200379 / 323 | 305 | 0.161 | 2.075 |\n| 55 | measurement_limit_reached | 1452–2451 (1000RF) | 181297 / 155 | 146 | 0.085 | 1.273 |\n| 60 | measurement_limit_reached | 1752–2751 (1000RF) | 168729 / 33 | 33 | 0.020 | 4.494 |\n| 65 | measurement_limit_reached | 1801–2800 (1000RF) | 155793 / 9 | 9 | 0.006 | 2.015 |\n| 70 | measurement_limit_reached | 2052–3051 (1000RF) | 145221 / 1 | 1 | 0.001 | 6.405 |\n| 75 | measurement_limit_reached | 1801–2800 (1000RF) | 135918 / 1 | 1 | 0.001 | -4.764 |\n| 80 | running | 2201–3180 (980RF) | 127434 / 0 | 0 | 0.000 | — |\n"
+      "table": "| Gap mm | 상태 | 측정 RF | 왕복 / 1T후보 | 후보 UID | 후보 % | 후보 field work eV/왕복 |\n|---:|---|---|---:|---:|---:|---:|\n| 30 | measurement_limit_reached | 1852–2851 (1000RF) | 32281 / 395 | 352 | 1.224 | 5.052 |\n| 35 | measurement_limit_reached | 1701–2700 (1000RF) | 97148 / 353 | 332 | 0.363 | 6.901 |\n| 40 | measurement_limit_reached | 603–1602 (1000RF) | 212801 / 488 | 455 | 0.229 | 4.257 |\n| 45 | measurement_limit_reached | 1101–2100 (1000RF) | 209753 / 397 | 377 | 0.189 | 2.119 |\n| 50 | measurement_limit_reached | 1352–2351 (1000RF) | 200379 / 323 | 305 | 0.161 | 2.075 |\n| 55 | measurement_limit_reached | 1452–2451 (1000RF) | 181297 / 155 | 146 | 0.085 | 1.273 |\n| 60 | measurement_limit_reached | 1752–2751 (1000RF) | 168729 / 33 | 33 | 0.020 | 4.494 |\n| 65 | measurement_limit_reached | 1801–2800 (1000RF) | 155793 / 9 | 9 | 0.006 | 2.015 |\n| 70 | measurement_limit_reached | 2052–3051 (1000RF) | 145221 / 1 | 1 | 0.001 | 6.405 |\n| 75 | measurement_limit_reached | 1801–2800 (1000RF) | 135918 / 1 | 1 | 0.001 | -4.764 |\n| 80 | measurement_limit_reached | 2201–3200 (1000RF) | 130133 / 0 | 0 | 0.000 | — |\n"
     }
   ],
   "downloads": [
     {
       "label": "조건별 진행 요약 CSV",
       "path": "summary.csv",
-      "bytes": 2905,
-      "sha256": "156a00a20b25c60bba810c4f070b5a9ddee2aa81aa0415a086db5a251838eba1",
-      "git_blob": "d69cc5698308142ffa481e8a817af03c107db83f"
+      "bytes": 2969,
+      "sha256": "8c3746e67eb776830ea536b053b7433a2d5a590f7a8a9e504507535cc1e4d36a",
+      "git_blob": "b0a950babcab16a3a616adcba377f5ea96878702"
     },
     {
       "label": "공통 설정",
@@ -329,9 +329,9 @@
     {
       "label": "gap별 BRH 사건·에너지·불확실도 요약 CSV",
       "path": "brh_gap_summary.csv",
-      "bytes": 1777,
-      "sha256": "daa2f9b034f253daaf027188d7828db7e015e1dc51411a2cd63ea92f6aaa2b9a",
-      "git_blob": "33aa579c9db7afe1a060e9490660700ebc6151c2"
+      "bytes": 1796,
+      "sha256": "8a4c442fa000b267396108b6fbdeff3ed2fc84645ce3cfb1c30648ae436fc7bb",
+      "git_blob": "bb877d1312ea563f19f5f25f3a5e09f124c1f85b"
     },
     {
       "label": "실행 소스·진단·설정·원본40mm 기준 입자",
