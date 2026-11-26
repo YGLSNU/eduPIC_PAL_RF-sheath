@@ -3,7 +3,7 @@
   "id": "261124_BRH_gap20-80_step5",
   "branch": "results/20mTorr-topRF",
   "date": "2026-11-24",
-  "report_updated": "2026-11-26T20:36:57+09:00",
+  "report_updated": "2026-11-26T20:53:52+09:00",
   "conditions": {
     "gas": "Ar",
     "pressure_mTorr": 20,
@@ -53,7 +53,7 @@
       "images": [
         {
           "path": "figures/convergence.png",
-          "caption": "저장된 이력 RF1–3040. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
+          "caption": "저장된 이력 RF1–3060. 체적 평균은 입자 수에서 계산한 값이며 공간분포와 다릅니다."
         }
       ]
     },
@@ -198,8 +198,8 @@
       "label": "저장된 실행 상태·실제 RF·종료 사유",
       "path": "status.json",
       "bytes": 13562,
-      "sha256": "8ce96c09e139dc87096bdf637d1eb2c8a556861560b29d7bef817ca2593f5d8f",
-      "git_blob": "94b485bfa2622ab26036d3991843f68129822496"
+      "sha256": "ce887941f8b35479e2873e51fcaf472a63ad4069479b7d31ef16883274b96104",
+      "git_blob": "c91ad400a884f10298729825442a80bf7a90d1f4"
     },
     {
       "label": "표준 진단 원시 수치·이력: Measurement RF 2201–3040 (840 RF); pre-resume aggregate restored; uncertainty assessed separately after resume",
@@ -211,9 +211,9 @@
     {
       "label": "입자 수 이력 CSV",
       "path": "history.csv",
-      "bytes": 56690,
-      "sha256": "81fb39c8881ddbd61621a44021d48c1786b1764b49fd43a8a7b0ba24a31a6471",
-      "git_blob": "d3e189f937bdaed3cfcc33de9205ef09652e64bd"
+      "bytes": 57070,
+      "sha256": "665092157c11a69dc0a7ccbad635e320d136c201d7f2e856751fe85608ab6edc",
+      "git_blob": "497144b903452256b9afb2cdbfd0cb6d03c90603"
     },
     {
       "label": "재시작 입자·동반 상태 (저장 RF 3020; 보고서의 최신 RF와 다를 수 있음)",
@@ -275,7 +275,7 @@
   "metrics": [
     [
       "저장 체크포인트",
-      "RF 3040"
+      "RF 3060"
     ],
     [
       "정상 측정 누적",
@@ -291,7 +291,7 @@
     ],
     [
       "진행 상태 갱신",
-      "2026-11-26T20:35:41.755431+09:00"
+      "2026-11-26T20:52:49.204045+09:00"
     ]
   ],
   "reused_from_run": "261123_BRH_gap25-120",
