@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-60MHz-topRF)
 
-**계산 중** · 실행일 2026-11-26 (한국 시각) · 변경 조건: **PSR/VI · 15 mm · 60 MHz · 150 V peak** · 보고서 갱신 2026-11-26T19:05:43+09:00
+**계산 중** · 실행일 2026-11-26 (한국 시각) · 변경 조건: **PSR/VI · 15 mm · 60 MHz · 150 V peak** · 보고서 갱신 2026-11-26T19:14:14+09:00
 
 실제 상태: running; 배경 안정화/측정 진행 중. PSR 발생 또는 가열 peak를 미리 확정하지 않습니다. 13.56MHz BRH 계산과 별도 코드·폴더·결과 브랜치입니다. 과도구간 2RF 진단(정상 통계 제외): 아래 스펙트럼·쉬스·전력은 초기화 후 별도 복사본에서 얻은 예비 진단입니다. 정상상태나 PSR 발생의 증거로 사용하지 않습니다.
 
@@ -20,7 +20,7 @@
 | 코드 | 독립 C/eduPIC_psr_vi.cc · 원래 Ar PIC/MCC + 보존 전류/전력/적분 쉬스/고조파 진단; 이온 매step 갱신 |
 | 소스 이력 | source SHA256 df8ae1989d58191a70524779fa61e90b28425d93e5078fb510b3f1b9b9c4fd0b; diagnostic header 9dd45770792f8e5149a77dbe2cd3820b63ca5cd7bc8f806e8fd31601a8e28844 |
 | 초기·재시작 상태 | Fresh preionized spatially paired uniform electron/ion positions, Maxwellian electron3eV/ion350K; not a breakdown threshold test. Changed-condition transients excluded. |
-| 측정 구간 | 마지막 완결 RF 102; 정상 측정 0RF. 안정화는 마지막600RF 입자 수 span<1%, drift<2%; 정상 측정 최소200RF, 상한1000RF. 고조파별 블록 평균·변동과 PIC 검증을 별도 기록. |
+| 측정 구간 | 마지막 완결 RF 122; 정상 측정 0RF. 안정화는 마지막600RF 입자 수 span<1%, drift<2%; 정상 측정 최소200RF, 상한1000RF. 고조파별 블록 평균·변동과 PIC 검증을 별도 기록. |
 
 상태와 그래프는 마지막 저장 자료이며 실시간 CPU 실행 화면은 아닙니다.
 
@@ -30,7 +30,7 @@
 
 | 물리량 | 값 |
 |---|---|
-| 저장 RF | 102 |
+| 저장 RF | 122 |
 | 측정 RF | 0 |
 | 단자 전류 정의 | RF→plasma (-x); continuum/path charge deposition + displacement; surface-charge/Ramo cross-check |
 | PSR 판정 | 미확정; peak·LC 추정·선택대역 전력은 단독 증거가 아님 |
@@ -119,15 +119,19 @@
 
 ## VI 고조파
 
-과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 전류밀도 A/m², peak/RMS와 위상·차수별 전력은 CSV 참조. 이상적인 정현파에서 V(n>1)=0은 경계조건입니다.
+과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 마지막 블록과 전체 RF가중 복소 평균을 구분합니다. 진폭·위상·차수별 전력·블록 변동은 CSV 참조. 오차 막대는 2.3SE 변동 지표이며 총 오차나 수렴 보장이 아닙니다. 한 블록에서는 변동 지표가 없습니다. 이상적 정현파에서 V(n>1)=0은 경계조건입니다.
 
-![과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 전류밀도 A/m², peak/RMS와 위상·차수별 전력은 CSV 참조. 이상적인 정현파에서 V(n>1)=0은 경계조건입니다.](figures/VI_waveforms.png)
+![과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 마지막 블록과 전체 RF가중 복소 평균을 구분합니다. 진폭·위상·차수별 전력·블록 변동은 CSV 참조. 오차 막대는 2.3SE 변동 지표이며 총 오차나 수렴 보장이 아닙니다. 한 블록에서는 변동 지표가 없습니다. 이상적 정현파에서 V(n>1)=0은 경계조건입니다.](figures/VI_waveforms.png)
 
-과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 전류밀도 A/m², peak/RMS와 위상·차수별 전력은 CSV 참조. 이상적인 정현파에서 V(n>1)=0은 경계조건입니다.
+과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 마지막 블록과 전체 RF가중 복소 평균을 구분합니다. 진폭·위상·차수별 전력·블록 변동은 CSV 참조. 오차 막대는 2.3SE 변동 지표이며 총 오차나 수렴 보장이 아닙니다. 한 블록에서는 변동 지표가 없습니다. 이상적 정현파에서 V(n>1)=0은 경계조건입니다.
 
-![과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 전류밀도 A/m², peak/RMS와 위상·차수별 전력은 CSV 참조. 이상적인 정현파에서 V(n>1)=0은 경계조건입니다.](figures/harmonics.png)
+![과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 마지막 블록과 전체 RF가중 복소 평균을 구분합니다. 진폭·위상·차수별 전력·블록 변동은 CSV 참조. 오차 막대는 2.3SE 변동 지표이며 총 오차나 수렴 보장이 아닙니다. 한 블록에서는 변동 지표가 없습니다. 이상적 정현파에서 V(n>1)=0은 경계조건입니다.](figures/harmonics.png)
 
-과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 전류밀도 A/m², peak/RMS와 위상·차수별 전력은 CSV 참조. 이상적인 정현파에서 V(n>1)=0은 경계조건입니다.
+과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 마지막 블록과 전체 RF가중 복소 평균을 구분합니다. 진폭·위상·차수별 전력·블록 변동은 CSV 참조. 오차 막대는 2.3SE 변동 지표이며 총 오차나 수렴 보장이 아닙니다. 한 블록에서는 변동 지표가 없습니다. 이상적 정현파에서 V(n>1)=0은 경계조건입니다.
+
+![과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 마지막 블록과 전체 RF가중 복소 평균을 구분합니다. 진폭·위상·차수별 전력·블록 변동은 CSV 참조. 오차 막대는 2.3SE 변동 지표이며 총 오차나 수렴 보장이 아닙니다. 한 블록에서는 변동 지표가 없습니다. 이상적 정현파에서 V(n>1)=0은 경계조건입니다.](figures/harmonic_block_statistics.png)
+
+과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 마지막 블록과 전체 RF가중 복소 평균을 구분합니다. 진폭·위상·차수별 전력·블록 변동은 CSV 참조. 오차 막대는 2.3SE 변동 지표이며 총 오차나 수렴 보장이 아닙니다. 한 블록에서는 변동 지표가 없습니다. 이상적 정현파에서 V(n>1)=0은 경계조건입니다.
 
 ## 쉬스 비선형성
 
@@ -177,15 +181,16 @@
 | status.json | [status.json](status.json) | 617 B |
 | criteria.json | [criteria.json](criteria.json) | 131 B |
 | implementation_validated.json | [implementation_validated.json](implementation_validated.json) | 1.6 KiB |
+| 연속·분할 PIC 자료의 고조파 통합 검증 | [block_statistics_native_verified.json](block_statistics_native_verified.json) | 552 B |
 | experiment_template.csv | [experiment_template.csv](experiment_template.csv) | 82 B |
 | experiment_metadata.template.json | [experiment_metadata.template.json](experiment_metadata.template.json) | 608 B |
-| METHOD.md | [METHOD.md](METHOD.md) | 9.7 KiB |
+| METHOD.md | [METHOD.md](METHOD.md) | 10.8 KiB |
 | 별도 수치 검증(과도구간, 정상 통계 제외) resolution_validation.json | [resolution_validation.json](data/resolution_validation.json) | 12.3 KiB |
 | 별도 수치 검증(과도구간, 정상 통계 제외) vacuum_dt_convergence.csv | [vacuum_dt_convergence.csv](data/vacuum_dt_convergence.csv) | 1.2 KiB |
 | 별도 수치 검증(과도구간, 정상 통계 제외) plasma_sensitivity.csv | [plasma_sensitivity.csv](data/plasma_sensitivity.csv) | 25.5 KiB |
 | 별도 수치 검증(과도구간, 정상 통계 제외) validation_reproduction.zip | [validation_reproduction.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/data/validation_reproduction.zip) | 23.27 MiB |
-| 입자 수 이력 | [history.csv](data/history.csv) | 1.5 KiB |
-| RF별 입자·흡수전력 이력 | [RF_particle_power_history.csv](data/RF_particle_power_history.csv) | 23.2 KiB |
+| 입자 수 이력 | [history.csv](data/history.csv) | 1.8 KiB |
+| RF별 입자·흡수전력 이력 | [RF_particle_power_history.csv](data/RF_particle_power_history.csv) | 27.8 KiB |
 | 과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 harmonic_spectra.csv | [harmonic_spectra.csv](data/harmonic_spectra.csv) | 16.9 KiB |
 | 과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 harmonic_power.csv | [harmonic_power.csv](data/harmonic_power.csv) | 8.4 KiB |
 | 과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 harmonic_power_spatial.csv.gz | [harmonic_power_spatial.csv.gz](data/harmonic_power_spatial.csv.gz) | 694.0 KiB |
@@ -194,20 +199,22 @@
 | 과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 sheath_harmonics.csv | [sheath_harmonics.csv](data/sheath_harmonics.csv) | 27.4 KiB |
 | 과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 sheath_QV_fits.json | [sheath_QV_fits.json](data/sheath_QV_fits.json) | 2.2 KiB |
 | 과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 current_spectrum_Hz.csv.gz | [current_spectrum_Hz.csv.gz](data/current_spectrum_Hz.csv.gz) | 47.5 KiB |
-| 마지막 검증 블록 analysis.json | [analysis.json](data/analysis.json) | 1.4 KiB |
+| 마지막 검증 블록 analysis.json | [analysis.json](data/analysis.json) | 1.5 KiB |
 | 마지막 검증 블록 bulk_harmonics.csv | [bulk_harmonics.csv](data/bulk_harmonics.csv) | 8.2 KiB |
 | 마지막 검증 블록 power_regions.json | [power_regions.json](data/power_regions.json) | 286 B |
 | 과도구간 2RF 진단(정상 통계 제외): 블록별 평균·변동 block_harmonic_spectra.csv | [block_harmonic_spectra.csv](data/block_harmonic_spectra.csv) | 16.3 KiB |
 | 과도구간 2RF 진단(정상 통계 제외): 블록별 평균·변동 block_harmonic_power.csv | [block_harmonic_power.csv](data/block_harmonic_power.csv) | 8.1 KiB |
-| 과도구간 2RF 진단(정상 통계 제외): 블록별 평균·변동 harmonic_power_block_statistics.csv | [harmonic_power_block_statistics.csv](data/harmonic_power_block_statistics.csv) | 9.4 KiB |
-| PSR·순가열 판단 범위 | [PSR_summary.json](data/PSR_summary.json) | 477 B |
+| 과도구간 2RF 진단(정상 통계 제외): 블록별 평균·변동 harmonic_power_block_statistics.csv | [harmonic_power_block_statistics.csv](data/harmonic_power_block_statistics.csv) | 17.1 KiB |
+| 과도구간 2RF 진단(정상 통계 제외): 블록별 평균·변동 harmonic_block_statistics.csv | [harmonic_block_statistics.csv](data/harmonic_block_statistics.csv) | 13.9 KiB |
+| 과도구간 2RF 진단(정상 통계 제외): 블록별 평균·변동 harmonic_statistics_method.json | [harmonic_statistics_method.json](data/harmonic_statistics_method.json) | 845 B |
+| PSR·순가열 판단 범위 | [PSR_summary.json](data/PSR_summary.json) | 506 B |
 | 과도구간 2RF 진단(정상 통계 제외): RF block transient_probe 원자료·phase필드·전력(분할 ZIP 모두 받기) | [261126_PSR_gap15_f60_V150_transient_probe_p01.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/blocks/transient_probe/261126_PSR_gap15_f60_V150_transient_probe_p01.zip) | 3.44 MiB |
 | 과도구간 2RF 진단(정상 통계 제외): RF block transient_probe 원자료·phase필드·전력(분할 ZIP 모두 받기) | [261126_PSR_gap15_f60_V150_transient_probe_p02.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/blocks/transient_probe/261126_PSR_gap15_f60_V150_transient_probe_p02.zip) | 48.00 MiB |
 | 과도구간 2RF 진단(정상 통계 제외): RF block transient_probe 원자료·phase필드·전력(분할 ZIP 모두 받기) | [261126_PSR_gap15_f60_V150_transient_probe_p03.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/blocks/transient_probe/261126_PSR_gap15_f60_V150_transient_probe_p03.zip) | 48.00 MiB |
 | 과도구간 2RF 진단(정상 통계 제외): RF block transient_probe 원자료·phase필드·전력(분할 ZIP 모두 받기) | [261126_PSR_gap15_f60_V150_transient_probe_p04.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/blocks/transient_probe/261126_PSR_gap15_f60_V150_transient_probe_p04.zip) | 5.53 MiB |
 | 실험 비교 CSV(현재 빈 상태) | [comparison.csv](data/comparison.csv) | 126 B |
 | 실험 비교 미확인 입력 | [experiment_status.json](data/experiment_status.json) | 321 B |
-| 재시작 입자·난수·전류 상태 RF102 | [261126_PSR_gap15_f60_V150_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/261126_PSR_gap15_f60_V150_restart.zip) | 4.54 MiB |
-| 사용 소스·분석·설정·검증·라이선스 | [261126_PSR_gap15_f60_V150_source.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/261126_PSR_gap15_f60_V150_source.zip) | 122.2 KiB |
+| 재시작 입자·난수·전류 상태 RF122 | [261126_PSR_gap15_f60_V150_restart.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/261126_PSR_gap15_f60_V150_restart.zip) | 5.15 MiB |
+| 사용 소스·분석·설정·검증·라이선스 | [261126_PSR_gap15_f60_V150_source.zip](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/raw/refs/heads/results/20mTorr-60MHz-topRF/results/261126_PSR_gap15_f60_V150/261126_PSR_gap15_f60_V150_source.zip) | 125.9 KiB |
 
 [전체 파일 목록·SHA256](files.json)

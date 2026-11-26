@@ -6,5 +6,5 @@
   "mean_electron_net_Wm2": 156.22239416122864,
   "mean_electron_positive_Wm2": 717.0807913417038,
   "mean_electron_negative_Wm2": -560.8583971804753,
-  "note": "Blocks preserve signed power and unresolved spectral remainder. Heating gain needs a control/model; stationary grid/seed convergence is not implied by an RF sampling cap."
+  "note": "RF-duration-weighted mean of per-block signed power; unresolved spectral remainder separate. Heating gain needs a control/model; stationary grid/seed convergence is not implied by an RF sampling cap."
 }

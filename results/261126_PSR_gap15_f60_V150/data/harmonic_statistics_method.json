@@ -1,0 +1,12 @@
+{
+  "weight": "RF duration per completed block",
+  "phase": "Argument of weighted mean complex phasor, not arithmetic mean of angles; common absolute timestamps and V1-aligned phase both retained.",
+  "amplitude": "Coherent mean peak and mean of block peaks are separate. DC is signed in explicit columns.",
+  "variation": "Unbiased weighted complex block scatter; indicator=2.3*scatter/sqrt(effective_blocks); effective_blocks=(sum weights)^2/sum(weights^2). Unknown for one block.",
+  "scope": "Exploratory variation; not a certified confidence region, independence guarantee, discretization/seed error, or PSR proof.",
+  "power": "Per-block signed products averaged with RF-duration weights; not product of mean phasors.",
+  "RF_durations": [
+    2
+  ],
+  "source_SHA256": "10f19764b1425174cb6d0bc244131fc677a38c4d8e7147c3d0ed5b4c1b564019"
+}

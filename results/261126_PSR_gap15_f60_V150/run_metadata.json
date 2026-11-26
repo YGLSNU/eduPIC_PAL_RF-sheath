@@ -61,11 +61,11 @@
   ],
   "binary_SHA256": "535db0844f1f1501280294a15f7fb882de83f12b435819ac611d49d39b232b58",
   "implementation_commit": "377b142f5c833f1ab5d2bd4f634eed2b0d304765",
-  "postprocessing_commit": "85b53d0b662685409e4407237cb14d667ac7c4da",
+  "postprocessing_commit": "f238cdeacc3c9007c9569881ec57aa7f99346609",
   "resolution_validation_scope": "Analytic multiharmonic vacuum and isolated common RF22 transient dt/grid/weight/stride checks; not stationary convergence.",
   "diagnostic_schema": 1,
   "data_scope": "warmup_and_optional_labelled_transient_only",
-  "analysis_SHA256": "a33b1fa3a8ec25dff41813b2307d6775f82e2b010cf5ba07f5156796c3d6e0b5",
+  "analysis_SHA256": "03faebddff3dc27ed15c98772ea19c840ef5bb5e9a4373d4395161fcb1b62635",
   "phasor_convention": "peak 2/N; DC mean; exp(-i n omega t); actual timestamps",
   "terminal_current_positive": "RF(L) into plasma (-x)"
 }
