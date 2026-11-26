@@ -2,7 +2,7 @@
 
 [전체 실행 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [이 조건군](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 비교](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md)
 
-**측정 상한·기준 미충족** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap 75 mm** · 보고서 갱신 2026-11-26T22:35:24+09:00
+**측정 상한·기준 미충족** · 실행일 2026-11-24 (한국 시각) · 변경 조건: **BRH gap 75 mm** · 보고서 갱신 2026-11-26T22:53:08+09:00
 
 Measurement cap reached; background/BRH criteria not all satisfied. Retain checkpoint for extension. GitHub의 입자·UID·MCC optical depth·RNG 상태와 누적 원시 counts를 복원했습니다. 이전 개별 20RF native 행렬은 백업되지 않아 누적 평균/사건 통계는 합치되 블록 불확실도는 재개 후 구간에서 별도 평가합니다. 검출된 상부 기준 왕복 135918개, 고유 UID 17715개. 위상 반복 후보 1개(고유 UID 1개). 검출 왕복 중 후보 비율 0.001%. 후보의 평균 signed field work -4.764 eV/왕복. 충돌을 합친 후보의 순 운동에너지 변화 -4.768 eV/왕복. 전체 전자의 BRH 밀도 분율이 아닙니다. 탐색 진단. 반복 위상와 signed work를 gap 간 비교하고 격자·seed·정의 민감도를 확인하기 전 BRH 확정으로 해석하지 않습니다.
 
