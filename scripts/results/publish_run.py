@@ -34,7 +34,7 @@ def publish(export,branch,root,push):
         files={'results/'+metadata['id']+'/'+safe_path(p.relative_to(dest).as_posix()):p.read_bytes()
                for p in dest.rglob('*') if p.is_file()}
         for attempt in range(3):
-            git('fetch','--depth=1','--filter=blob:none','--no-tags','origin','refs/heads/'+branch+':refs/remotes/origin/'+branch,cwd=root)
+            git('fetch','--depth=1','--filter=blob:none','--no-tags','origin','+refs/heads/'+branch+':refs/remotes/origin/'+branch,cwd=root)
             base='refs/remotes/origin/'+branch
             commit=commit_files(root,base,files,'Save '+metadata['id']+' simulation report and data')
             try:
