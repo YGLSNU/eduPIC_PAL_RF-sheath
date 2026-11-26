@@ -42,6 +42,8 @@ def analyze(block,out,hmax=64):
           np.degrees(np.angle(np.exp(1j*(np.angle(j)-n*reference)))) if abs(j)>floor else np.nan,p,z.real,z.imag,valid,floor])
     columns=['harmonic','frequency_Hz','V_peak_V','V_RMS_V','V_real_V','V_imag_V','V_phase_deg','J_peak_Am2','J_RMS_Am2','J_real_Am2','J_imag_Am2','J_phase_deg','Delta_phi_VI_deg','J_n_over_J_1','V_n_over_V_1','J_dBc','V_phase_aligned_deg','J_phase_aligned_deg','terminal_P_Wm2','Z_app_real_ohmm2','Z_app_imag_ohmm2','VI_phase_valid','J_noise_floor_Am2']
     spec=pd.DataFrame(rows,columns=columns)
+    spec['V_DC_mean_V']=np.where(spec.harmonic==0,vh[0].real,np.nan)
+    spec['J_DC_mean_Am2']=np.where(spec.harmonic==0,jh[0].real,np.nan)
     spec['J_phase_valid']=(spec.harmonic>0)&(spec.J_peak_Am2>floor)
     spec['V_phase_valid']=(spec.harmonic>0)&(spec.V_peak_V>max(1e-9,1e-8*v1))
     spec['imposed_voltage_component']=spec.V_phase_valid

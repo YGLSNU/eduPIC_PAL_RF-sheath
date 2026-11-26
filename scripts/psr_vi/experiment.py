@@ -19,6 +19,7 @@ def load(path,metadata):
         if c not in a:raise ValueError('Missing '+c)
         a[c]=pd.to_numeric(a[c],errors='raise')
     if not np.isfinite(a[['harmonic','frequency_Hz','V_amp','I_amp']].to_numpy()).all():raise ValueError('Nonfinite experimental values')
+    if (a.harmonic<1).any() or not np.equal(a.harmonic,np.floor(a.harmonic)).all():raise ValueError('AC table requires positive integer orders; signed DC belongs in DC_bias_V metadata')
     if a.harmonic.duplicated().any() or (a[['V_amp','I_amp']]<0).any().any():raise ValueError('Invalid amplitudes or duplicate harmonics')
     if not np.allclose(a.frequency_Hz,a.harmonic*m['frequency_Hz'],rtol=1e-6):raise ValueError('Noncommensurate frequencies require Hz-domain analysis, not harmonic-axis coercion')
     a['V_peak_V']=factor*a.V_amp;a['I_peak_A']=factor*a.I_amp
