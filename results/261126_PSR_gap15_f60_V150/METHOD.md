@@ -22,6 +22,8 @@ Every electron-step terminal and sheath sample is retained per block. Full grid-
 
 Positive orders use peak phasor X_n=(2/N)sum x(t_k)exp(-i*n*omega*t_k), DC=mean(x), RMS=peak/sqrt2. Actual timestamps determine the origin; Nyquist has its own one-sided normalization. Highest requested harmonic defaults64 and requires>=20samples/cycle plus below Nyquist; this is a sampling gate, not a convergence proof. Noncoherent samples require explicit sine/cosine fitting. No zero-padding resolution claim is made. VI phase=arg(V)-arg(J); circular errors wrap to[-180,180). Aligned phase subtracts n*phi_V1. Low-amplitude/noise-floor phases and V/J are invalid rather than arbitrarily zero.
 
+The bounded `validate_resolution.py` check uses synthetic vacuum orders1/3/64 (including known phases and DC), verifies the exact finite-difference sinc transfer and second-order dt error, and compares requested-condition plasma copies at dt×2, dt/2, dx/2 and macroparticle weight/2. Every copy starts from the same immutable RF22 particle/RNG checkpoint, synchronizes/restaggers leapfrog velocities, discards1RF and measures RF24–25. A changed grid gets a fresh diagnostic endpoint; no research checkpoint is edited. Duplicated particles initially share positions/optical depths, so this is not independent-seed uncertainty. Current/power identities, native PIC conditions and terminal strides1/2/4 are checked. Short-transient differences include MCC noise and do not establish stationary grid/seed convergence. Research raw signals continue to be stored at stride1.
+
 Local harmonic power=0.5*Re(jhat_n*conj(Ehat_n)), DC has no0.5. Products are formed **within each block**, then averaged across blocks. The difference between direct mean jeE and the resolved DC/integer-harmonic sum is explicitly retained as noncoherent/unresolved remainder. The ideal sine boundary has V_n=0 for n>1; terminal high-order P=0 does not exclude internal spatial redistribution/harmonic heating. Z_app is a nonlinear V/J ratio, not an independently identified linear impedance or PSR proof.
 
 ## Sheath and PSR interpretation
@@ -36,6 +38,8 @@ PSR remains **not established** by an isolated peak. Report raw terminal total J
 
 Empty CSV/JSON templates are intentional: no experiment was supplied. CSV/TSV column mapping, peak/RMS/peak-to-peak and common phasors or per-order VI differences are supported. A VI difference allows per-order P and Z but cannot reconstruct a full drive waveform. Measured-voltage drive needs calibrated electrode-plane voltage phases on a common time basis and an explicit DC. V is input, I is prediction; voltage agreement is excluded from prediction error. Unsupported/self-bias/circuit/DC/de-embedding information is not guessed. A_eff is required for absolute ampere comparison; normalized ratios remain usable. Measurements outside their provided band are not extrapolated.
 
+Nonfinite phases, nonpositive supplied areas and ambiguous calibration booleans are rejected. Optional `I_noise_floor_A` and `V_noise_floor_V` invalidate weak-signal VI phases/ratios. Raw comparisons at an uncorrected probe plane retain that label; an area alone does not make them a calibrated electrode-plane validation.
+
 ## Commands
 
 From the source branch `simulation/psr-vi`:
@@ -43,6 +47,7 @@ From the source branch `simulation/psr-vi`:
 ```bash
 python -m unittest discover -s scripts/psr_vi -p 'test_psr.py' -v
 python scripts/psr_vi/validate.py /workspace/work/psr-validation/new_attempt
+python scripts/psr_vi/validate_resolution.py /workspace/work/psr-validation/resolution_new ROOT/warmup/RF000003-000022
 python scripts/psr_vi/run.py /workspace/edupic-psr/YYMMDD_PSR_gap15_f60_V150 --prepare /workspace/work/psr-validation/new_attempt
 python -u scripts/psr_vi/run.py /workspace/edupic-psr/YYMMDD_PSR_gap15_f60_V150
 python scripts/psr_vi/report.py ROOT EXPORT
