@@ -63,6 +63,22 @@
   "implementation_commit": "377b142f5c833f1ab5d2bd4f634eed2b0d304765",
   "postprocessing_commit": "8daa1c0a3c355049e28ed8d86ccb80a4c753ed80",
   "resolution_validation_scope": "Analytic multiharmonic vacuum and isolated common RF22 transient dt/grid/weight/stride checks; not stationary convergence.",
+  "previous_transient_delivery_verification": {
+    "remote_commit": "7750ab0ba2222db89b6538f78d09acd87fc2a20d",
+    "raw_ZIP_parts": 4,
+    "raw_ZIP_bytes": 110070336,
+    "all_raw_parts_SHA256_CRC_and_payload_reassembly_passed": true,
+    "phase_fields_uncompressed_bytes": 138528000,
+    "phase_fields_uncompressed_SHA256": "bda9e65861f3272dd49e2bfbe2e475d430d1f7868e90bdcae7f20a5612818b6a",
+    "field_shape": [
+      9,
+      481,
+      4000
+    ],
+    "downloaded_source_reanalysis_matches_published_all_six_spectral_CSVs": true,
+    "signed_power_and_sheath_summary_numbers_identical": true,
+    "scope": "Labelled requested-condition transient2RF only; not stationary research statistics or PSR confirmation."
+  },
   "diagnostic_schema": 1,
   "data_scope": "warmup_and_optional_labelled_transient_only",
   "analysis_SHA256": "789b500e79e0b3aac1cbc2e1c2dd730f23150ef06eabddfb4232dff4f7dbbc4b",
