@@ -1,0 +1,18 @@
+{
+  "template_only": true,
+  "amplitude_convention": "peak",
+  "phase_kind": "common_time_origin",
+  "time_reference": null,
+  "phase_sign": "arg(X) for exp(-i omega t)",
+  "frequency_Hz": 60000000,
+  "current_polarity": 1,
+  "probe_reference_plane": null,
+  "calibrated": null,
+  "A_eff_m2": null,
+  "DC_bias_V": null,
+  "measured_frequency_band_Hz": null,
+  "amplitude_uncertainty": null,
+  "phase_uncertainty_deg": null,
+  "column_mapping": {},
+  "note": "Fill actual measurement conventions, reference plane and uncertainties. Empty fields are unknown, not zero. No cable/stray correction is assumed."
+}

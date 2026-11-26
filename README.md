@@ -1,36 +1,26 @@
-# eduPIC 연구 결과 · 실행 목록
+# eduPIC PSR / VI harmonics
 
-**이 페이지를 북마크하면 실행일·변경 조건으로 결과와 다운로드를 찾을 수 있습니다.**
+Independent PSR diagnostics and execution tree. Existing 13.56MHz BRH calculations remain on their original source/controller.
 
-[전체 목록](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath) · [75 mTorr 기본 조건](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/75mTorr) · [20 mTorr 상부 RF](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF) · [실행 코드](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/simulation/20mTorr-topRF)
+**Requested run:** Ar20mTorr,350K,gap15mm,60MHz,150V **peak**, upper RF/lower ground; equal-area1D3V electrostatic PIC/MCC, absorbing walls. Imposed sine, fixed DC0; no invented circuit, material reflection, SEE or empirical PSR force/heating.
 
-이 브랜치는 **시뮬레이션을 실행·관리하는 코드 작업 브랜치**입니다. 이전 이름의 voltage scan은 전압을 바꿔 독립 계산한다는 뜻입니다.
+- [PSR results, plots and downloads](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-60MHz-topRF)
+- [Definitions, limitations, validation and exact commands](scripts/psr_vi/METHOD.md)
+- Solver: [C/eduPIC_psr_vi.cc](C/eduPIC_psr_vi.cc), [passive diagnostics](C/psr_vi_diagnostics.hpp)
+- [Original BRH results](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/results/20mTorr-topRF)
 
-`C/eduPIC.cc` 계열을 C++11로 컴파일하며, 기존 `scripts/voltage_scan/`과 `C/eduPIC.cc`는 25 mm 전압 스캔용입니다. BRH는 `C/eduPIC_brh.cc`와 `scripts/brh_scan/`에서 gap별로 별도 컴파일합니다. 실제 실행 조건과 보관 소스는 각 결과의 run.json·source ZIP을 따릅니다.
+## Implemented
 
-[컴파일·전압별 실행 설명](scripts/voltage_scan/README.md) · [결과 등록 방법](docs/RESULTS_GUIDE.md)
+1. Finite-volume CIC continuity current plus displacement current; independently checked using particle Ramo displacement and RF electrode-charge balance. RF-to-plasma is positive. Production ions update each electron step.
+2. Actual terminal/force timestamps, raw terminal/sheath/midgap signals, signed instantaneous electron power, positive/negative contributions and exact field-kick checks.
+3. Peak/RMS/DC phasors, normalized amplitudes/dBc/THD, circular phases, V/J ratios and harmonic powers through configurable order64. Per-block complex products, full Hz spectra and unresolved power remainder are retained.
+4. Integral sheath edges, phase-colored Q-V, scaled polynomial residuals and approximate LC frequencies, retaining invalid states as NaN.
+5. Synchronized PSR diagnostics with raw and filtered currents. No automatic PSR or heating-gain declaration by a peak alone.
+6. CSV/TSV experiment importer, phase/amplitude/reference-plane metadata and empty templates. No experiment was supplied; A_eff and external circuit are unknown.
+7. Recoverable controller,20RF blocks, stationary/uncertainty gates, verified lossless compression and audited GitHub publication with report/restart readback.
 
-**BRH (bounce resonance heating):** [gap 스캔 진행·결과](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md) · [진단·실행 설명](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/simulation/20mTorr-topRF/scripts/brh_scan/README.md)
+## Validation scope
 
-[Gap별 플라즈마 파라미터·전자별 반복 가열 요약](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/comparison/README.md)
+Analytic synthetic phasor/DC/power tests, a vacuum capacitor and small isolated two-RF plasma copies were run. The vacuum current leads by90degrees and matches epsilon0*omega*V/L. Diagnostic on/off and continuous/split restarts preserve particle/RNG output byte-for-byte. N_SUB=40 is compared but excluded from primary HF inference.
 
-## 실행 기록
-
-| 실행일 KST | 실행 / 바꾼 조건 | 주요 조건 | 상태 | 결과 |
-|---|---|---|---|---|
-| 2026-11-24 | **261124_BRH_gap20-80_step5**<br>BRH · gap20/25/30/35/40/45/50/55/60/65/70/75/80 mm | 20 mTorr · [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80] mm · 250 V peak | 계산 중 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261124_BRH_gap20-80_step5/README.md) |
-| 2026-11-23 | **261123_BRH_gap25-120**<br>BRH · gap25/30/40/50/60/80/100/120 mm | 20 mTorr · [25, 30, 40, 50, 60, 80, 100, 120] mm · 250 V peak | 체크포인트 중단 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261123_BRH_gap25-120/README.md) |
-| 2026-11-20 | **261120_loss-check**<br>벽 손실 진단 · 20↔75.006 mTorr 대조 | 20 mTorr · 25 mm · 100/250/300 V peak | 과도구간 진단 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261120_loss-check/README.md) |
-| 2026-11-20 | **261120_gap40_V100-500**<br>gap40 mm · 100/250/300/400/500 V | 20 mTorr · 40 mm · 100/250/300/400/500 V peak | 통계 기준 충족 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261120_gap40_V100-500/README.md) |
-| 2026-11-19 | **261119_gap25_V100-300**<br>gap25 mm · 100/250/300 V | 20 mTorr · 25 mm · 100/250/300 V peak | 전자 소멸 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/20mTorr-topRF/results/261119_gap25_V100-300/README.md) |
-| 2026-11-18 | **261118_measure5**<br>측정 구간 5 RF | 75.0062 mTorr · 25 mm · 250 V peak | 측정 완료·통계 기준 별도 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261118_measure5/README.md) |
-| 2026-11-18 | **261118_measure120**<br>추가 측정 120 RF | 75.0062 mTorr · 25 mm · 250 V peak | 통계 기준 충족 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261118_measure120/README.md) |
-| 2026-11-17 | **261117_initial**<br>초기 실행·RF1700 저장 | 75.0062 mTorr · 25 mm · 250 V peak | 미완료 | [보고서·그림·파일](https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/blob/results/75mTorr/results/261117_initial/README.md) |
-
-각 보고서 첫 화면에서 조건표·평균 구간·종료 이유를 확인할 수 있습니다. 소멸·미완료는 정상 방전의 통계 수렴과 다르게 표시합니다.
-
-## 이후 결과 추가
-
-새 실행은 `results/YYMMDD_바꾼조건/run.json`과 그래프·자료를 함께 등록합니다. 등록 도구가 보고서와 목록을 갱신하며, GitHub Actions도 결과 push 뒤 전체 목록을 동기화합니다.
-
-[파일 이름·보고서·업로드 기준](docs/RESULTS_GUIDE.md) · [전체 결과 점검 기록](docs/RESULT_AUDIT.md) · [브랜치·이름 변경 이력](docs/MIGRATION.md) · [eduPIC 원본 소개·논문·라이선스](docs/UPSTREAM.md)
+These tests do not establish stationary production results or full grid/particle/seed convergence. The requested run is in progress; early two-RF plots are marked transient and excluded from normal measurements. RF caps are never labeled full convergence. Ideal sine terminal voltage harmonics n>1 are zero by boundary condition; internal harmonic power is diagnosed separately.
