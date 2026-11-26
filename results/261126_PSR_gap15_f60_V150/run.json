@@ -1,0 +1,449 @@
+{
+  "schema_version": 1,
+  "id": "261126_PSR_gap15_f60_V150",
+  "branch": "results/20mTorr-60MHz-topRF",
+  "date": "2026-11-26",
+  "report_updated": "2026-11-26T18:48:25+09:00",
+  "title": "PSR·VI harmonics · gap15 mm · 60MHz · 150V",
+  "changed_conditions": "PSR/VI · 15 mm · 60 MHz · 150 V peak",
+  "status": "running",
+  "conditions": {
+    "gas": "Ar",
+    "pressure_mTorr": 20,
+    "temperature_K": 350,
+    "frequency_MHz": 60,
+    "voltage_peak_V": [
+      150
+    ],
+    "gap_mm": 15,
+    "grid_points": 481,
+    "steps_per_RF": 4000,
+    "weight": 56000,
+    "electrodes": "상부 x=L RF / 하부 x=0 접지",
+    "surface_model": "흡수벽, SEE/재료반사 없음; Ar optical-depth electron MCC, Ar+ elastic MCC; binary Coulomb 없음",
+    "geometry": "1D3V 동일면적 정전 PIC/MCC; A_sim=1cm², A_eff 미제공; 회로/self-bias/측벽 없음"
+  },
+  "source": {
+    "description": "독립 C/eduPIC_psr_vi.cc · 원래 Ar PIC/MCC + 보존 전류/전력/적분 쉬스/고조파 진단; 이온 매step 갱신",
+    "revision": "source SHA256 df8ae1989d58191a70524779fa61e90b28425d93e5078fb510b3f1b9b9c4fd0b; diagnostic header 9dd45770792f8e5149a77dbe2cd3820b63ca5cd7bc8f806e8fd31601a8e28844",
+    "initialization": "Fresh preionized spatially paired uniform electron/ion positions, Maxwellian electron3eV/ion350K; not a breakdown threshold test. Changed-condition transients excluded."
+  },
+  "summary": "실제 상태: running; 배경 안정화/측정 진행 중. PSR 발생 또는 가열 peak를 미리 확정하지 않습니다. 13.56MHz BRH 계산과 별도 코드·폴더·결과 브랜치입니다. 과도구간 2RF 진단(정상 통계 제외): 아래 스펙트럼·쉬스·전력은 초기화 후 별도 복사본에서 얻은 예비 진단입니다. 정상상태나 PSR 발생의 증거로 사용하지 않습니다.",
+  "measurement_note": "마지막 완결 RF 62; 정상 측정 0RF. 안정화는 마지막600RF 입자 수 span<1%, drift<2%; 정상 측정 최소200RF, 상한1000RF. 고조파별 블록 평균·변동과 PIC 검증을 별도 기록.",
+  "metrics": [
+    [
+      "저장 RF",
+      62
+    ],
+    [
+      "측정 RF",
+      0
+    ],
+    [
+      "단자 전류 정의",
+      "RF→plasma (-x); continuum/path charge deposition + displacement; surface-charge/Ramo cross-check"
+    ],
+    [
+      "PSR 판정",
+      "미확정; peak·LC 추정·선택대역 전력은 단독 증거가 아님"
+    ],
+    [
+      "실험 비교",
+      "데이터 미제공; 전류밀도/정규화만 제공"
+    ]
+  ],
+  "sections": [
+    {
+      "id": "convergence",
+      "data_status": "available",
+      "text": "실제 저장 RF의 입자 수·체적 평균 밀도. 과도구간을 포함합니다.",
+      "images": [
+        {
+          "path": "figures/convergence.png",
+          "caption": "실제 저장 RF의 입자 수·체적 평균 밀도. 과도구간을 포함합니다."
+        },
+        {
+          "path": "figures/power_history.png",
+          "caption": "주기별 전자·이온 field-kick 전력. 배경 안정화 입자 수와 함께 확인하며 과도구간은 정상 통계에서 제외합니다."
+        }
+      ]
+    },
+    {
+      "id": "density",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "과도구간 2RF 진단(정상 통계 제외): ",
+      "images": [
+        {
+          "path": "figures/density.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): Last validated native block RF 23–24; native energy distributions are this block only"
+        }
+      ]
+    },
+    {
+      "id": "heating",
+      "data_status": "available",
+      "text": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록: 순간 jeE를 먼저 계산한 뒤 위상 평균. 음의 기여를 보존하고 쉬스 경계를 표시합니다.",
+      "images": [
+        {
+          "path": "figures/PSR_power.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록: 순간 jeE를 먼저 계산한 뒤 위상 평균. 음의 기여를 보존하고 쉬스 경계를 표시합니다."
+        }
+      ]
+    },
+    {
+      "id": "fields",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "과도구간 2RF 진단(정상 통계 제외): ",
+      "images": [
+        {
+          "path": "figures/fields.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): Last validated native block RF 23–24; native energy distributions are this block only"
+        }
+      ]
+    },
+    {
+      "id": "ionization",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "과도구간 2RF 진단(정상 통계 제외): ",
+      "images": [
+        {
+          "path": "figures/ionization.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): Last validated native block RF 23–24; native energy distributions are this block only"
+        }
+      ]
+    },
+    {
+      "id": "distributions",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "과도구간 2RF 진단(정상 통계 제외): ",
+      "images": [
+        {
+          "path": "figures/distributions.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): Last validated native block RF 23–24; native energy distributions are this block only; 정규화된 서로 다른 블록 EEPF는 임의로 합치지 않습니다."
+        }
+      ]
+    },
+    {
+      "id": "walls",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "과도구간 2RF 진단(정상 통계 제외): ",
+      "images": [
+        {
+          "path": "figures/walls.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): Last validated native block RF 23–24; native energy distributions are this block only"
+        }
+      ]
+    },
+    {
+      "id": "power",
+      "data_status": "available",
+      "availability": "실제 저장된 RF 구간; 아래 그림 설명 참조",
+      "text": "과도구간 2RF 진단(정상 통계 제외): ",
+      "images": [
+        {
+          "path": "figures/power.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): Last validated native block RF 23–24; native energy distributions are this block only; 이산 field work와 벽 운동에너지 유출. 전체 전력 폐합은 아닙니다."
+        }
+      ]
+    },
+    {
+      "id": "VI_harmonics",
+      "data_status": "available",
+      "text": "과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 전류밀도 A/m², peak/RMS와 위상·차수별 전력은 CSV 참조. 이상적인 정현파에서 V(n>1)=0은 경계조건입니다.",
+      "images": [
+        {
+          "path": "figures/VI_waveforms.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 전류밀도 A/m², peak/RMS와 위상·차수별 전력은 CSV 참조. 이상적인 정현파에서 V(n>1)=0은 경계조건입니다."
+        },
+        {
+          "path": "figures/harmonics.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): 단자 양의 방향은 상부RF→플라즈마. 전류밀도 A/m², peak/RMS와 위상·차수별 전력은 CSV 참조. 이상적인 정현파에서 V(n>1)=0은 경계조건입니다."
+        }
+      ],
+      "title": "VI 고조파"
+    },
+    {
+      "id": "sheath_nonlinearity",
+      "data_status": "available",
+      "text": "과도구간 2RF 진단(정상 통계 제외): 공간 쉬스 전하/면적과 전압강하의 RF위상 궤적. 전극 표면전하와 구분합니다. 적분 경계가 유효하지 않은 시점은 NaN; 정적 다항식은 근사이며 hysteresis를 포함할 수 있습니다.",
+      "images": [
+        {
+          "path": "figures/sheath_QV.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): 공간 쉬스 전하/면적과 전압강하의 RF위상 궤적. 전극 표면전하와 구분합니다. 적분 경계가 유효하지 않은 시점은 NaN; 정적 다항식은 근사이며 hysteresis를 포함할 수 있습니다."
+        }
+      ],
+      "title": "쉬스 비선형성"
+    },
+    {
+      "id": "PSR_diagnostics",
+      "data_status": "available",
+      "text": "과도구간 2RF 진단(정상 통계 제외): 원전류와 고주파 재구성, bulk전압, 순간 전자 가열. 고조파 peak·필터 ringing·근사 LC주파수만으로 PSR을 확정하거나 PSR 가열 증가분으로 명명하지 않습니다. 기본 전력그림의 legacy <j><E>와 새 순간 jeE는 구분합니다.",
+      "images": [
+        {
+          "path": "figures/PSR_synchronized.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): 원전류와 고주파 재구성, bulk전압, 순간 전자 가열. 고조파 peak·필터 ringing·근사 LC주파수만으로 PSR을 확정하거나 PSR 가열 증가분으로 명명하지 않습니다. 기본 전력그림의 legacy <j><E>와 새 순간 jeE는 구분합니다."
+        },
+        {
+          "path": "figures/PSR_power.png",
+          "caption": "과도구간 2RF 진단(정상 통계 제외): 원전류와 고주파 재구성, bulk전압, 순간 전자 가열. 고조파 peak·필터 ringing·근사 LC주파수만으로 PSR을 확정하거나 PSR 가열 증가분으로 명명하지 않습니다. 기본 전력그림의 legacy <j><E>와 새 순간 jeE는 구분합니다."
+        }
+      ],
+      "title": "PSR·전자 전력흡수"
+    },
+    {
+      "id": "experiment",
+      "title": "실험 비교",
+      "data_status": "unavailable",
+      "reason": "실험 VI 파일·기준면·면적·위상/DC 정보가 제공되지 않았습니다. 빈 비교 CSV와 입력 템플릿을 제공합니다.",
+      "images": []
+    }
+  ],
+  "downloads": [
+    {
+      "label": "진단·위상·소스·조건 메타데이터",
+      "path": "run_metadata.json",
+      "bytes": 2874,
+      "sha256": "28e64a4e66bf738c62eb3c4afc18b7b1f284db899a05c67970cbbab4fd62f986",
+      "git_blob": "492f102d63f61f4b530da1a43992d0231c4b650d"
+    },
+    {
+      "label": "config.json",
+      "path": "config.json",
+      "bytes": 2557,
+      "sha256": "9cbd89aed0a4cfff9c1fc623ddea4618d2c4e4a10ffd3ae894e131674e39f8d4",
+      "git_blob": "85b6c94ddeeb2e31d3ada7de456ccfb461294a60"
+    },
+    {
+      "label": "status.json",
+      "path": "status.json",
+      "bytes": 614,
+      "sha256": "c5a87b5e18e5f106ebb062b7ad036e37bc6f78dd78fca0e798da6e2d9b13eb35",
+      "git_blob": "2647294846aeace22c24d527236ba6eba5076f9a"
+    },
+    {
+      "label": "criteria.json",
+      "path": "criteria.json",
+      "bytes": 131,
+      "sha256": "c4ff046c9a2fb3f651bb714674bcb81e9ce05990747d69ce676a5c9b9baf13ab",
+      "git_blob": "0589a17f3315be0332b19ac0e26b09a0f68d2451"
+    },
+    {
+      "label": "implementation_validated.json",
+      "path": "implementation_validated.json",
+      "bytes": 1650,
+      "sha256": "6e31aba857f453f949a629cfc1fc2cfefb1f562fc2d2680ab4359472a742bf15",
+      "git_blob": "3e8e59cb569318106209b27b8cfde15875d99810"
+    },
+    {
+      "label": "experiment_template.csv",
+      "path": "experiment_template.csv",
+      "bytes": 82,
+      "sha256": "e2dcb08952dd6b69fa625c5ee0c6a2872acf31c7869c161e0d8d4c2d9e8ab167",
+      "git_blob": "20e87602e9357c7b2c74c5528136065f8240de52"
+    },
+    {
+      "label": "experiment_metadata.template.json",
+      "path": "experiment_metadata.template.json",
+      "bytes": 608,
+      "sha256": "11b0edc9dff362c34a0db117a23a14425c1f52bf56cfa69815b8c7544b710ec1",
+      "git_blob": "7b18d773cd8de19a584b246fac90ad2052220cfa"
+    },
+    {
+      "label": "METHOD.md",
+      "path": "METHOD.md",
+      "bytes": 8636,
+      "sha256": "c4d7abf7a5111686fecaf6cc79acf5d09c3c10075c8424e031a41c897f87165d",
+      "git_blob": "d81099842924acaa911388484333a4cd4927001e"
+    },
+    {
+      "label": "입자 수 이력",
+      "path": "data/history.csv",
+      "bytes": 958,
+      "sha256": "2aadc428971d8a9413464ee9c391e5947745d9b4f826a4e51af654ec3b730a7a",
+      "git_blob": "237b5647cb9c1bc54877752c2f6906c8dadbb575"
+    },
+    {
+      "label": "RF별 입자·흡수전력 이력",
+      "path": "data/RF_particle_power_history.csv",
+      "bytes": 14494,
+      "sha256": "89aad840811e9975e90b02ed949d445db13cd7770417efbc712cb93c6d2a5475",
+      "git_blob": "a37e445058d2d20a050473da6507094b6b1c26bf"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 harmonic_spectra.csv",
+      "path": "data/harmonic_spectra.csv",
+      "bytes": 17549,
+      "sha256": "7f012a3f8c399b6cafbad973052f087d125445acc9e656f070b4b8d85ece64b2",
+      "git_blob": "8e4f38349d6296d851aabc23b9bcb46c65075a32"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 harmonic_power.csv",
+      "path": "data/harmonic_power.csv",
+      "bytes": 8620,
+      "sha256": "30b52e22eefa7b4aaa1145feec079820b7a5f6f77441375fcec5cf58fb3b3d21",
+      "git_blob": "2f99795433f7eceb3d797c7c7efa80f932d5070c"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 harmonic_power_spatial.csv.gz",
+      "path": "data/harmonic_power_spatial.csv.gz",
+      "bytes": 710636,
+      "sha256": "094a0a24036941e2db39d041f745e36d50d4c161d683f6919220f85372901834",
+      "git_blob": "75474f863c0435dbd0a961f7aece81ca3cf4cb3f"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 harmonic_fields_spatial.csv.gz",
+      "path": "data/harmonic_fields_spatial.csv.gz",
+      "bytes": 1893523,
+      "sha256": "999d58974812903374f479f027344fa5ea5c9b6bea000ef121c22c583343fa28",
+      "git_blob": "4d31f801a488cf5a623c130674a7bd3c29fba050"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 sheath_estimates.csv.gz",
+      "path": "data/sheath_estimates.csv.gz",
+      "bytes": 699930,
+      "sha256": "d307bfdfb7a0e3b19daa627a3096ebc6ed50e2e125a29cb59eff7c4c5a36e7b2",
+      "git_blob": "1d75f253a6faa1561af163e8efdc0ccaf09f973d"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 sheath_harmonics.csv",
+      "path": "data/sheath_harmonics.csv",
+      "bytes": 28022,
+      "sha256": "5234c3e2ef3fe951cdcc1baa4dedad13c5ca7632a8049ff478665142a10119f6",
+      "git_blob": "2c1e26f7108dd62ff32489f1ce9a50f32e53b6ee"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 sheath_QV_fits.json",
+      "path": "data/sheath_QV_fits.json",
+      "bytes": 2283,
+      "sha256": "6a30c7f9a0770ad4463460fc834cf362244538ef7cee29f9f09cfcc29f4f1c09",
+      "git_blob": "ffbc425d15230c3355587ff1e1cb0571c0143709"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 current_spectrum_Hz.csv.gz",
+      "path": "data/current_spectrum_Hz.csv.gz",
+      "bytes": 48643,
+      "sha256": "ae0a7d55b0bd7a0e020dda5f14126f34102b281a7a17ecf732483c2aff232d19",
+      "git_blob": "a9e61733138520de0ee879bd911581c3b2bdd46c"
+    },
+    {
+      "label": "마지막 검증 블록 analysis.json",
+      "path": "data/analysis.json",
+      "bytes": 1465,
+      "sha256": "9ffbea454e72ad5fc958b731f68aee71bdadb0b97480ca1651d7baa71ab98595",
+      "git_blob": "5313f7eb71bf2b4a89921ca9d492ce937a4a48f5"
+    },
+    {
+      "label": "마지막 검증 블록 bulk_harmonics.csv",
+      "path": "data/bulk_harmonics.csv",
+      "bytes": 8349,
+      "sha256": "5626ad38ef570e5dc6eef06d92f5be917a2f00cba6e92be6d51a061e9687778d",
+      "git_blob": "fff3fc5c2c4ada7a7c00249890a4efbe1e334be5"
+    },
+    {
+      "label": "마지막 검증 블록 power_regions.json",
+      "path": "data/power_regions.json",
+      "bytes": 286,
+      "sha256": "c724176c4be7eab4ab0daf2d459c320bac295bf4fbf732dcd78f3de20768bb67",
+      "git_blob": "a3508a02e27988b772748460a6f167016f96fd44"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): 블록별 평균·변동 block_harmonic_spectra.csv",
+      "path": "data/block_harmonic_spectra.csv",
+      "bytes": 16985,
+      "sha256": "1d3f90550ddd6643f902ab66fbf9166eae30f5c16556fd58a5631477608db7ed",
+      "git_blob": "90634ccf7edc568d8a4e0c8cebb725038c49fb1b"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): 블록별 평균·변동 block_harmonic_power.csv",
+      "path": "data/block_harmonic_power.csv",
+      "bytes": 8285,
+      "sha256": "e888eb18aaf20faaeb0434e2e906ba90a187e0331cce401e51227f4f7f134e2b",
+      "git_blob": "1653d8154c947763cd8903a1d882551a3a7339c9"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): 블록별 평균·변동 harmonic_power_block_statistics.csv",
+      "path": "data/harmonic_power_block_statistics.csv",
+      "bytes": 9584,
+      "sha256": "0a4942028581360675d702a1e061389d8f953253d3f440943142594041d421f4",
+      "git_blob": "48cc9d9237aceec90dd9fa75de36a7689d9284fc"
+    },
+    {
+      "label": "PSR·순가열 판단 범위",
+      "path": "data/PSR_summary.json",
+      "bytes": 477,
+      "sha256": "053e5f05f31a753ad0a57cdc708c4cbd37ed586ce619f1b1d28fe27a8eb32af6",
+      "git_blob": "bed1ffd3569d23b7a56fd67e6a7e07d99a5521f4"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): RF block transient_probe 원자료·phase필드·전력(분할 ZIP 모두 받기)",
+      "path": "blocks/transient_probe/261126_PSR_gap15_f60_V150_transient_probe_p01.zip",
+      "bytes": 3602887,
+      "sha256": "956d536357fa06904666bbabf5a95087e81ecd15adbaff4c088272f881321414",
+      "git_blob": "1ace08e4fa211112e21d7b269c9a1e7c57a983f3"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): RF block transient_probe 원자료·phase필드·전력(분할 ZIP 모두 받기)",
+      "path": "blocks/transient_probe/261126_PSR_gap15_f60_V150_transient_probe_p02.zip",
+      "bytes": 50334814,
+      "sha256": "6815eeb840988148f21ec20c527f4a248cc0dd7b3507ecaa0df35c18d1f0857f",
+      "git_blob": "5a73d6fff339a10f532840c118248fce715a2022"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): RF block transient_probe 원자료·phase필드·전력(분할 ZIP 모두 받기)",
+      "path": "blocks/transient_probe/261126_PSR_gap15_f60_V150_transient_probe_p03.zip",
+      "bytes": 50334814,
+      "sha256": "41f20193d6a36df757f79514afff882f62fb866a3e6567273371dc21237d7d09",
+      "git_blob": "0165fe0e35aae59091be061a93856dea55122352"
+    },
+    {
+      "label": "과도구간 2RF 진단(정상 통계 제외): RF block transient_probe 원자료·phase필드·전력(분할 ZIP 모두 받기)",
+      "path": "blocks/transient_probe/261126_PSR_gap15_f60_V150_transient_probe_p04.zip",
+      "bytes": 5797821,
+      "sha256": "1022e5a0e8dfe54f5e847b90113c4799d08d86cb34f8bc99d5e1c3990e36664c",
+      "git_blob": "875fa82ea6543be070ea412cb694f52ae5105def"
+    },
+    {
+      "label": "실험 비교 CSV(현재 빈 상태)",
+      "path": "data/comparison.csv",
+      "bytes": 126,
+      "sha256": "e39c21232dc9d187ce15ea4b8e7b887ac5751db6a89d6a6f75fd0c098913faab",
+      "git_blob": "e0070bdd38095d90a28383cd41359cfaca594b62"
+    },
+    {
+      "label": "실험 비교 미확인 입력",
+      "path": "data/experiment_status.json",
+      "bytes": 321,
+      "sha256": "4a7686e0d4e600c7931223a83c8e4f3221f295624537e75798714e007ca95cbe",
+      "git_blob": "aa01cca20b86e2fe2261d4f00db9fa67ac3e8ef8"
+    },
+    {
+      "label": "재시작 입자·난수·전류 상태 RF62",
+      "path": "261126_PSR_gap15_f60_V150_restart.zip",
+      "bytes": 3595305,
+      "sha256": "20b37eb8974cf301eb9489835fc410f166f4f975e1287a627dcb1dfe36393a54",
+      "git_blob": "df90cfb97cf07d29f47c59a32d94ca54b84bd609"
+    },
+    {
+      "label": "사용 소스·분석·설정·검증·라이선스",
+      "path": "261126_PSR_gap15_f60_V150_source.zip",
+      "bytes": 114745,
+      "sha256": "e12e4ad8057b81dd4ea8b9288f5b3e38b575dab9524d740e3021acaa206ae7a6",
+      "git_blob": "7f51e1282954677fb4e45499b0a4d42eaa54b56c"
+    }
+  ],
+  "related_links": [
+    {
+      "label": "분석·부호·한계·실행 방법",
+      "url": "METHOD.md"
+    },
+    {
+      "label": "독립 실행 코드",
+      "url": "https://github.com/YGLSNU/eduPIC_PAL_RF-sheath/tree/simulation/psr-vi/scripts/psr_vi"
+    }
+  ]
+}

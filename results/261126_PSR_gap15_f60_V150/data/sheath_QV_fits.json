@@ -1,0 +1,83 @@
+{
+  "fits": [
+    {
+      "side": "powered",
+      "degree": 1,
+      "relative_RMSE": 0.04489896382281114,
+      "scale_V": 163.0028745217,
+      "origin_V": 85.22859434902077,
+      "coefficients_Cm2": [
+        3.0747518732364135e-07,
+        4.5999529259223216e-07
+      ],
+      "single_valued_approximation_only": true
+    },
+    {
+      "side": "powered",
+      "degree": 2,
+      "relative_RMSE": 0.023818651821215727,
+      "scale_V": 163.0028745217,
+      "origin_V": 85.22859434902077,
+      "coefficients_Cm2": [
+        3.3298789047398957e-07,
+        4.780158557780618e-07,
+        -2.0732327188296675e-07
+      ],
+      "single_valued_approximation_only": true
+    },
+    {
+      "side": "powered",
+      "degree": 3,
+      "relative_RMSE": 0.01982946043601727,
+      "scale_V": 163.0028745217,
+      "origin_V": 85.22859434902077,
+      "coefficients_Cm2": [
+        3.3518052320908734e-07,
+        4.2529188344880874e-07,
+        -2.504980529645132e-07,
+        2.917258121436127e-07
+      ],
+      "single_valued_approximation_only": true
+    },
+    {
+      "side": "ground",
+      "degree": 1,
+      "relative_RMSE": 0.04733982023814328,
+      "scale_V": 161.9285650303,
+      "origin_V": 85.33306324962707,
+      "coefficients_Cm2": [
+        3.0809864806249084e-07,
+        4.593565955610269e-07
+      ],
+      "single_valued_approximation_only": true
+    },
+    {
+      "side": "ground",
+      "degree": 2,
+      "relative_RMSE": 0.02865138305718236,
+      "scale_V": 161.9285650303,
+      "origin_V": 85.33306324962707,
+      "coefficients_Cm2": [
+        3.337327352336395e-07,
+        4.776482148621015e-07,
+        -2.0818497786430035e-07
+      ],
+      "single_valued_approximation_only": true
+    },
+    {
+      "side": "ground",
+      "degree": 3,
+      "relative_RMSE": 0.02362877116868051,
+      "scale_V": 161.9285650303,
+      "origin_V": 85.33306324962707,
+      "coefficients_Cm2": [
+        3.363025698482302e-07,
+        4.1225286941537816e-07,
+        -2.609652132955061e-07,
+        3.631766499426676e-07
+      ],
+      "single_valued_approximation_only": true
+    }
+  ],
+  "note": "Scaled static polynomials are approximate; hysteresis is visible in RF-colored trajectories. Fits/capacitances are not a circuit identification or PSR proof."
+}

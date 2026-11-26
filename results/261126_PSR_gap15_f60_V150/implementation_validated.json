@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "source_SHA256": "df8ae1989d58191a70524779fa61e90b28425d93e5078fb510b3f1b9b9c4fd0b",
+  "diagnostic_header_SHA256": "9dd45770792f8e5149a77dbe2cd3820b63ca5cd7bc8f806e8fd31601a8e28844",
+  "compiler_command": [
+    "g++",
+    "-std=c++11",
+    "-O3",
+    "-march=native",
+    "-ffp-contract=off",
+    "-DEDUPIC_GRID_POINTS=65",
+    "-DEDUPIC_STEPS_PER_RF=1000",
+    "-DEDUPIC_ION_SUBCYCLING=1",
+    "-DEDUPIC_GAP_M=0.015",
+    "-DEDUPIC_VOLTAGE_V=150",
+    "-DEDUPIC_WEIGHT=56000",
+    "-DEDUPIC_PSR_DIAGNOSTICS=1",
+    "/workspace/work/psr-vi/C/eduPIC_psr_vi.cc",
+    "-o",
+    "/workspace/work/psr-validation/gate3/solver"
+  ],
+  "passive_byte_identity": {
+    "picdata.bin": true,
+    "psr_rng.txt": true,
+    "conv.dat": true,
+    "particle_balance.csv": true
+  },
+  "split_restart_byte_identity": {
+    "picdata.bin": true,
+    "psr_rng.txt": true,
+    "psr_state.bin": true
+  },
+  "plasma_2RF_numerical_checks": {
+    "current_uniform_max_abs_Am2": 1.3371170837217505e-10,
+    "ramo_max_abs_Am2": 3.907985046680551e-14,
+    "boundary_max_abs_Am2": 1.3313439239936997e-10,
+    "kick_power_max_abs_Wm2": 5.115907697472721e-13,
+    "full_energy_residual_Jm2": 8.711025719941043e-10
+  },
+  "vacuum": {
+    "current_peak_Am2": 33.379446745823394,
+    "expected_peak_Am2": 33.379501652880364,
+    "phase_lead_deg": 89.99999999999957,
+    "mean_VJ_Wm2": 1.909211277961731e-11
+  },
+  "subcycling40_ramo_error_Am2": 7.022339090386279,
+  "production_subcycling": 1,
+  "scope": "Synthetic spectral tests + vacuum + low-density 128-particle 2RF plasma copies. Not stationary production plasma, not full grid/particle/seed convergence."
+}
