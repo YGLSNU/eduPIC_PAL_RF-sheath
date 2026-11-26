@@ -90,7 +90,9 @@ def run(root):
    if s['phase']=='measurement' and cp['electrons']:
     numerical=validate_fields(d);put(d/'numerical_validation.json',numerical)
     info=(d/'info.txt').read_text();assert 'VIOLATED' not in info,'Native PIC stability criterion violated; do not interpret this block'
-    summary=analyze(d,d/'analysis',cfg['harmonic_max'])
+    # Load the recorded analysis revision in a fresh interpreter per block;
+    # an hours-long controller must not run stale imported plotting code.
+    with (d/'analysis.log').open('w') as log:subprocess.run([sys.executable,str(REPO/'scripts/psr_vi/analyze.py'),str(d),str(d/'analysis'),'--harmonic-max',str(cfg['harmonic_max'])],stdout=log,stderr=subprocess.STDOUT,check=True)
     blocks=[Path(p) for p in s['measurement_blocks']]+[d];assessment=converged(root,blocks);put(d/'assessment.json',assessment)
     measurement_update=dict(measurement_blocks=[str(p) for p in blocks],measured_RF=s['measured_RF']+cp['cycle']-old['cycle'],assessment=assessment,last_analysis=str(d/'analysis'),last_measurement_path=str(d))
    compress(d);update(checkpoint_path=str(d/'picdata.bin'),completed_RF=cp['cycle'],electrons=cp['electrons'],ions=cp['ions'],last_seconds_per_RF=elapsed/max(1,cp['cycle']-old['cycle']),**measurement_update)

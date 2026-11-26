@@ -33,7 +33,7 @@ def report(root,out):
  reason='아직 배경 안정화/정상 측정 전입니다. 과도구간을 정상 방전·PSR 결과로 해석하지 않습니다.'
  sections={k:{'id':k,'data_status':'unavailable','reason':reason,'images':[]} for k in keys}
  if (root/'history.dat').exists():
-  h=np.loadtxt(root/'history.dat',ndmin=2);np.savetxt(out/'data/history.csv',h,delimiter=',',header='RF,e_macroparticles,i_macroparticles',comments='',fmt='%d')
+  h=np.loadtxt(root/'history.dat',ndmin=2);h=h[h[:,0]<=s['completed_RF']];np.savetxt(out/'data/history.csv',h,delimiter=',',header='RF,e_macroparticles,i_macroparticles',comments='',fmt='%d')
   fig,axs=plt.subplots(1,2,figsize=(11,4));axs[0].plot(h[:,0],h[:,1],label='electrons');axs[0].plot(h[:,0],h[:,2],label='ions');axs[0].legend();axs[0].set(xlabel='RF',ylabel='Macroparticles')
   axs[1].plot(h[:,0],h[:,1]*cfg['weight']/(cfg['A_sim_m2']*cfg['gap_mm']/1000));axs[1].set(xlabel='RF',ylabel='Volume-mean electron density (m-3)');fig.suptitle('Transient + measurement history; not PSR proof');fig.savefig(out/'figures/convergence.png',dpi=140,bbox_inches='tight');plt.close(fig)
   sections['convergence']=image('convergence',['figures/convergence.png'],'실제 저장 RF의 입자 수·체적 평균 밀도. 과도구간을 포함합니다.');downloads.append({'label':'입자 수 이력','path':'data/history.csv'})
@@ -41,6 +41,7 @@ def report(root,out):
   for stage in ['warmup','measurement']:
    for d in sorted((root/stage).glob('RF*')):
     if not (d/'block.json').exists() or '.interrupted.' in d.name:continue
+    if json.loads((d/'block.json').read_text())['RF_last']>s['completed_RF']:continue
     f=d/'particle_balance.csv.gz';f=f if f.exists() else d/'particle_balance.csv'
     if f.exists():
      b=pd.read_csv(f);b['stage']=stage;balance_rows.append(b)
