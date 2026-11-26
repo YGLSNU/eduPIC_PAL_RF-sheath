@@ -52,6 +52,8 @@ def analyze(block,out,hmax=64):
     direct_e=float(np.trapezoid(raw[6].mean(axis=1),x));positive=float(np.trapezoid(raw[7].mean(axis=1),x));negative=float(np.trapezoid(raw[8].mean(axis=1),x))
     local=np.c_[np.repeat(x,hmax+1),np.tile(np.arange(hmax+1),ng),pe.ravel(),pi.ravel()]
     pd.DataFrame(local,columns=['x_m','harmonic','electron_P_Wm3','ion_P_Wm3']).to_csv(out/'harmonic_power_spatial.csv.gz',index=False,compression={'method':'gzip','mtime':0})
+    local_fields=np.c_[np.repeat(x,hmax+1),np.tile(np.arange(hmax+1),ng),h[1].real.ravel(),h[1].imag.ravel(),h[4].real.ravel(),h[4].imag.ravel(),h[5].real.ravel(),h[5].imag.ravel()]
+    pd.DataFrame(local_fields,columns=['x_m','harmonic','E_real_Vm','E_imag_Vm','je_energy_real_Am2','je_energy_imag_Am2','ji_energy_real_Am2','ji_energy_imag_Am2']).to_csv(out/'harmonic_fields_spatial.csv.gz',index=False,compression={'method':'gzip','mtime':0})
     power=pd.DataFrame({'harmonic':np.arange(hmax+1),'frequency_Hz':np.arange(hmax+1)*f,'electron_P_Wm2':pe_int,'ion_P_Wm2':pi_int,'terminal_P_Wm2':spec.terminal_P_Wm2})
     power.to_csv(out/'harmonic_power.csv',index=False)
     # Preserve full Hz spectrum, including asynchronous/broadband content.
@@ -96,7 +98,9 @@ def analyze(block,out,hmax=64):
     pd.DataFrame(sh,columns=['quantity','harmonic','frequency_Hz','peak_amplitude_SI','phase_deg']).to_csv(out/'sheath_harmonics.csv',index=False)
     if 'J_e_midgap_energy_Am2' in a:
         jt=phasors(a.t_field_s.to_numpy(),a.J_e_midgap_energy_Am2.to_numpy(),f,hmax);et=phasors(a.t_field_s.to_numpy(),a.E_midgap_Vm.to_numpy(),f,hmax)
-        pd.DataFrame({'harmonic':np.arange(hmax+1),'frequency_Hz':np.arange(hmax+1)*f,'midgap_je_energy_peak_Am2':abs(jt),'midgap_je_phase_deg':np.degrees(np.angle(jt)),'midgap_E_peak_Vm':abs(et),'midgap_E_phase_deg':np.degrees(np.angle(et))}).to_csv(out/'bulk_harmonics.csv',index=False)
+        jfloor=max(1e-8,3*float(np.median(abs(np.fft.rfft(a.J_e_midgap_energy_Am2.to_numpy())[used])*2/len(a))))
+        efloor=max(1e-8,3*float(np.median(abs(np.fft.rfft(a.E_midgap_Vm.to_numpy())[used])*2/len(a))))
+        pd.DataFrame({'harmonic':np.arange(hmax+1),'frequency_Hz':np.arange(hmax+1)*f,'midgap_je_energy_peak_Am2':abs(jt),'midgap_je_phase_deg':np.where(abs(jt)>jfloor,np.degrees(np.angle(jt)),np.nan),'midgap_E_peak_Vm':abs(et),'midgap_E_phase_deg':np.where(abs(et)>efloor,np.degrees(np.angle(et)),np.nan),'J_noise_floor_Am2':jfloor,'E_noise_floor_Vm':efloor}).to_csv(out/'bulk_harmonics.csv',index=False)
     # Figures use full raw currents; band reconstruction is a visualization only.
     keep=np.arange(len(a))>=max(0,len(a)-2*nt);tt=(t[keep]-t[keep][0])*f;tf=(a.t_field_s.to_numpy()[keep]-t[keep][0])*f
     fig,axs=plt.subplots(3,1,figsize=(10,8));axs[0].plot(tt,a.V_gap_V.to_numpy()[keep]);axs[0].set(ylabel='Vgap (V)')

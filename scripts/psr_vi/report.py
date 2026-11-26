@@ -70,7 +70,7 @@ def report(root,out):
    fig,ax=plt.subplots(figsize=(8,4));ax.bar(labels,values);ax.set(ylabel='Flux (m-2 s-1)' if kind=='walls' else 'Power / area (W/m2)',title=note);fig.savefig(out/'figures'/(kind+'.png'),dpi=140,bbox_inches='tight');plt.close(fig)
   for name in ['VI_waveforms.png','harmonics.png','sheath_QV.png','PSR_power.png','PSR_synchronized.png']:shutil.copy2(last/'analysis/figures'/name,out/'figures'/name)
   sections['heating']=image('heating',['figures/PSR_power.png'],'마지막 검증 블록: 순간 jeE를 먼저 계산한 뒤 위상 평균. 음의 기여를 보존하고 쉬스 경계를 표시합니다.')
-  for name in ['harmonic_spectra.csv','harmonic_power.csv','harmonic_power_spatial.csv.gz','sheath_estimates.csv.gz','sheath_harmonics.csv','sheath_QV_fits.json','current_spectrum_Hz.csv.gz','analysis.json','bulk_harmonics.csv','power_regions.json']:
+  for name in ['harmonic_spectra.csv','harmonic_power.csv','harmonic_power_spatial.csv.gz','harmonic_fields_spatial.csv.gz','sheath_estimates.csv.gz','sheath_harmonics.csv','sheath_QV_fits.json','current_spectrum_Hz.csv.gz','analysis.json','bulk_harmonics.csv','power_regions.json']:
    if not (last/'analysis'/name).exists():continue
    shutil.copy2(last/'analysis'/name,out/'data'/name);downloads.append({'label':'마지막 검증 블록 '+name,'path':'data/'+name})
   spectra=[];powers=[];summaries=[]
@@ -138,6 +138,9 @@ def report(root,out):
     for im in section['images']:im['caption']=warning+im.get('caption','')
   for d in meta['downloads']:
    if d['path'].startswith(('data/harmonic','data/sheath','data/block','blocks/','data/current')):d['label']=warning+d['label']
+ titles={'VI_harmonics':'VI 고조파','sheath_nonlinearity':'쉬스 비선형성','PSR_diagnostics':'PSR·전자 전력흡수'}
+ for section in meta['sections']:
+  if section['id'] in titles:section['title']=titles[section['id']]
  validate(meta);refresh_files(out,meta);put(out/'run.json',meta);(out/'README.md').write_text(render_report(meta));refresh_files(out,meta)
  failures=audit(meta,(out/'README.md').read_text())['failures'];assert not failures,failures
  print('Exported PSR snapshot',now(),s['status'],s['completed_RF'],s['measured_RF'],flush=True)

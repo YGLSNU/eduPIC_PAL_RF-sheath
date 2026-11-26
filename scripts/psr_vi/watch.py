@@ -33,7 +33,7 @@ def main(root):
     assert digest.hexdigest()==sha(out/archive)
     record={'published_at_Asia_Seoul':datetime.now(ZoneInfo('Asia/Seoul')).isoformat(),'commit':ref,'status':s['status'],'report_readback':True,'restart_download_SHA256':digest.hexdigest(),'export_path':str(out)}
     put(root/'last_publication.json',record);print('Published verified PSR snapshot',record,flush=True);last=time.monotonic();signature=sig
-    if final:put(root/'completion_event.json',record);return
+    if final:put(root/('interruption_event.json' if s['status']=='paused_error' else 'completion_event.json'),record);return
    time.sleep(30)
   except Exception:traceback.print_exc();time.sleep(30)
 if __name__=='__main__':main(Path(sys.argv[1]).resolve())
