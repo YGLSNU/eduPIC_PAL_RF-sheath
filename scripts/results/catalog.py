@@ -269,9 +269,12 @@ def commit_files(root,base,files,message):
 def refresh_remote_manifests(root,base,files,records,branch):
     """Reuse hashes for unchanged Git blobs; download only new/changed artifacts."""
     inventory={}
-    for line in git('ls-tree','-r','--long',base,'results',cwd=root).splitlines():
-        header,path=line.split('\t',1);mode,kind,oid,size=header.split()
-        if kind=='blob':inventory[path]=(oid,int(size))
+    # --long asks Git to read blob sizes, which lazily downloads every missing
+    # archive in a partial clone. The tree OID already authenticates a cached
+    # manifest entry; only uncached content needs fetching for a new checksum.
+    for line in git('ls-tree','-r',base,'results',cwd=root).splitlines():
+        header,path=line.split('\t',1);mode,kind,oid=header.split()
+        if kind=='blob':inventory[path]=oid
     for m in records:
         if m['branch']!=branch:continue
         prefix='results/'+m['id']+'/'
@@ -288,7 +291,7 @@ def refresh_remote_manifests(root,base,files,records,branch):
                 relative=path[len(directory):];cached=old.get(relative)
                 if path in files:
                     content=files[path];data=content.encode() if isinstance(content,str) else content
-                elif cached and cached.get('git_blob')==inventory[path][0] and cached['bytes']==inventory[path][1]:
+                elif cached and cached.get('git_blob')==inventory[path]:
                     entries[relative]=cached;continue
                 else:
                     data=subprocess.run(['git','show',base+':'+path],cwd=root,capture_output=True,check=True).stdout
