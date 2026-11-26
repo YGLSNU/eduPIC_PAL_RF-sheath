@@ -1,24 +1,24 @@
 {
   "status": "running",
   "phase": "warmup",
-  "completed_RF": 382,
+  "completed_RF": 402,
   "measured_RF": 0,
-  "checkpoint_path": "/workspace/edupic-psr/261126_PSR_gap15_f60_V150/warmup/RF000363-000382/picdata.bin",
+  "checkpoint_path": "/workspace/edupic-psr/261126_PSR_gap15_f60_V150/warmup/RF000383-000402/picdata.bin",
   "measurement_blocks": [],
   "started_at_Asia_Seoul": "2026-11-26T18:20:40.231677+09:00",
   "controller_pid": 58656,
-  "updated_at_Asia_Seoul": "2026-11-26T23:13:56.020762+09:00",
+  "updated_at_Asia_Seoul": "2026-11-26T23:38:53.226544+09:00",
   "stationarity": {
     "passed": false,
-    "available_RF": 382,
+    "available_RF": 402,
     "required_RF": 600
   },
   "active_RF": [
-    383,
-    402
+    403,
+    422
   ],
-  "solver_pid": 101333,
-  "electrons": 180798,
-  "ions": 190968,
-  "last_seconds_per_RF": 76.43484996355001
+  "solver_pid": 103447,
+  "electrons": 186776,
+  "ions": 196984,
+  "last_seconds_per_RF": 74.85574178349998
 }
