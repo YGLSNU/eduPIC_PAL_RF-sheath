@@ -42,7 +42,7 @@ PSR remains **not established** by an isolated peak. Report raw terminal total J
 
 Empty CSV/JSON templates are intentional: no experiment was supplied. CSV/TSV column mapping, peak/RMS/peak-to-peak and common phasors or per-order VI differences are supported. A VI difference allows per-order P and Z but cannot reconstruct a full drive waveform. Measured-voltage drive needs calibrated electrode-plane voltage phases on a common time basis and an explicit DC. V is input, I is prediction; voltage agreement is excluded from prediction error. Unsupported/self-bias/circuit/DC/de-embedding information is not guessed. A_eff is required for absolute ampere comparison; normalized ratios remain usable. Measurements outside their provided band are not extrapolated.
 
-Nonfinite phases, nonpositive supplied areas and ambiguous calibration booleans are rejected. Optional `I_noise_floor_A` and `V_noise_floor_V` invalidate weak-signal VI phases/ratios. Raw comparisons at an uncorrected probe plane retain that label; an area alone does not make them a calibrated electrode-plane validation.
+Nonfinite phases, nonpositive supplied areas and ambiguous calibration booleans are rejected. Optional `I_noise_floor_A` and `V_noise_floor_V` are thresholds in the converted **peak** convention and invalidate weak-signal VI phases/ratios. Current normalization I_n/I_1 also requires a resolved fundamental; a weak fundamental is not replaced by an arbitrarily tiny denominator. Raw comparisons at an uncorrected probe plane retain that label; an area alone does not make them a calibrated electrode-plane validation.
 
 ## Commands
 

@@ -54,6 +54,8 @@ class SpectralTests(unittest.TestCase):
    a=compare(sim,experiment,m,td/'comparison.csv');self.assertFalse(a.absolute_current_comparison_valid.iloc[0]);self.assertTrue(a.absolute_area_scaling_available.iloc[0]);self.assertAlmostEqual(a.phase_circular_error_deg.iloc[0],-2)
    m.update(probe_reference_plane='electrode',calibrated=True)
    a=compare(sim,experiment,m,td/'comparison.csv',drive_mode='measured_voltage');self.assertTrue(a.absolute_current_comparison_valid.iloc[0]);self.assertAlmostEqual(a.I_absolute_error_A.iloc[0],0);self.assertTrue(np.isnan(a.V_absolute_error_V.iloc[0]))
+   m['I_noise_floor_A']=1e-3
+   a=compare(sim,experiment,m,td/'comparison.csv');self.assertTrue(a.experimental_I_n_over_I_1.isna().all());self.assertFalse(a.absolute_current_comparison_valid.any());self.assertTrue(a.phase_circular_error_deg.isna().all())
  def test_block_complex_phase_weighting_and_power_covariance(self):
   import pandas as pd
   from block_statistics import summarize

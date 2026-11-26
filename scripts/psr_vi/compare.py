@@ -19,11 +19,12 @@ def compare(spectrum,experiment,metadata,output,drive_mode='prescribed_sine'):
     a['phase_circular_error_deg']=circular_error(a.Delta_phi_VI_deg_sim,a.Delta_phi_VI_deg_exp)
     a.loc[~(a.VI_phase_valid&a.experimental_VI_phase_valid),'phase_circular_error_deg']=np.nan
     fundamental=e[e.harmonic==1]
-    if len(fundamental):a['experimental_I_n_over_I_1']=a.I_peak_A/max(float(fundamental.I_peak_A.iloc[0]),1e-300)
+    if len(fundamental):
+        i1=float(fundamental.I_peak_A.iloc[0]);a['experimental_I_n_over_I_1']=a.I_peak_A/i1 if i1>m.get('I_noise_floor_A',0) else np.nan
     matched=m['calibrated'] and m['probe_reference_plane']=='electrode'
     a['absolute_area_scaling_available']=bool(area)
     a['reference_plane_matched']=matched
-    a['absolute_current_comparison_valid']=bool(area and matched);a['reference_plane']=m['probe_reference_plane'];a['calibrated']=m['calibrated']
+    a['absolute_current_comparison_valid']=bool(area and matched)&(a.I_peak_A>m.get('I_noise_floor_A',0));a['reference_plane']=m['probe_reference_plane'];a['calibrated']=m['calibrated']
     a.to_csv(output,index=False);return a
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('spectrum');p.add_argument('experiment');p.add_argument('metadata');p.add_argument('output');p.add_argument('--drive-mode',default='prescribed_sine',choices=['prescribed_sine','measured_voltage']);a=p.parse_args();compare(a.spectrum,a.experiment,a.metadata,a.output,a.drive_mode)

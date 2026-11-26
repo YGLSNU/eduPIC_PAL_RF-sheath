@@ -131,7 +131,7 @@ def analyze(block,out,hmax=64):
     axs[1].plot(phase_axis,sg.U_bulk_V);axs[1].set(xlabel='RF phase',ylabel='Bulk voltage (V)');save(fig,figs/'PSR_power.png')
     # A high-frequency band is diagnostic, not an attributed PSR heating gain.
     ft=np.fft.rfft(a.J_RF_Am2.to_numpy());freq=np.fft.rfftfreq(len(a),1/(nt*f));mask=(freq>=2*f)&(freq<=hmax*f);filtered=np.fft.irfft(ft*mask,n=len(a));bulk=s.U_bulk_V.to_numpy()
-    fig,axs=plt.subplots(3,1,figsize=(10,8));axs[0].plot(tt,a.J_RF_Am2.to_numpy()[keep],label='raw total J');axs[0].plot(tt,filtered[keep],label='2..64 f0 reconstruction; may ring');axs[0].legend(fontsize=7);axs[0].set(ylabel='J (A/m2)')
+    fig,axs=plt.subplots(3,1,figsize=(10,8));axs[0].plot(tt,a.J_RF_Am2.to_numpy()[keep],label='raw total J');axs[0].plot(tt,filtered[keep],label=f'2..{hmax} f0 reconstruction; may ring');axs[0].legend(fontsize=7);axs[0].set(ylabel='J (A/m2)')
     axs[1].plot(tf,bulk[keep],label='bulk voltage');axs[1].set(ylabel='Bulk voltage (V)')
     if 'J_e_midgap_energy_Am2' in a:
         twin=axs[1].twinx();twin.plot(tf,a.J_e_midgap_energy_Am2.to_numpy()[keep],color='tab:orange',alpha=.7);twin.set(ylabel='Midgap electron energy-current (A/m2)')
