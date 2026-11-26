@@ -3,7 +3,7 @@
   "id": "261126_PSR_gap15_f60_V150",
   "branch": "results/20mTorr-60MHz-topRF",
   "date": "2026-11-26",
-  "report_updated": "2026-11-26T19:03:50+09:00",
+  "report_updated": "2026-11-26T19:05:43+09:00",
   "title": "PSR·VI harmonics · gap15 mm · 60MHz · 150V",
   "changed_conditions": "PSR/VI · 15 mm · 60 MHz · 150 V peak",
   "status": "running",
@@ -201,22 +201,34 @@
       "data_status": "unavailable",
       "reason": "실험 VI 파일·기준면·면적·위상/DC 정보가 제공되지 않았습니다. 빈 비교 CSV와 입력 템플릿을 제공합니다.",
       "images": []
+    },
+    {
+      "id": "numerical_sensitivity",
+      "data_status": "available",
+      "text": "다중 고조파 진공 해석해와 동일한 과도 체크포인트의 dt·격자·입자 수·stride 검증. 오른쪽 차이는 기본파 전류로 정규화한 값이며 약한 고차 자체의 상대오차율이 아닙니다. 짧은 과도 시험의 전자 순전력은 149.41–158.19 W/m²로 달랐고 확률 충돌 변동을 포함합니다. 정상 수렴이나 PSR 발생을 증명하는 결과가 아닙니다.",
+      "images": [
+        {
+          "path": "figures/resolution_checks.png",
+          "caption": "다중 고조파 진공 해석해와 동일한 과도 체크포인트의 dt·격자·입자 수·stride 검증. 오른쪽 차이는 기본파 전류로 정규화한 값이며 약한 고차 자체의 상대오차율이 아닙니다. 짧은 과도 시험의 전자 순전력은 149.41–158.19 W/m²로 달랐고 확률 충돌 변동을 포함합니다. 정상 수렴이나 PSR 발생을 증명하는 결과가 아닙니다."
+        }
+      ],
+      "title": "수치 검증·민감도"
     }
   ],
   "downloads": [
     {
       "label": "진단·위상·소스·조건 메타데이터",
       "path": "run_metadata.json",
-      "bytes": 2874,
-      "sha256": "b85961aa81ce6895427577c14dbbf31bb1cb2ee7dd9a938de91ee43bed844728",
-      "git_blob": "647dee6b72153a313f8a0a5263c75ab2558d335f"
+      "bytes": 3104,
+      "sha256": "c458c3fd8a48dd371d8ad79e6e726e47cb9bd408acd78900d18bf7fe0f3528b4",
+      "git_blob": "39ee23d14c36c2d045112119feee805fe389a262"
     },
     {
       "label": "config.json",
       "path": "config.json",
-      "bytes": 2557,
-      "sha256": "9cbd89aed0a4cfff9c1fc623ddea4618d2c4e4a10ffd3ae894e131674e39f8d4",
-      "git_blob": "85b6c94ddeeb2e31d3ada7de456ccfb461294a60"
+      "bytes": 2787,
+      "sha256": "b18a38bcb1d8e86160014ab612d82aa836d2aff943ef24f7c9d6498e82f8b451",
+      "git_blob": "639d4ce6faba778f37e288f81ad8dc8ee1f127cc"
     },
     {
       "label": "status.json",
@@ -261,6 +273,34 @@
       "git_blob": "94a2b942e607ec3463f5f5d0907e2cee244e1eba"
     },
     {
+      "label": "별도 수치 검증(과도구간, 정상 통계 제외) resolution_validation.json",
+      "path": "data/resolution_validation.json",
+      "bytes": 12549,
+      "sha256": "a03e5537f325c99170eb9fb184146eab63d615c7eacdcc408fa1021ed3df189b",
+      "git_blob": "e31cfb64e7111a9d0ad55ff4503e66daa138f99c"
+    },
+    {
+      "label": "별도 수치 검증(과도구간, 정상 통계 제외) vacuum_dt_convergence.csv",
+      "path": "data/vacuum_dt_convergence.csv",
+      "bytes": 1261,
+      "sha256": "6990d9875e00d45fb70e94eda7bdca8ccf6c73e181e5fe9aa2d5f31d5157cf93",
+      "git_blob": "b13d9f1cdef5dbad03d136830a26308ff3bd8fba"
+    },
+    {
+      "label": "별도 수치 검증(과도구간, 정상 통계 제외) plasma_sensitivity.csv",
+      "path": "data/plasma_sensitivity.csv",
+      "bytes": 26148,
+      "sha256": "4564ce8ad47f3cbc1a2c29a18aec7ecd75036e137056de499c95718e4ddb52ff",
+      "git_blob": "66dbf1f28475c2729e70de469668471837d7cb13"
+    },
+    {
+      "label": "별도 수치 검증(과도구간, 정상 통계 제외) validation_reproduction.zip",
+      "path": "data/validation_reproduction.zip",
+      "bytes": 24396933,
+      "sha256": "f0537bb71ae6ae8bf0ece8e5a394bbbd8f9dfd923aea57255dee9b69be00fa29",
+      "git_blob": "6360ac6dd1f372e6f76b440083910c3a319a2e42"
+    },
+    {
       "label": "입자 수 이력",
       "path": "data/history.csv",
       "bytes": 1561,
@@ -277,9 +317,9 @@
     {
       "label": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 harmonic_spectra.csv",
       "path": "data/harmonic_spectra.csv",
-      "bytes": 17549,
-      "sha256": "7f012a3f8c399b6cafbad973052f087d125445acc9e656f070b4b8d85ece64b2",
-      "git_blob": "8e4f38349d6296d851aabc23b9bcb46c65075a32"
+      "bytes": 17278,
+      "sha256": "eccf98c64c0e9f12cca2d3ee7bfee60ad74b229ee7d5af6c572951223ad21a4b",
+      "git_blob": "ff0b6050c301155792645fe4f157f3cdc848e370"
     },
     {
       "label": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 harmonic_power.csv",
@@ -334,8 +374,8 @@
       "label": "마지막 검증 블록 analysis.json",
       "path": "data/analysis.json",
       "bytes": 1465,
-      "sha256": "9ffbea454e72ad5fc958b731f68aee71bdadb0b97480ca1651d7baa71ab98595",
-      "git_blob": "5313f7eb71bf2b4a89921ca9d492ce937a4a48f5"
+      "sha256": "5b2773766413363b45771287b45af6bb8ad1e5499d66a3c0ee875b4d97a66e25",
+      "git_blob": "fdd978f704f3d38562289c4a5736c76dc4563c79"
     },
     {
       "label": "마지막 검증 블록 bulk_harmonics.csv",
@@ -354,9 +394,9 @@
     {
       "label": "과도구간 2RF 진단(정상 통계 제외): 블록별 평균·변동 block_harmonic_spectra.csv",
       "path": "data/block_harmonic_spectra.csv",
-      "bytes": 16985,
-      "sha256": "1d3f90550ddd6643f902ab66fbf9166eae30f5c16556fd58a5631477608db7ed",
-      "git_blob": "90634ccf7edc568d8a4e0c8cebb725038c49fb1b"
+      "bytes": 16713,
+      "sha256": "e59a697050e46db4263f0e09b6edfe979838e487f2a08d3c866733a226fb560d",
+      "git_blob": "d6b186af4944960919e1feffb2dfb38c2861b4c5"
     },
     {
       "label": "과도구간 2RF 진단(정상 통계 제외): 블록별 평균·변동 block_harmonic_power.csv",
@@ -425,15 +465,15 @@
       "label": "재시작 입자·난수·전류 상태 RF102",
       "path": "261126_PSR_gap15_f60_V150_restart.zip",
       "bytes": 4764330,
-      "sha256": "3ab29f894d2cad55eecb132de29d9dd9c92fbaafaa1f28a554dd9bdb7792e7ee",
-      "git_blob": "59369eeea23abaa0818dbc82bcbfce91a4747c2e"
+      "sha256": "884fc97098407f70deeea53f64e9172a14548df09748063a13715abb683635e7",
+      "git_blob": "a5882f0952936409a0eeb70811ea1ce2ffa90f3a"
     },
     {
       "label": "사용 소스·분석·설정·검증·라이선스",
       "path": "261126_PSR_gap15_f60_V150_source.zip",
-      "bytes": 124854,
-      "sha256": "e89fa21675bfc3893572129bbb47abcd55d723777bb221a7ab8748d9907f1c7a",
-      "git_blob": "4ead25eb56b6d145e69cc84c0c1fe2564ce84332"
+      "bytes": 125136,
+      "sha256": "20c58794435d04e1f00628ec1d8f43ee4740763910959bff207411cf7a7a68bd",
+      "git_blob": "62bd24810e250ea2f2f7d09b54470655818388ad"
     }
   ],
   "related_links": [

@@ -1,0 +1,322 @@
+{
+  "passed_numerical_identities": true,
+  "vacuum_analytic_dt_order": 2,
+  "source_SHA256": "df8ae1989d58191a70524779fa61e90b28425d93e5078fb510b3f1b9b9c4fd0b",
+  "header_SHA256": "9dd45770792f8e5149a77dbe2cd3820b63ca5cd7bc8f806e8fd31601a8e28844",
+  "source_checkpoint_SHA256": "c8cd89adcf833522db86653ba2ed85be9b28f7c16b2a2ba118501fc64de628ac",
+  "source_RF": 22,
+  "plasma_cases": [
+    {
+      "input_SHA256": "c8cd89adcf833522db86653ba2ed85be9b28f7c16b2a2ba118501fc64de628ac",
+      "input_rng_SHA256": "35b3d39450ce28f559bad4eb7bcc4c93711271aef01af4d52a26771f67fd1426",
+      "input_RF": 22,
+      "copies_per_particle": 1,
+      "restaggering": "v_new(-1/2)=v_old(-1/2)+q/(2m)*(E_old*dt_old-E_new*dt_new)",
+      "noise_scope": "Clones initially share positions/optical depths; this is a weight sensitivity test, not independent seeds.",
+      "case": "baseline",
+      "grid_points": 481,
+      "steps_per_RF": 4000,
+      "weight": 56000,
+      "compiler_command": [
+        "g++",
+        "-std=c++11",
+        "-O3",
+        "-march=native",
+        "-ffp-contract=off",
+        "-DEDUPIC_GRID_POINTS=481",
+        "-DEDUPIC_STEPS_PER_RF=4000",
+        "-DEDUPIC_ION_SUBCYCLING=1",
+        "-DEDUPIC_GAP_M=0.015",
+        "-DEDUPIC_VOLTAGE_V=150",
+        "-DEDUPIC_WEIGHT=56000",
+        "-DEDUPIC_PSR_DIAGNOSTICS=1",
+        "/workspace/work/psr-vi/C/eduPIC_psr_vi.cc",
+        "-o",
+        "/workspace/work/psr-validation/resolution_rf22/baseline/solver"
+      ],
+      "solver_seconds": 58.758009998997295,
+      "measurement_scope": "Short transient RF24-25 after common saved RF22; not stationary research statistics.",
+      "native_PIC_conditions_passed": true,
+      "numerical_identities": {
+        "current_uniform_max_abs_Am2": 4.501615080698684e-09,
+        "ramo_max_abs_Am2": 3.502975687297294e-11,
+        "boundary_max_abs_Am2": 4.516380158747779e-09,
+        "kick_power_max_abs_Wm2": 1.921307557495311e-11,
+        "full_energy_residual_Jm2": 1.6022756095325404e-09
+      },
+      "electron_power_net_Wm2": 149.40692126767593,
+      "electron_power_positive_Wm2": 715.5805465494213,
+      "electron_power_negative_Wm2": -566.1736252817474,
+      "terminal_power_Wm2": 311.8440935342419,
+      "J1_peak_Am2": 86.43622598917474,
+      "THD_J_2_64": 0.07838882533597703,
+      "sampling_stride": [
+        {
+          "stride": 1,
+          "accepted": true,
+          "max_complex_difference_over_J1": 0.0
+        },
+        {
+          "stride": 2,
+          "accepted": true,
+          "max_complex_difference_over_J1": 1.238854686543618e-05
+        },
+        {
+          "stride": 4,
+          "accepted": false,
+          "reason": "Highest harmonic needs >=20 samples/cycle and below Nyquist"
+        }
+      ]
+    },
+    {
+      "input_SHA256": "6cc9928656620614efd6abb3c50a8f28e317a8025779927af84f984547fade50",
+      "input_rng_SHA256": "8759b8c92bf3c1d99aacfc452ad9b69f63d2b1f4f60e46e41c4748b952524d92",
+      "input_RF": 22,
+      "copies_per_particle": 1,
+      "restaggering": "v_new(-1/2)=v_old(-1/2)+q/(2m)*(E_old*dt_old-E_new*dt_new)",
+      "noise_scope": "Clones initially share positions/optical depths; this is a weight sensitivity test, not independent seeds.",
+      "case": "dt_double",
+      "grid_points": 481,
+      "steps_per_RF": 2000,
+      "weight": 56000,
+      "compiler_command": [
+        "g++",
+        "-std=c++11",
+        "-O3",
+        "-march=native",
+        "-ffp-contract=off",
+        "-DEDUPIC_GRID_POINTS=481",
+        "-DEDUPIC_STEPS_PER_RF=2000",
+        "-DEDUPIC_ION_SUBCYCLING=1",
+        "-DEDUPIC_GAP_M=0.015",
+        "-DEDUPIC_VOLTAGE_V=150",
+        "-DEDUPIC_WEIGHT=56000",
+        "-DEDUPIC_PSR_DIAGNOSTICS=1",
+        "/workspace/work/psr-vi/C/eduPIC_psr_vi.cc",
+        "-o",
+        "/workspace/work/psr-validation/resolution_rf22/dt_double/solver"
+      ],
+      "solver_seconds": 29.99473394099914,
+      "measurement_scope": "Short transient RF24-25 after common saved RF22; not stationary research statistics.",
+      "native_PIC_conditions_passed": true,
+      "numerical_identities": {
+        "current_uniform_max_abs_Am2": 2.264698650833452e-09,
+        "ramo_max_abs_Am2": 2.0321522242738865e-11,
+        "boundary_max_abs_Am2": 2.2684005784867622e-09,
+        "kick_power_max_abs_Wm2": 1.375610736431554e-11,
+        "full_energy_residual_Jm2": 3.840891365471916e-09
+      },
+      "electron_power_net_Wm2": 155.50684282867593,
+      "electron_power_positive_Wm2": 718.5639381118913,
+      "electron_power_negative_Wm2": -563.0570952831545,
+      "terminal_power_Wm2": 318.46626986052485,
+      "J1_peak_Am2": 86.43533072484584,
+      "THD_J_2_64": 0.07702679285625368,
+      "sampling_stride": [
+        {
+          "stride": 1,
+          "accepted": true,
+          "max_complex_difference_over_J1": 0.0
+        },
+        {
+          "stride": 2,
+          "accepted": false,
+          "reason": "Highest harmonic needs >=20 samples/cycle and below Nyquist"
+        },
+        {
+          "stride": 4,
+          "accepted": false,
+          "reason": "Highest harmonic needs >=20 samples/cycle and below Nyquist"
+        }
+      ]
+    },
+    {
+      "input_SHA256": "ec279c184031cdb3a2211a62f37145db63931c339d201d3ef752dc3a81cda8db",
+      "input_rng_SHA256": "10a210b16115189ce081c8dcbac91009e44beb1ef5dcecd927c3c09569cfd7bb",
+      "input_RF": 22,
+      "copies_per_particle": 1,
+      "restaggering": "v_new(-1/2)=v_old(-1/2)+q/(2m)*(E_old*dt_old-E_new*dt_new)",
+      "noise_scope": "Clones initially share positions/optical depths; this is a weight sensitivity test, not independent seeds.",
+      "case": "dt_half",
+      "grid_points": 481,
+      "steps_per_RF": 8000,
+      "weight": 56000,
+      "compiler_command": [
+        "g++",
+        "-std=c++11",
+        "-O3",
+        "-march=native",
+        "-ffp-contract=off",
+        "-DEDUPIC_GRID_POINTS=481",
+        "-DEDUPIC_STEPS_PER_RF=8000",
+        "-DEDUPIC_ION_SUBCYCLING=1",
+        "-DEDUPIC_GAP_M=0.015",
+        "-DEDUPIC_VOLTAGE_V=150",
+        "-DEDUPIC_WEIGHT=56000",
+        "-DEDUPIC_PSR_DIAGNOSTICS=1",
+        "/workspace/work/psr-vi/C/eduPIC_psr_vi.cc",
+        "-o",
+        "/workspace/work/psr-validation/resolution_rf22/dt_half/solver"
+      ],
+      "solver_seconds": 118.52130711599966,
+      "measurement_scope": "Short transient RF24-25 after common saved RF22; not stationary research statistics.",
+      "native_PIC_conditions_passed": true,
+      "numerical_identities": {
+        "current_uniform_max_abs_Am2": 9.134389244991326e-09,
+        "ramo_max_abs_Am2": 8.668621376273222e-11,
+        "boundary_max_abs_Am2": 9.115307619822488e-09,
+        "kick_power_max_abs_Wm2": 3.6408209780347534e-11,
+        "full_energy_residual_Jm2": 5.670602030117617e-10
+      },
+      "electron_power_net_Wm2": 155.7816375939822,
+      "electron_power_positive_Wm2": 713.416365097751,
+      "electron_power_negative_Wm2": -557.6347275037542,
+      "terminal_power_Wm2": 303.55688024080627,
+      "J1_peak_Am2": 86.56262512942314,
+      "THD_J_2_64": 0.07885379180397989,
+      "sampling_stride": [
+        {
+          "stride": 1,
+          "accepted": true,
+          "max_complex_difference_over_J1": 0.0
+        },
+        {
+          "stride": 2,
+          "accepted": true,
+          "max_complex_difference_over_J1": 5.668762302501058e-06
+        },
+        {
+          "stride": 4,
+          "accepted": true,
+          "max_complex_difference_over_J1": 1.1121658070615091e-05
+        }
+      ]
+    },
+    {
+      "input_SHA256": "9ba0c972bff11e66a8c3243fd4fcbe2f4378b17d64df0de5cd1c5bf248dce71e",
+      "input_rng_SHA256": "aa573f67d00f712cfaa7d17d6bda3c154aae7df0ff7b4cb825333f94f5b0b03e",
+      "input_RF": 22,
+      "copies_per_particle": 1,
+      "restaggering": "v_new(-1/2)=v_old(-1/2)+q/(2m)*(E_old*dt_old-E_new*dt_new)",
+      "noise_scope": "Clones initially share positions/optical depths; this is a weight sensitivity test, not independent seeds.",
+      "case": "grid_half",
+      "grid_points": 961,
+      "steps_per_RF": 4000,
+      "weight": 56000,
+      "compiler_command": [
+        "g++",
+        "-std=c++11",
+        "-O3",
+        "-march=native",
+        "-ffp-contract=off",
+        "-DEDUPIC_GRID_POINTS=961",
+        "-DEDUPIC_STEPS_PER_RF=4000",
+        "-DEDUPIC_ION_SUBCYCLING=1",
+        "-DEDUPIC_GAP_M=0.015",
+        "-DEDUPIC_VOLTAGE_V=150",
+        "-DEDUPIC_WEIGHT=56000",
+        "-DEDUPIC_PSR_DIAGNOSTICS=1",
+        "/workspace/work/psr-vi/C/eduPIC_psr_vi.cc",
+        "-o",
+        "/workspace/work/psr-validation/resolution_rf22/grid_half/solver"
+      ],
+      "solver_seconds": 61.515490906000196,
+      "measurement_scope": "Short transient RF24-25 after common saved RF22; not stationary research statistics.",
+      "native_PIC_conditions_passed": true,
+      "numerical_identities": {
+        "current_uniform_max_abs_Am2": 8.279403829192233e-09,
+        "ramo_max_abs_Am2": 2.4215296434704214e-11,
+        "boundary_max_abs_Am2": 8.279103624886375e-09,
+        "kick_power_max_abs_Wm2": 1.907096702780109e-11,
+        "full_energy_residual_Jm2": 1.471787505860937e-09
+      },
+      "electron_power_net_Wm2": 157.17859533070597,
+      "electron_power_positive_Wm2": 742.5252736734969,
+      "electron_power_negative_Wm2": -585.3466783427828,
+      "terminal_power_Wm2": 326.2754635687287,
+      "J1_peak_Am2": 86.51691443740589,
+      "THD_J_2_64": 0.08410508443160136,
+      "sampling_stride": [
+        {
+          "stride": 1,
+          "accepted": true,
+          "max_complex_difference_over_J1": 0.0
+        },
+        {
+          "stride": 2,
+          "accepted": true,
+          "max_complex_difference_over_J1": 8.02963554456451e-06
+        },
+        {
+          "stride": 4,
+          "accepted": false,
+          "reason": "Highest harmonic needs >=20 samples/cycle and below Nyquist"
+        }
+      ]
+    },
+    {
+      "input_SHA256": "b27cff5488768314974ee43ac76da38495795f1f5307022ba3f18fa3f0eda643",
+      "input_rng_SHA256": "f477266f97752ee7131736084cd8c00467de9ab728ef661407a66f87522e5b21",
+      "input_RF": 22,
+      "copies_per_particle": 2,
+      "restaggering": "v_new(-1/2)=v_old(-1/2)+q/(2m)*(E_old*dt_old-E_new*dt_new)",
+      "noise_scope": "Clones initially share positions/optical depths; this is a weight sensitivity test, not independent seeds.",
+      "case": "particles_double",
+      "grid_points": 481,
+      "steps_per_RF": 4000,
+      "weight": 28000,
+      "compiler_command": [
+        "g++",
+        "-std=c++11",
+        "-O3",
+        "-march=native",
+        "-ffp-contract=off",
+        "-DEDUPIC_GRID_POINTS=481",
+        "-DEDUPIC_STEPS_PER_RF=4000",
+        "-DEDUPIC_ION_SUBCYCLING=1",
+        "-DEDUPIC_GAP_M=0.015",
+        "-DEDUPIC_VOLTAGE_V=150",
+        "-DEDUPIC_WEIGHT=28000",
+        "-DEDUPIC_PSR_DIAGNOSTICS=1",
+        "/workspace/work/psr-vi/C/eduPIC_psr_vi.cc",
+        "-o",
+        "/workspace/work/psr-validation/resolution_rf22/particles_double/solver"
+      ],
+      "solver_seconds": 117.7526888680004,
+      "measurement_scope": "Short transient RF24-25 after common saved RF22; not stationary research statistics.",
+      "native_PIC_conditions_passed": true,
+      "numerical_identities": {
+        "current_uniform_max_abs_Am2": 4.623640137424445e-09,
+        "ramo_max_abs_Am2": 4.905587047687732e-11,
+        "boundary_max_abs_Am2": 4.5983803431681736e-09,
+        "kick_power_max_abs_Wm2": 2.1941559680271894e-11,
+        "full_energy_residual_Jm2": 1.1923853882501463e-09
+      },
+      "electron_power_net_Wm2": 158.1868123997084,
+      "electron_power_positive_Wm2": 702.141273483557,
+      "electron_power_negative_Wm2": -543.9544610838619,
+      "terminal_power_Wm2": 314.9395444681855,
+      "J1_peak_Am2": 86.52942054973893,
+      "THD_J_2_64": 0.07603195130253762,
+      "sampling_stride": [
+        {
+          "stride": 1,
+          "accepted": true,
+          "max_complex_difference_over_J1": 0.0
+        },
+        {
+          "stride": 2,
+          "accepted": true,
+          "max_complex_difference_over_J1": 8.7596235331308e-06
+        },
+        {
+          "stride": 4,
+          "accepted": false,
+          "reason": "Highest harmonic needs >=20 samples/cycle and below Nyquist"
+        }
+      ]
+    }
+  ],
+  "stationary_grid_convergence_established": false,
+  "scope": "Analytic multiharmonic vacuum, dt/grid/weight sensitivity of common short transient, and sampling-stride checks. Plasma differences include MCC stochastic divergence and clone correlations. No confidence interval or stationary PSR proof."
+}
