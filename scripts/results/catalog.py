@@ -261,7 +261,9 @@ def commit_files(root,base,files,message):
             changed=True
             git('update-index','--add','--cacheinfo','100644',oid,path,cwd=root,env=env)
         if not changed:return None
-        tree=git('write-tree',cwd=root,env=env)
+        # Base entries already exist on origin. A partial clone need not fetch
+        # every unchanged scientific archive just to validate its object ID.
+        tree=git('write-tree','--missing-ok',cwd=root,env=env)
         return git('commit-tree',tree,'-p',base,cwd=root,input=message+'\n')
 
 def refresh_remote_manifests(root,base,files,records,branch):
