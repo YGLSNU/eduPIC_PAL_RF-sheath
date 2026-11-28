@@ -3,7 +3,7 @@
   "id": "261126_PSR_gap15_f60_V150",
   "branch": "results/20mTorr-60MHz-topRF",
   "date": "2026-11-26",
-  "report_updated": "2026-11-28T19:44:05+09:00",
+  "report_updated": "2026-11-28T19:59:21+09:00",
   "title": "PSR·VI harmonics · gap15 mm · 60MHz · 150V",
   "changed_conditions": "PSR/VI · 15 mm · 60 MHz · 150 V peak",
   "status": "running",
@@ -29,11 +29,11 @@
     "initialization": "Fresh preionized spatially paired uniform electron/ion positions, Maxwellian electron3eV/ion350K; not a breakdown threshold test. Changed-condition transients excluded."
   },
   "summary": "실제 상태: running; 배경 안정화/측정 진행 중. PSR 발생 또는 가열 peak를 미리 확정하지 않습니다. 13.56MHz BRH 계산과 별도 코드·폴더·결과 브랜치입니다. 과도구간 2RF 진단(정상 통계 제외): 아래 스펙트럼·쉬스·전력은 초기화 후 별도 복사본에서 얻은 예비 진단입니다. 정상상태나 PSR 발생의 증거로 사용하지 않습니다.",
-  "measurement_note": "마지막 완결 RF 1882; 정상 측정 0RF. 안정화는 마지막600RF 입자 수 span<1%, drift<2%; 정상 측정 최소200RF, 상한1000RF. 고조파별 블록 평균·변동과 PIC 검증을 별도 기록.",
+  "measurement_note": "마지막 완결 RF 1902; 정상 측정 0RF. 안정화는 마지막600RF 입자 수 span<1%, drift<2%; 정상 측정 최소200RF, 상한1000RF. 고조파별 블록 평균·변동과 PIC 검증을 별도 기록.",
   "metrics": [
     [
       "저장 RF",
-      1882
+      1902
     ],
     [
       "측정 RF",
@@ -237,9 +237,9 @@
     {
       "label": "status.json",
       "path": "status.json",
-      "bytes": 833,
-      "sha256": "458b65a555538831b99f378ce51bcfa46ba9a93e35e1a4b3d61998d0f7005e21",
-      "git_blob": "0c9735e7b23dd18f1269372e2a99488c54e928bd"
+      "bytes": 834,
+      "sha256": "8cb6eb726c052acc8ad25accc3513091ee565c4af2c88b719810d6b05eca73d2",
+      "git_blob": "848c1b0cced06cd1a58700546c35e2b8f261fb72"
     },
     {
       "label": "criteria.json",
@@ -314,16 +314,16 @@
     {
       "label": "입자 수 이력",
       "path": "data/history.csv",
-      "bytes": 34345,
-      "sha256": "69f8e0c8df004643e37b1b5bc628c16fa6510266c5c4e26438c3fe189e374989",
-      "git_blob": "e2e57a7aad781e14f8f824f05e8f1ff4963fdeeb"
+      "bytes": 34725,
+      "sha256": "71204447a498c8086803edf0bdf030be4ac8fb84c09f52907a3b8b0f288f1519",
+      "git_blob": "7cae227fb414d1b42ddb7d0060bbb03081456a4e"
     },
     {
       "label": "RF별 입자·흡수전력 이력",
       "path": "data/RF_particle_power_history.csv",
-      "bytes": 442139,
-      "sha256": "a066b17d2d05dcc764eacbb7ec5bd28d8cf03ae89070d4501bf1b7e4bfa4f8b2",
-      "git_blob": "05fc9e3360f4e809f89a5db4a41923fdc43be7e3"
+      "bytes": 446854,
+      "sha256": "1fd4b37cfea41a3b51e7e8393be884a2f58775858544f0229e8c3682f694252d",
+      "git_blob": "743c9e7e461c67568c061f57b955037b270e0b7c"
     },
     {
       "label": "과도구간 2RF 진단(정상 통계 제외): 마지막 검증 블록 harmonic_spectra.csv",
@@ -487,11 +487,11 @@
       "git_blob": "aa01cca20b86e2fe2261d4f00db9fa67ac3e8ef8"
     },
     {
-      "label": "재시작 입자·난수·전류 상태 RF1882",
+      "label": "재시작 입자·난수·전류 상태 RF1902",
       "path": "261126_PSR_gap15_f60_V150_restart.zip",
-      "bytes": 22205081,
-      "sha256": "ac13426683dac9842a3dc48a731705af9b9aa8b0a3a502e4005f006e434d6a37",
-      "git_blob": "f14d3f52cdab621f6ad65fc037fe0032e2b83c56"
+      "bytes": 22249310,
+      "sha256": "b59294e2f331e87d15be72abe22b0b4ddc9405b4dc8cea317a552283bb7b76df",
+      "git_blob": "7c0f348ff4143efd6451b8c703ad5fa31ca10a83"
     },
     {
       "label": "사용 소스·분석·설정·검증·라이선스",
